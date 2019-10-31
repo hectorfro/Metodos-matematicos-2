@@ -1,0 +1,410 @@
+\section{Función Gamma}
+
+Es la generalización del factorial $n!$ el cual sólo está definido para enteros, mientras que $\Gamma\left(  z\right)  $ está definida para toda variable compleja $z$ con parte real positiva.
+
+$\Gamma\left(  z\right)  $ se define indistintamente como:
+\begin{align*}
+\Gamma\left(  z\right)   & =\int_{0}^{\infty}\mathrm{e}^{-t}t^{z-1}
+\mathrm{d}t\equiv\left(  z-1\right)  !\equiv\prod(z-1)\qquad\operatorname{Re}
+z>0\\
+\Gamma\left(  z\right)   & =\lim_{n\rightarrow\infty}\frac{1\cdot2\cdot
+3\cdot\cdots\cdot n}{z\left(  z+1\right)  \left(  z+2\right)  \cdots\left(
+z+n\right)  }n^{z}\\
+\frac1{\Gamma\left(  z\right)  }  & =ze^{\gamma z}\prod_{n=1}^{\infty}\left(
+1+\frac zn\right) {e}^{-\frac zn} \,,
+\end{align*}
+donde $n$ es un entero positivo y
+\[
+\gamma=0.577215664901\cdots
+\]
+se conoce como la constante de Euler-Mascheroni:
+
+También es frecuente encontrar $\Gamma\left(  z\right)$ con algunas variantes cosméticas:
+\[
+\Gamma\left(  z\right)  =2\int_{0}^{\infty}{e}^{-t^{2}}t^{2z-1}
+\mathrm{d}t=\int_{0}^{1}\left[  \ln\left(  \frac1t\right)  \right]
+^{z-1}\mathrm{d}t=k^{z}\int_{0}^{\infty}{e}^{-kt}t^{z-1}\mathrm{d}t \,.
+\]
+
+Para probar la equivalencia de las dos primeras definiciones inventamos las siguiente función de dos variables
+\[
+F(z,n)=\int_{0}^{n}\left(  1-\frac tn\right)  ^{n}t^{z-1}\mathrm{d} t\,, \quad \operatorname{Re}z>0 \,,
+\]
+y como es conocido que
+\[
+\lim_{n\rightarrow\infty}\left(  1-\frac tn\right)  ^{n}\equiv {e}^{-t}\,,
+\]
+entonces
+\[
+\lim_{n\rightarrow\infty}F(z,n)=F(z,\infty)=\int_{0}^{\infty}{e}
+^{-t}t^{z-1}\mathrm{d}t\equiv\Gamma\left(  z\right)\,.
+\]
+
+Con lo cual queda demostrada la primera de propuestas de Euler.
+
+Para construir la segunda partimos de la misma función $F(z,n)$ y un cambio estratégico de variable $u=\frac tn$ .
+\[
+F(z,n)=n^{z}\int_{0}^{n}\left(  1-u\right)  ^{n}u^{z-1}\mathrm{d}
+u\qquad\operatorname{Re}z>0 \,.
+\]
+
+Un par de integraciones por partes nos llevan a comprobar
+\begin{align*}
+F(z,n)  & =n^{z}\left\{  \left.  \left(  1-u\right)  ^{n}\frac{u^{z}}z\right|
+_{0}^{1}+\frac nz\int_{0}^{1}\left(  1-u\right)  ^{n-1}u^{z}\mathrm{d}
+u\right\} \\
+& =n^{z}\left\{  \left.  \left(  1-u\right)  ^{n-2}u^{z+1}\frac{n(n-1)}
+{z(z+1)}\right|  _{0}^{1}+\frac{n(n-1)}{z(z+1)}\int_{0}^{1}\left(  1-u\right)
+^{n-2}u^{z+1}\mathrm{d}u\right\}\,,
+\end{align*}
+que el primer término se anula siempre. 
+
+Repitiendo el proceso $n$ veces
+\begin{align*}
+F(z,n)  & =n^{z}\left\{  \frac{n(n-1)(n-2)(n-3)\cdots3\cdot2\cdot
+1}{z(z+1)(z+2)(z+3)\cdots(z+n-1)}\right\}  \int_{0}^{1}u^{z+n-1}\mathrm{d}u\\
+& =n^{z}\left\{  \frac{n(n-1)(n-2)(n-3)\cdots3\cdot2\cdot1}
+{z(z+1)(z+2)(z+3)\cdots(z+n)}\right\}\,,
+\end{align*}
+una vez más, haciendo
+\[
+\lim_{n\rightarrow\infty}F(z,n)=F(z,\infty)=\lim_{n\rightarrow\infty}
+n^{z}\left\{  \frac{n(n-1)(n-2)(n-3)\cdots3\cdot2\cdot1}
+{z(z+1)(z+2)(z+3)\cdots(z+n)}\right\}  \equiv\Gamma\left(  z\right)\,.
+\]
+Se completa la equivalencia para la primera y segunda definiciones de Euler.
+
+En particular, de la primera de las definiciones se tiene por integración directa
+\begin{align*}
+\Gamma\left(  1\right)   & =\int_{0}^{\infty}{e}^{-t}\mathrm{d}t=1\\
+\Gamma\left(  \frac12\right)   & =\int_{0}^{\infty}{e}^{-t}
+t^{-1/2}\mathrm{d}t=\int_{0}^{\infty}{e}^{-u^{2}}\mathrm{d}u=\sqrt{\pi}\,,
+\end{align*}
+mientras que de la segunda, si $z=n$ $=1,2,3,\cdots,$ se obtiene
+\begin{align*}
+\Gamma\left(  n+1\right)   & =n!\\
+\Gamma\left(  n+\frac12\right)   & =\frac{1\cdot3\cdot5\cdot\cdots
+(2n-1)}{2^{n}}\sqrt{\pi}\,.
+\end{align*}
+
+Finalmente la tercera de las definiciones de la función $\Gamma\left(z\right)$ viene expresada en término de un producto infinito (Weierstrass). Este puede demostrarse partiendo de la segunda definición de Euler
+\begin{align*}
+\Gamma\left(  z\right)   & =\lim_{n\rightarrow\infty}\frac{1\cdot2\cdot
+3\cdot\cdots\cdot n}{z\left(  z+1\right)  \left(  z+2\right)  \cdots\left(
+z+n\right)  }n^{z}\\
+& =\lim_{n\rightarrow\infty}\frac1z\prod_{m=1}^{n}\left(  \frac m{m+z}\right)
+n^{z}=\lim_{n\rightarrow\infty}\frac1z\prod_{m=1}^{n}\left(  1+\frac
+zm\right)  ^{-1}n^{z} \,,
+\end{align*}
+por lo tanto
+\[
+\frac1{\Gamma\left(  z\right)  }=z\lim_{n\rightarrow\infty}\prod_{m=1}
+^{n}\left(  1+\frac zm\right) {e}^{-z\ln n} \,.
+\]
+Ahora bien, multiplicando y dividiendo por
+\[
+\prod_{m=1}^{n}{e}^{z/m}={e}^{z\left(  \sum_{m=1}^{n}\frac1m\right)  }\,,
+\]
+nos queda
+\[
+\frac1{\Gamma\left(  z\right)  }=z\left\{  \lim_{n\rightarrow\infty}
+{e}^{z\left(  \left(  \sum_{m=1}^{n}\frac1m\right)  -\ln n\right)}\right\}  
+\left\{  \lim_{n\rightarrow\infty}\prod_{m=1}^{n}\left(  1+\frac z m\right) 
+{e}^{-z/m}\right\}\,.
+\]
+
+Donde la serie exponente del primero de los términos converge a un valor constante y cual ha quedado bautizado como la constante de \textit{Euler-Mascheroni}
+\begin{align*}
+\gamma & =\lim_{n\rightarrow\infty}\left\{  1+\frac12+\frac13+\frac
+14+\cdots\frac1n-\ln n\right\}  =\lim_{n\rightarrow\infty}\left\{  \left(
+\sum_{m=1}^{n}\frac1m\right)  -\ln n\right\} \\
+\gamma & =0.5772156649015328606065112\cdots
+\end{align*}
+
+Con lo cual queda demostrada la tercera de las propuestas para expresar la Función Gamma
+\[
+\frac1{\Gamma\left(  z\right)  }=ze^{\gamma z}\prod_{n=1}^{\infty}\left(
+1+\frac zn\right) {e}^{-\dfrac zn} \,.
+\]
+
+Es fácil comprobar las siguientes propiedades
+\begin{align*}
+\Gamma\left(  z+1\right)   & =z\ \Gamma\left(  z\right) \\
+\Gamma\left(  z\right)  \Gamma\left(  1-z\right)   & =\int_{0}^{\infty}
+\frac{x^{z-1}\mathrm{d}x}{\left(  1+x\right)  }=\frac\pi{\text{sen}
+(\pi z)}\\
+2^{2z-1}\Gamma\left(  z\right)  \Gamma\left(  z+\frac12\right)   & =\sqrt{\pi} \ 
+\Gamma\left(2z\right) \,.
+\end{align*}
+
+La primera de ellas (la relación de recurrencia) es trivial y se obtiene integrando por partes la definición integral de Euler.
+\[
+\Gamma\left(  z+1\right)  =\int_{0}^{\infty}{e}^{-t}t^{z}\mathrm{d}t=\left.  z{e}^{-t}t^{z-1}\right|  _{0}^{\infty}+z\ \int_{0}^{\infty}{e}^{-t}t^{z-1}\mathrm{d}t=z\Gamma\left(z\right)\,.
+\]
+
+El primer sumando de la integración por partes se anula siempre. Esta propiedad es válida $\forall z$ con $z\neq0,-1,-2,\cdots$ .
+
+La segunda de las propiedades (fórmula de reflexión) se comprueba también partiendo de definición integral de Euler con el siguiente cambio de variable $t=u^{2}$.
+\begin{align*}
+\Gamma\left(  z\right)  \Gamma\left(  1-z\right)   & =
+2\int_{0}^{\infty}{e}^{-u^{2}}u^{2z-1}\mathrm{d}u\ 2\int_{0}^{\infty}{e}^{-v^{2}
+}v^{1-2z}\mathrm{d}v\\
+& =4\iint_{0}^{\infty}{e}^{-\left(  u^{2}+v^{2}\right)  }\left(  \frac
+uv\right)  ^{2z-1}\mathrm{d}u\mathrm{d}v\,,
+\end{align*}
+si ahora hacemos $u=\rho\cos\varphi$ y $v=\rho \ \text{sen}\varphi$, la integral anterior queda como
+\[
+\Gamma\left(  z\right)  \Gamma\left(  1-z\right)   =4\int_{0}^{\infty}\rho{e}^{-\rho^{2}}\ \mathrm{d}\rho\ \int_{0}^{\pi/2}\cot^{2z-1} (\varphi) \mathrm{d}\varphi=4\cdot\frac12\int_{0}^{\pi/2}\cot^{2z-1}(\varphi)\mathrm{d}\varphi \,.
+\]
+
+Finalmente, si
+\[
+\varphi=\text{arccot}(\sqrt{x}) ;\qquad\mathrm{d}\varphi=\frac
+{-\mathrm{d}x}{2\sqrt{x}\left(  1+x\right)  }\,,
+\]
+nos queda
+\[
+\Gamma\left(  z\right)  \Gamma\left(  1-z\right)  =\int_{0}^{\infty} \frac{x^{z-1}\mathrm{d}x}{\left(  1+x\right)  }=\frac\pi{\text{sen}(\pi z)}\,.
+\]
+
+Es inmediato volver a comprobar
+\[
+\Gamma\left(  \frac12\right)  =\sqrt{\pi}\,.
+\]
+
+Del mismo modo, si utilizamos además la relación de recurrencia encontramos
+\[
+\Gamma\left(  z\right)  \Gamma\left(  -z\right)  =\frac\pi{-z\text{sen}(\pi z)}\,,
+\]
+
+La \textit{fórmula de duplicación}, y puede comprobarse partiendo de la definición del límite de Euler, así
+\[
+\frac{2^{2z-1}\Gamma\left(  z\right)  \Gamma\left(  z+\frac12\right)  }{\Gamma\left(  2z\right)  }=\sqrt{\pi} \,.
+\]
+
+Hay que hacer notar que en el numerador sustituimos directamente las expresiones para del límite de Euler y en la del denominador, adicionalmente sustituimos $n$ por $2n$
+\[
+\Gamma\left(  2z\right)  =\lim_{n\rightarrow\infty}\frac{1\cdot2\cdot 3\cdot\cdots\cdot n}{2z\left(  2z+1\right)  \cdots\left(  2z+n\right)  } n^{2z}=\lim_{n\rightarrow\infty}\frac{1\cdot2\cdot3\cdot\cdots\cdot 2n}{2z\left(  2z+1\right)  \cdots\left(  2z+2n\right)  }\left(  2n\right)^{2z}\,,
+\]
+por lo cual se tiene la siguiente expresión dentro del argumento del límite
+\[
+\frac{2^{2z-1}\left(  \dfrac{1\cdot2\cdot3\cdot\cdots\cdot n}{z\left(z+1\right)  \left(  z+2\right)  \cdots\left(  z+n\right)  }n^{z}\right)\left(  \dfrac{1\cdot2\cdot3\cdot\cdots\cdot n}{\left(  z+\frac12\right)\left(  z+\frac32\right)  \cdots\left(  z+\frac12+n\right)  }n^{z+\frac12}\right)  }{\left(  \dfrac{1\cdot2\cdot3\cdot\cdots\cdot2n}{2z\left(2z+1\right)  \left(  2z+2\right)  \cdots\left(  2z+2n\right)  }\left(2n\right)  ^{2z}\right)  }\,,
+\]
+la cual se reacomoda como
+\[
+\lim_{n\rightarrow\infty}\frac{2^{2z-1}\left(  n!\right)  ^{2}2z\left(2z+1\right)  \left(  2z+2\right)  \cdots\left(  2z+2n\right)  }{\left(2n\right)  !\ z\left(  z+\frac12\right)  \left(  z+1\right)  \left(z+\frac32\right)  \left(  z+2\right)  \cdots\left(  z+\frac12+n\right)\left(  z+n\right)  }\cdot\frac{n^{2z+\frac12}}{\left(  2n\right)  ^{2z}}\,,
+\]
+y
+\[
+\lim_{n\rightarrow\infty}\frac{z\left(  z+\frac12\right)  \left(  z+1\right)\left(  z+\frac32\right)  \left(  z+2\right)  \cdots\left(  z+\frac n2\right)\left(  2^{n-1}\right)  }{\ z\left(  z+\frac12\right)  \left(  z+1\right)\left(  z+\frac32\right)  \left(  z+2\right)  \cdots\left(  z+\frac12+n\right)  \left(  z+n\right)  }\cdot\frac{2^{2z-1}\left(  n!\right)  ^{2}}{\left(  2n\right)  !}\cdot\frac{n^{z+\frac12}}{2^{2z}n^{2z}} \,.
+\]
+
+Entonces
+\[
+\frac{2^{2z-1}\Gamma\left(  z\right)  \Gamma\left(  z+\frac12\right)  }{\Gamma\left(  2z\right)  }=\lim_{n\rightarrow\infty}\frac{\left(2^{n-2}\right)  \left(  n!\right)  ^{2}\sqrt{n}}{\left(  2n\right) !}\,,
+\]
+por lo cual se deduce que el valor de lado izquierdo de la ecuación es independiente del valor de $z$ por lo tanto es el mismo valor para cualquier $z$ y lo evaluamos para $z=\frac12$
+\[
+\frac{2^{2z-1}\Gamma\left(  z\right)  \Gamma\left(  z+\frac12\right)  }{\Gamma\left(  2z\right)  }=\Gamma\left(  \frac12\right)  =\sqrt{\pi}\,,
+\]
+con lo cual queda comprobada la fórmula de duplicación.
+
+Otras propiedades que van quedar como curiosidad y sin demostración son:
+\begin{align*}
+\Gamma\left(  nz\right)   & =\left(  2\pi\right)  ^{\left(  1-n\right)/2}n^{nz-\frac12}\prod_{k=0}^{n-1}\left(  z+\frac kn\right)\,, \\
+\binom zw  & =\frac{z!}{w!(z-w)!}=\frac{\Gamma\left(  z+1\right)  }{\Gamma\left(  w+1\right)  \Gamma\left(  z-w+1\right)  } \,.
+\end{align*}
+
+A partir de $\Gamma\left(  z\right)  $ se definen otras funciones especiales.
+
+
+
+\section{La Funciones Digamma y Poligamma}
+
+Para evitar tratar con derivadas de los factoriales es costumbre trabajar con sus derivadas logarítmicas. A partir de la segunda definición
+\begin{align*}
+\Gamma\left(  z+1\right)   & =z!=\lim_{n\rightarrow\infty}\frac{1\cdot2\cdot3\cdot\cdots\cdot n}{\left(  z+1\right)  \left(  z+2\right) \cdots\left(  z+n\right)  }n^{z}\\
+\ln\left(  z!\right)   & =\ln\left(  \lim_{n\rightarrow\infty}\frac {1\cdot2\cdot3\cdot\cdots\cdot n}{\left(  z+1\right)  \left(  z+2\right)\cdots\left(  z+n\right)  }n^{z}\right) \\
+& =\lim_{n\rightarrow\infty} \left[  \ln\left(  n!\right)  +z\ln(n)-\ln\left(z+1\right)  -\ln\left(  z+2\right)  -\cdots-\ln\left(  z+n\right)  \right] \,,
+\end{align*}
+ahora derivando
+\[
+\frac{\mathrm{d}}{\mathrm{d}z}\ln\left(  z!\right)  \equiv\mathbf{F}(z)=\lim_{n\rightarrow\infty} \left[  \ln(n)-\frac1{\left(z+1\right)  }-\frac1{\left(z+2\right)  }-\cdots-\frac1{\left(z+n\right)}\right]\,,
+\]
+y finalmente acomodando, para llegar a la definición más conocida
+\[
+\mathbf{F}(z)=-\gamma-\sum_{n=1}^{\infty}\left(  \frac1{\left(  z+n\right)}-\frac1n\right)\,.
+\]
+
+También se le conoce como función $\psi$ (Psi)
+\[
+\psi(z)=\frac{\Gamma^{\prime}\left(  z\right)  }{\Gamma\left(  z\right)
+}=\frac{\mathrm{d}}{\mathrm{d}z}\ln\left(  \Gamma\left(  z\right)  \right)
+\equiv\mathbf{F}(z-1)=\frac{\mathrm{d}}{\mathrm{d}z}\ln\left(  \left(
+z-1\right)  !\right)\,,
+\]
+con las siguientes propiedades
+\begin{align*}
+\psi(z+1)  & =\frac1z+\psi(z)\,,\\
+\psi(z-1)-\psi(z)  & =\pi\cot(\pi z)\,,\\
+\psi(z)+\psi\left(  z+\frac12\right)  +2\ln(2)  & =2\psi(2z)\,,
+\end{align*}\,.
+
+De donde se pueden deducir
+\[
+\psi(1)=\Gamma^{\prime}\left(  1\right)  =\gamma\,.
+\]
+
+La función $\psi(z)$ puede ser expresada en términos de integrales definidas, para ello notamos que
+\[
+\Gamma^{\prime}\left(  z\right)  =\int_{0}^{\infty}{e}^{-t}t^{z-1}\ln(t) \ \mathrm{d}t\,,
+\]
+y sustituyendo la identidad de Frullani
+\[
+\ln(t)=\int_{0}^{\infty}\frac{{e}^{-x}-{e}^{-xt}}x\ \mathrm{d}x\,,
+\]
+tendremos
+\begin{align*}
+\Gamma^{\prime}\left(  z\right)   & =\int_{0}^{\infty}{e}^{-t}t^{z-1}\int_{0}^{\infty}\frac{{e}^{-x}-{e}^{-xt}}x\ \mathrm{d}x\ \mathrm{d}t = \int_{0}^{\infty}\frac{\mathrm{d}x}x\int_{0}^{\infty}\left( {e}
+^{-x}-{e}^{-xt}\right) {e}^{-t}t^{z-1}\mathrm{d}t\\
+& =\int_{0}^{\infty}\frac{\mathrm{d}x}x{e}^{-x}\int_{0}^{\infty}{e}^{-t}t^{z-1}\mathrm{d}t-\int_{0}^{\infty}\frac{\mathrm{d}x}x\int_{0}^{\infty}{e}^{-t\left(  x+1\right)  }t^{z-1}\mathrm{d}t =\Gamma\left(  z\right)  \int_{0}^{\infty}\frac{\mathrm{d}x}x\left[{e}^{-x}-\left(  x+1\right)  ^{-z}\right]\,,
+\end{align*}
+ya que $\Gamma\left(  z\right)  =k^{z}\int_{0}^{\infty}{e}^{-kt}t^{z-1}\mathrm{d}t $ y por lo tanto
+\[
+\psi(z)=\int_{0}^{\infty}\frac{\mathrm{d}x}x\left[{e}^{-x}-\left(x+1\right)  ^{-z}\right]\,.
+\]
+
+También daremos (sin demostración) otras expresiones
+\begin{align*}
+\psi(z)  & =\int_{0}^{\infty}\left(  \frac{{e}^{-t}}t-\frac{{e}^{-tz}}{1-{e}^{-t}}\right)  \mathrm{d}t \,, \\
+\psi(z)  & =-\gamma+\int_{0}^{1}\frac{1-x^{z-1}}{1-x}\mathrm{d}x\,.
+\end{align*}
+
+La Función Poligamma se obtiene derivando en forma repetida la Función Digamma
+\[
+\psi^{(m)}(z+1)=\mathbf{F}^{(m)}(z)=\frac{\mathrm{d}^{m}}{\mathrm{d}z^{m}}\mathbf{F}(z)=(-1)^{m+1}m!\sum_{n=1}^{\infty}\frac1{\left(  z+n\right)^{m+1}}\qquad m=1,2,3\cdots
+\]
+y cuya serie puede ser expresada en términos de la función Zeta de Riemman
+\[
+\zeta(m)\equiv\sum_{n=1}^{\infty}\frac1{n^{m}}\,,
+\]
+como
+\[
+\mathbf{F}^{(m)}(0)=(-1)^{m+1}m!\zeta(m+1)\,,
+\]
+de esta forma es posible desarrollar en serie de Maclaurin
+\[
+\ln(n!)=-\gamma+\frac{z^{2}}2\zeta(2)-\frac{z^{3}}3\zeta(3)+\cdots+\left(
+-1\right)  ^{n}\frac{z^{n}}n\zeta(n)+\cdots \,.
+\]
+
+
+
+\section{La aproximación de Stirling}
+
+El comportamiento asintótico de las funciones especiales será tratado en una clase aparte. Pero la importancia de la Aproximación de Stirling obliga a que se trate en este punto.
+
+Supongamos que consideramos el caso $z\equiv x\in\Re.$ Por lo cual estamos interesados en el caso $x\gg1$. 
+
+Partimos de
+\[
+\Gamma\left(  x\right)  =\frac1x\Gamma\left(  x+1\right)  =\frac1x\int_{0}^{\infty}{e}^{-t}t^{x}\mathrm{d}t=\frac1x\int_{0}^{\infty}{e}^{-t+x\ln t}\mathrm{d}t\,,
+\]
+haciendo $t=xu$ tenemos que
+\[
+\Gamma\left(  x\right)  =x^{x}\int_{0}^{\infty}{e}^{-x\left(  u-\ln(u)\right)  }\mathrm{d}u\,.
+\]
+
+Ahora bien, el integrando tendrá su máximo en $u=1$ donde la exponencial tiene su mínimo y es entorno a ese punto que desarrollará en series de Taylor
+\[
+u-\ln(u)=1+\frac12\left(  u-1\right)  ^{2}-\frac13\left(  u-1\right)^{3}+\frac14\left(  u-1\right)  ^{4}+\cdots
+\]
+por lo cual
+\[
+\Gamma\left(  x\right)  =x^{x}\int_{0}^{\infty}{e}^{-x\left(  u-\ln(u)\right)  }\mathrm{d}u\approx x^{x}\int_{0}^{\infty}\mathrm{d}u \ {e}^{-x\left(  1+\frac12\left(  u-1\right)  ^{2}-\frac13\left(  u-1\right)^{3}+\cdots\right)  }\mathrm{d}u\,.
+\]
+
+Otro cambio de variable $v=$ $\sqrt{x}\left(  u-1\right)  $ nos lleva
+\[
+\Gamma\left(  x\right)  \approx\frac{x^{x} {e}^{-x}}{\sqrt{x}}\int_{-\sqrt{x}}^{\infty}\mathrm{d}v{e}^{-\frac12v^{2}}\exp\left(\frac1{3\sqrt{x}}v^{3}-\frac1{4x}v^{4}+\frac1{5x^{\frac32}}v^{5}-\cdots\right)  \,.
+\]
+
+Para valores $x\gg1$ se expande, en series de Taylor los exponenciales que contengan términos $\frac1{\sqrt{x}}$
+\begin{align*}
+\Gamma\left(  x\right)   & \approx\frac{x^{x}{e}^{-x}}{\sqrt{x}}\int_{-\infty}^{\infty}\mathrm{d}v {e}^{-\frac12v^{2}}\left\{  1+\left(\frac1{3\sqrt{x}}v^{3}-\frac1{4x}v^{4}+\frac1{5x^{\frac32}}v^{5}-\cdots\right)  +\right. \\
+& +\frac1{2!}\left(  \frac1{3\sqrt{x}}v^{3}-\frac1{4x}v^{4}+\frac1{5x^{\frac32}}v^{5}-\cdots\right)  ^{2}+\\
+& \left.  +\frac1{3!}\left(  \frac1{3\sqrt{x}}v^{3}-\frac1{4x}v^{4}+\frac1{5x^{\frac32}}v^{5}-\cdots\right)  ^{3}+\cdots\right\} \,.
+\end{align*}
+
+Finalmente, utilizando que
+\[
+\int_{-\infty}^{\infty}\mathrm{d}v{e}^{-\frac12v^{2}}v^{n}=\left\{
+\begin{array}
+[c]{l}
+\sqrt{2\pi}\qquad\\
+\sqrt{2\pi}\cdot1\cdot3\cdot5\cdot\cdots(n-1)\\
+0
+\end{array}
+\quad
+\begin{array}
+[c]{l}
+n=0\\
+n=2k\\
+n=2k-1
+\end{array}
+\right.
+\]
+e integrando término a término, tendremos que
+\[
+\Gamma\left(x\right)  \approx\sqrt{\frac{2\pi}x}x^{x}{e}^{-x}\left\{1+\frac1{12x}+\frac1{288\ x^{2}}+\cdots\right\}\,.
+\]
+
+
+
+\section{La función Beta}
+\begin{center}
+\begin{align*}
+B(x,y)  & =\int_{0}^{1}t^{x-1}\left(  1-t\right)  ^{y-1}\mathrm{d}t\qquad\operatorname{Re}x>0\ \wedge\ \operatorname{Re}y>0 \\
+B(x,y)  & =\frac{\Gamma\left(  x\right)  \Gamma\left(  y\right)  }{\Gamma\left(  x+y\right)  }
+\end{align*}
+\end{center}
+
+
+
+\section{La función integral de probabilidad} 
+
+La función Integral de probabilidad para una variable compleja arbitraria $z$ como
+\[
+\Phi(z)=\frac2{\sqrt{\pi}}\int_{0}^{z}\mathrm{e}^{-t^{2}}\mathrm{d}t \,.
+\]
+Obviamente $\Phi(0)=0$ y $\Phi(\infty)=1$. 
+
+A partir de esta función se define la \textbf{Función Error y su complemento}
+\begin{align*}
+\operatorname{erf}(z)  & =\int_{0}^{z}{e}^{-t^{2}}\mathrm{d}t=\frac{\sqrt{\pi}}2\Phi(z)\,,\\
+\operatorname{erfc}(z)  & =\int_{z}^{z}{e}^{-t^{2}}\mathrm{d}t=\frac{\sqrt{\pi}}2\left[1-\Phi(z)\,.\right]
+\end{align*}
+
+La función Gamma incompleta $\gamma\left(  z,\alpha\right)$ y  la función Gamma complementaria $\Gamma\left(  z,\alpha\right)  $
+\begin{align*}
+\gamma\left(  z,\alpha\right)    & =\int_{0}^{\alpha}{e}^{-t}t^{z-1}\mathrm{d}t\,,\\
+\Gamma\left(  z,\alpha\right)    & =\int_{\alpha}^{\infty}{e}^{-t}t^{z-1}\mathrm{d}t \,,
+\end{align*}
+las cuales claramente cumplen con
+\[
+\gamma\left(  z,\alpha\right)  +\Gamma\left(  z,\alpha\right)  =\Gamma\left(
+z\right) \,,
+\]
+y en resumen
+\begin{align*}
+\gamma\left(  z+1,\alpha\right)    & =z\gamma\left(  z,\alpha\right)-\alpha^{z}\mathrm{e}^{-\alpha}\\
+\Gamma\left(  z+1,\alpha\right)    & =z\Gamma\left(  z,\alpha\right)+\alpha^{z}\mathrm{e}^{-\alpha} \,.
+\end{align*}
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+

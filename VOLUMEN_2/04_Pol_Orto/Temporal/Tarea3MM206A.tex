@@ -1,0 +1,83 @@
+\documentclass[spanish,notitlepage,letterpaper,11pt]{article}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+\usepackage[ansinew]{inputenc}
+\usepackage{fancyhdr}
+\usepackage{fancyhdr}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\hyphenation{La-ti-noa-me-ri-ca-na Fa-cul-tad Ren-di-mien-to}
+\pagestyle{fancy}
+\lhead{}
+\chead{}
+\cfoot{}
+\rhead{\bfseries Series y demás hierbas}
+\lhead{\bfseries Tareas de Métodos Matemáticos 2}
+\lfoot{\it Luis A. Núñez  }
+\cfoot{ Universidad de Los Andes, Mérida, Venezuela}
+\rfoot{\thepage}
+\voffset = -0.25in
+\textheight = 8.0in
+\textwidth = 6.5in
+\oddsidemargin = 0.in
+\headheight = 20pt
+\headwidth = 6.5in
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0,5pt}
+
+\begin{document}
+
+\begin{center}
+\textbf{Métodos Matemáticos 2}
+
+\textbf{Tarea 3}
+
+\textbf{Series, Series, Series}
+
+\textbf{Fecha de entrega 18 abril 2006}
+\end{center}
+
+\begin{enumerate}
+
+\item  Muestre que las siguientes series convergen al límite que se indican
+\[
+s_{1}=\sum_{k=1}^{\infty} \frac{1}{(k+1)(k+3)(k+5)}=\frac{23}{480}
+\qquad \text{y} \qquad
+s_{2}=\sum_{k=1}^{\infty} \frac{3k-2}{k(k+1)(k+1)}=1
+\]
+
+\item Dada la siguiente relación de recurrencia $ s_{n+1}=\sqrt{2 + \sqrt{s_{n}}} $, muestre que 
+\[
+\lim_{n \rightarrow \infty} s_{n} = s_{0} \qquad \text{con } s_{0} \text{ raíz de polinomio } 
+s^4 -4s^2 -s +4 = 0.
+\]
+\item Para cuáles valores de las constantes $\alpha$ y $\beta$ converge al siguiente serie
+\[
+s_{3}=\sum_{k=1}^{\infty} \frac{1}{ n(\ln n)^{\alpha} (\ln(\ln n)) }
+\]
+\item En un alarde de ociosidad Ud. puede comprobar con una calculadora que 
+\[ \sum_{k=1}^{100} n^{-3} = 1.202007 \] Ahora, en una arranque de inteligencia muestre que  
+\[
+1.202056 \leqslant \sum_{k=1}^{\infty}  n^{-3} \leqslant  1.202057
+\]
+
+\item Suponga que le interesa invertir un millón de Bolívares en bonos. El interés es del 25 \% anual. Calcule cuanto tendrá en su cuenta, a los 25 años de haberlos invertidos, si los intereses se calculan y se abonan
+\begin{itemize}
+  \item sobre saldos semestrales
+  \item sobre saldos mensuales
+  \item sobre saldos diarios
+\end{itemize}
+\item Pruebe que la siguiente serie
+\[
+\sum_{k=2}^{\infty} \ln \left( \frac{n^r +(-1)^n}{n^r} \right) \quad \Rightarrow 
+\left\{
+\begin{array}{l }
+\text{es absolutamente convergente para } r=2         \\
+\text{es condicionalmente convergente para } r=1         
+\end{array}
+\right.
+\]
+ \end{enumerate}
+\end{document}

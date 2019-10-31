@@ -1,0 +1,1576 @@
+
+\section{Vectores y números complejos}
+En otro de estos formularios de Métodos Matemáticos de la Fisica \cite{Nunez2005} introdujimos la noción de números complejos y la asociamos a su representación de un vector en el plano complejo. Para hacer autocontenido este formulario incluiremos aquí también esa discusión.
+
+Desde la más tierna infancia matemática nos hemos tropezado con las llamadas raíces imaginarias o complejas de
+polinomios. De este modo la
+solución a un polinomio cúbico%
+\[
+x^{3}-3x^{2}+4x-12=0\quad\Longrightarrow\left\{
+\begin{array}
+[c]{c}%
+x=2i\\
+x=-2i\\
+x=3
+\end{array}
+\right\}  \quad\Longrightarrow\left(  x+2i\right)  \left(  x-2i\right)
+\left(  x-3\right)  =0
+\]
+o cuadrático
+\[
+x^{2}+4=0\quad\Longrightarrow\left\{
+\begin{array}
+[c]{c}%
+x=2i\\
+x=-2i
+\end{array}
+\right\}  \Longrightarrow\left(  x+2i\right)  \left(  x-2i\right)
+\]
+nos lleva a definir un número $i^{2}=-1\quad\Leftrightarrow\quad i=\sqrt{-1}$ como vimos arriba al multiplicar el
+número imaginario $i$ por cualquier número real obtendremos el número imaginario puro $bi,$ con $b\in\Re.$ La
+nomenclatura números imaginarios surgió de la idea de que estas cantidades no representan mediciones físicas.
+Esa idea ha sido abandonada pero el nombre quedó.
+
+\subsection{Los números complejos y su álgebra}
+
+Un número complejo, $z,$ es la generalización de los números imaginarios (puros), $ib$. Esto es
+\[
+z=a+ib\quad\quad\text{con }a,b\in\Re\Longrightarrow\left\{
+\begin{array}
+[c]{l}%
+a\rightarrow\quad\text{parte real}\\
+\\
+b\rightarrow\quad\text{parte imaginaria}%
+\end{array}
+\right.
+\]
+Obviamente los números reales serán $a+i0$ números complejos con su parte imaginaria nula. Los números
+imaginarios puros serán números complejos con su parte real nula, esto es $0+ib.$ Por ello en general diremos
+que
+\[
+z=a+ib\quad\Longrightarrow a=\operatorname{Re}\left(  z\right)  \quad
+\wedge\quad b=\operatorname{Im}\left(  z\right)
+\]
+es decir, $a$ corresponde a la parte real de $z$ y $b$ a su parte imaginaria.
+
+Cada número complejo, $z,$ tendrá un número complejo conjugado,
+$z^{\ast}$ tal que%
+\begin{gather*}
+z=a+ib \quad \rightleftharpoons \quad z^{\ast}=a-ib \\
+\Downarrow \\
+\left(  z^{\ast}\right)^{\ast} = z \quad \wedge \quad z \cdot z^{\ast}=a^{2}+b^{2}%
+\end{gather*}
+claramente
+\[
+z \cdot  z^{\ast } \geq 0 \quad \Longrightarrow | z |^{2} = | z^{\ast} |^{2} = z\cdot z^{\ast}
+\]
+
+Es importante señalar que, en general, no existe relación de orden entre los números complejos. Vale decir, que
+no sabremos si un número complejo es mayor que otro. No está definida esta operación.
+\[
+z_{1}\ngtr z_{2}\quad\vee\quad z_{1}\nless z_{2}%
+\]
+las relaciones de orden sólo se podrán establecer entre módulos de números complejos y no números complejos en
+general.
+
+Rápidamente recordamos el álgebra de los números complejos:
+
+\begin{itemize}
+\item  dos números complejos serán iguales si sus partes reales e
+imaginarios lo son%
+\[
+z_{1}=z_{2}\quad\Longrightarrow\left(  a_{1}+ib_{1}\right)  =\left(
+a_{2}+ib_{2}\right)  \quad\Longrightarrow a_{1}=a_{2}\quad\wedge\quad
+b_{1}=b_{2}%
+\]
+
+\item  se suman dos números complejos sumando sus partes reales y sus
+partes imaginarias.%
+\[
+z_{3}=z_{1}+z_{2}\quad\Longrightarrow\left(  a_{1}+ib_{1}\right)  +\left(
+a_{2}+ib_{2}\right)  =\underset{a_{3}}{\underbrace{\left(  a_{1}+a_{2}\right)
+}}+i\underset{b_{3}}{\underbrace{\left(  b_{1}+b_{2}\right)  }}=a_{3}+ib_{3}%
+\]
+claramente $z+z^{\ast}=2\operatorname{Re}z$ también $z-z^{\ast
+}=2\operatorname{Im}z.$ Igualmente es inmediato comprobar que%
+\[
+\left(  z_{1}+z_{2}\right)  ^{\ast}=z_{1}^{\ast}+z_{2}^{\ast}%
+\]
+
+\item  se multiplican números complejos por escalares multiplicando el
+escalar por sus partes reales e imaginarias%
+\[
+z_{3}=\alpha z_{1}\quad\Longrightarrow\alpha\left(  a_{1}+ib_{1}\right)
+=\left(  \alpha a_{1}\right)  +i\left(  \alpha b_{1}\right)
+\]
+
+\item  se multiplican números complejos entre si, multiplicando los dos
+binomios y teniendo cuidado que $i^{2}=-1.$%
+\[
+z_{3}=z_{1}z_{2}\quad\Longrightarrow\left(  a_{1}+ib_{1}\right)  \cdot\left(
+a_{2}+ib_{2}\right)  =\left(  a_{1}a_{2}-b_{1}b_{2}\right)  +i\left(
+a_{1}b_{2}+b_{1}a_{2}\right)
+\]
+también es inmediato comprobar que $\left(  z_{1}z_{2}\right)  ^{\ast }=z_{1}^{\ast}z_{2}^{\ast}$
+
+\item  se dividen números complejos siguiendo la estrategia de
+racionalización de fracciones irracionales. Esto es%
+\[
+z_{3}=\frac{z_{1}}{z_{2}}\quad\Longrightarrow\frac{\left(  a_{1}%
++ib_{1}\right)  }{\left(  a_{2}+ib_{2}\right)  }=\frac{\left(  a_{1}%
++ib_{1}\right)  }{\left(  a_{2}+ib_{2}\right)  }\frac{\left(  a_{2}%
+-ib_{2}\right)  }{\left(  a_{2}-ib_{2}\right)  }=\frac{a_{1}a_{2}+b_{1}b_{2}%
+}{\left(  a_{2}^{2}+b_{2}^{2}\right)  }+i\frac{b_{1}a_{2}-a_{1}b_{2}}{\left(
+a_{2}^{2}+b_{2}^{2}\right)  }%
+\]
+es claro que el divisor será cualquier número complejo excepto el cero complejo, $0+i0$
+\end{itemize}
+
+\subsection{Vectores y el plano complejo}
+Mirando con cuidado el álgebra de números complejos nos damos cuenta que un número complejo puede ser representado por una \textit{dupla} de números complejos es decir,
+\begin{equation*}
+z=\left( a+ib\right) \quad \leftrightharpoons \quad z=\left( a,b\right)
+\end{equation*}
+las propiedades entre números complejos de igualdad, suma y multiplicación por un escalar arriba expuestas se
+cumplen de forma inmediata con esta nueva representación. Hay que definir las operaciones de multiplicación y
+división entre números complejos de forma que
+\begin{equation*}
+\left( a_{1},b_{1}\right) \left( a_{2},b_{2}\right) =\left(
+a_{1}a_{2}-b_{1}b_{2},a_{1}b_{2}+b_{1}a_{2}\right) \quad \wedge \quad \frac{%
+\left( a_{1},b_{1}\right) }{\left( a_{2},b_{2}\right) }=\left( \frac{%
+a_{1}a_{2}+b_{1}b_{2}}{\left( a_{2}^{2}+b_{2}^{2}\right) },\frac{%
+b_{1}a_{2}-a_{1}b_{2}}{\left( a_{2}^{2}+b_{2}^{2}\right) }\right)
+\end{equation*}
+Esta asociación de un número complejo con una pareja de números inmediatamente nos lleva a imaginar un punto en un plano (complejo) en el cual la primera componente (horizontal) representa la parte real y la segunda componente (vertical) representa la parte imaginaria. De esta forma asociamos a un número complejo un vector que une a ese punto $\left( a,b\right) $ con el origen del plano complejo. Esta representación de números
+complejos como vectores un el plano (complejo), se conoce con el nombre de Diagrama de Argand\footnote{En honor a
+Jean Robert Argand, (Ginebra, Suiza, 18 Julio 1768; Paris, Francia 13 agosto 1822) Contador pero matemático
+aficionado. Propuso esta interpretación de números complejos como vectors en un plano complejo en un libro
+autoeditado con sus reflexiones que se perdió y fue rescatado 7 años después, fecha a partir de la cual Argand
+comenzó a publicar en Matematicas. Más detalles en
+\url{http://www-groups.dcs.st-and.ac.uk/\symbol{126}history/Mathematicians/Argand.html}} a pesar que no fue Jean
+Argand, sino Caspar Wessel\footnote{Caspar Wessel (Vestby, Noruega 8 junio 1745; 25 marzo 1818, Copenhagen,
+Dinamarca) Matemático noruego que se dedicó principalemente al levantamiento topográfico de Noruega. Su trabajo
+sobre la interpretación de números complejos permaneció desconocido por casi 100 años. Más detalles
+\url{http://www-groups.dcs.st-and.ac.uk/\symbol{126}history/Mathematicians/Wessel.html}} el primero en
+proponerlo. Por cierto esta interpretación fue tres veces redescubierta primero por Caspar Wessel en 1799, luego
+por Jean Argand en 1806 y finalmente por Gauss\footnote{ Johann Carl Friedrich Gauss (30 abril 1777, Brunswick,
+Alemania; 23 febrero 1855, G\"{o}ttingen, Alemania). Uno de los mátemáticos más geniales y precoces de la
+Historia. Desde los 7 años comenzó a mostrar sus condiciones de genialidad. Sus contribuciones en Astronomía y
+Matemáticas son múltiples y diversas. Más detalles
+\url{http://www-groups.dcs.st-and.ac.uk/\symbol{126}history/Mathematicians/Gauss.html}} en 1831.
+
+De esta manera como un recordatorio al plano real
+\begin{equation*}
+z=x+iy\quad\leftrightharpoons\quad z=r\left( \cos\theta+i\sin\theta\right) \quad\text{con }\left\{
+\begin{array}{l}
+r=\sqrt{zz^{\ast}}=\left| z\right| =\sqrt{x^{2}+y^{2}} \\
+\\
+\tan\theta=\dfrac{y}{x}\quad\text{donde }-\pi\leq\theta\leq\pi
+\end{array}
+\right.
+\end{equation*}
+La interpretación vectorial de números complejos permite que la suma de números complejos sea representada por
+la ``regla del paralelogramo''. Mientras que los productos escalar y vectorial nos llevan a
+\begin{equation*}
+z_{1}\cdot z_{2}= \mathrm{Re} \;  z_{1}z_{2}^{\ast}  = \mathrm{Re} \;  z_{1}^{\ast}z_{2}  \quad \wedge \quad
+z_{1}\times z_{2}= \mathrm{Im} \; z_{1}^{\ast}z_{2}  =- \mathrm{Im} \;   z_{1}z_{2}^{\ast}
+\end{equation*}
+
+Con esta interpretación tendremos
+\begin{center}
+\begin{tabular}{lll}
+$x= \mathrm{Re} \; z$ & $\rightleftharpoons$ & componente real del vector $z$ o
+parte real de $z$ \\
+$y= \mathrm{Im} \; z$ & $\rightleftharpoons$ & componente imaginaria del vector $z$
+o parte real de $z$ \\
+$r=\sqrt{zz^{\ast}}=\left| z\right| $ & $\rightleftharpoons$ & módulo,
+magnitud o valor absoluto de $z$ \\
+$\theta$ & $\rightleftharpoons$ & ángulo polar o de fase del número
+complejo $z$%
+\end{tabular}
+\end{center}
+
+\subsection{Fórmulas de Euler y De Moivre}
+Nos hemos tropezado con la expansión en Taylor\footnote{Brook Taylor (18 agosto 1685, Edmonton, Inglaterra; 29
+diciembre 1731, Londres, Inglaterra) Físico y Matemático Inglés contemporaneo de Newton y Leibniz y con ellos
+participó profundamente en el desarrollo del cálculo diferencial e integral. Además de sus aportes al magnetismo,
+capilaridad y termometría. Desarrolló el área de diferencias finitas que hasta hoy utilizamos para cálculos en
+computación. Inventó la integración por partes y descubrió la serie que lleva su nombre. Más detalles
+\url{http://www-history.mcs.st-andrews.ac.uk/Mathematicians/Taylor.html}} esta serie permite expresar cualquier
+función infinitamente diferenciable alrededor de un punto $x_{0}$ como una serie infinita de potencias del
+argumento de la función. Esto es
+\begin{align*}
+f\left( x\right) & = f(x_{0})+\left. \frac{\mathrm{d\ }f\left( x\right) }{\mathrm{d\
+}x}\right| _{x=x_{0}}\left( x-x_{0}\right) +\frac{1}{2}\left. \frac{\mathrm{d%
+}^{2}\mathrm{\ }f\left( x\right) }{\mathrm{d\ }x^{2}}\right|
+_{x=x_{0}}\left( x-x_{0}\right) ^{2}+\frac{1}{3!}\left. \frac{\mathrm{d}^{3}%
+\mathrm{\ }f\left( x\right) }{\mathrm{d\ }x^{3}}\right| _{x=x_{0}}\left(
+x-x_{0}\right) ^{3}+\cdots \cdots  \\
+& \\
+f\left( x\right) & =C_{n}\left( x-x_{0}\right) ^{n}\qquad \text{con }C_{n}=%
+\frac{1}{n!}\left. \frac{\mathrm{d}^{n}\mathrm{\ }f\left( x\right) }{\mathrm{%
+d\ }x^{n}}\right| _{x=x_{0}}\qquad \text{donde }n=0,1,2,3,4\cdots
+\end{align*}
+con lo cual si consideramos $x_{0}=0$ entonces
+\begin{align*}
+e^{x}& =1+x+\frac{1}{2}x^{2}+\frac{1}{6}x^{3}+\frac{1}{24}x^{4}+\frac{1}{120}%
+x^{5}+\frac{1}{720}x^{6}+\frac{1}{5040}\allowbreak x^{7}+\cdots \cdots  \\
+& \\
+\cos x& =1-\frac{1}{2}x^{2}+\frac{1}{24}x^{4}-\frac{1}{720}x^{6}+\cdots
+\cdots  \\
+& \\
+\sin x& =x-\frac{1}{6}x^{3}+\frac{1}{120}x^{5}-\frac{1}{5040}x^{7}+\cdots \cdots
+\end{align*}
+Es fácil convercerse que
+\begin{equation*}
+e^{i\theta }=1+i\theta -\frac{1}{2}\theta ^{2}+\left( -\frac{1}{6}i\right)
+\theta ^{3}+\frac{1}{24}\theta ^{4}+\frac{1}{120}i\theta ^{5}-\frac{1}{720}%
+\theta ^{6}+\left( -\frac{1}{5040}i\right) \theta ^{7}+\cdots \cdots
+\end{equation*}
+puede rearreglarse como
+\begin{align*}
+e^{i\theta }& =\underset{\cos \theta }{\underbrace{\left( 1-\frac{1}{2}%
+\theta ^{2}+\frac{1}{24}\theta ^{4}-\frac{1}{720}\theta ^{6}+\cdots \cdots
+\right) }}+i\underset{\sin \theta }{\underbrace{\left( \theta -\frac{1}{6}%
+\theta ^{3}+\frac{1}{120}\theta ^{5}-\frac{1}{5040}\theta ^{7}+\cdots \cdots
+\right) }} \\
+& \\
+e^{i\theta }& =\cos \theta +i\sin \theta
+\end{align*}
+esta relación se conoce como la relación de Euler \footnote{Leonhard Euler (15 abril 1707, Basilea, Suiza; 18
+septiembre 1783, San Petersburgo, Rusia). Uno de los matemáticos más prolíficos de todos los tiempos. Desarrolló
+inmensamente campos como la geometría analítica y trigonometría, siendo el primero que consideró el coseno y el
+seno como funciones. Hizo aportes significativos en el desarrollo del cálculo diferencial e integral así como
+también, astronomía, elasticidad y mecánica de medios contínuos. Más detalles
+\url{http://www-history.mcs.st-andrews.ac.uk/Mathematicians/Euler.html}}. Con lo cual ahora tenemos tres formas
+de representar un número complejo
+\begin{equation*}
+z=x+iy\quad \leftrightharpoons \quad z=r\left( \cos \theta +i\sin \theta \right) \quad \leftrightharpoons \quad
+z=re^{i\theta }
+\end{equation*}
+
+La expresión $z=x+iy$ se conoce como forma cartesiana de representación de un número complejo, la forma
+$z=r\left( \cos \theta +i\sin \theta \right) $ será la forma trigonométrica y la expresión $z=e^{i\theta }$ será
+la forma de Euler. Las sumas de números complejos son más fácilmente planteables en su forma cartesiana.
+Mientras las multiplicación y división serán directas en la forma de Euler
+\begin{equation*}
+\left.
+\begin{array}{c}
+z_{1}=r_{1}e^{i\theta _{1}} \\
+\\
+z_{2}=r_{2}e^{i\theta _{2}}
+\end{array}
+\right\} \quad \Longrightarrow z_{1}z_{2}=r_{1}e^{i\theta _{1}}r_{2}e^{i\theta _{2}}=r_{1}r_{2}e^{i\left( \theta _{1}+\theta
+_{2}\right) }=r_{1}r_{2}\left( \cos \left( \theta _{1}+\theta _{2}\right) +i\sin \left( \theta _{1}+\theta
+_{2}\right) \right)
+\end{equation*}
+Más aún, si
+\begin{equation*}
+z=x+iy\quad \Longrightarrow e^{z}=e^{\left( x+iy\right) }=e^{x}e^{iy}=e^{x}\left( \cos y+i\sin y\right)
+\end{equation*}
+y a partir de la relación o fórmula de Euler se puede demostrar la fórmula de De Moivre \footnote{Abraham de Moivre (26
+mayo 1667 in Vitry-le-Fran\c{c}ois, Francia; 27 noviembre 1754, Londres Inglaterra) Matemático francés que tuvo
+que emigrar a Inglaterra por razones religiosas. Contemporaneo de Newton, Liebniz, Halley, fue pionero con sus
+contribuciones en Geometría Analítica y Teoría de Probabilides.}
+\begin{equation*}
+\left( e^{i\theta }\right) ^{n}=e^{in\theta }\quad \leftrightharpoons \quad \left( \cos \theta +i\sin \theta
+\right) ^{n}=\cos \left( n\theta \right) +i\sin \left( n\theta \right) \quad \text{con }n\text{ entero}
+\end{equation*}
+
+
+\section{Funciones de Variable Compleja }
+A continuación, generalizaremos algunos conceptos de funciones complejas de variable compleja. 
+\subsection{De la recta real al plano complejo}
+La idea de función de variable (o variables) reales puede ser extendida (continuada, le dicen también) al plano complejo. La idea es la de siempre: si en una determinada región del plano complejo $\mathcal{R}$ a un número complejo $z$ le corresponde un número (o varios números) complejos $w = f(z)$, diremos que $f(z)$ es una función de variable compleja $z$. Obvio que $f(z)$ puede ser biyectiva, en cuyo caso tendremos que a $z$ le estará asociado uno y solo un número complejo $w = f(z)$. Es claro también que siempre se podrá expresar
+\begin{equation}
+f(z) = u(x,y) + iv(x,y) \qquad \text{con } u(x,y) \text{ la parte real y } v(x,y) \text{ la parte imaginaria}
+\label{uiv}
+\end{equation} 
+Esta representación tiene una interpretación adicional. Como representamos un número complejo en el plano $0xy$ como $z = x + iy$, pero $w = f(z)$ también podrá ser representada como un punto en el plano $0uv$. Entonces, desde el punto de vista geométrico una función de variable compleja podrá ser entendida como una ley de transformación entre pares de puntos $(x,y)$ del plano $0xy$ del argumento $z$ y los puntos $(u,v)$ del plano  $0uv$ de valor $w$. 
+\subsection{Continuidad en el plano complejo}
+Podemos también extender el concepto de continuidad de una función de variable real a una función de variable compleja. Esto es: diremos que una función compleja\footnote{A partir de ahora y por razones de simplicidad llamaremos a $f(z)$  \textit{función compleja} en vez de  \textit{función de variable compleja} } $w = f(z)$ será contínua en $z_{0}$ si para un $\epsilon > 0$ siempre existe un $\delta > 0$ tal que $\left| z - z_{0} \right| < \delta$ tan pequeño como uno quiera y siempre puede encontrar $\left| f(z) - f(z_{0}) \right| < \epsilon$. La otra manera de verlo es la estándar: si existe el límite cuando $z\rightarrow z_{0}  $. Es decir
+$
+\lim_{z\rightarrow z_{0} } f(z) = f(z_{0}) 
+$ En este punto se pueden resaltar que los límites (y con ello la idea de continuidad) en el plano complejo hereda las sutilezas y dificultades de los límites y continuidades de las funciones en varias variables. En segundo lugar cabe señalar que la diferencia con las funciones de variable real radica en que los $\epsilon$ y  $\delta$ son radios de un círculo centrado en $f(z_{0})$ y $z_{0}$, respectivamente. Adicionalmente, para el caso de las funciones complejas no tiene sentido los límites por la derecha y por la izquierda que planteábamos para funciones de variable real. También es obvio que si
+\[
+f(z) = u(x,y) + iv(x,y) \quad \text{con } u(x,y) \text{ y }  v(x,y) \text{ contínuas en } (x_{0}, y_{0}) \Rightarrow f(z) \text{ contínua en } z_{0} = x_{0} + iy_{0}
+\] 
+\subsection{Diferenciabilidad de funciones complejas}
+Una vez más la idea es la misma y la dificultad que subyace es equivalente a las dificultades que enfrentamos en las definiciones de derivadas para funciones de varias variables.  Diremos entonces que, una función $f(z)$ univaluada en una región $\mathcal{R}$ entonces $f(z)$ será diferencialble en esa región si la derivada  
+\[
+\lim_{\Delta z \rightarrow 0}\frac{f(z + \Delta z) - f(z)}{\Delta z} = \lim_{\Delta x,\Delta y  \rightarrow 0}  
+\frac{ \left(  u(x + \Delta x,y + \Delta y) - u(x,y) \right) + i \left(  v(x + \Delta x,y + \Delta y) - v(x,y) \right)}{\Delta x + i \Delta y}  = \frac{\mathrm{d} f}{\mathrm{d} z} = f'(z)  
+\]
+existe y es única. Una vez más, al igual que en el caso de funciones de varias variables, el concepto de límite (y con éste el de derivada),  debe existir sin importar la ruta o forma de aproximación al punto sobre el cual estamos calculando la derivada. Esto es
+\[
+ \Delta z \rightarrow 0  \Leftrightarrow  \Delta x + i\Delta y \rightarrow 0 \quad \Rightarrow 
+ \left\{
+ \begin{array}{l}
+  f'(z)_{\Delta y =0} = \lim_{\Delta x  \rightarrow 0}  
+  \dfrac{ \left( u(x + \Delta x,y ) - u(x,y) \right) + i \left(  v(x + \Delta x,y ) - v(x,y) \right) }{\Delta x}   \\ \\
+   f'(z)_{\Delta x =0} = -i \lim_{\Delta y  \rightarrow 0} \dfrac{ \left( u(x ,y + \Delta y) - u(x,y) \right) + i \left(  v(x,y + \Delta y) - v(x,y) \right) }{ \Delta y}              
+\end{array}
+ \right.
+\]
+Un par de ejemplos que ilustran este caso pueden ser $f(z) = x^{2} -y^{2} +2ixy $
+\[
+f'(z) = \lim_{\Delta z \rightarrow 0}\frac{f(z + \Delta z) - f(z)}{\Delta z} = \lim_{\Delta x,\Delta y  \rightarrow 0}
+\frac{(x +\Delta x)^{2} - (y +\Delta y)^{2} + 2i(x +\Delta x)(y +\Delta y) - x^{2} +y^{2} -2ixy}{\Delta x + i \Delta y}
+\] con lo cual desarrolle y pruebe que, independientemente de la ruta en el plano complejo ($\Delta y =0; \Delta x  \rightarrow 0$ o viceversa) 
+\[
+f'(z) = \lim_{\Delta x,\Delta y  \rightarrow 0} \left( 2x +i2y + \frac{(\Delta x)^{2} - (\Delta y)^{2} +2i\Delta x \Delta y}{\Delta x + i \Delta y} \right) = 2x +i2y
+\] que es más o menos obvio si hubiéramos notado que  $f(z) = x^{2} -y^{2} +2ixy = (x + iy)^{2} \equiv z^{2}$ con lo cual 
+\[
+f'(z) = \lim_{\Delta z \rightarrow 0} \frac{(z + \Delta z)^{2} -z^{2} }{\Delta z} = \lim_{\Delta z \rightarrow 0}
+\frac{2z \Delta z + ( \Delta z)^{2} }{ \Delta z} = \lim_{\Delta z \rightarrow 0} \left( 2z + \Delta z \right) = 2z
+\]Ahora bien, las cosas no siempre son así. Si consideramos $f(z) = 2x +iy $ es rápido comprobar que no es diferenciable en el plano complejo, ya que
+\[
+f'(z) =  \lim_{\Delta x,\Delta y  \rightarrow 0} \frac{ 2x +2\Delta x +i (y + \Delta y) - 2x - iy }{\Delta x + i \Delta y} =  \lim_{\Delta x,\Delta y  \rightarrow 0}  \frac{ 2\Delta x +i \Delta y }{\Delta x + i \Delta y}
+\] el cual, claramente no coincide si las direcciones de aproximación a $z_{0} = x_{0} +iy_{0}$ son distintas, vale decir, por ejemplo $\Delta y =0; \Delta x  \rightarrow 0$ o  $\Delta x =0; \Delta y  \rightarrow 0$.
+
+Como heredamos todas las ideas y métodos del campo real se cumplen todas las reglas de la derivación para funciones reales. Vale decir
+\[
+\frac{\mathrm{d}}{\mathrm{d}z} (f(z) + g(z)) = \frac{\mathrm{d} f(z)}{\mathrm{d}z} +  \frac{\mathrm{d} g(z)}{\mathrm{d}z}; \quad 
+\frac{\mathrm{d}}{\mathrm{d}z} (f(z) g(z)) = \frac{\mathrm{d} f(z)}{\mathrm{d}z}g(z) + f(z) \frac{\mathrm{d} g(z)}{\mathrm{d}z}; \quad 
+\frac{\mathrm{d}}{\mathrm{d}z} (f(g(z)) = \frac{\mathrm{d} f(g) }{\mathrm{d}g} \frac{\mathrm{d} g(z)}{\mathrm{d}z} 
+\]
+\subsection{Funciones Analíticas y Condiciones de Cauchy-Riemann}
+Diremos que una función es analítica (holomorfa o regular) en una región $\mathcal{R}$, si es uni-valuada y derivable en todos los puntos dentro de esa misma región $\mathcal{R}$. Puede darse el caso de que sea analítica en la región excepto en un número finito de puntos (donde es singular). Entonces diremos que es es analítica (holomorfa o regular) en $\mathcal{R}$, excepto en esos puntos.
+
+A partir de dos estrategias (muy particulares) de aproximación a $\Delta z \rightarrow 0$ tales como $\Delta y =0; \Delta x  \rightarrow 0$ o  $\Delta x =0; \Delta y  \rightarrow 0$, podremos encontrar un criterio para identificar donde, una función compleja, $f(x)$, es analítica. Esto es 
+\[
+\begin{array}{l}
+  f'(x)_{\Delta y =0} = \lim_{\Delta x  \rightarrow 0}  
+\dfrac{ \left( u(x + \Delta x,y ) - u(x,y) \right) + i \left(  v(x + \Delta x,y ) - v(x,y) \right) }{\Delta x}  =
+\lim_{\Delta x  \rightarrow 0} \left( \dfrac{\Delta u(x,y)}{\Delta x} +i \dfrac{\Delta v(x,y)}{\Delta x} \right)
+ \\ \\
+   f'(x)_{\Delta x =0} = -i \lim_{\Delta y  \rightarrow 0} 
+   \dfrac{ \left( u(x ,y + \Delta y) - u(x,y) \right) + i \left(  v(x,y + \Delta y) - v(x,y) \right) }{ \Delta y} =
+\lim_{\Delta y  \rightarrow 0} \left( -i \dfrac{\Delta u(x,y)}{\Delta y} + \dfrac{\Delta v(x,y)}{\Delta y} \right)         
+\end{array}
+\] y ambas tienen que coincidir. Con lo cual
+\[
+ f'(x)_{\Delta y =0} = f'(x)_{\Delta x =0} \quad \Leftrightarrow \quad
+ \lim_{\Delta x  \rightarrow 0} \left( \dfrac{\Delta u(x,y)}{\Delta x} +i \dfrac{\Delta v(x,y)}{\Delta x} \right) = 
+ \lim_{\Delta y  \rightarrow 0} \left( -i \dfrac{\Delta u(x,y)}{\Delta y} + \dfrac{\Delta v(x,y)}{\Delta y} \right) 
+\]y equivalentemente
+\[
+ f'(x)_{\Delta y =0} = f'(x)_{\Delta x =0} \quad \Leftrightarrow \quad
+ \frac{\partial u(x,y)}{ \partial x} + i  \frac{\partial v(x,y)}{ \partial x} =
+ -i \frac{\partial u(x,y)}{ \partial y} + \frac{\partial v(x,y)}{ \partial y}
+\] Con ello hemos encontrado las condiciones \textit{necesarias} para que una función compleja sea analítica, vale decir: Las condiciones de Cauchy Riemann
+\begin{equation}
+ \frac{\partial u(x,y)}{ \partial x} =  \frac{\partial v(x,y)}{ \partial y} \quad \wedge \quad  \frac{\partial v(x,y)}{ \partial x} = - \frac{\partial u(x,y)}{ \partial y}
+ \label{CondCauchyRiemann}
+\end{equation} 
+
+Ahora tendremos un criterio más expedito para determinar que la función  $f(z) = 2x +iy $ no es analítica. 
+\[
+\left.
+\begin{array}{ l}
+     u(x,y) = 2x     \\
+     v(x,y) = y    
+\end{array} \right\} \quad \Rightarrow
+ \frac{\partial u(x,y)}{ \partial x} =2  \neq 1 = \frac{\partial v(x,y)}{ \partial y} \quad \wedge \quad  
+ \frac{\partial v(x,y)}{ \partial x} = 0 =0 =- \frac{\partial u(x,y)}{ \partial y}
+\]Para el caso $f(z) = x^{2} -y^{2} +2ixy $ se cumplen las condiciones de Cauchy-Riemann 
+\[
+\left.
+\begin{array}{ l}
+     u(x,y) = x^{2} -y^{2}     \\
+     v(x,y) = 2xy    
+\end{array} \right\} \quad \Rightarrow
+ \frac{\partial u(x,y)}{ \partial x} = 2x = \frac{\partial v(x,y)}{ \partial y} \quad \wedge \quad  
+ \frac{\partial v(x,y)}{ \partial x} = 2y =- \frac{\partial u(x,y)}{ \partial y}
+\]pero como esas condiciones son \textit{necesarias} porque para encontrarlas hemos seleccionado un par de rutas muy específicas: $\Delta y =0; \Delta x  \rightarrow 0$ y  $\Delta x =0; \Delta y  \rightarrow 0$, se requiere exigir algunas condiciones adicionales. Sin demostración (puede consultar para detalles y demostraciones detalladas las referencias \cite{ByronFuller1970,ChurchillBrown1989,Knopp1996}) exigiremos como condición necesaria y suficiente para que una función sea analítica que las cuatro derivadas parciales para $u(x,y)$ y $v(x,y)$, existan, sean contínuas en la región $\mathcal{R}$ y que se cumplan las condiciones de Cauchy-Riemann. El punto crucial (adicional) es que las derivadas sean contínuas. 
+
+\paragraph{Ejercicio} Como ejercicio al lector le sugerimos investigar los dominios del plano complejo para los cuales las funciones $f(z) = |x| -i|y|$ y $f(z) = |z|^{2}=zz^{\ast}$ son analíticas
+
+\subsection{Curiosidades de Cauchy-Riemann}
+\label{CurioCauchy}
+Las funciones analíticas satisfacen algunas propiedades adicionales consecuencias de las condiciones de Cauchy-Riemann. 
+
+La primera es que dada una función compleja genérica $f(z) = u(x,y) + i v(x,y)$, si $f(z)$ es análitica,  $u(x,y)$ y $v(x,y)$ serán funciones armónicas conjugadas, $\nabla^{2}u(x,y) = \nabla^{2}v(x,y) =0$, i.e. satisfacen la ecuación de Laplace. Si derivamos apropiadamente las ecuaciones (\ref{CondCauchyRiemann}) respecto a una y otra variable encontramos que 
+\[
+ \frac{\partial }{ \partial x} \left( \frac{\partial u(x,y)}{ \partial x} \right) =  \frac{\partial }{ \partial x} \left(  \frac{\partial v(x,y)}{ \partial y} \right) =  \frac{\partial }{ \partial y} \left(  \frac{\partial v(x,y)}{ \partial x} \right) = - \frac{\partial }{ \partial y} \left(  \frac{\partial u(x,y)}{ \partial y} \right) \quad \Rightarrow 
+  \frac{\partial^{2} u(x,y)}{ \partial x^{2}} +  \frac{\partial^{2} u(x,y)}{ \partial y^{2}} = 0
+\]y equivalentemente
+\[
+ \frac{\partial }{ \partial x} \left( \frac{\partial v(x,y)}{ \partial x} \right) = - \frac{\partial }{ \partial x} \left(  \frac{\partial u(x,y)}{ \partial y} \right) = - \frac{\partial }{ \partial y} \left(  \frac{\partial u(x,y)}{ \partial x} \right) = - \frac{\partial }{ \partial y} \left(  \frac{\partial v(x,y)}{ \partial y} \right) \quad \Rightarrow 
+  \frac{\partial^{2} v(x,y)}{ \partial x^{2}} +  \frac{\partial^{2} v(x,y)}{ \partial y^{2}} = 0
+\]es decir, hemos demostrado que las partes reales e imaginarias de una función analítica son necesariamente armónicas. La importancia de este resultado radica, en primer lugar, que no son arbitrarias las funciones $u(x,y)$ y $v(x,y)$ con las cuales construimos $f(z)$. Ambas deben satisfacer la ecuación de Laplace. En segundo lugar que ambas están ligadas por las condiciones de Cauchy-Riemann, y esto implica que al conocer una de las funciones armónicas conjugadas, siempre es posible encontrar (salvo una constante de integración) la otra. Para ilustrar lo anterior, supongamos la siguiente función armónica conjugada $u(x,y) = 2x -x^{3} +3xy^{2}$ correspondiente a la parte real de $f(z)$. Es fácil comprobar que es una función armónica, ahora construyamos la parte imaginaria $v(x,y)$. Esto es
+\[
+u(x,y) = 2x -x^{3} +3xy^{2} \quad \Rightarrow   \frac{\partial u(x,y)}{ \partial x} =  \frac{\partial v(x,y)}{ \partial y} =
+2-3x^{2} +3y^{2} \quad \Rightarrow v(x,y) = 2y -3x^{2}y +y^{3} +\phi(x)
+\]entonces
+\[
+ \frac{\partial v(x,y)}{ \partial x} = -6xy + \frac{\partial \phi(x)}{ \partial x}  = -6xy = - \frac{\partial u(x,y)}{ \partial y}   \quad \Rightarrow \frac{\partial \phi(x)}{ \partial x} =0 \Rightarrow \phi(x) = C  \quad \Rightarrow v(x,y) = 2y -3x^{2}y +y^{3} + C
+\]
+
+La segunda curiosidad consecuencia de las ecuaciones (\ref{CondCauchyRiemann}) es que para una función compleja genérica $f(z) = u(x,y) + i v(x,y)$ en la cual además se cumpla que  $u(x,y)=const$ y $v(x,y) = const$ entonces se cumplirá que $\nabla u(x,y) \cdot \nabla v(x,y) = 0$. 
+\[
+\nabla u(x,y) \cdot \nabla v(x,y) = 
+\left( \frac{\partial u(x,y)}{\partial x} \mathbf{i} +  \frac{\partial u(x,y)}{\partial y} \mathbf{j} \right) 
+\cdot \left(\frac{\partial v(x,y)}{\partial x} \mathbf{i} + \frac{\partial v(x,y)}{\partial y} \mathbf{j} \right) =
+ \frac{\partial u(x,y)}{\partial x}\frac{\partial v(x,y)}{\partial x} +  \frac{\partial u(x,y)}{\partial y}\frac{\partial v(x,y)}{\partial y} 
+\]y por obra de las condiciones de Cauchy-Riemann es inmediato comprobar que se anulan
+\[
+\nabla u(x,y) \cdot \nabla v(x,y) = -\frac{\partial u(x,y)}{\partial x}\frac{\partial u(x,y)}{\partial y} +  \frac{\partial u(x,y)}{\partial y}\frac{\partial u(x,y)}{\partial x}  = 0
+\]Es decir, $u(x,y)=const$ y $v(x,y) = const$, corresponden a \textit{trayectorias mutuamente ortogonales}. Esta ``curiosidad'' nos permite construir sistemas de coordenadas alternativos en el plano complejo y, sobre todo saber como establecer su transformación a otros planos complejos. Esto se representa en la figura \ref{Fig2VarCompleja} y será considerado en la sección \ref{TransConf} de la página \pageref{TransConf}.
+
+La tercera curiosidad es un resultado el cual, siendo una formalidad, nos indica que las funciones analíticas $f(z)$ dependen de $z$ y no de su conjugado $z^{\ast}$. O dicho de otra manera que $z$ y  $z^{\ast}$ son variables independientes. Para demostrar esto procedemos primero a convencernos que si $f(z) = u(x,y) + i v(x,y)$ y $f(z)$ analítica, entonces $\frac{\partial f(z)}{\partial z^{\ast} } = 0$. Sin detenernos a pensar en el significado de la derivada respecto a la variable conjugada, recordamos que operacionalmente 
+\[
+\left.
+\begin{array}{ r}
+   x = \dfrac{z + z^{\ast}}{2}      \\ \\
+    y = \dfrac{z - z^{\ast}}{2i}       
+\end{array}
+\right\} \Rightarrow
+\frac{\partial f(z)}{\partial z^{\ast} } = \frac{\partial f(z)}{\partial x } \frac{\partial x }{\partial z^{\ast} } + 
+							\frac{\partial f(z)}{\partial y } \frac{\partial y }{\partial z^{\ast} } =
+\frac{1}{2}\left(\frac{\partial u(x,y)}{\partial x} + i \frac{\partial v(x,y)}{\partial x}  \right) 
+-\frac{1}{2i}\left(\frac{\partial u(x,y)}{\partial y} + i \frac{\partial v(x,y)}{\partial y}  \right) 
+\]arreglando tendremos que es inmediato comprobar que se anula si se cumplen las condiciones (\ref{CondCauchyRiemann})
+\[
+\frac{\partial f(z)}{\partial z^{\ast} } = 
+\frac{1}{2}\left(\frac{\partial u(x,y)}{\partial x}  - \frac{\partial v(x,y)}{\partial y}  \right) 
++\frac{i}{2} \left( \frac{\partial u(x,y)}{\partial y} + \frac{\partial v(x,y)}{\partial x}  \right) = 0
+\quad  \Rightarrow f(z) \not \Leftrightarrow f(x,y) = f\left( \dfrac{z + z^{\ast}}{2}, \dfrac{z - z^{\ast}}{2i}  \right)
+\] en otras palabras, la funciones analíticas son verdaderas funciones de variable complejas y no, como pudiera parecer, de dos variables reales interpuestas.
+\paragraph{Ejercicios}
+\begin{enumerate}
+  \item Determine la función $f(z)$ analítica cuya parte imaginaria es $(y \cos y + x  \mathrm{sen} \, z )e^{x}$
+  \item Muestre que si $f(z)$ es  analítica entonces $f^{\ast}(z^{\ast})$ también lo es.
+\end{enumerate} 
+\section{Series de Potencias en Variable Compleja}
+En otros de los Formularios de Métodos Matemáticos incursionamos en el terreno de las series de potencias en variables reales \cite{Nunez2006}. En esta sección generalizaremos la idea a series de potencias en variable compleja $z$. Esta generalización se conoce como ``prolongación'' o ``continuación'' (analítica) de una función real al plano complejo. Entonces\footnote{Por simplicidad y economía  consideraremos desarrollos en serie alrededor de $z = 0 $, ya que la generalización a otros puntos $z = z_{0}$ es sencilla y no involucra ninguna sutileza conceptual adicional.}
+\begin{equation}
+f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n} \equiv \sum_{n = 0}^{\infty} a_{n} r^{n} e^{i n \theta} 
+\quad \Rightarrow \sum_{n = 0}^{\infty} a_{n} z^{n} \text{ es absolutamente convergente si} \sum_{n = 0}^{\infty} | a_{n} | r^{n} \text{ converge}
+\label{SerieCompleja}
+\end{equation} 
+Dónde hemos utilizado la forma polar para un número complejo $z= r e^{i \theta} $. La conclusión más importante de (\ref{SerieCompleja}) es que siempre es posible asociarle a una serie de potencias complejas, $\sum_{n = 0}^{\infty} a_{n} z^{n}$,  una de potencias reales $\sum_{n = 0}^{\infty} | a_{n} | r^{n}$. La convergencia (absoluta) de ésta última condiciona la convergencia de la primera. Por ello los criterios de convergencia de series reales serán aplicables también en este contexto.
+
+\subsection{La convergencia y sus criterios}
+ De este modo y como siempre, si suponemos que existe el límite  
+\[
+ \rho = \frac{1}{R} = \lim_{n \rightarrow \infty}  \left| \frac{ a_{n+1} }{a_{n} } \right| 
+\]Dónde $R$ se denomina el \textit{radio de convergencia} y define una región círcular en torno a un punto $z_{0}$. 
+
+Si seleccionamos el criterio del cociente de  Dálembert, entonces 
+\[
+ \lim_{n \rightarrow \infty}  \left| \frac{ a_{n+1} z^{n+1}}{a_{n} z^{n+1}} \right| =   
+|z| \lim_{n \rightarrow \infty}  \left| \frac{ a_{n+1} }{a_{n} } \right| 
+\quad \text{entonces, en las regiones} \quad
+\left\{
+\begin{array}{lcl}
+|z| < R  & \Longrightarrow  & \text{converge}   \\ \\
+|z| > R & \Longrightarrow  & \text{diverge}   \\ \\
+|z| = R & \Longrightarrow  & \text{indeterminado}
+\end{array}
+\right.
+\]Por lo tanto, cuando $R=\infty$ la serie converge en todo punto y en contraste si $R = 0$, sólo converge en el origen. Por su parte si $R = R_{0}$ la serie converge en una región (un círculo) del plano complejo de radio $R_{0}$ centrada en $z_{0}=0$. 
+
+Entonces se puede analizar el comportamiento de series complejas utilizando el criterio del cociente de  Dálembert,
+ \[ 
+  \sum_{n = 0}^{\infty} \dfrac{z^{n}}{n!} \quad \Rightarrow  \lim_{n \rightarrow \infty}  \left| \dfrac{n!}{(n +1)!} \right| =
+  	 \lim_{n \rightarrow \infty}  \left| \dfrac{1}{n +1} \right| = 0 = \dfrac{1}{R} \quad \Rightarrow R \rightarrow \infty \quad 
+	\Rightarrow  \text{converge } \forall \, z \in \mathbb{C}
+  \] igualmente 
+  \[
+   \sum_{n = 0}^{\infty} \dfrac{(1 + i)^{n}}{n}  \Rightarrow  
+   \lim_{n \rightarrow \infty}  \left| \dfrac{n(1+i)^{n+1}}{(n+1)(1 + i)^{n} } \right| = 
+  | 1+i | \lim_{n \rightarrow \infty}  \left| \dfrac{n}{n+1} \right| = \sqrt{2}  \lim_{n \rightarrow \infty}  \left| \dfrac{n}{n+1}  \right|  \Rightarrow R = 1  \Rightarrow |z| = \sqrt{2} > 1 = R 
+  \] y por lo tanto esta serie diverge. Es claro que esta serie únicamente convergerá para $|z| < 1$ 
+ 
+ \subsection{Consecuencias y conclusiones para series de potencias complejas}
+ \label{ConsecuenciasSeriesComplejas}
+Dentro del círculo de convergencia la función $f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n}$ estará bien definida y disfrutará de las propiedades ideales para una función bien comportada. Es decir 
+\begin{enumerate}
+  \item La expansión $f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n}$ es única. Vale decir que si existen dos series $\sum_{n = 0}^{\infty} a_{n} z^{n}$ y $\sum_{n = 0}^{\infty} b_{n} z^{n}$, convergentes para $|z| < R$ y tienen la misma suma para un entorno de $z$. Entonces, necesariamente $a_{n} \equiv b_{n} $.
+  \item La función $f(z)$ también podrá ser expandida alrededor de cualquier otro punto $z_{p}$ contenido en el entorno de convergecia de radio $R$, su expansión  $f(z) = \sum_{n = 0}^{\infty} b_{n} (z - z_{p})^{n}$ también será única. El radio de convergencia para esta segunda serie será $R_{p} = R - |z_{p}| $
+  \item Por ser una expansión en potencias de $z$, la función $f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n}$ es diferenciable  en todo punto $z_{p}$ en el círculo de convergencia de radio $R$ y la derivada puede ser hecha a partir de la misma expansión en series de potencias, término a término, de tal forma que 
+  \begin{equation}
+  f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n} \quad \Rightarrow  
+  \frac{\mathrm{d} f}{\mathrm{d} z} = f'(z)  =  \sum_{n = 1}^{\infty} n \, a_{n} z^{n-1} \quad \Rightarrow  
+   f'(z_{p})  =  \sum_{n = 1}^{\infty} n \, a_{n} z_{p}^{n-1}
+   \label{SerieDeriv}
+  \end{equation}
+  Por lo tanto las funciónes $f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n}$ así descritas son analíticas en el entorno de convergencia de radio $R$.
+  \item Como  $f(z) = \sum_{n = 0}^{\infty} a_{n} z^{n}$ y $f'(z)  =  \sum_{n = 1}^{\infty} n \, a_{n} z^{n-1}$ tienen el mismo radio de convergencia, podemos aplicar $k$ veces la afirmación anterior y obtendremos
+  \[
+  f'(z)  =  \sum_{n = 1}^{\infty} n \, a_{n} z^{n-1} \quad \Rightarrow  
+  f^{k}(z_{p})  =  \sum_{n = k}^{\infty} n(n-1)(n-2)\cdots (n -k+1) \, a_{n} z_{p}^{n-k} \quad \text{para } z_{p} = 0
+  \Rightarrow a_{k}=\frac{f^{k}(0)}{k!} 
+  \]con lo cual la expansión de una función analítica es en realidad una expansión en series de Taylor
+  \[
+  f(z) = \sum_{n = 0}^{\infty} \frac{f^{n}(0)}{n!} z^{n}
+  \]Con esta última afirmación se cierra la idea que nos hacemos de una función bien comportada o analítica. Es una función infinitamente contínua y contínuamente diferenciable, la cual puede ser expandida en series de Taylor. Si bien los fenómenos físicos no requieren, necesariamente, ser descritos por este tipo de funciones, debido a sus notables propiedades han resultado ser una de las más estudiadas en Matemáticas \cite{AleksandrovKolmogorovLavrentiev1999}. Más adelante, en la sección \ref{TaylorLaurent} revisaremos estos conceptos a luz de la Fórmula Integral de Cauchy.
+\end{enumerate}
+Los detalles de estas afirmaciones que son teoremas se pueden consultar en  \cite{Knopp1996}.
+
+\section{Algunas Funciones Complejas Elementales}
+Con todos los ingredientes anteriores, la primera función candidata para una continuación analítica es la función exponencial. Es decir 
+ \begin{equation}
+ e^{z}   =   1 + z +\frac{z^2}{2} +\frac{z^3}{3!}+\frac{z^4}{4!}+\cdots + \frac{z^n}{n!} + \cdots \qquad \text{claramente } R \rightarrow \infty \quad \text{con lo cual converge }  \forall \, z \in \mathbb{C}
+ \label{expansionexp}
+ \end{equation}
+ Como ejercicio puede ser interensante demostrar que $e^{z_{1}}e^{z_{2}}=e^{(z_{1} +z_{2})}$. Vale decir
+ \[
+ e^{z_{1}}e^{z_{2}} = \left(  1 + z_{1} +\frac{z_{1}^2}{2} +\cdots + \frac{z_{1}^n}{n!} + \cdots \right)
+\left(  1 + z_{2} +\frac{z_{2}^2}{2} +\cdots + \frac{z_{2}^n}{n!} + \cdots \right)
+ \]con un poco de álgebra y orden podremos rearreglar la expresión de la forma
+ \[
+  e^{z_{1}}e^{z_{2}} = 1 + \left( \frac{z_{1}}{1!} + \frac{z_{2}}{1!} \right) + \left( \frac{z_{1}^2}{2!} + \frac{z_{1}}{1!}\frac{z_{2}}{1!} + \frac{z_{2}^2}{2!}\right)  + \cdots + 
+\frac{z_{1}^{n}}{n!} + \frac{z_{1}^{n-1}}{(n-1)!}\frac{z_{2}}{1!} + \frac{z_{1}^{n-2}}{(n-2)!}\frac{z_{2}^{2}}{2!}  
++ \cdots  +\frac{z_{1}}{1!} \frac{z_{2}^{n-1}}{(n-1)!} + \frac{z_{2}^{n}}{n!}
+ \]y mejor aún
+  \[
+  e^{z_{1}}e^{z_{2}} = 1 + \left( \frac{z_{1}}{1!} + \frac{z_{2}}{1!} \right) + \left( \frac{z_{1}^2}{2!} + \frac{z_{1}}{1!}\frac{z_{2}}{1!} + \frac{z_{2}^2}{2!}\right)  + \cdots + 
+\frac{1}{n!}\left( z_{1}^{n} + \frac{n!}{(n-1)!1!}z_{1}^{n-1}z_{2}  + \cdots  + \frac{n!}{1!(n-1)!}z_{1}z_{2}^{n-1} + z_{2}^{n}  \right)
+ \] que no es otra cosa que la expansión binomial con lo cual hemos demostrado que $ e^{z_{1}}e^{z_{2}} = e^{(z_{1} +z_{2})}$. 
+ Adicionalmente, con la expansión en serie (\ref{expansionexp}) podemos hacer un par de extensiones inmeditas: $ a^{z} = e^{z\ln a} $ y
+ \begin{equation}
+ \text{para } z =iy \quad \Rightarrow e^{iy} = \cos y + i  \mathrm{sen} \, y \quad \Rightarrow e^{z} = e^{x + iy} = e^{x} ( \cos y + i  \mathrm{sen} \, y)
+ \label{multiv}
+ \end{equation}
+ Nótese que, como era de esperarse en general $z= |z| e^{i \theta} $, entonces la función $f(z)=e^{z} \neq 0 \quad \forall \, z$ y tiene un período $2 i \pi$, vale decir: $f(z) \equiv f(z + 2 i \pi)$. Con lo cual es inmediado $e^{2 i \pi} = \cos 2 \pi + i  \mathrm{sen} \, 2 \pi$ 
+ A partir de la construcción (\ref{expansionexp}), se definen las funciones hiperbólicas y trigonométricas
+\begin{equation}
+ \cosh z = \frac{1}{2} \left( e^{z} + e^{-z} \right); \quad \mathrm{senh} \, z =  \frac{1}{2} \left( e^{z} - e^{-z} \right) \quad   \cos z = \frac{1}{2} \left( e^{iz} + e^{-iz} \right); \quad \mathrm{sen} \, z =  \frac{1}{2i} \left( e^{iz} - e^{-iz} \right) 
+ \label{ComplexTrig}
+\end{equation}
+
+Al igual que para el caso real $
+y= e^{x} \quad \Rightarrow x = \ln y$ entonces $ w = f(z) = e^{z} \quad \Rightarrow z = \mathrm{Ln} \, w
+$ es decir $z = \ln w $ es la función inversa para $w =  e^{z} $. 
+
+Si $e^{w}=z$, y $w = u +iv$ con $z = x +iy \equiv |z|e^{i\theta}$ entonces 
+\[
+e^{w}=e^{u +iv} =e^{u}e^{iv} = |z|e^{i\theta}= z \quad \Rightarrow
+\left\{
+\begin{array}{ccl }
+  e^{u} = |z| & \Leftrightarrow    &  u = \ln |z|  \\ \\
+     &  v = \theta  &
+\end{array}
+\right\} \quad \Rightarrow w = \mathrm{Ln} \, z = \ln |z| + i(\theta + 2n\pi)
+\]Es decir para un determinado valor de $n$ es univaluada, en particular para $n = 0$ la función $f(z) = \mathrm{Ln} \, z$ tiene como el \textit{valor principal } $\ln z =  \ln |z| + i\theta$ con $-\pi < \theta \leq \pi$. Es inmediato comprobar que los logaritmos de números complejos negativos si están definidos. Esto es
+\[
+\mathrm{Ln} \, -7  \equiv \mathrm{Ln} \,\left( |-7| e^{i(\pi + 2n\pi)} \right) = \ln 7 + i(\pi + 2n\pi) \quad \Rightarrow
+\ln( -7) =  \ln 7 + i\pi \quad \text{¡ un número complejo !}
+\]
+
+\paragraph{Ejercicios} 
+ \begin{enumerate}
+  \item Muestre que si definimos $f(z) e^{z} $ como aquella función que derivada es ella misma, que se reduce a la función de variable real $e^{z}\rightarrow e^{x} $ si $\mathrm{Im}\, z =0$ y la cual, por ser analítica, cumple con la condiciones de Cauchy-Riemann, entonces $e^{z} = e^{x + iy} = e^{x} ( \cos y + i  \mathrm{sen} \, y)$ 
+\item Muestre que a partir de las definiciones (\ref{ComplexTrig}) se obtienen las sempiternas propiedades de esas funciones, vale decir
+\[
+\begin{array}{ccc }
+   \cos z =  \cos (-z);   & -\mathrm{sen} \, z =\mathrm{sen} \, (-z); &  \cos (z_{1} \pm z_{2} ) =  \cos z_{1}   \cos z_{2}  \mp  \mathrm{sen} \, z_{1} \mathrm{sen} \, z_{2}  \\ \\
+   \dfrac{\mathrm{d}  \cos z}{\mathrm{d} z} = -  \mathrm{sen} \, z   &  \dfrac{\mathrm{d} \, \mathrm{sen} \, z }{\mathrm{d} z} =   \cos z    &  \mathrm{sen} \, (z_{1} \pm z_{2} ) =  \cos z_{1}  \mathrm{sen} \, z_{2}   \pm  \mathrm{sen} \, z_{1} \cos z_{2}
+\end{array}
+\] 
+\item  Muestre que $\arctan z = \dfrac{1}{2i} \ln \left( \dfrac{1 +zi}{1-zi} \right)$ y luego úselo para evaluar
+$\arctan \left( \dfrac{2 \sqrt{3} - 3i}{7} \right)$
+\end{enumerate} 
+
+\section{Puntos de corte, líneas de cortes y ceros de funciones complejas}
+También mencionamos en el otro formulario \cite{Nunez2006}, que los números complejos se representan por su forma polar en dos ejes coordenados. Ese diagrama bidimiensional se lo llamamos Diagrama de Argand. Como en el caso del Análisis de Funciones Reales, existen funciones \textit{multivaluadas}, a las cuales les debemos imponer ciertas condiciones para convertirlas en \textit{univaluadas}. El la idea que si una función es multivaluada, automáticamente deja de ser analítica. El objetivo de esta sección es identificar ese conjunto de condiciones para detectar en cual región del plano complejo una determinada función es univaluada. 
+\subsection{Puntos y líneas de corte}
+Consideremos entonces la función $f(z) = z^{1/2}$ y hagamos distintos circuitos cerrados $0 \leq \theta < 2 \pi$ con el  ``vector'' $z$. 
+\[
+f(z) = z^{1/2} \equiv r^{1/2} e^{i\theta/2} \quad \rightarrow f(z) =  r^{1/2} e^{i \theta/2}  \quad \rightarrow  r^{1/2} e^{i(\theta +2\pi)/2} = -  r^{1/2} e^{i \theta/2} 
+\]
+Visto así nos tendremos que preguntar ahora cual fue el circuito que recorrimos con $z$, y dependiendo de ese circuito identificaremos algunos puntos con características distintas. Si el circuito cerrado descrito por $z$  \textbf{no} contiene el punto $z=0$, la función $f(z) = z^{1/2}$ retoma su valor original (ver Figura \ref{Fig1VarCompleja} cuadrante superior izquierdo contorno $\mathcal{C}_{1}$). Pero si, como se aprecia en la misma Figura \ref{Fig1VarCompleja},  el circuito cerrado $\mathcal{C}_{2}$ \textbf{si} contiene el punto $z=0$ entonces la función no retoma su valor original, $f(z) \rightarrow -f(z)$. También es claro que si el circuito cerrado lo recorremos dos veces $\theta \rightarrow 4 \pi$ entonces  $f(z) = z^{1/2}$  retoma su valor inicial. Los puntos alrededor de los cuales se construye un circuito cerrado en el diagrama de Argand y la función no retoma su valor inicial se denominan \textit{puntos de corte} y las \textit{líneas de corte} (o simplemente \textit{cortes} serán aquellas líneas que separan regiones en las cuales una determinada función es univaluada. Es claro que los puntos de corte son puntos singulares, en los cuales la función deja de ser analítica y existirán si $\theta$ toma, valores $0 \leq \theta \leq 2n \pi $. Es decir, puede dar $n$ vueltas. 
+
+En este caso, para nuestra función   $f(z) = z^{1/2}$, la línea de corte será cualquiera que comience en $z=0$ y continúe para $|z| \rightarrow \infty$. Por simplicidad es costumbre tomar las líneas de corte a lo largo de los ejes reales o complejos. De este modo aparece ilustrado en la Figura \ref{Fig1VarCompleja} cuadrante superior derecho la línea de corte que sigue el eje positivo de las $x$.
+
+La situación se torna más interesante cuando estas definiciones se analizan a la luz de funciones con más de un punto de corte. Consideremos la función 
+\[
+f(z) = \sqrt{z^{2} +1} \quad \Rightarrow f(z) = \sqrt{(z -i)(z + i)} \equiv \sqrt{\left(r_{1}e^{i\theta_{1}} \right) \left(r_{2}e^{i\theta_{2}} \right)} =  \sqrt{r_{1} r_{2}}e^{i\theta_{1}/2}e^{i\theta_{2}/2} = 
+ \sqrt{r_{1} r_{2}}e^{i(\theta_{1}+ \theta_{2})/2}
+\]analicemos entonces, varios contornos en el plano de Argand. Otra vez la  Figura \ref{Fig1VarCompleja} ilustra en el  cuadrante inferior los distintos contornos $\mathcal{C}_{1},\mathcal{C}_{2},\mathcal{C}_{3}$ y $\mathcal{C}_{4}$
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.6in]{Capt7VarCompleja/Fig1VarCompleja.jpg}
+\caption{Los distintos contornos que identifican los puntos de corte}
+\label{Fig1VarCompleja}
+\end{center}
+\end{figure}
+Tal y como se aprecia en esa figura, se dan cuatro caso
+\begin{enumerate}
+  \item Contorno $\mathcal{C}_{1}$ no incluye ningún punto de corte, entonces $\theta_{1min} \leq \theta_{1} \leq \theta_{1max}$ y $\theta_{2min} \leq \theta_{2} \leq \theta_{2max}$, con lo cual $f(z)$ retoma su valor inicial luego de recorrer el $\mathcal{C}_{1}$
+  \item Contorno $\mathcal{C}_{2}$  incluye $z=i$ como punto de corte, entonces $0 \leq \theta_{1} \leq 2 n \pi$ y $\theta_{2min} \leq \theta_{2} \leq \theta_{2max}$, por lo cual $f(z) \rightarrow -f(z)$
+ \item Contorno $\mathcal{C}_{3}$  incluye $z=-i$ como punto de corte, entonces  $\theta_{1min} \leq \theta_{1} \leq \theta_{1max}$ y  $0 \leq \theta_{2} \leq 2 n \pi$, por lo cual $f(z) \rightarrow -f(z)$
+\item Contorno $\mathcal{C}_{4}$  incluye ambos como punto de corte,$z=i$ y $z=-i$,  entonces   $0 \leq \theta_{1} \leq 2 n \pi$ y $0 \leq \theta_{2} \leq 2 n \pi$, por lo cual $f(z) \rightarrow f(z)$ retoma su valor.
+\end{enumerate}
+De este modo para construir los cortes que impidan que nuestra función se multivaluada podremos selecionar 
+\begin{itemize}
+  \item $z_{\text{corte}} > i$ y $z_{\text{corte}} < -i$
+  \item  $-i < z_{\text{corte}} < i$
+\end{itemize}
+
+\subsection{Singularidades, polos y ceros de funciones complejas.}
+Los puntos de corte son sigularidades, esto puntos en los cuales la función $f(z)$ deja de ser analítica. Pero también \textit{singulariades aisladas} aquellos puntos en los cuales la función no es analítica pero en todos los puntos en su entorno lo es (los puntos de corte no son singularidades aisladas). Una singularidad aisladas de orden $n$ en el punto $z = z_{0}$ tendrá la forma  
+\[
+f(z) = \frac{g(z)}{(z -z_{0})^{n}} \quad \leftrightarrow \quad 
+\lim_{z \rightarrow z_{0}} \left[ (z - z_{0})^{n} f(z) \right] = l \qquad \text{con } l \text{ finito distinto de cero}
+\label{ordensingularidad}
+\] y donde $g(z)$ es una función analítica. Es costumbre denominar a estas singularidades \textit{polos}. Si $l$ es cero, será un polo de orden menor a $n$ o la función es analítica en ese punto. Si el límite es infinito, entonces el polo será de orden mayor a $n$. 
+
+Sin demostración afirmaremos algo que parece intuitivo. Si una función $f(z)$ tiene un polo en $z = z_{0}$ entonces, $|f(z)| \rightarrow \infty$ cuando $z \rightarrow z_{0}$
+
+Si no se puede determinar un valor finito de $n$ diremos que estamos frente a una \textit{singularidad esencial}
+
+Veamos algunos ejemplos
+\begin{itemize}
+  \item Para
+  \[
+  f(z) = \frac{1}{1 -z} - \frac{1}{1 + z} = \frac{2z}{(1-z)(1+z)}
+  \]
+  y es inmediato darse cuenta que tendremos polos de orden $1$ en $z =1$ y $z =-1$
+  \item Para
+  \[
+  f(z) = \tanh z = \frac{ \mathrm{senh}\ z}{\cosh z} = \frac{ \exp z - \exp(-z)}{ \exp z + \exp(-z)}
+  \quad \Rightarrow  \exp z = \exp(i(2n + 1) \pi ) \exp(-z) \quad \text{es un polo}
+  \]
+  es decir donde $\exp z = -\exp(-z)$, con lo cual $z_{0} = \left( n + \frac{1}{2} \right) i \pi $ y al utilizar la definición  
+  \[
+  \lim_{z \rightarrow \left( n + \frac{1}{2}\right)i\pi}
+\left( \frac{\left[ z - \left( n + \frac{1}{2}\right)i\pi \right]\mathrm{senh}\ z}{\cosh z} \right) =
+\lim_{z \rightarrow \left( n + \frac{1}{2} \right) i\pi} 
+\left( \frac{\left[ z - \left( n + \frac{1}{2}\right) i\pi \right] \cosh z + \mathrm{senh}\ z}{\mathrm{senh}\ z} \right) =1
+  \]donde hemos utilizado el Teorema de L'Hopital y consecuentemente $z_{0} = \left( n + \frac{1}{2} \right) i \pi $ es un polo simple
+
+\end{itemize}
+
+Existe otro tipo de singularidades conocidas como removibles. Estas singularidades se caracterizan porque el valor de $f(z) \rightarrow 0/0$ cuando $z \rightarrow z_{0}$. El caso más emblemático es la función 
+\[
+f(z)  =  \frac{ \mathrm{sen}\ z}{z} \quad \Rightarrow f(z)  = \frac{1}{z} \left( z - \frac{z^{3}}{3!} +
+ \frac{z^{5}}{5!}  \cdots \right) =  \left( 1 - \frac{z^{2}}{3!} + \frac{z^{4}}{5!}  \cdots \right) 
+ \quad \Rightarrow \lim_{ z  \rightarrow 0} f(z)  = 1
+\]con lo cual, luego de desarrollar por Taylor la función $ \mathrm{sen}\ z$, se ha removido la singularidad aparente.
+
+El comportamiento de una función compleja en infinito (o cuando tiende a infinito), vale decir cuando $z \rightarrow \infty$ no está tan bien definido como en los casos de funciones de variable real. Es claro como una cantidad real, digamos $|f(z)|$ o $|z|$ tiende a infinito, pero $z$ es una cantidad ``bidimensional'' y, en principio, existirían varias formas de tender a infinito. Para precisar el comportamiento de una función compleja de variable compleja en infinito, hacemos un cambio de variable $z = 1/\xi$ y estudiamos $f(1/\xi)$ con $1/\xi \rightarrow \infty$. De esta manera
+\begin{itemize}
+  \item $\lim_{z \rightarrow \infty} z(1 + z^2) \equiv  \lim_{\xi \rightarrow 0} \frac{1}{\xi} + \frac{1}{\xi^{3}}  $ con lo cual tendrá un polo de orden $3$
+  \item $\lim_{z \rightarrow \infty} \exp z \equiv  \lim_{\xi \rightarrow 0} 
+  \sum_{n=0}^{\infty}  \frac{1}{n! \ \xi^{n}}$ y presenta una singularidad esencial para $z \rightarrow \infty$
+\end{itemize}  
+
+Los ceros de una función compleja ($f(z_{0}) = 0$, entonces llamaremos $z_{0}$ un cero de $f(z)$) se clasifican al igual que los polos. Esto es
+\[
+f(z) = (z -z_{0})^{n}g(z) \text{   con } n \text{ entero positivo y } g(z) \neq 0 \quad \forall \ z 
+\]
+\section{Transformaciones conformes}
+\label{TransConf}
+Nos interesará ahora considerar transformaciones entre planos complejos. Esto es
+\[
+z = x + iy \quad \leftrightarrow \quad w = r + is \qquad \Rightarrow w = g(z) = r(x,y) + is(x,y)
+\quad \leftrightarrow \quad z = h(w) =  x(r,s) + iy(r,s)
+\]
+\subsection{Definiciones y propiedades}
+Es decir, son transformaciones entre puntos $(x,y) \leftrightarrow (r,s)$ correspondientes a dos diagramas de Argand, de tal modo que existe función inversa función $z=h(g(z))$ y con $w = g(z)$ y $z = h(w)$ funciones analíticas, salvo en un número finito de polos aislados. Entonces denominaremos a este tipo de \textit{transformaciones conformes} si además,  en todo punto $z$ y $w$ (excepto en aquellos en los cuales $g'(z)$ y por lo tanto $h'(w)$ son cero o infinita) cumple con
+\begin{itemize}
+  \item Curvas contínuas en el plano $z$ transforman en curvas contínuas en el $w$
+  \item Los ángulos entre dos curvas cualesquiera que se intersecten en el plano $z$ serán los mismos que los que formen las curvas transformadas en el plano $w$. Esto es los ángulos entre las curvas serán invariantes bajo la transformación\footnote{De esta propiedad es donde la transformación hereda su nombre de conforme. Son transformaciones \textit{isogonales} es decir, que preservan los ángulos entre curvas que se intersectan que son transformadas} 
+  \item El cambio de escala en la vecindad de puntos transformados es independiente de la dirección en la cual se mida.
+  \item Cualquier función analítica en $z  =  x + iy$ transforma en otra función $w =  r + i s$ también analítica
+\end{itemize}
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig2VarCompleja.png}
+\caption{Tranformaciones conformes. Tomado de Eric W. Weisstein. \textbf{Conformal Mapping}. \textit{MathWorld--A Wolfram Web Resource.} \url{http://mathworld.wolfram.com/ConformalMapping.html}
+}
+\label{Fig2VarCompleja}
+\end{center}
+\end{figure}
+La segunda de las afirmaciones es inmediata a partir de la primera. Es decir, si una transformación conforme de coordenadas tienen inversa y ambas són analíticas, es obvio que curvas contíunas $\mathcal{C}(z)$ serán transformadas a curvas contínuas $\tilde{\mathcal{C}}(w)$. 
+
+El hecho que la transformación conforme preserva el ángulo y las escalas se muestra en la figura \ref{Fig3VarCompleja} y puede comprobarse de la siguiente manera. Considere dos curvas, $\mathcal{C}_{1}(z)$ y $\mathcal{C}_{2}(z)$, en el plano complejo  $z = x + iy$. Supongamos además que estas curvas se intersectan en un punto $z = z_{0}$. Entonces, sobre las tangentes a cada curva, en $z_{0}$, definimos otros dos puntos $z_{1}$ y $z_{2}$ de tal forma que 
+\[
+\left.
+\begin{array}{c}
+  z_{1} - z_{0} = \rho e^{i \theta_{1}}        \\ \\
+  z_{2} - z_{0} = \rho e^{i \theta_{2}}         
+\end{array}
+\right\} \quad \Rightarrow
+\left\{
+\begin{array}{c}
+  w_{1} - w_{0} = \rho_{1} e^{i \phi_{1}}        \\ \\
+  w_{2} - w_{0} = \rho_{2} e^{i \phi_{2}}         
+\end{array}
+\right. 
+\]Nótese que hemos construido los puntos $ z_{1}$ y  $z_{2}$ sobre las tangentes a $z_{0}$ a la misma distancia $\rho$ de $z_{0}$ y, en principio, hemos supuesto que las distancias a los puntos transformados $ w_{1}$ y   $w_{2}$ (las cuales hemos identificado como $\rho_{1}$ y   $\rho_{2}$, respectivamente), no son iguales. Ahora  bien, dado que $w = g(z)$ es analítica entonces 
+\[
+\left. \frac{\mathrm{d} g(z) }{ \mathrm{d} z} \right|_{z = z_{0}} = 
+\left. \frac{\mathrm{d} w }{\mathrm{d} z} \right|_{z = z_{0}} =
+\lim_{z_{1} \rightarrow z_{0}} \frac{ w_{1} - w_{0} }{z_{1} - z_{0}} = 
+\lim_{z_{2} \rightarrow z_{0}} \frac{ w_{2} - w_{0} }{z_{2} - z_{0}} \Rightarrow
+g'(z_{0}) = \lim_{\rho \rightarrow 0} \frac{\rho_{1}}{\rho} \exp i(\phi_{1} -\theta_{1}) =
+\lim_{\rho \rightarrow 0} \frac{\rho_{2}}{\rho} \exp i(\phi_{2} -\theta_{2})
+\]Es claro que al comparar las magnitudes y las fase demostramos que las transformaciones conformes preservan las distancias, $\rho_{1} = \rho_{2}$, y los ángulos 
+$(\phi_{2} -\phi_{1}) = (\theta_{2} -\theta_{1})$. Adicionalmente, es muy fácil convecerse que si la transformación conforme conserva los ángulos entre curvas y las escalas en todas direcciones las figuras son transformadas en figuras equivalentes quizá ampliadas y rotadas, pero no deformadas. 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig3VarCompleja.png}
+\caption{Tranformaciones conformes. Cuadrante superior representa las conservación de ángulos y escala bajo transformaciones y el inferior un ejemplo de transformaciones conforme}
+\label{Fig3VarCompleja}
+\end{center}
+\end{figure}
+
+\subsection{Algunas consecuencias y ejemplos}
+Las consecuencias de la última afirmación revisten alguna importancia. Si $f=f(z)$ es anal'tica en el plano $(x,y)$ y la transformación $z = h(w)$ también lo es, entonces la función $F(w) = f(h(w))$ necesariamente es analítica en el plano $(r,s)$.  
+\[
+\frac{\Delta F}{\Delta w} = \frac{\Delta f}{\Delta h} \frac{\Delta h}{\Delta w} \equiv 
+ \frac{\Delta f}{\Delta z} \frac{\Delta h}{\Delta w} 
+\]
+Por hipótesis supusimos que $f$ y $h$ erán analíticas, por lo cual es inmediato concluir que debido a que los dos factores de la derecha son anal'ticos, la función $F(w)$ también lo será.
+ 
+Esto implica que, tal y como mostramos en la sección \ref{CurioCauchy} si $f(z) = u(x,y) + i v(x,y)$, es análitica, entonces $u(x,y)$ y $v(x,y)$ serán funciones armónicas conjugadas, vale decir que satisfacen la ecuación de Laplace, con lo cual $\nabla^{2}u(x,y) = \nabla^{2}v(x,y) =0$. Eso significa que si $F = \Phi(w) + i \Psi(w)$. En otras palabras,  
+\[
+f = \phi + i \psi \quad \Rightarrow 
+\left\{
+\begin{array}{l}
+  \dfrac{\partial^{2} \phi }{\partial x^{2}} + \dfrac{\partial^{2} \phi }{\partial y^{2}} = 0    \\    \\
+  \dfrac{\partial^{2} \psi }{\partial x^{2}} + \dfrac{\partial^{2} \psi }{\partial y^{2}} = 0        
+\end{array}
+\right\} \quad \Leftrightarrow \quad
+F = \Phi + i \Psi \quad \Rightarrow 
+\left\{
+\begin{array}{l}
+  \dfrac{\partial^{2} \Phi }{\partial x^{2}} + \dfrac{\partial^{2} \Phi }{\partial y^{2}} = 0    \\    \\
+  \dfrac{\partial^{2} \Psi }{\partial x^{2}} + \dfrac{\partial^{2} \Psi }{\partial y^{2}} = 0        
+\end{array}
+\right\}
+\]Esto impone que si $\Re f(z) = \phi$ es constante en el plano $(x,y)$, también lo será $\Re F(w) \Phi$  en $(r,s)$ (¡ Demuéstrelo !). Esta propiedad derivó una serie de aplicaciones en la solución de la ecuación de Laplace en dos dimensiones. Si bien es una técnica elegante y útil cuando es posible, no deja de ser limitada porque se restringe a 2D. Hoy los métodos numéricos para resolver ecuaciones diferenciales en derivadas parciales han superado con creces este tipo de técnicas.
+
+Los ejemplos son variados. 
+\begin{itemize}
+  \item las siguientes transformaciones representan
+\[
+\text{traslaciones: } w = z + b; \qquad \text{rotaciones de ángulo } \theta \text{: } w = z e^{i\theta };
+\quad \text{expansiones de escala } a: w = az \] y pueden ser combinadas como: 
+$w = a z + b $ con $a$ y $b$ números complejos. Para la traslación es inmediado.  Para la rotación también si recordamos que $z = |z|e^{i \phi}$ con lo cual $w = |z|e^{i \phi} e^{i\theta} = |z|e^{i (\phi+\theta)}$
+  \item también la transformación de inversión $w = 1/z$ que transforma los puntos del interior de un círculo unidad a su exterior y viceversa. Una vez más, $w = \dfrac{1}{z} = \dfrac{1}{|z|e^{i \phi}} = \left| \dfrac{1}{z} \right|e^{-i \phi} $. Entonces es claro que 
+ \[ 
+  0 \leq |z| \leq 1 \quad \Rightarrow \infty < |w| \leq 1 \qquad \wedge \qquad
+    1 \leq |z| \leq \infty \quad \Rightarrow 0 < |w| \leq 1
+  \]
+  \item Un caso más interesante lo constituye la transformación $w = e^{i\theta }\left(\dfrac{z - z_{0}}{z - z^{\ast}_{0}} \right)$, la cual transforma los puntos $z_{0}$ del semiplano superior complejo  $y > 0$ al interior de un círculo unidad en el $w-$plano (ver figura \ref{Fig3VarCompleja} en la página \pageref{Fig3VarCompleja}). Para convencernos de ello notamos que 
+  \[
+  |w| = \left| e^{i\theta }\left(\dfrac{z - z_{0}}{z - z^{\ast}_{0}} \right) \right| = \left| \dfrac{z - z_{0}}{z - z^{\ast}_{0}} \right| 
+  \] En general si $z_{0}$ y $z$ los consideramos en el semiplano complejo superior $y \geq 0$, entonces siempre se cumple que $|z - z_{0}| \leq |z - z^{\ast}_{0}|$ con lo cual $|w| \leq 1$ y como se cumple para todo $z$ en ese semiplano, entonces cada uno de esos puntos es transformado dentro de un círculo de radio $|w|$. Es inmediato convencerse que, la igualdad se cumple para puntos $z$ sobre el eje real y que el punto $z = z_{0}$ es llevado al punto $w = 0$  Finalmente, notamos que si conocemos como transforman dos puntos $z_{1} \rightarrow w_{1} $ y $z_{2} \rightarrow w_{2} $ entonces podremos determinar la transformación. Esto es, conocer los valores de los parámetros $z_{0}$ y $\phi$ Este caso lo podemos apreciar si consideramos un par de puntos en el semiplano complejo y conocemos como tranforman. Digamos $z = i$ sobre el eje imaginario e imponemos que sea transformado a $w =0$ entonces es inmediato determinar que $z_{0} = i$ Por otro lado si imponemos que $z = \infty \Rightarrow w =1$ entonces $1 = w = e^{i\theta } \Rightarrow \theta =0$ con lo cual 
+ $ w =\dfrac{z -i}{z +i} $
+\end{itemize}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig4VarCompleja.png}
+\caption{Integrales complejas y circuitos}
+\label{Fig4VarCompleja}
+\end{center}
+\end{figure}
+
+\section{Integrales complejas}
+Como siempre, luego de definir la derivada, construimos el concepto de integral a partir de la suma de Riemann. Esto es
+\[
+S_{n} = \sum_{j=1}^{n} f(\zeta_{j}) (z_{j} - z_{j-1}) \quad \text{si } n \rightarrow \infty \quad 
+\Rightarrow |z_{j} - z_{j-1}| \rightarrow 0 \quad  \Rightarrow 
+\lim_{n \rightarrow \infty} \sum_{j=1}^{n} f(\zeta_{j}) (z_{j} - z_{j-1}) = \int_{z_{1}}^{z_{2}} \mathrm{d}z \ f(z)
+\]Es decir que si el $\lim_{n \rightarrow \infty} S_{n}  $ existe corresponde con la definición de la integral. 
+
+\subsection{Algunas propiedades}
+Es claro que esta integral es, necesariamente, una integral de línea, ya que $z$ tiene ``dos dimensiones''
+\begin{equation}
+ \int_{z_{1}}^{z_{2}} \mathrm{d}z \ f(z) 
+ =  \int_{z_{1}}^{z_{2}} \left(  \mathrm{d}x + i \mathrm{d}y \right)  \left(u(x,y) + i v(x,y) \right) = 
+ \int_{x_{1},y_{1}}^{x_{2},y_{2}} \left( u(x,y) \mathrm{d}x - v(x,y) \mathrm{d}y \right) + i  \int_{x_{1},y_{1}}^{x_{2},y_{2}}  \left( v(x,y) \mathrm{d}x + u(x,y) \mathrm{d}y \right)
+ \label{IntegralCompleja}
+\end{equation} 
+con lo cual transformamos una integral compleja en una suma de integrales reales, pero necesitamos definir el contorno a través del cual vamos de $z_{1} = x_{1} + iy_{1} \rightarrow z_{2} = x_{2} + iy_{2}$
+
+La integración compleja tendrá las propiedades acostumbradas
+\begin{itemize}
+  \item $ \int_{\mathcal{C}} \mathrm{d}z \ \left( f(z) + g(z) \right) =   \int_{\mathcal{C}} \mathrm{d}z \ f(z) +  \int_{\mathcal{C}} \mathrm{d}z g(z)  $
+  \item  $\int_{\mathcal{C}} \mathrm{d}z \ K f(z) = K \int_{\mathcal{C}} \mathrm{d}z \  f(z)  \text{ con } K \text{ una constante real o compleja} $
+  \item $\int_{a}^{b } \mathrm{d}z \ f(z) = -\int_{b}^{a} \mathrm{d}z \ f(z)$
+  \item $\int_{a}^{b } \mathrm{d}z \ f(z) = \int_{a}^{m} \mathrm{d}z \ f(z) + \int_{m}^{b} \mathrm{d}z \ f(z)$
+  \item $\int_{\mathcal{C}} \mathrm{d}z \ | f(z) | \leq ML$ donde $M = \max | f(z) |$ y $L$ la longitud de $\mathcal{C}$
+\end{itemize}
+Esta última propiedad es importante porque permite establecer cotas a las integrales complejas sin tener que evaluarlas. De la definición de integral es casi inmediata la demotración 
+\[
+\lim_{n \rightarrow \infty} \sum_{j=1}^{n} f(\zeta_{j}) \Delta z_{j}  = \int_{z_{1}}^{z_{2}} \mathrm{d}z \ f(z) 
+ \quad \Rightarrow
+ \left| \sum_{j=1}^{n} f(\zeta_{j}) \Delta z_{j}  \right| \leq \sum_{j=1}^{n} | f(\zeta_{j}) | \ | \Delta z_{j} |  \leq
+ M   \sum_{j=1}^{n}  | \Delta z_{j} |   \leq ML
+\]
+Donde hemos utilizado que $ | f(\zeta_{j}) | \leq M$ y que la suma de los intervalos $\Delta z_{j} = z_{j} - z_{j-1}$ es la longitud $L$ del recorrido $\mathcal{C}$. Es claro que tomando límites a ambos miembros obtendremos $\left| \int_{\mathcal{C}} \mathrm{d}z \  f(z) \right| \leq \int_{\mathcal{C}} \mathrm{d}z \ | f(z) | \leq ML$
+\subsection{Un par de ejemplos}
+Por ejemplo, evaluemos la integral compleja $f(z) = z^{-1}$ a lo largo de diferentes contornos, tal y como se ilustran en la figura \ref{Fig4VarCompleja}
+\begin{itemize}
+  \item un circuito cerrado a lo largo de una circunferencia de radio $R$ 
+  \[
+  \oint  \mathrm{d}z \ z^{-1} \equiv \oint \mathrm{d}(Re^{i\theta}) \ R^{-1}e^{-i\theta} =
+  i \int_{0}^{2 \pi}  \mathrm{d}\theta = 2 \pi i 
+  \]
+  \item siguiendo una semicircunferencia desde $(R,0) \rightarrow (-R,0)$. Esto es
+  \[
+  \int_{z_{1} = (R,0)}^{z_{2} = (-R,0)} \mathrm{d}z \ z^{-1} =  \int_{(R,0)}^{(R,\pi)} \mathrm{d}(Re^{i\theta}) \ R^{-1}e^{-i\theta} =  i \int_{0}^{ \pi}  \mathrm{d}\theta = \pi i
+  \]
+  \item siguiendo dos líneas rectas entre los puntos $(R,0) \rightarrow (0,R) \rightarrow (-R,0)$. En este caso, procedemos utilizando la expresión cartesiana para los números complejos. Para ello, vamos a parametrizar $z = z(t)$ para $(R,0) \rightarrow (0,R)$ y $z = z(s)$ cuando $(0,R) \rightarrow (-R,0)$. Veamos
+  \[
+  \int_{z_{1} = (R,0)}^{z_{3} = (-R,0)} \mathrm{d}z \ z^{-1} =  
+  \int_{z_{1} = (R,0)}^{z_{2} = (0,R)} \mathrm{d}z \ z^{-1} 
+  +  \int_{z_{2} = (0,R)}^{z_{3} = (0,-R)} \mathrm{d}z \ z^{-1} 
+  \]para cada una de las integrales se cumple, respectivamente, que 
+  \[
+  z = (1 -t)R + itR \quad \text{con } 0 \leq t \leq 1 \qquad \wedge \qquad  
+   z = -sR + i(1 -s)R \quad \text{con } 0 \leq s \leq 1
+  \]con lo cual
+  \[
+  \int_{z_{1} = (R,0)}^{z_{2} = (-R,0)} \frac{ \mathrm{d}z}{z} =
+  \int_{0}^{1}   \mathrm{d} t \frac{-1 +i}{1 +t(-1 +i)} +  \int_{0}^{1}   \mathrm{d} s \frac{-1 -i}{i +s(-1 -i)}
+  \]procedemos entonces con la primera de las integrales
+  \[
+   \int_{0}^{1}   \frac{(-1 +i) \mathrm{d} t}{(1-t) +it} =  \int_{0}^{1}  \frac{(-1 +i)((1-t) -it) \mathrm{d} t}{(1-t)^{2} -t^{2}} = \int_{0}^{1}   \frac{(2t -1) \mathrm{d} t}{1 -2t +2t^{2}} + 
+   i \int_{0}^{1}   \frac{ \mathrm{d} t}{1 -2t +2t^{2}} 
+  \]es decir
+  \[
+   \int_{0}^{1}   \frac{(-1 +i) \mathrm{d} t}{(1-t) +it} = \frac{1}{2} \left. \ln(1 -2t +2t^{2}) \right|_{0}^{1} +  i \left. \arctan \left( \dfrac{t - \frac{1}{2}}{\frac{1}{2}} \right) \right|_{0}^{1} =
+   0 + \frac{i}{2} \left( \frac{\pi}{2} - \left( - \frac{\pi}{2}  \right) \right) =  \frac{\pi}{2} 
+  \]y, la segunda integral también tendrá el mismo resultado, con lo cual 
+  \[
+   \int_{z_{1} = (R,0)}^{z_{2} = (-R,0)} \frac{ \mathrm{d}z}{z} = \pi i \quad \text{¡ el mismo resultado que a través del arco de circunferencia !}
+  \] Es interesante notar que si regresamos al punto $(R,0)$  a través del contorno 
+  $(-R,0) \rightarrow (0,-R) \rightarrow (R,0)$ la integral cerrada se anula, no así cuando nos regresamos a través el arco complementario de circunferencia. En pocas palabras, como se esperaba, el valor de las integrales de camino, para algunas funciones, dependeran del camino seleccionado. En la próxima sección veremos a cuáles funciones corresponderá un mismo valor de la integral cerrada, independientemente del circuito que uno elija. Queda como ejercicio al lector repetir los mismos pasos anteriores para el caso de $f(z) = (z^{\ast})^{-1}$
+  
+  
+  Otro ejemplo ilustrativo lo constituye 
+  \[
+   \oint   \frac{ \mathrm{d}z}{(z - z_{0})^{n+1}}   \Rightarrow
+   \int_{0}^{2\pi} \frac{R i e^{i\theta} \mathrm{d}\theta}{R^{n+1} e^{i(n+1)\theta}} = 
+   \frac{i}{R^{n}} \int_{0}^{2\pi}   \mathrm{d}\theta \ e^{-i n \theta}   \Rightarrow
+   \left\{ 
+   \begin{array}{ll}
+   n = 0:   &   \int_{0}^{2\pi}   \mathrm{d}\theta = 2i \pi    \\ \\
+   n \neq 0:   & \frac{i}{R^{n}} \int_{0}^{2\pi}   \mathrm{d}\theta \ (\cos n \theta - i\mathrm{sen} \ n \theta ) =0   
+\end{array}
+   \right.
+  \] donde hemos utilizado la forma polar $z - z_{0} \equiv R e^{i\theta}$ e integrado a lo largo de una circunsferencia de radio $R$ centrada en $z = z_{0}$
+  
+  
+\end{itemize}
+\section{Teorema Integral de Cauchy}
+\subsection{El Teorema y las Regiones}
+El teorema integral de Cauchy es uno de los dos teoremas básicos en la teoría de funciones de variable compleja. Este teorema considera que si $f(z)$ es analítica en una región simplemente conexa, $\mathcal{R}$, en su contorno $\mathcal{C}$ y su derivada $f'(z)$ existe y es contínua en esta región\footnote{Esta última condición no es necesaria, pero la demostración del Teorema se torna mucho más sofisticada, y referimos al lector a los libros especializados, vale decir a las referencias \cite{ChurchillBrown1989, Knopp1996} }, entonces la circulación a lo largo de cualquier contorno cerrado $\mathcal{C}$ se anula. Esto es
+\[ \oint_{\mathcal{C}}  \mathrm{d}z \ f(z) = 0 \]
+Antes que nada, y como parte de ese adiestramiento en lenguaje, precisaremos qué queremos decir (qué quieren decir los matemáticos) con regiones  \textit{simplemente conexa} y  \textit{múltiplemente conexa} 
+
+Una región \textit{simplemente conexa} es aquella que no tiene ``huecos'', o dicho de una manera más precisa y elegante, en la cual una curva $\Gamma$ puede ser reducida (encogida) a un punto sin salir de la región $\mathcal{R}$. En la figura \ref{Fig5VarCompleja} cuadrante $Ia$ se muestra una región simplemente conexa y en los cuadrantes $Ib$ y $Ic$ regiones \textit{multiplemente conexas}. Estas dos últimas figuras clarifican este concepto. Es decir, una \textit{región múltiplemente conexa} es aquella que no es \textit{simplemente conexa} y con eso queremos decir que ``tiene huecos'', o lo que es lo mismo existen curvas que no se pueden reducir a puntos en la región.
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig5VarCompleja.png}
+\caption{Regiones en el plano complejo}
+\label{Fig5VarCompleja}
+\end{center}
+\end{figure}
+
+Tal y como hemos comentado la demostración rigurosa del Teorema de Cauchy está fuera de los alcances de estas notas, pero algo se puede hacer si invocamos el Teorema de Stokes (o uno de los Teoremas de Green en el plano) que vimos cuando estudiamos análisis vectorial. Con ello recordamos la ecuación (\ref{IntegralCompleja}), entonces 
+\[
+ \int_{z_{1}}^{z_{2}} \mathrm{d}z \ f(z) = 
+ \int_{x_{1},y_{1}}^{x_{2},y_{2}} \left( u(x,y) \mathrm{d}x - v(x,y) \mathrm{d}y \right) + i  \int_{x_{1},y_{1}}^{x_{2},y_{2}}  \left( v(x,y) \mathrm{d}x + u(x,y) \mathrm{d}y \right)
+\]
+El Teorema de Stokes nos dice que
+\[
+\int_{\mathcal{R}}  \mathrm{d}x  \mathrm{d}y \ \left( \frac{\partial p}{ \partial x}+ \frac{\partial q}{ \partial y} \right)
+ = \oint_{\mathcal{C}} (p \mathrm{d}y - q \mathrm{d}x )
+\] con lo cual, si una vez más suponemos $f(z) = u(x,y) + iv(x,y)$ y $\mathrm{d}z = \mathrm{d}x + i\mathrm{d}y$, entonces tendremos que
+\[
+\oint_{\mathcal{C}} \left( u \mathrm{d}x - v \mathrm{d}y \right) + i \oint_{\mathcal{C}}  \left( v \mathrm{d}x + u \mathrm{d}y \right) =
+\int_{\mathcal{R}}  \mathrm{d}x  \mathrm{d}y \ \left( \frac{\partial (-v)}{ \partial x}+ \frac{\partial (-u)}{ \partial y} \right) + 
+i \int_{\mathcal{R}}  \mathrm{d}x  \mathrm{d}y \ \left( \frac{\partial (u)}{ \partial x}+ \frac{\partial (-v)}{ \partial y} \right) =0
+\]y acto seguido, como $f(z)$ es analítica, invocamos las condiciones de Cauchy Riemann (ecuación (\ref{CondCauchyRiemann})) y es inmediato ver que se anula la integral de circulación.
+
+\subsection{Algunas observaciones y el Teorema de Morera}
+De la anterior ``demostración'' del Teorema de Cauchy Riemann emergen algunas observaciones
+\begin{itemize}
+  \item La primera es la insistencia de que la condición que la derivada $f'(z)$ existe y es contínua en esta región no es necesaria. 
+    \item La segunda es que el Teorema de Cauchy Riemann, es válido también para regiones múltiplementes conexas. Consieremos una región como la descrita en la figura \ref{Fig5VarCompleja} cuadrante $II$, es claro que podemos circular la integral en los siguientes contornos
+    \[
+    \oint_{\mathcal{C}}  \mathrm{d}z \ f(z) = \int_{ABDEAFGHFA}  \mathrm{d}z \ f(z) \equiv
+    \int_{ABDEA}  \mathrm{d}z \ f(z) + \int_{AF}  \mathrm{d}z \ f(z) + \int_{FGHF}  \mathrm{d}z \ f(z) 
+    + \int_{FA}  \mathrm{d}z \ f(z) =0 
+    \] y como $ \int_{AF}  \mathrm{d}z \ f(z) = - \int_{FA}  \mathrm{d}z \ f(z)$ entonces 
+    \[
+      \int_{ABDEA}  \mathrm{d}z \ f(z)  + \int_{FGHF}  \mathrm{d}z \ f(z) =0 \quad \Leftrightarrow \quad
+      \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) +  \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) =0
+    \]con lo cual se nota que para regiones múltiplemente conexas, a pesar que las circulaciones son opuestas, el ``observador'' que circula por $\mathcal{C}_{1}$ y $\mathcal{C}_{2}$ siempre tiene la región $\mathcal{R}$ a su izquierda. 
+  \item Siguiendo con la reflexión anterior, podemos invertir el sentido de la circulación en el contorno $\mathcal{C}_{2}$ con lo cual 
+  \[
+   \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) -  \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) =0 \quad \Leftrightarrow \quad
+     \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) = \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) 
+  \]Es decir, que si $f(z)$ es analítica en una región $\mathcal{R}$, da igual cualquier recorrido por las fronteras de una región y el valor de la integral permanecerá inalterado. 
+  \item Más aún este resultado puede extenderse a regiones con $n$ huecos de tal forma que, tal y como ilustra en en la figura \ref{Fig5VarCompleja} cuadrante $III$
+  \[
+   \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) =\sum_{j=1}^{n} \oint_{\mathcal{C}_{j}} \mathrm{d}z \ f(z)
+  \]Con lo cual estamos afirmando que, dada una región que contiene un número finito (¿ numerable ?) $n$ de singularidades, la integral a lo largo del contorno que encierra la región  $\mathcal{R}$ es equivalente a la suma de las integrales que encierran cada una de las $n$ singularidades.
+\end{itemize}
+Enunciaremos sin demostración el Teorema de Morera\footnote{Pueden consultar la demostración en la referencia \cite{ArfkenWeberWeber2000} }, también conocido como el teorema inverso de Cauchy. 
+
+\paragraph{Teorema de Morera:}
+Si una función $f(z)$ es continua en una región $\mathcal{R}$ encerrada por un contorno $\mathcal{C}$ y  $ \oint_{\mathcal{C}} \mathrm{d}z \ f(z) = 0$ entonces $f(z)$ es analítica en $\mathcal{R}$
+
+\paragraph{Ejemplo:} Considere la función definida en una región $\mathcal{R}$
+\[
+f(z) = \frac{1}{z - z_{0}} \quad \text{con }
+\left\{\begin{array}{l}
+  z_{0}  \text{ fuera de la región } \mathcal{R} \\
+  z_{0}  \text{ dentro de la región } \mathcal{R}  
+\end{array}
+\right.
+\]\begin{itemize}
+  \item Si $ z_{0}$ está\textbf{ fuera} de la región, entonces  $f(z)$ esa analítica en $\mathcal{R}$, con lo cual el Teorema de Cauchy implica que \[ \oint_{\mathcal{C}}  \mathrm{d}z \ f(z) = 0 \]
+  \item Si $ z_{0}$ está \textbf{dentro} de la región, entonces  $f(z)$ no es analítica en $\mathcal{R}$ por cuanto existe una singularidad $z = z_{0}$. Si consideramos $\mathcal{C}$ el contorno que bordea a $\mathcal{R}$, como una circunsferencia centrada en $z = z_{0}$ y $\Gamma$ otra circunsferencia que aisla a $z_{0}$ con un radio $|z - z_{0}|= \epsilon $ (esta situación se ilustra en la figura \ref{Fig6VarCompleja} cuadrante $I$). Entonces, si hacemos $z - z_{0} = \tilde{z}= \epsilon e^{i\theta}$ el Teorema de Cauchy implica 
+  \[
+  \oint_{\mathcal{C}}    \frac{\mathrm{d}z}{z - z_{0}} =  \oint_{\Gamma}    \frac{\mathrm{d}z}{z - z_{0}} =
+    \int_{0}^{2\pi} \frac{\epsilon i e^{i\theta} \mathrm{d} \theta}{\epsilon e^{i\theta}} = 
+    i \int_{0}^{2\pi}   \mathrm{d}\theta = 2i \pi  
+  \]
+\end{itemize}
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig6VarCompleja.png}
+\caption{Circulaciones y Polos}
+\label{Fig6VarCompleja}
+\end{center}
+\end{figure}
+
+\subsection{Fórmula integral de Cauchy}
+El ejemplo de la sección anterior nos lleva a una de las expresiones más útiles e importantes del análisis complejo: \textit{La Fórmula Integral de Cauchy} la cual dice que si $f(z)$ es analítica en una región $\mathcal{R}$ encerrada por un contorno  $\mathcal{C}$ y consideramos un punto $z = z_{0}$ contenido en esa región, entonces
+\[
+\frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(z) \ \mathrm{d}z}{z - z_{0}} = f(z_{0})
+\] Para probar esta afirmación supongamos, una vez más un circuito en encierra al polo $z = z_{0}$ (ver figura \ref{Fig6VarCompleja}, cuadrante $II$). Con lo cual, como $f(z)$ es analítica en una región, el Teorema de Cauchy nos garantiza
+\[
+\frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(z) \ \mathrm{d}z}{z - z_{0}} = 
+\frac{1}{2 i \pi} \oint_{\Gamma}    \frac{f(z) \ \mathrm{d}z}{z - z_{0}} \quad \text{si } z - z_{0} = r e^{i\theta} \quad \Rightarrow 
+\frac{1}{2 i \pi} \int_{0}^{2\pi} \frac{ f(z_{0} +r  e^{i\theta})r i e^{i\theta} \mathrm{d} \theta}{r e^{i\theta}} =
+\frac{1}{2 \pi} \int_{0}^{2\pi}  f(z_{0} +r  e^{i\theta})  \mathrm{d} \theta 
+\] si hacemos $r \rightarrow 0$ tendremos que
+\[
+\frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(z) \ \mathrm{d}z}{z - z_{0}} = 
+\frac{1}{2 i \pi} \oint_{\Gamma}    \frac{f(z) \ \mathrm{d}z}{z - z_{0}} =
+\lim_{r \rightarrow 0} \frac{1}{2 \pi} \int_{0}^{2\pi}  f(z_{0} +r  e^{i\theta})  \mathrm{d} \theta =
+ \frac{1}{2 \pi} \int_{0}^{2\pi} \lim_{r \rightarrow 0} f(z_{0} +r  e^{i\theta})  \mathrm{d} \theta =
+ f(z_{0})
+\]
+\paragraph{Observaciones} Surgen también observaciones al respecto
+\begin{itemize}
+  \item Obvio que es válido para regiones múltiplemente conexas y es fácil demostrarlo. Se lo dejamos al lector como ejercicio.
+  \item Si reacomodamos la expresión para la forma integral podemos hacer en esa fórmula es válida para todo $z$
+  \[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} 
+\]  
+  \item Más aún veremos que es fácil generalizar esta fórmula para derivdas de funciones, vale decir 
+  \[
+ f^{(n)}(z_{0}) = \frac{n!}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(z) \ \mathrm{d}z}{(z - z_{0})^{n+1}}  
+ \] Veamos con el caso más sencillo y demostremos que para $ n =1$
+ \[
+  f'(z_{0}) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{ f(z) \ \mathrm{d}z }{(z - z_{0})^{2}} 
+  \Rightarrow
+  f'(z_{0}) = \lim_{h \rightarrow 0} \frac{f(z_{0} + h) - f(z_{0})}{h} = 
+  \lim_{h \rightarrow 0} \left[  \frac{1}{2 i \pi}  \oint_{\mathcal{C}}  \frac{ f(z)  }{h}
+  \left\{ \frac{1}{z - z_{0} -h} -  \frac{1}{z - z_{0} } \right\} 
+  \ \mathrm{d}z \right]
+ \]tal y como se muestra en la figura \ref{Fig6VarCompleja}, cuadrante $III$ tenemos que
+ \[
+ f'(z_{0}) =  \lim_{h \rightarrow 0} \left[  \frac{1}{2 i \pi}  \oint_{\mathcal{C}}  \frac{ f(z) \ \mathrm{d}z }{(z - z_{0} -h)(z - z_{0})}   \right] = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{ f(z) \ \mathrm{d}z }{(z - z_{0})^{2}}   
+ \] Pero mucho más interesante hubiera sido ``derivar respecto a una constante''. Este truco implica que
+ \begin{equation}
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z}  \quad \Rightarrow
+ f^{(n)}(z) =  \frac{1}{2 i \pi}  \oint_{\mathcal{C}} \frac{\partial ^{n}}{\partial z^{n}} \left[  \frac{f(\zeta) }{\zeta - z} \right] \mathrm{d}\zeta = \frac{n!}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z)^{n+1}}
+ \label{DerivAnaliticas}
+ \end{equation}
+Esta fórmula es muy util para calcular integrales. Considere, por ejemplo la siguiente integral
+\[
+I =  \oint_{\mathcal{C}}    \frac{e^{2\zeta} \ \mathrm{d}\zeta}{(\zeta + 1)^{4}} \equiv \frac{2i\pi}{3!} f^{(3)}(-1) \quad 
+  \text{con } f(z) =  e^{2z} \qquad \Rightarrow I =  \frac{8 i\pi}{3} e^{-2}
+\]donde hemos supuesto que el contorno $\mathcal{C}$ encerraba el punto $z = -1$, porque de otro modo la función $ \dfrac{e^{2z}}{(z + 1)^{4}}$ sería analítica y la integral se anularía por el Teorema de Cauchy.
+\end{itemize}
+\section{Otra vez Taylor y ahora Laurent}
+\label{TaylorLaurent}
+En la sección \ref{ConsecuenciasSeriesComplejas} consideramos series complejas de potencias. En esta sección revisaremos, desde la perspectiva de haber expresado la derivada $n-$esima de una función analítica en la ecuación (\ref{DerivAnaliticas}), el equivalente a las series de Taylor para funciones complejas de variable complejas. 
+
+\subsection{Series de Taylor para funciones analíticas}
+Si $f(z)$ es analítica en un círculo de radio $R$, encerrado por un contorno $\mathcal{C}$ y centrado en un punto $z = z_{0}$. Entonces $f(z)$ puede ser expandida en series de potencias (enteras positivas) para todo $|z - z_{0}| < R$ de la forma
+\[
+f(z) = \sum_{n=0}^{\infty} \frac{f^{(n)}(z_{0}) }{n!} (z - z_{0})^{n} \equiv f(z_{0}) + f'(z_{0})(z - z_{0}) +  \frac{f''(z_{0})}{2}(z - z_{0})^{2} +\cdots +  \frac{f^{(n)}(z_{0}) }{n!} (z - z_{0})^{n} + R_{n}
+\]con el resto $R_{n}(z)$ definido como 
+\[
+R_{n}(z) =  \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z_{0})^{n}(\zeta - z)} 
+\]Para probar esta afirmación partimos de la fórmula integral de Cauchy escrita convenientemente
+\begin{equation}
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} = 
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{z - z_{0}}{\zeta - z_{0}} } \right] 
+  \label{TrampaSerie1}
+\end{equation}
+de donde
+\[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} \equiv
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ 1 + \left(  \frac{z - z_{0}}{\zeta - z_{0}} \right) + \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{2} + \cdots 
+  + \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{n} 
+  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n+1}}{\left(  \dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] 
+\]este último corchete proviene de una forma ingeniosa de utilizar una serie geométrica de razón $r =  \dfrac{z - z_{0}}{\zeta - z_{0}}$. Para entenderlo, recordemos que para una serie geométrica,  se cumple que 
+\begin{equation}
+1 + r + r^{2} + r^{3} + \cdots + r^{n} = \frac{1 - r^{n+1}}{1 - r} = \frac{1}{1 - r} - \frac{ r^{n+1}}{1 - r} \qquad \Rightarrow
+ \frac{1}{1 - r} = 1 + r + r^{2} + r^{3} + \cdots + r^{n} + \frac{ r^{n+1}}{1 - r}
+ \label{progresion}
+\end{equation}
+
+Entonces
+\begin{equation}
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} \equiv
+   \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \sum_{j=0}^{n}  \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{j}  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n+1}}{\left(  \dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] 
+  \label{EcuacionSerie}
+\end{equation}
+  con lo cual
+  \begin{equation}
+  f(z) = 
+  \sum_{j=0}^{n} (z - z_{0})^{j} \left(  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ \frac{f(\zeta) }{(\zeta - z_{0})^{j+1}} \right) +  R_{n}(z) =  \sum_{j=0}^{n}  \frac{ f^{(j)}(z_{0})}{j!} (z - z_{0})^{j} +  R_{n}(z)
+  \label{TaylorAnalitica}
+\end{equation}
+donde 
+\begin{equation}
+  R_{n}(z) =  \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ 
+  \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} 
+  \label{RestoTaylorAnalitica}
+ \end{equation}
+ Obvio que la serie (\ref{TaylorAnalitica}) converge si $R_{n}(z) \rightarrow 0$ cuando $n \rightarrow \infty$ y de eso es fácil convencerse al acotar la ecuación (\ref{RestoTaylorAnalitica}). Esto es, considerando $\zeta$ sobre el contorno $\mathcal{C}$ y $z$ en el interior de $\mathcal{R}$, entonces
+  \begin{equation}
+ |R_{n}(z)| = \left| \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ 
+  \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} \right| <  \frac{|z - z_{0}|^{n}}{2 \pi} \oint_{\mathcal{C}} \ \left| \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} \mathrm{d}\zeta \right| < \frac{|z - z_{0}|^{n}}{2 \pi} M \frac{1}{R^{n}} 2\pi R
+  \label{ConvergenciaR}
+\end{equation}
+ donde, una vez más, hemos utilizado la forma polar $\tilde{\zeta} = \zeta -z_{0} = R e^{i\theta}$ y hemos acotado $\left| \dfrac{f(\zeta) }{\zeta - z} \right| < M$, con lo cual es inmediato constatar que $\lim_{n \rightarrow \infty} \left| \dfrac{z - z_{0}}{R} \right|^{n} =0 \quad \Rightarrow R_{n}(z) \rightarrow 0$, con lo cual la serie converge.
+\paragraph{Ejemplos} Expanda 
+\begin{itemize}
+  \item $f(z) = \dfrac{1}{1 -z}$ alrededor de $z = z_{0}$
+  \[
+  f(z) = \frac{1}{1 -z_{0}} + \frac{1}{(1 -z_{0})^{2}}(z - z_{0}) +  \frac{1}{(1 -z_{0})^{3}}(z - z_{0})^{2} +  \frac{1}{(1 -z_{0})^{4}}(z - z_{0})^{3} +\cdots +  \frac{(z - z_{0})^{n}}{(1 -z_{0})^{n+1}} +\cdots =
+  \sum_{n=0}^{\infty}  \frac{(z - z_{0})^{n}}{(1 -z_{0})^{n+1}}
+  \]
+  \item $f(z) = \ln(1 +z)ST$ alrededor de $z = 0$ (Serie de Maclaurin)
+  \[
+  f(z) = \ln(1 +z) = \left. \ln(1 +z) \right|_{z =0} + \sum_{n =1}^{\infty} \left. \frac{(-1)^{n+1} n!}{(1 -z)^{n+1}} \right|_{z =0} z^{n} \equiv f(0) + f'(0)z + \frac{f''(0)}{2}z^{2} + \frac{f'''(0)}{3!}z^{3} +\cdots = 
+  z -\frac{z^{2}}{2} +\frac{z^{3}}{3} +  \cdots 
+  \]
+  \item $f(z) = \ln \left(\dfrac{1 +z }{1 -z }\right)$ alrededor de $z = 0$ (Serie de Maclaurin) 
+  \[
+  \ln \left( \dfrac{1 +z }{1 -z } \right) \equiv \ln (1 +z) - \ln (1 -z)  = 
+  \left( z -\frac{z^{2}}{2} +\frac{z^{3}}{3}   \cdots  \right) - 
+  \left(  -z -\frac{z^{2}}{2} -\frac{z^{3}}{3}   \cdots \right) =  2 \left( z +\frac{z^{3}}{3} +\frac{z^{5}}{5}   \cdots \right)
+= \sum_{n=0}^{\infty} \frac{2 z^{2n +1}}{2n +1}
+  \]
+  
+\end{itemize}
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig7VarCompleja.png}
+\caption{Expansión de Laurent}
+\label{Fig7VarCompleja}
+\end{center}
+\end{figure}
+
+\subsection{Series de Laurent}
+ Hemos dicho que si una función $f(z)$ es analítica en una región (digamos que circular) $\mathcal{R}$, entonces puede ser expandida por series de Taylor. Sin embargo, si $f(z)$ tiene un polo de orden $p$, digamos, en $z = z_{0}$, dentro de la región $\mathcal{R}$, no será analítica en ese punto, mientras que $g(z) = (z - z_{0})^{p}f(z)$ si lo será en todos los puntos de esa región. Entonces $f(z)$ podrá ser expandida como series de potencias (de Laurent) de la forma
+\begin{equation}
+f(z) = \sum_{n = -\infty} ^{\infty} a_{k} (z - z_{0})^{k}  =\sum_{n=0}^{\infty} a_{n} (z - z_{0})^{n} + 
+\sum_{n=0}^{\infty} \frac{a_{-n}}{(z - z_{0})^{n}}  \qquad \text{con }  a_{n} = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z)^{n+1}} \quad n =0, \pm 1, \pm 2, \cdots 
+\label{SerieLaurent1}
+\end{equation} 
+o equivalentemente
+ \begin{equation}
+ f(z) =\frac{g(z)}{(z - z_{0})^{p}} = \frac{a_{-p}}{(z - z_{0})^{p}} +\frac{a_{-p+1}}{(z - z_{0})^{p-1}} + \cdots 
+ + \frac{a_{-1}}{(z - z_{0})} + a_{0} + a_{1}(z - z_{0}) + a_{2}(z - z_{0})^{2} + \cdots
+\label{SerieLaurent2}
+\end{equation}
+La suma de todos los términos que tengan potencias negativas, vale decir $\sum_{n=0}^{\infty} \frac{a_{-n}}{(z - z_{0})^{n}}$, se denomina \textit{parte principal} de $f(z)$.
+
+ Para demostrar  (\ref{SerieLaurent1}) o (\ref{SerieLaurent2}), recordamos que, tal y como muestra la figura \ref{Fig7VarCompleja} cuadrante $I$, si $f(z)$ es analítica en la región anular, entonces el Teorema de Cauchy, nos garantiza que 
+ \[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} +
+ \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} \equiv
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} -
+ \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z}
+ \] 
+ donde en el segundo caso hemos supuesto que ambas circulaciones tienen el mismo sentido.
+ 
+ Del mismo modo como procedimos en la ecuación (\ref{TrampaSerie1}) re escribimos el segundo par de integrales como 
+ \[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{z - z_{0}}{\zeta - z_{0}} } \right] 
+  +  
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{z - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{\zeta - z_{0}}{z - z_{0}} } \right]
+ \] y ahora invocando, una vez más la progresión geométrica (\ref{progresion}) podemos construir expresiones de integrales equivalentes a la ecuació (\ref{EcuacionSerie}). Vale decir
+ \[
+  f(z) =   \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \sum_{j=0}^{n-1}  \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{j}  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n}}{\left(  \dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] 
+  + 
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  \frac{ f(\zeta) }{z - z_{0}} 
+  \left[ \sum_{j=0}^{n-1}  \left( \frac{\zeta - z_{0}}{z - z_{0} } \right)^{j}  +  
+  \frac{\left(  \dfrac{\zeta - z_{0}}{z - z_{0} } \right)^{n}}{\left(  \dfrac{\zeta - z}{z - z_{0} } \right)}  \right]
+ \]y equivalentemente
+\begin{equation}
+ f(z) = \frac{1}{2 i \pi}
+ \sum_{j=0}^{n-1} (z - z_{0})^{j} \underbrace{ \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{(\zeta - z_{0})^{j+1}}
+}_{a_{j}} + R_{n1}(z) + 
+  \frac{1}{2 i \pi}  \sum_{j=0}^{n-1}  \frac{1}{(z - z_{0} )^{j+1}} \underbrace{\oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  f(\zeta)(\zeta - z_{0})^{j}}_{a_{-j}}  + R_{n2}(z)
+  \label{DemostraLaurent} 
+\end{equation}
+ Con lo cual queda demostrado la forma funcional de los coeficientes de la expansión de Laurent. La demostración de la convergencia, esto es  $n \rightarrow \infty \Rightarrow R_{n1}(z)  \rightarrow R_{n2}(z)  \rightarrow 0$ sigue el mismo esquema que utilizamos para demostrar la convergencia de la ecuación (\ref{ConvergenciaR}) y  se lo dejamos como ejercicio al lector.
+
+ \subsection{Algunos Ejemplos}
+ En muchos casos las expansiones en series de Laurent no se generan a partir de la fórmula de la ecuación (\ref{SerieLaurent1}) sino a partir de manipulaciones algebráicas y expansiones en Taylor moduladas por otros factores.
+ 
+ El primer y 'ultimo ejemplo lo haremos directamente. Vale decir que como lo vamos a hacer no lo haremos otra vez. Consideremos el siguiente ejemplo y hag'amoslo directo. Supongamos de entrada que $z_{0} = 0$ con lo cual la regi'on anular en la cual no existen polos ser'a  $r < |z -z_{0}| < R \Rightarrow 0 < |z -z_{0}| < 1$. Utilizando las f'ormulas de \ref{DemostraLaurent} construimos la relaci'on 
+  \[
+ f(z) = \frac{1}{z(z-1)} \quad \Rightarrow a_{j} = \oint_{\mathcal{C}_{1}}  \frac{f(\zeta) \mathrm{d}\zeta  }{(\zeta - z_{0})^{j+1}} = \oint_{\mathcal{C}_{1}}  \frac{ \mathrm{d}\zeta }{\zeta^{j+2}(\zeta -1)} = 
+  \oint_{\mathcal{C}_{1}}  \frac{ \mathrm{d}\zeta }{\zeta^{j+2}} \sum_{n=0}^{\infty} \zeta^{n} = \sum_{n=0}^{\infty}  \oint_{\mathcal{C}_{1}}  \frac{ \mathrm{d}\zeta }{\zeta^{j+2-n}}
+ \] 
+ conviertiendo a la forma polar tendremos que
+ \[
+ \sum_{n=0}^{\infty}  \oint_{\mathcal{C}_{1}}  \frac{r i \theta e^{i \theta } \mathrm{d} \theta}{r^{j+2-n} e^{ i(j+2-n) \theta}} = 2 i \pi  \sum_{n=0}^{\infty} \delta_{j+2-n,1} 
+  \quad \Rightarrow 
+  \left\{ 
+   \begin{array}{l l}
+   a_{n} = -2i \pi  & \text{para } n \geq -1   \\ \\
+   a_{n} = 0 & \text{para } n < -1        
+\end{array}
+  \right.
+ \]es decir
+ \[
+ f(z) = \frac{1}{z(z-1)}  = -\frac{1}{z} - 1 - z -z^{2} \cdots
+ \]
+ 
+ Consideremos los siguientes ejemplos de desarrollo en Series de Laurent
+ \begin{enumerate}
+ \item \[ f(z) = \frac{1}{z(z-2)^{3}} \] Alrededor de las singularidades $z=0$ y $z=2$
+  \item \[ f(z) = \frac{1}{(z+1)(z+3)} \] Esta función tienes polos de orden $1$ en $z = -1$ y  $z = -3$. Además expresando $f(z)$ como una suma de fracciones parciales, tendremos
+  \[
+  f(z) = \frac{1}{(z+1)(z+3)} = \frac{1}{2} \left( \frac{1}{z +1} \right) -  \frac{1}{2} \left( \frac{1}{z +3} \right)
+  \]
+  \begin{enumerate}
+  \item para $1 < |z| <3$ \\ Expresando $f(z)$ como una suma de fracciones parciales, tendremos
+  \[
+  f(z) = \frac{1}{(z+1)(z+3)} = \frac{1}{2} \left( \frac{1}{z +1} \right) -  \frac{1}{2} \left( \frac{1}{z +3} \right)
+  \]
+  \item para $|z| > 3$
+  \item para $0 < |z +1| < 2$
+  \item para $|z| < 1$
+\end{enumerate}
+  \item  \[ f(z) = \frac{e^{2z}}{(z-1)^{3}} \] 
+  \item  \[ f(z) = \frac{z -\mathrm{sen} \; z}{z^{3}} \] 
+\end{enumerate}
+
+
+\section{Integración por el método de los residuos}
+\label{MetodoResiduos}
+Desde siempre hemos sabido que las expansiones de funciones en series de potencias dejan ``residuos'' al detener la expansión a para una determinada potencial. Esto se puede apreciar claramente en la expresión de Taylor para funciones analíticas (\ref{TaylorAnalitica}) y, en particular en (\ref{RestoTaylorAnalitica}). Ahora, las expansiones de Laurent (\ref{DemostraLaurent}) nos muestran otro ``residuo''. Explotaremos las series de Laurent para funciones con polos y construiremos un método para evaluar integrales de funciones en esos puntos.  Primero estudiaremos los residuos en general y luego los utilizaremos para evaluar integrales.
+
+\subsection{Los residuos de Laurent}
+\label{ResiduosLaurent}
+Hemos dicho que si $f(z)$ tiene un polo de orden $p$ en $z = z_{0} \in \mathcal{R}$, entonces 
+\[
+ \oint_{\mathcal{C}} \mathrm{d}z \ f(z) \neq 0  \Rightarrow f(z) = \sum_{n = -\infty} ^{\infty} a_{k} (z - z_{0})^{k}  = \frac{a_{-p}}{(z - z_{0})^{p}} +\frac{a_{-p+1}}{(z - z_{0})^{p-1}} + \cdots 
+ + \frac{a_{-1}}{(z - z_{0})} + a_{0} + a_{1}(z - z_{0}) + a_{2}(z - z_{0})^{2} + \cdots
+\]más aún, siguiendo (\ref{SerieLaurent1}) tendremos que los coeficientes de la expansión pueden ser calculados a partir de 
+\begin{equation}
+a_{n} = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z)^{n+1}} \quad n =0, \pm 1, \pm 2, \cdots \quad \text{si } n = -1 \quad \Rightarrow \oint_{\mathcal{C}}    f(\zeta) \ \mathrm{d}\zeta = 2 i \pi a_{-1} \equiv 2 i \pi \mathrm{Res} \; f(z)
+\label{ResiduoPoloSimple} 
+\end{equation}
+Es decir, la integración a lo largo de un contorno $\mathcal{C}$ que aisle al polo $z = z_{0}$ es proporcional al residuo correspondiente a la expansión de Laurent alrededor de ese polo. Nos queda entonces calcular el residuo para así no calcular la integral.
+
+Esta situación se ilustra con el siguiente ejemplo. Supongamos
+\[
+f(z)= \frac{\mathrm{sen} \; z}{z^{4}} = \frac{1}{z^4} \left(z - \frac{z^{3}}{3!} +\frac{z^{5}}{5!} + \cdots  \right) = \frac{1}{z^{3}} - \frac{1}{3! z} + \frac{z}{5!} + \cdots  \quad \Rightarrow a_{-1} =  - \frac{1}{3! } \quad \Rightarrow 
+\oint_{\mathcal{C}}    f(\zeta) \ \mathrm{d}\zeta = 2 i \pi a_{-1}= - \frac{i \pi}{3 } 
+\]
+
+En general, si $f(z)$ tiene un polo de orden $p$ en $z = z_{0} \in \mathcal{R}$, entonces 
+\[
+  (z - z_{0})^{p}f(z) = a_{-p} + a_{-p+1}(z - z_{0}) + \cdots + a_{0}(z - z_{0})^{p} + \cdots \quad \Rightarrow 
+  \frac{\mathrm{d}^{p-1}}{\mathrm{d}z^{p-1}} [ (z - z_{0})^{p}f(z) ] = (p-1)! a_{-1} + \sum_{n=1}^{\infty} b_{n}(z - z_{0})^{n}
+\]con lo cual concluimos que
+\begin{equation}
+\label{ResiduosGeneral}
+a_{-1} \equiv \mathrm{Res} \; f(z)  = \lim_{z \rightarrow z_{0}} \left( \frac{1}{ (p-1)!}  \frac{\mathrm{d}^{p-1}}{\mathrm{d}z^{p-1}} [ (z - z_{0})^{p}f(z) ] \right)
+\end{equation}
+Si, por ejemplo consideramos
+\[
+f(z)= \frac{e^{iz}}{(z^{2} +1)^{2}} \equiv \frac{e^{iz}}{(z +i)^{2}(z -i)^{2}}  \quad \Rightarrow
+\left\{
+\begin{array}{rl }
+ z_{0} = i     \Rightarrow  &  \dfrac{\mathrm{d}}{\mathrm{d}z} [ (z - i)^{2} f(z) ] =  \dfrac{\mathrm{d}}{\mathrm{d}z} \left[  \dfrac{e^{iz}}{(z +i)^{2}} \right] \\ \\
+  z_{0} = -i     \Rightarrow  &  \dfrac{\mathrm{d}}{\mathrm{d}z} [ (z + i)^{2} f(z) ] =  \dfrac{\mathrm{d}}{\mathrm{d}z} \left[  \dfrac{e^{iz}}{(z -i)^{2}} \right] 
+  \end{array}
+\right.
+\]con lo cual 
+\[
+\left. \mathrm{Res} \;  \frac{e^{iz}}{(z^{2} +1)^{2}} \right|_{z=i} = \lim_{z \rightarrow i} \left( \frac{1}{1!} \frac{\mathrm{d}}{\mathrm{d}z} \left[  \frac{e^{iz}}{(z +i)^{2}} \right] \right) = 
+ \lim_{z \rightarrow i} \left( \frac{(z +i)^{2} ie^{iz} - e^{iz} 2(z +i)}{(z +i)^{2}} \right) = \frac{-4i e^{-1} --4i e^{-1}}{16} = -\frac{i}{2e}
+\]del mismo modo se procede para el caso $z = -i$
+
+Un caso particular y muy útil lo constituyen las funciones racionales del tipo $f(z) = \dfrac{p(z)}{q(z)}$ y $f(z)$ tiene un polo simple en $z = z_{0}$. Esto es $q(z_{0} )= 0$ entonces 
+\begin{equation}
+\label{ResiduoLHopital}
+\left. \mathrm{Res} \;  f(z) \right|_{z=z_{0}} =  \lim_{z \rightarrow z_{0}}   \left(\frac{(z-z_{0}) p(z)}{q(z)} \right) = 
+ p(z_{0}) \lim_{z \rightarrow z_{0}} \frac{(z-z_{0}) }{q(z)} = \frac{p(z_{0})}{q'(z_{0})}
+\end{equation}
+porque hemos utilizado el Teorema de L'Hopital. Este caso lo podemos ejemplificar si consideramos una función
+\begin{equation}
+\label{EjemResiduos}
+ f(z)= \frac{4 -3z}{z^{2} -z } \equiv \frac{4 -3z}{z(z -1) } \quad \text{con polos en } 
+\left\{
+ \begin{array}{l }
+ \left. z = 0 \quad \Rightarrow \mathrm{Res} \; f(z) \right|_{z =0}  =  \left.   \dfrac{4 -3z}{2z -1} \right|_{z =0} = -4   \\  \\
+   \left. z = 1\quad  \Rightarrow \mathrm{Res} \; f(z) \right|_{z =1}  =  \left.  \dfrac{4 -3z}{2z -1} \right|_{z =1} = 1      
+\end{array}
+ \right.
+\end{equation}
+
+\subsection{Teorema del Residuo}
+\label{TeoremaResiduo}
+Hemos visto como calcular las integrales de funciones, en regiones múltiplemente conexas, con polos simples a partir de residuos. Ahora generalizaremos ese esquema para una región, también múltiplemente conexa, pero con un número finito de polos.  Tal y como se muestra en la figura \ref{Fig7VarCompleja} en el cuadrante $II$, realizamos una circulación ingeniosa, de tal modo que aislamos los distintos polos. Ahora bien, como la función es analítica en la región bordeada por todos esos contornos, entonces 
+\[
+\left[ \oint_{\mathcal{C}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) +\cdots \oint_{\mathcal{C}_{m}} \mathrm{d}z \ f(z) \right] = 0
+\]y al cambiar el sentido de circulación comprobamos lo que ya sabíamos
+\[
+\oint_{\mathcal{C}} \mathrm{d}z \ f(z) = \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) +\cdots \oint_{\mathcal{C}_{m}} \mathrm{d}z \ f(z) \quad \Leftrightarrow \quad \oint_{\mathcal{C}} \mathrm{d}z \ f(z) =  2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}
+\] donde hemos utilizado lo que hicimos para la ecuación (\ref{ResiduoPoloSimple})
+
+Con ello podemos enunciar el Teorema del Residuo que ya hemos demostrado
+
+Si $f(z)$ es analítica en una región $\mathcal{R}$ excepto en un número, $m$, finito de polos $z_{0_{1}},z_{0_{2}},z_{0_{3}},\cdots z_{0_{m}}$ entonces 
+\[
+\oint_{\mathcal{C}} \mathrm{d}z \ f(z) =  2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} 
+\]
+Una vez más ejemplificamos. Se al función $f(z) = \dfrac{4 -3z}{z^2 -z}$ una función con polos simples en $z =0$ y $z=1$ correspondientes a residuos $4$ y $1$, respectivamente, tal y como se vió en la  sección (\ref{ResiduosLaurent}). Entonces, utilizamos los resultado expuestos en el ejemplo (\ref{EjemResiduos})
+\[
+\oint_{C} \mathrm{d} z \dfrac{4 -3z}{z^2 -z} = 2 \pi i (-4 + 1) = -6 \pi i
+\]siempre y cuando el circuito $C$ encierre los dos polos, $z=0$ y $z=1$, para los cuales hemos calculado los residuos
+
+\paragraph{Ejercicios}
+\begin{enumerate}
+  \item Determinar los polos y los residuos correspondientes para cada una de las funciones propuestas
+\[
+f(z) = \frac{2z + 1}{z^{2} -z -2}; \quad f(z) = \left(\frac{z +1}{z -1} \right)^{2}; \quad f(z) = \frac{\mathrm{sen}\; z}{z^{2}}; \quad f(z) =\cot z 
+\]
+ 
+ \item Evaluar
+ \begin{enumerate}
+  \item  \[
+ \oint_{C} \frac{ \mathrm{d}z \; e^{z}}{\cosh z} \quad \text{a lo largo de una circunsferencia con } |z| = 5  
+ \]
+  \item \[ 
+ \oint_{C} \frac{(2z^{2} + 5) \mathrm{d}z }{(z +2)^{3}(z^{2} +4)z^{2}}  \quad \text{a lo largo de una circunsferencia con } |z- 2i| = 6 \text{ y} 
+  \]un cuadrado de vértices $z = 1 + i; z = 2 + i; z = 2 + 2i$ y $z = 1 + 2i;   $
+\end{enumerate}
+\end{enumerate}
+
+\subsection{Evaluación de integrales, reales, impropias}
+El teorema del residuo (\ref{TeoremaResiduo}) es una herramienta poderosa para evaluar algunos  tipos de integrales definidas en variable real. La intención es ``extender'' el dominio de las funciones de la recta real al Plano Complejo. Una de las restricciones es que los contornos deben ser cerrados antes de que sea evaluados los residuos. El punto es que muchas integrales reales tienen contornos abiertos y la posibilidad de evaluar estas integrales a través del Teorema del Residuo descansa en la forma como se cierran los contornos. En estos casos se debe estimar las contribuciones de esos contornos adicionales que pemiten cerrar los contornos abiertos. A continuación expondremos algunas técnicas para cerrar algunos tipos de contornos abiertos.
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3.5in]{Capt7VarCompleja/Fig8VarCompleja.png}
+\caption{Circuitos y evaluación de integrales reales, impropias}
+\label{Fig8VarCompleja}
+\end{center}
+\end{figure}
+\subsubsection{Integrales impropias del tipo $\int_{-\infty}^{\infty} \mathrm{d}x \; f(x)$}
+\label{IntImpropias}
+Este tipo de integrales implica, si ambos límites existen
+\[
+\int_{-\infty}^{\infty} \mathrm{d}x \; f(x) = 
+\lim_{r \rightarrow -\infty} \int_{r}^{0} \mathrm{d}x \; f(x) + \lim_{r \rightarrow \infty} \int_{0}^{r} \mathrm{d}x \; f(x) \leftrightarrow \lim_{r \rightarrow \infty} \int_{-r}^{r} \mathrm{d}x \; f(x)
+\]
+Necesitaremos que el integrando sea una función racional $f(x) = p(x)/q(x)$, donde $q(x) \neq 0 \; \; \forall  \;x$. Adicionalmente requeriremos que cuando menos $q(x) \sim x^{2}p(x)$. Supuesto todo esto, convertimos nuestra función racional en una función de variable compleja $f(x) \rightarrow f(z)$ y consideramos la integral de circulación, $\oint_{C} \mathrm{d}z \; f(z)$, sobre un contorno $C$ descrito por el eje real y una semicircunsfrencia $\Gamma$ en el plano complejo con $y \geq 0$, tal y como se muestra en el cuadrante $I$ la figura \ref{Fig8VarCompleja}. La intención es hacer $r \rightarrow \infty$ y con ello evaluar la integral $\int_{0}^{\infty} \mathrm{d}x \; f(x)$. Es fácil convencerse que 
+\[
+\oint_{C} \mathrm{d}z \; f(z) = \int_{\Gamma} \mathrm{d}z \; f(z) + \int_{-r}^{r} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} 
+\] 
+es decir, 
+\[
+\int_{-r}^{r} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}  -  \int_{\Gamma} \mathrm{d}z \; f(z)
+\] 
+
+Esta esta estrategia es válida porque hemos supuesto que $f(x)$ es racional y que $q(x) \neq 0 \; \; \forall  \;x$, entonces si existen polos para $f(z)$ estarán en el plano complejo (no sobre el eje real). Todos esos polos serán encenrados por el contorno $C$ que hemos seleccionado. Más aún, y comprobaremos que $\int_{\Gamma} \mathrm{d}z \; f(z) \rightarrow 0 \quad \text{cuando} z \rightarrow \infty$. Esto es sencillo si notamos que 
+\[
+q(x) \sim x^{2}p(x) \quad \Rightarrow |f(z)| < \frac{k}{|z|^{2}} \quad \Rightarrow \left|  \int_{\Gamma} \mathrm{d}z \; f(z) \right| < \frac{k}{r^{2}} \pi r = \frac{k \pi}{r} \qquad \text{para } |z| = r \geq 0 
+\] con lo cual llegamos a que para este tipo de integrales
+\begin{equation}
+\label{Impropia1}
+\int_{-\infty}^{\infty} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} \quad \text{para } f(x) = \frac{p(x)}{q(x)}, \quad \text{con } q(x) \neq 0 \; \; \forall  \;x \; \wedge p(x) \sim x^{2}q(x)
+\end{equation}
+
+\paragraph {Ejemplo}
+Considere evaluar la siguiente integral
+\[
+\int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}}  \quad \Rightarrow \int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}  
+\]donde hemos utilizado la expresión (\ref{Impropia1}). La extensión analítica 
+\[
+f(x) \rightarrow f(z) = \frac{1}{z^{4} + 1} \quad \text{tendrá cuatro polos simples: } z = e^{\pm\frac{ i \pi}{4}}; \; z = e^{\pm \frac{ 3i \pi}{4}}; 
+\]correspondientes a las cuatro raíces de  $z^{4} = -1$. Acto seguido calculamos los residuos invocando la relación (\ref{ResiduoLHopital}) que hemos construido para funciones racionales. Esto es 
+\[
+\left. \mathrm{Res} \;  \frac{p(z)}{q(z)} \right|_{z=z_{0}} = \frac{p(z_{0})}{q'(z_{0})}  \Rightarrow
+\left\{
+ \begin{array}{l }
+ z = e^{\frac{ i \pi}{4}} \Rightarrow \mathrm{Res} \; \left.  f(z) \right|_{z = e^{\frac{ i \pi}{4}}}  = 
+  \left.   \dfrac{1}{4z^{3}} \right|_{z =e^{\frac{ i \pi}{4}}} = \dfrac{e^{\frac{ -3i \pi}{4}}}{4} = \dfrac{e^{\frac{ i \pi}{4}}}{4}  \\  \\
+z = e^{\frac{ 3i \pi}{4}} \Rightarrow \mathrm{Res} \; \left.  f(z) \right|_{z = e^{\frac{ 3i \pi}{4}}}  = 
+  \left.   \dfrac{1}{4z^{3}} \right|_{z =e^{\frac{3 i \pi}{4}}} = \dfrac{e^{\frac{ -9i \pi}{4}}}{4} = \dfrac{e^{\frac{- i \pi}{4}}}{4}   
+\end{array}
+ \right.
+\] Hemos considerado únicamente los polos para el semiplano complejo $y > 0$ ya que seguimos considerando el circuito descrito en el cuadrante $I$ de la figura \ref{Fig8VarCompleja}. Quedan dos polos ubicados en el semiplano complejo $y < 0$, tal y como se muestra en el cuadrante $II$ de la misma figura \ref{Fig8VarCompleja}. Consecuentemente, tendremos que 
+\[
+\int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1}  = \dfrac{2 \pi i}{4} \left( e^{\frac{ i \pi}{4}} + e^{\frac{- i \pi}{4}} \right) = \pi \mathrm{sen} \; \frac{\pi}{4} = \dfrac{\sqrt{2}}{2} \pi \quad \Rightarrow \int_{0}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} = \frac{1}{2} \int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} = \dfrac{\sqrt{2}}{4} \pi
+\]
+
+\paragraph {Ejemplo} Para evaluar la siguiente integral
+\[
+\int_{-\infty}^{\infty}\frac{ x^{2}  \mathrm{d}x}{(x^{2} +1)^{2}( x^{2} +2x + 2)} \qquad  \Rightarrow
+f(z) = \frac{ z^{2}}{(z^{2} +1)^{2}( z^{2} +2z + 2)} 
+\] donde hemos realizado la extensión analítica $f(x) \rightarrow f(z)$ y ubicado sus polos de $z = i$ y $z = i -1$ en el  semiplano complejo $y > 0$ y los encerrados por el circuito descrito en el cuadrante $I$ de la figura \ref{Fig8VarCompleja}. El primero de estos polos es de segundo orden, mientras que el segundo corresponde a un polo simple. Consecuentemente, los residuos se calculan invocando la relación general (\ref{ResiduosGeneral}) arriba expuesta. Con lo cual para 
+\[
+z =i  \quad  \Rightarrow \lim_{z \rightarrow i} \left(   \frac{\mathrm{d}}{\mathrm{d}z} \left[ (z - i)^{2}\frac{ z^{2}}{(z - i)^{2}(z +i)^{2}( z^{2} +2z + 2)}  \right] \right) = \frac{-12 +9i }{100}
+\] y para
+\[
+z = i - 1  \quad  \Rightarrow \lim_{z \rightarrow i-1}  (z - i + 1) \frac{ z^{2}}{(z^{2} +1)^{2}( z -  i - 1 )( z  + i - 1 )}   = \frac{3 - 4i}{25}
+\]
+Finalmente, podemos evaluar la integral
+\[
+\int_{-\infty}^{\infty} \frac{ x^{2}  \mathrm{d}x}{(x^{2} +1)^{2}( x^{2} +2x + 2)}   =   2 i \pi \sum_{j=1}^{2} \mathrm{Res} \; f(z)_{z = z_{0j}} = 2 \pi i \left(  \frac{-12 +9i }{100} + \frac{3 - 4i}{25} \right) =
+\frac{7 \pi}{50}
+\]
+\paragraph{Ejercicios}
+Evaluar las siguientes integrales
+\[ 
+  \int_{0}^{\infty} \frac{ \mathrm{d}x}{(x^{2} +1)(x^{2} +4)^{2}}; \qquad    \int_{0}^{\infty} \frac{   \mathrm{d}x}{x^{4} +x^{2} +1 }; \qquad    \int_{-\infty}^{\infty} \frac{   \mathrm{d}x}{(x^{2} +4x +5)^{2} } 
+\]
+
+\subsubsection{Integrales de funciones racionales de $\cos \theta $ y $\mathrm{sen} \; \theta$}
+Ahora mostraremos la estrategia para integrales de funciones racionales de funciones trigonométricas, $\mathcal{G}(\cos \theta, \mathrm{sen} \; \theta)$. La idea es transformar estas integrales en otras de funciones de varible compleja a través de los cambios de variables que conectan las funciones trigonométricas y los números complejos. Esto es transformar integrales de la forma
+\[
+\int_{0}^{2 \pi} \mathrm{d} \theta \;  \mathcal{G}(\cos \theta, \mathrm{sen} \; \theta)
+\quad  \rightarrow \quad 
+\oint_{C}  \frac{\mathrm{d} z}{z i} f(z) 
+\]mediante cambios de variables estándares
+\begin{equation}
+\label{CambiosComplejos}
+z = r e^{i \theta} \quad  \Rightarrow \mathrm{d} \theta =   \frac{\mathrm{d} z}{z i} ; \quad 
+\cos \theta = \frac{1}{2} \left( z + \frac{1}{z} \right); \quad \text{y} \quad
+ \mathrm{sen} \; \theta = \frac{1}{2i} \left( z - \frac{1}{z} \right)
+\end{equation}
+
+\paragraph{Ejemplo} En las tablas de integrales encontrábamos\footnote{\textit{Encontrábamos} porque hoy en día estas integrales las calculamos con manipuladores simbólicos del tipo \texttt{Maple}, \texttt{Reduce}, \texttt{Matemathica} o \texttt{Mupad}} que 
+\[
+\int_{0}^{2 \pi}\frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } = \frac{2 \pi }{ \sqrt{ a^{2} - b^{2}}} \quad \text{con } |a| > |b| 
+\]veamos como se llega a ese resultado.
+
+Haciendo $z = r e^{i \theta} $ y asumiendo las consecuencias, tal y como se presenta en (\ref{CambiosComplejos}) arriba, tendremos que 
+\[
+\int_{0}^{2 \pi}\frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } =
+\oint_{C} \frac{  \frac{\mathrm{d} z}{z i}  }{ a +  \frac{b}{2i} \left( z - \frac{1}{z} \right)  } =
+\oint_{C} \frac{ 2 \mathrm{d} z  }{b z^{2} + 2a i z  - b} \quad \text{con } C \text{ una circunferencia } |z| =1
+\]los polos de 
+\[
+f(z) =  \frac{ 2 }{b z^{2} + 2a i z  - b} \qquad \Rightarrow z_{\pm 0} = \frac{-a \pm \sqrt{a^{2} - b^{2}}}{b}i
+\] son los valores de $z$ que anulan el denominador de $f(z)$. Seguidamente verificamos la ubicación de los polos simples y comprobamos que como $|a| > |b|$ entonces
+\[
+|z_{+0}| = \left| \frac{-a + \sqrt{a^{2} - b^{2}}}{b}i \right| < 1 \qquad \text{y} \qquad |z_{-0}| = \left| \frac{-a - \sqrt{a^{2} - b^{2}}}{b}i \right| > 1 
+\] y por lo tanto, sólo el primero de los polos está encerado por el circuito $C$ con $|z| =1$ tal y como muestra en el cuadrante $III$ de la figura \ref{Fig8VarCompleja}.
+
+Una vez más calculamos el residuo para $z_{+0}$ a partir de (\ref{ResiduosGeneral}). Entonces tendremos que 
+\[
+\mathrm{Res} \; \left.  f(z) \right|_{z = z_{+0}} =   \lim_{z \rightarrow z_{+0}} (z - z_{+0}) \frac{ 2  }{b z^{2} + 2a i z  - b} =  \lim_{z \rightarrow z_{+0}} \frac{ 2  }{2bz + 2a i} = \frac{1}{b z_{+0} +ai} \equiv \frac{-i}{\sqrt{a^{2} + b^{2}}} 
+\] finalmente 
+\[
+\int_{0}^{2 \pi} \frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } =
+\oint_{C} \frac{ 2 \mathrm{d} z  }{b z^{2} + 2a i z  - b} =   2 i \pi \mathrm{Res} \; f(z)_{z = z_{+0}} =  \frac{2 \pi}{\sqrt{a^{2} - b^{2}}} 
+\]
+
+\paragraph{Ejercicios}
+Compruebe las siguientes evaluaciones
+\[
+\int_{0}^{2 \pi} \frac{ \mathrm{d} \theta }{a + b \cos \theta + c \mathrm{sen} \; \theta } = \frac{2 \pi}{\sqrt{a^{2} - b^{2} - c^{2}}} \quad \text{con } a^{2} > b^{2} + c^{2}; \qquad  \int_{0}^{2 \pi} \frac{ \cos^{2}3\theta \; \mathrm{d} \theta }{5 - 4 \cos 2\theta } =\frac{3 \pi}{8}
+\]
+
+\subsubsection{Integrales de Fourier}
+Otro grupo de integrales que pueden ser evaluadas mediante el Teorema de Residuos son las integrales de Fourier. Integrales que involucran funciones racionales, f(x), que satisfacen las condiciones expuestas arriba en la Sección \ref{IntImpropias} y funciones senos y consenos. Integrales del tipo 
+\begin{equation}
+\label{IntFourier}
+\int_{-\infty}^{\infty}  \mathrm{d} x \; f(x) 
+\left\{ \begin{array}{ c}
+      \cos mx  \\ 
+      \mathrm{sen} \; mx   
+\end{array} \right\} 
+ \leftrightarrow  \int_{-\infty}^{\infty}  \mathrm{d} x \; f(x) e^{imx}
+\quad \rightarrow \oint_{C}  \mathrm{d} z \; f(z) e^{imz} =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \left| f(z) e^{imz} \right|_{z = z_{0j}}  
+\end{equation}
+Con $m > 0$ y los polos correspodientes a los residuos que se muestran en el lado derecho, están ubicados en el semiplano complejo con $y > 0$. Es claro que el circuito seleccionado es $\Gamma$ que muestra el cuadrante $II$ de la figura \ref{Fig8VarCompleja}.
+
+Equivalentemente, igualando partes reales e imaginarias
+\[
+\int_{-\infty}^{\infty}  \mathrm{d} x \; f(x)  \cos mx = -2  \pi \sum_{j=1}^{m} \mathrm{Im} \; \mathrm{Res} \left| f(z) e^{imz}  \right|_{z = z_{0j}}  \quad \text{y} \quad \int_{-\infty}^{\infty}  \mathrm{d} x \; f(x)   \mathrm{sen} \; mx = 2  \pi \sum_{j=1}^{m} \mathrm{Re} \; \mathrm{Res} \left| f(z) e^{imz}  \right|_{z = z_{0j}} 
+\]
+
+Otra vez, el circuito $C$ se separa en una semicircunferencia $\Gamma$ y el eje real. para demostrar que para evaluar las integrales de Fourier (\ref{IntFourier}) se requiere la suma de los residuos  nos convencemos que la integral a lo largo de la semicircunferencia se anula. Esto es fácil si comprobamos que recordamos que $y >0$ y $m > 0$, entonces si $z = x + iy$ tendremos que 
+\[
+|e^{imz}| = |e^{imx}||e^{-my}| = e^{-my} < 1 \quad \Rightarrow  
+|f(z)e^{imz}| = |f(z)| \leq |f(z)| \; |e^{imz}|
+\]
+con lo cual redujimos al de una función racional tratado en la Sección \ref{IntImpropias}. 
+
+\paragraph{Ejemplo:} Comprobemos que 
+\[
+\int_{-\infty}^{\infty} \frac{ \mathrm{d} x \;  \cos mx }{x^{2} + k^{2}} = \frac{\pi}{k} e^{-km} 
+\qquad \text{y} \qquad 
+\int_{-\infty}^{\infty} \frac{ \mathrm{d} x \;  \mathrm{sen}\; mx }{x^{2} + k^{2}} = 0
+\]es fácil  ver que el polo simple de la continuación analítica de $f(x)$ es $z_{0} = ik$ y su residuo será
+\[
+f(z) = \frac{ e^{imz} }{z^{2} + k^{2}}  \quad \Rightarrow z_{0} = ik \quad \Rightarrow 
+\mathrm{Res} \; \left. \frac{ e^{imz} }{z^{2} + k^{2}}\right| _{z = ik} =  \left. \frac{ e^{imz} }{2z}\right| _{z = ik} =
+ \frac{ e^{-mk} }{2ik}
+\]y por lo tanto
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x  \frac{  e^{imx} }{x^{2} + k^{2}} = 2 i \pi  \frac{ e^{-mk} }{2ik} = \frac{ \pi}{k}e^{-mk} 
+\]
+\paragraph{Ejemplo:} Evalue 
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5} 
+\]Partimos de la continuación analítica de 
+\[
+f(x) \rightarrow f(z) =  \frac{z e^{iz \pi}}{z^{2} +2z +5} \quad \Rightarrow z_{\pm0} = -1 \pm 2i \quad \Rightarrow 
+\oint_{C}  \mathrm{d} z \frac{z e^{iz \pi}}{z^{2} +2z +5} = \mathrm{Res} \; \left. \frac{z e^{iz \pi}}{z^{2} +2z +5} \right| _{z = -1 + 2i } 
+\]ya que ese es el único polo encerrado por la circulación $\Gamma$. Calculando el residuo tendremos
+\[
+ \mathrm{Res} \; \left. \frac{z e^{iz \pi}}{z^{2} +2z +5} \right| _{z = -1 + 2i } = 
+ \lim_{z \rightarrow -1 + 2i }\left( (z +1 - 2i )\frac{z e^{iz \pi}}{z^{2} +2z +5}  \right) = (-1 + 2i )\frac{e^{-\pi(2 +i)}}{4i}
+\]con lo cual
+\[
+\oint_{C}  \mathrm{d} z \frac{z e^{iz \pi}}{z^{2} +2z +5} = 
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \cos \; \pi x}{x^{2} +2x +5} + i \int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5} 
+=2 i \pi (-1 + 2i )\frac{e^{-\pi(2 +i)}}{4i} = \frac{\pi}{2}(1 - 2i) e^{-2 \pi}
+\]igualando parte real e imaginaria tendremos que
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \cos \; \pi x}{x^{2} +2x +5} =  \frac{\pi}{2} e^{-2 \pi} \qquad \text{y} \qquad \int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5}  = - \pi e^{-2 \pi}
+\]
+
+\paragraph{Ejercicios:} Compruebe que
+\[
+\text{Para } m > 0 \quad \int_{0}^{\infty} \mathrm{d} x \frac{ \cos mx}{(x^{2} +1)^{2}} = \frac{\pi e^{-m}(1 +m)}{4} \qquad \text{y} \quad \int_{0}^{\infty} \mathrm{d} x \frac{ \cos 2 \pi x}{x^{4} +x^{2}+1} = \frac{\pi}{2\sqrt{3}}e^{-\pi /\sqrt{3}}
+\]
+\subsubsection{Otras Integrales Impropias}
+Existen integrales definidas para las cuales el integrando se hace infinito para un determinado punto en el rango de integración. Esto es, en general
+\[
+\lim_{x \rightarrow x_{0}} |f(x)| \rightarrow \infty \quad \Rightarrow \int_{a}^{b}  \mathrm{d} x \; f(x) = 
+\lim_{\zeta \rightarrow 0} \int_{a}^{x_{0} - \zeta}  \mathrm{d} x \; f(x) + \lim_{\xi \rightarrow 0} \int_{x_{0} + \xi}^{b}  \mathrm{d} x \; f(x) 
+\]donde $\zeta$ y $\xi$ tienden a cero de forma independiene, es decir, ambos límites se efectuan independientemente. Ahora bien, puede darse el caso que uno o ambos límites no existan pero si exista 
+\[
+\lim_{\epsilon \rightarrow 0} \left(\int_{a}^{x_{0} - \epsilon}  \mathrm{d} x \; f(x) + \lim_{\xi \rightarrow 0} \int_{x_{0} + \epsilon}^{b}  \mathrm{d} x \; f(x)  \right) \quad \Leftrightarrow \quad V.P. \;  \int_{a}^{b}  \mathrm{d} x \; f(x) 
+\]Diremos entonces que existe el \textit{Valor Principal de Cauchy} para esa integral. La estrategia en estos casos será diseñar un circuito tal que evite los polos de la extensiíon analítica de la función. Normalmente se establece este recorrido rodeando los polos con arcos de circunferencia cuyos radios luego tenderán a cero. Veamos con un ejemplo esta estrategia de circunsnavegación.
+
+\paragraph{Ejemplo:} Consideremos que queremos evaluar la siguiente integral
+\[
+ \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x}  \quad \leftrightarrow \quad \lim_{x \rightarrow -0} \frac{ \mathrm{sen} \; x}{x}  = 1
+\]
+Si bien el límite está definido, cuando hacemos la extensión analítica\footnote{Nótese que la extensión analítica ha sido $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = e^{iz}/z$ y no $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = \mathrm{sen} \; z/ z $ La razón de esta selección se fundamenta en el comportamiento patológico (oscilante) de la función seno en infinito} $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = e^{iz}/z$ la función compleja presenta un polo simple en $z = 0$, con lo cual la integral compleja presenta un polo en la región de integración. Esto es
+\[
+ \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x}  \quad \rightarrow 
+ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} =
+   \int_{-R}^{-\epsilon}  \mathrm{d} x \; \frac{e^{ix}}{x} + \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z} +  \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix}}{x} +  \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z} = 0
+\]donde hemos construido un circuito que rodea el polo $z = 0$ (cuadrante $IV$ de la figura \ref{Fig8VarCompleja}.). Es claro que $ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} = 0$ porque la región no contiene ningún polo. 
+
+Ahora mostraremos que $ \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z} \rightarrow 0$, cuando $R \rightarrow \infty$. Para ello, convertimos $z~=~R e^{i \theta}~\Rightarrow~\mathrm{d} z/z~=~i\mathrm{d}\theta$, entonces
+\[
+\left| \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z}  \right| = \left| \int_{0}^{\pi} \mathrm{d} \theta \; i e^{iz}  \right|
+\leq  \int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | =  \int_{0}^{\pi} \mathrm{d} \theta \; \underbrace{| e^{i R \cos \theta} | }_{1} | e^{-R  \mathrm{sen} \;  \theta} | =  \int_{0}^{\pi} \mathrm{d} \theta \;  e^{-R  \mathrm{sen} \;  \theta} 
+\]con lo cual
+\[
+\mathcal{I}_{1} =\int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | =  
+\int_{0}^{\pi} \mathrm{d} \theta \;  e^{-R  \mathrm{sen} \;  \theta} = 2 \int_{0}^{\pi /2} \mathrm{d} \theta \;  e^{-R  \mathrm{sen} \;  \theta} =
+2 \left( \int_{0}^{\zeta} \mathrm{d} \theta \;  \underbrace{e^{-R  \mathrm{sen} \;  \theta} }_{I_{1}} +  \int_{\zeta}^{\pi /2} \mathrm{d} \theta \; \underbrace{ e^{-R  \mathrm{sen}  \;  \theta} }_{I_{2}} \right)
+\]para  $0 \leq \zeta \leq \pi/2$. Es claro que $e^{-R  \mathrm{sen} \;  \theta} $ es una función decreciente en $\theta$ y como estamos tratando de demostrar que la integral a lo largo del circuito se anula $\mathcal{I}_{1} \rightarrow 0$, podremos considerar los máximos valores para $I_{1}$ y $I_{2}$ en el entorno de integración y fijarlos como constantes, al hacer esto tendremos lo máximos valores que podrá tomar las integrales respectivas. Los máximos valores para  $I_{1}$ y $I_{2}$, son, $1$ y $e^{-R \zeta}$. Entonces, 
+\[
+\mathcal{I}_{1} =\int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | \leq 
+2 \left( \int_{0}^{\zeta} \mathrm{d} \theta  +  e^{-R  \mathrm{sen}  \;  \zeta} \int_{\zeta}^{\pi /2} \mathrm{d} \theta  \right) =
+2\left( \zeta +  e^{-R  \mathrm{sen}  \;  \zeta} \left(\frac{\pi}{2}  - \zeta \right) \right) < 
+2\zeta  +\pi e^{-R  \mathrm{sen}  \;  \zeta} 
+\]Al considerar que $\zeta \rightarrow 0$ y $R \rightarrow \infty$ comprobamos que $\mathcal{I}_{1}  \rightarrow 0$.
+
+Seguidamente nos toca demostrar que $\mathcal{I}_{2} =  \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z}  \rightarrow 0$ cuando $\epsilon \rightarrow 0$. Para este caso $z = \epsilon e^{i \theta}$ y como siempre, $\mathrm{d} z/z~=~i\mathrm{d}\theta$, entonces la integral 
+\[
+\mathcal{I}_{2} = \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z} =  \int_{0}^{\pi} \mathrm{d} \theta \; i e^{i \epsilon \exp(i \theta)} \quad \Rightarrow \lim_{\epsilon \rightarrow 0 } \mathcal{I}_{2} = \lim_{\epsilon \rightarrow 0 } \int_{0}^{\pi} \mathrm{d} \theta \; i e^{i \epsilon \exp(i \theta)} = i \pi
+\]Esto implica que
+\[
+ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} =    \int_{-R}^{-\epsilon}  \mathrm{d} x \; \frac{e^{ix}}{x} + i\pi +  \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix}}{x}  =0  \quad \underbrace{ \quad \Rightarrow \quad}_{x \rightarrow -x}  \quad
+ \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix} - e^{-ix} }{x} + i\pi =0
+\]con lo cual es claro que 
+\[
+ \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix} - e^{-ix} }{x} = -i \pi \quad \Rightarrow 2i \int_{\epsilon}^{R}  \mathrm{d} x  \;\frac{ \mathrm{sen} \; x}{x}  = -i \pi  \quad \Rightarrow  \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x} = \frac{\pi}{2}
+\]donde hemos hecho los límites $R \rightarrow \infty$ y $\epsilon \rightarrow 0$
+
+\paragraph{Ejercicios:} 
+Comprobar las evaluaciones para las siguientes integrales
+\begin{enumerate}
+  \item \[ \int_{0}^{\infty}  \mathrm{d} x \; \mathrm{sen} \; x^{2} =  \int_{0}^{\infty}  \mathrm{d} x \; \cos \; x^{2} =\frac{\sqrt{2 \pi}}{4} \]
+  \item \[  \int_{0}^{\infty}  \mathrm{d} x \;  \frac{\ln x}{x^{4} + 1} = -\frac{\pi^{2} \sqrt{2}}{16}; \qquad  \int_{0}^{\infty}  \mathrm{d} x  \;  \frac{(\ln x)^{2}}{x^{4} + 1} = \frac{3\pi^{3} \sqrt{2}}{16}  \]
+  \item \[  \int_{0}^{\infty}  \mathrm{d} x \; \frac{ x^{-p} }{ x^{2} + 2x \cos \alpha +1} = \left(\frac{\pi}{ \mathrm{sen} \;p \pi} \right)\left( \frac{ \mathrm{sen} \;p \alpha}{\mathrm{sen} \; \alpha} \right)  \]
+\end{enumerate}
+
+\section*{Agradecimientos}
+Quisiera agradecer a tantos estudiantes entusiastas quienes, nos han señalado montones de gazapos y errores de transcripción. Ellos han tenido la paciencia de soportarlos. Gracias por esa paciencia.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\begin{thebibliography}{99}
+
+\bibitem[Aleksandrov Kolmogorov y Lavrentiev 1999]{AleksandrovKolmogorovLavrentiev1999}A. D. Aleksandrov, A. N. Kolmogorov y M. A. Lavrentiev (1999) \textbf{Mathematics: Its Content, Methods and Meaning.} (\textit{Dover Publications, New York}) Existe traducción por Editorial Alianza Universidad.
+
+\bibitem[Arfken, Weber y Weber 2000]{ArfkenWeberWeber2000}Arfken, G. B.,Weber, y H., Weber, H.J. (2000)
+\textbf{Mathematical Methods for Physicists} 5ta Edición (\textit{Academic Press, Nueva York})
+
+\bibitem[Byron y Fuller 1970]{ByronFuller1970}Byron, F.W. y Fuller W.F. (1970) \textbf{Mathematics of Classical and Quantum Physics } (\textit{Dover Publications, New York})
+
+\bibitem[Chow 2000]{Chow2000} T. L. Chow (2000) \textbf{Mathematical Methods for Physicists: A Concise Introduction} (\textit{Cambridge University Press, Cambridge})
+
+\bibitem[Churchill y Brown1989]{ChurchillBrown1989} R. V. Churchill y J. W. Brown (1989) \textbf{Complex Variables and Applications} (\textit{McGraw-Hill, New York}). 
+
+\bibitem[Dennery y Krzywicki1995]{DenneryKrzywicki1995} P. Dennery y  A. Krzywicki (1995) \textbf{Mathematics for Physicists}  (\textit{Dover Publications, New York})
+
+\bibitem[Gonzalez 2003]{Gonzalez2003} A. González-López \textbf{Variable Compleja } Universidad Complutense de Madrid, Madrid España. Disponible en  \url{http://www.ucm.es/info/metodos/pdf/Apuntes/vc-ag/vc-ag.pdf}
+
+\bibitem[Harper 1971]{Harper1971}Harper, C. (1971) \textbf{Introduction to Mathematical Physics} (\textit{Prentice Hall, Englewood Cliff, N.J.})
+
+\bibitem[Knopp 1996]{Knopp1996} K. Knopp (1996) \textbf{Theory of Functions, Parts I and II} (\textit{Dover Publications, New York})
+
+\bibitem[math-atlas.orgURL] {math-atlas.orgURL} \textbf{The Mathematical Atlas} \url{http://www.math-atlas.org/welcome.html}
+
+\bibitem[Núñez 2005]{Nunez2005} L.A. Núñez (2005) \textbf{Los Vectores de Siempre} Formulario de Métodos Matematicos de la Física 1. Universidad de Los Andes, Mérida Venezuela,  Disponible en \url{http://webdelprofesor.ula.ve/ciencias/nunez/cursos.html}
+
+\bibitem[Núñez 2006]{Nunez2006} L.A. Núñez (2006) \textbf{Serie de Series} Formulario de Métodos Matematicos de la Física 2. Universidad de Los Andes, Mérida Venezuela,  Disponible en \url{http://webdelprofesor.ula.ve/ciencias/nunez/cursos.html}
+
+\bibitem[Riley, Hobson y Bence 2002] {RileyHobsonBence2002} Riley, K.F., Hobson, M.P. y Bence, S.J. (2002)
+\textbf{Mathematical Methods for Physics and Engineering } (\textit{Cambridge University Press, London})
+
+\bibitem[Spiegel 1959]{Spiegel1959}Spiegel, M. (1967) \textbf{Variable Compleja } (\textit{Schaum`s Outline Series, McGraw Hill New York})
+
+\bibitem[WeissteinURL]{WeissteinURL} Weisstein, E. W.,  \textbf{MathWorld} \url{http://mathworld.wolfram.com/}
+
+\bibitem[Wyld 1999]{Wyld1999} H. W. Wyld (1999) \textbf{Mathematical Methods for Physics} (\textit{Westview Press, Boulder Co.})
+\end{thebibliography}
+

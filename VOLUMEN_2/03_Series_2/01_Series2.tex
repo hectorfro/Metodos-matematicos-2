@@ -1,0 +1,1336 @@
+\section*{La ruta de este capítulo}
+\section{Series y espacios de Hilbert}
+\label{IntroSeries2}
+
+
+Hemos dejado ``sueltos'' algunos conceptos para los espacios de Hilbert \textit{infito-}dimensional. El primero de estos conceptos es que un vector $ \left| a \right> \in E^{\infty} $ surge de la combinación lineal de elementos de una base infinita $\{ \left| e_{i} \right> \}$, (de una serie) que converge al vector $ \left| a \right> $ para un espacio donde también la norma del vector converge a un valor finito $ \|a\|^{2} = \left< a \right. \left| a \right> $. 
+
+El segundo concepto fue la posibilidad de expresar un determinado vector (una función) como combinación lineal de una base (de dimensión infinita) de un espacio vectorial $E^{\infty}$. Efectivamente, esa combinación lineal (de dimensión infinita) habrá de converger a el valor de la función en ese punto. En su momento expresamos estos conceptos intuitivos y fácilmente demostrables para $E^n$ (un espacio vectorial Euclidiano de dimensión finita, $n-$dimensional) y sin mayores justificaciones hicimos el  ``salto '' a $E^{\infty}$ (un espacio Euclidiano \textit{infinito}-dimensional). Ahora, equipados con los conceptos de convergencia uniforme estamos en capacidad de explorar esas razones que antes eludimos. 
+
+Ambos conceptos tienen que ver con la palabra \textit{completitud}, la cual, como veremos, no tiene el mismo significado en cada una de las situaciones antes mencionadas, pero será complementario. En el primer caso la completitud de $E^{\infty} $ se logra al poder expresar un vector como una combinación lineal de una base infinita que converja al valor del vector. En el segundo caso diremos que la base  $\{ \left| e_{i} \right> \}$ para $E^{\infty} $ será completa si expande la totalidad de los vectores de $E^{\infty}$.
+
+\subsection{Completitud de $E^{\infty}$}
+La primera idea de completitud de un Espacio de Hilbert $E^{\infty}$ tiene que ver con el hecho que, en ese espacio, donde la norma de un vector es finita 
+$\|a\|^{2}=\left< a \right. \left| a \right>  < \infty$, la combinación lineal de los elementos de una base infinita, $\{ \left| e_{i} \right> \}$, converja al vector  $\left|a \right>$. Esto es, $ a^{i}  \left| e_{i} \right>  \stackrel{n \rightarrow \infty }{\longrightarrow} \left| a \right>$. 
+
+Para el caso de $E^{n}$ es inmediato que, dada una base (ortonormal, por ejemplo)
+\[
+ \left| a \right> = a^{i}  \left| e_{i} \right>  \,\, \Rightarrow \,\, \| a \|^{2} = \left< a \right. \left| a \right> = a^{i} a_{i} < \infty\,, \qquad \text{con } i=1,2,3, \dots n\,,
+\]  
+la norma es finita, por cuanto es la suma de términos finitos (las componentes del vector $ (a^{1}, a^{2}, a^{3}, \cdots a^{n}) $). Sin embargo, para el caso de $E^\infty$  las componentes del vector será función de las sumas parciales, esto es hasta dónde desarrollemos la serie y debemos demostrar que si
+\[
+\left| a \right>_{n}  \Leftrightarrow (a^{1}_{n}, a^{2}_{n}, a^{3}_{n}, a^{4}_{n},\cdots a^{n}_{n}) \,\, \stackrel{n \rightarrow \infty}{\longrightarrow} \,\, \left| a_{\infty} \right>  \Leftrightarrow (a^{1}_{\infty}, a^{2}_{\infty}, a^{3}_\infty,\cdots a^{j}_\infty,\cdots) \,\, \Rightarrow \,\, \| \left| a_{\infty} \right> - \left| a_{n} \right> \| < \epsilon\,.
+\]
+Es decir que, efectivamente, componente a componente el vector $\left| a_{n} \right>$ converja al vector $\left| a \right>$. 
+
+El criterio de convergencia de Cauchy en este caso significa que: dadas dos sumas parciales (desarrollos parciales en una determinada base infinita $\{ \left| e_{i} \right> \}$)  $ \left| a_{n} \right> = a^{i}  \left| e_{i} \right>$ con $ i=1,2,\dots n$ y $\left| a_{m} \right> = a^{j}  \left| e_{j} \right>$ con  $j=1,2,\dots m$ entonces: 
+\[
+ \| \left| a_{m} \right> - \left| a_{n} \right> \| = \|   \left| a_{m} \right> -\left| a \right>  - \left| a_{n} \right> + \left| a \right>  \| \leq \| \left| a \right>  - \left| a_{n} \right> \| + \| \left| a \right>  - \left| a_{m} \right> \| < \epsilon' + \epsilon''  \equiv \epsilon\,,
+\]
+con lo cual las diferencias en las sumas parciales serán siempre menor que un $0 < \epsilon < 1$. 
+
+Nótese que hemos utilizado la desigualdad triangular $\| x + y\| \leq \|x\| + \| y \|$, y es esa misma desigualdad triangular lo que nos garantiza que:
+\[
+| a^{j}_{n} -a^{j}_{m} |^{2} \leq \sum_{j =1}^\infty | a^j_n -a^j_m |^2 \equiv   \| \left| a_m \right> - \left| a_n \right> \|^2 < \epsilon\,,
+\]
+vale decir, hemos demostrado que el término $j-$ésimo (y con ello todas las componentes del vector) de una suma parcial, converge al término correspondiente de la serie límite. Esto es,  $a^j_n \stackrel{n \rightarrow \infty }{\longrightarrow}  a^j_m \stackrel{m \rightarrow \infty }{\longrightarrow}  a^j $ por lo tanto que la combinación lineal converge al vector. Nos queda por demostrar si su norma es finita, o lo que es lo mismo, $ \left< a \right. \left| a \right> = a^i a_i < \infty$  con  $i=1,2,3, \cdots \infty$. 
+
+Es claro que:
+\[
+\sum_{j=1}^{M} | a^{j}_{n} -a^{j}_{m} |^{2} \leq \sum_{j =1}^\infty | a^{j}_{n} -a^j_m |^2 \equiv   \| \left| a_m \right> - \left| a_n \right> \|^2 < \epsilon \,,
+\]
+con lo cual si $m \rightarrow \infty$ tendremos que $\sum_{j=1}^M | a^j_n -a^j |^2 < \epsilon$, y si ahora hacemos: 
+\[
+M \rightarrow \infty \,\, \Rightarrow \,\,  \sum_{j=1}^{\infty} | a^{j}_n -a^{j} |^2 < \epsilon \,\, \Rightarrow \,\,  \left< a \right. \left| a \right> 
+= \sum_{j=1}^\infty |a^{j}|^2 \equiv  \sum_{j=1}^\infty |a^{j} +a^{j}_n -a^{j}_{n}|^2 \,.
+\]
+
+Ahora bien, para $\alpha$ y $\beta$ complejos, se cumple:
+\[
+\left(| \alpha | - | \beta | \right)^{2} \equiv | \alpha |^{2} + | \beta |^{2} -2 | \alpha |  | \beta | \geq 0  \,\, \Rightarrow \,\, 2 | \alpha |  | \beta | \leq \alpha |^2 + | \beta |^2 \,\, \Rightarrow \,\, | \alpha + \beta |^2 \leq | |\alpha| + |\beta| |^2 =  | \alpha |^2 + | \beta |^2 + 2| \alpha |  | \beta | \,,
+\]
+para que resulte:
+\[
+\left( | \alpha | - | \beta | \right)^{2} \leq 2 \left(  | \alpha |^{2} + | \beta |^{2} \right)\,.
+\]
+
+Finalmente, podemos aplicarlo al caso que nos compete:
+\[
+ \left< a \right. \left| a \right>  \equiv  \sum_{j=1}^{\infty} | a^{j} +a^{j}_{n} - a^{j}_{n} |^{2}  \leq 2 \left(  \sum_{j=1}^{\infty} | a^{j} -a^{j}_{n} |^{2} + \sum_{j=1}^{\infty} | a^{j}_{n} |^{2}  \right) < \infty \,.
+\]
+
+\subsection{Conjunto completo de funciones}
+
+El segundo sentido de completitud tiene que ver con que el conjunto (funciones) de vectores base expandan la totalidad del espacio vectorial (de funciones). Esto es, si $\{ \left| {u}_{i} \right> \} \Leftrightarrow \{ u_{i}(x) \}$ es una base ortonormal para $E^{\infty}$ entonces:
+\[
+ \left| {a} \right> = a^{i}  \left| {u}_{i} \right>  \,\, \Rightarrow \,\, \| \left|{ a} \right>  \|^{2} = \left< {a} \right. \left|{ a} \right> = a^{i} a_{i} = \sum_{k=1}^{\infty} | a_{k} |^{2} \qquad \text{con } i=1,2,3, \dots \infty \,.
+\]
+Otra vez es la misma afirmación que consideramos en el caso de un espacio finito dimensional $E^n$, en el cual demostramos que una base $\{ \left| {u}_{i} \right> \}$ con $i=1,2,3,\cdots,n$ expandía todo el espacio.
+
+ Si adicionalmente existe una función \textit{cuadrado integrable}, $\mathcal{L}^{2}_{\left[ a, b \right]}$ definidas en el intervalo $\left[ a, b \right]$, la cual pueda ser aproximada por la base:
+ \[
+\| \left| {f} \right>   \|^{2}  \equiv \left<  {f} \right. \left| {f} \right> < \infty  \,\, \Rightarrow \,\, 
+ \left| {f} \right> = \sum_{i=0}^{\infty} c^{i} \left| {u}_{i} \right> \sim  \sum_{i=0}^{N} c^{i} \left| {u}_{i} \right>  \Leftrightarrow \| f(x) \|^{2} \equiv \int_{a}^{b} \mathrm{d}x | f(x) |^{2} \,\, \Rightarrow \,\, 
+ f(x) \sim \sum_{j=0}^{N} c^{j} \ u_{j}(x) \,.
+\]
+
+Nótese que hemos supuesto la existencia de un producto interno y si las bases son ortonormales tendremos que:
+\[
+\left<  {g} \right. \left| {f} \right>  \equiv \int_{a}^{b} \mathrm{d}x \ g^{\ast}(x) f(x) \,\, \Rightarrow \,\,
+\left<  {u}^{k} \right. \left| {u}_{l} \right> \equiv \int_{a}^{b} \mathrm{d}x \ u^{\ast  k}(x) u_{l}(x) =\delta^{k}_{l} \,\, \Rightarrow \,\, \| f(x) \|^{2} \equiv \int_{a}^{b} \mathrm{d}x | f(x) |^{2} = \sum_{j=0}^{\infty} | c^{j} |^{2} \,.
+\]
+donde: 
+\[ 
+c^{k} = \int_{a}^{b} \mathrm{d}x \ u^{\ast  k}(x)  f(x) \,.
+\] 
+
+Para demostrar que $E^{\infty} $ es completo, comenzamos por demostrar la llamada \textit{desigualdad de Bessel}. Esta es: dada una base ortonormal infinita, $\{ \left| {u}_{i} \right> \} \Leftrightarrow \{ u_{i}(x) \}$ para un espacio vectorial de Hilbert, $E^{\infty}$, de funciones cuadrado integrable $ f(x) \in \mathcal{L}^{2}_{\left[ a, b \right]} $, con un producto interno definido por $ \left<  {g} \right. \left| {f} \right>  \equiv \int_{a}^{b} \mathrm{d}x \ g^{\ast}(x) f(x) $,  entonces se cumple que:
+\[
+\| f(x) \|^{2} \geq  \sum_{k=1}^{\infty} | c_{k} |^{2} \quad \text{con }  c^{k} = \left< {u}^{k} \right.  \left| {f} \right>  = \int_{a}^{b} \mathrm{d}x \ u^{\ast  k}(x)  f(x) \quad \wedge \quad \left<  {g} \right. \left| {f} \right>  \equiv \int_{a}^{b} \mathrm{d}x \ g^{\ast}(x) f(x) \,.
+\]
+
+Para demostrar la desigualdad de Bessel, partimos de una afirmación obvia en espacios finito dimensionales:
+\[
+0 \leq \| \left| {f} \right>  -  c^{i} \left| {u}_{i} \right> \|^{2} \equiv 
+\left[ \left< {f} \right| - c^{\ast}_{k} \left< {u}^{k} \right| \right] \left[ \left| {f} \right>  -  c^{i} \left| {u}_{i} \right>  \right] =  \|  \left| {f} \right>  \|^{2} - c^{\ast}_{k} \underbrace{ \left< {u}^{k} \right.  \left| {f} \right> }_{c^{k}} -  c^{i} \underbrace{\left< {f} \right. \left| {u}_{i} \right>}_{c^{\ast}_{i}} + c^{\ast}_{k} c^{i}\underbrace{ \left< {u}^{k} \right.  \left| {u}_{i} \right>}_{\delta_{i}^{k}}\,,
+\]
+donde $k, i=1,2,3, \dots, n$ Entonces, queda demostrada la desigualdad de Bessel al tomar el límite $n \rightarrow \infty$:
+\[
+0 \leq \|  \left| {f} \right>  \|^{2} - \sum_{k =1}^{n}  | c_{k} |^{2} \quad \stackrel{n \rightarrow \infty}{\Longrightarrow} \| \left| {f} \right>  \|^{2} \geq  \sum_{k =1}^{\infty}  | c_{k} |^{2}\,.
+\]
+
+Si definimos el error, $M_{n}$, que se comete al aproximar una función con su expansión hasta un término $n-$ésimo como $M_{n}(b-a) \equiv \| \left| {f} \right>  -  \alpha^{i} \left| {u}_{i} \right> \|^{2} $ demostraremos que $M_{n}$ es mínima si $ \alpha^{i} = c^{i} = \left< {u}^{i} \right.  \left| {f} \right> $. 
+
+Para ello procedemos como es costumbre, partiendo de la definición que acabamos de hacer y nos concentramos en el caso finito dimensional:
+\[
+0 \leq M_{n}(b-a) \equiv \| \left| {f} \right>  -  \alpha^{i} \left| {u}_{i} \right> \|^{2} = 
+ \| \left| {f} \right>  -  (\alpha^{i} -c^{i}) \left| {u}_{i} \right>  - c^{k} \left| {u}_{k} \right>  \|^{2}\,.
+ \]
+ 
+Desarrollando
+\begin{align*}
+M_{n}(b-a) =     &   \left[ \left< {f} \right| - (\alpha^{\ast}_{k} - c^{\ast}_{k} ) \left< {u}^{k} \right| \right.  - c^{\ast}_{k} \left< {u}^{k}  \right] 
+\left[ \left| {f} \right> - (\alpha^{i} -  c^{i}) \left| {u}_{i} \right>  -  c^{i} \left| {u}_{i} \right>  \right]  \\
+  =  & \|  \left| {f} \right>  \|^{2} - c^{\ast}_{i}(\alpha^{i} -  c^{i})  -  2c^{\ast}_{i}c^{i} -  (\alpha^{\ast}_{k} -       c^{\ast}_{k} ) c^{k} + \sum_{j=1}^{n} \| \alpha^{j} -  c^{j} \|^2 +  (\alpha^{\ast}_{k} - c^{\ast}_{k} ) c^{k} + c^{\ast}_{i}(\alpha^{i} -  c^{i}) +c^{\ast}_{i}c^{i}
+  \\
+  = & \left[ \| \left| {f} \right>  \|^{2} - \sum_{i=1}^{n} \| c^{i} \|^2 \right] +  \sum_{j=1}^{n} \| \alpha^{j} -  c^{j} \|^2 \,.
+\end{align*}
+
+Pero la desigualdad de Bessel garantiza que la cantidad entre corchetes es positiva, por lo tanto $M_{n}$ es mínima (y la denotaremos $\tilde{M}_{n}$ ) cuando seleccionamos $\alpha^{j} = c^{j}$. Más aún, $\tilde{M}_{n}$ decrece cuando $n \rightarrow \infty$, vale decir:
+\[
+\tilde{M}_{n}(b-a) =  \| \left| {f} \right>  \|^{2} - \sum_{i=1}^{n} \| c^{i} \|^2 \quad \stackrel{n \rightarrow \infty}{\Longrightarrow} \quad \tilde{M}_{\infty}(b-a) =  \| \left| {f} \right>  \|^{2} - \sum_{i=1}^{\infty} \| c^{i} \|^2\,,
+\]
+y si, adicionalmente tenemos que $\tilde{M}_{n} \rightarrow 0$ cuando $n \rightarrow \infty$ entonces es claro que:
+\[
+ \| \left| {f} \right>  \|^{2} = \sum_{i=1}^{\infty} \| c^{i} \|^{2} \,\, \Rightarrow \,\,  
+ \{ \left| {u}_{i} \right> \} \Leftrightarrow \{ u_{i}(x) \} \qquad \text{es completa.} 
+\]
+Esta noción de convergencia se denomina \textit{convergencia al promedio}.
+
+Si adicionalmente exigimos que la serie $ c^{i} \left| {u}_{i} \right> $ converja uniformemente para  $x \in \left[a,b \right]$ entonces es claro que:
+\[
+\int_{a}^{b} \mathrm{d}x \  \|  f(x) - c^{i} \left| {u}_{i} \right> \|^{2} =0 
+\,\, \Rightarrow \,\, \left| {f} \right>  = c^{i} \left| {u}_{i} \right> \quad ( \text{con } i=1,2,3\cdots , \infty) \,\, \Leftrightarrow \,\, f(x) = \sum_{i=1}^{\infty} c^{i} u_{i}(x) \,.
+\]
+
+Podemos enumerar las condiciones para la cual exigiremos que una función pueda ser expresada en términos de una base completa de funciones. 
+\begin{itemize}
+  \item Que $f(x)$ sea cuadrado integrable $ f(x) \in \mathcal{L}^{2}_{\left[ a, b \right]}$.
+  \item Que la base sea completa,  $\{ \left| {u}_{i} \right> \} \Leftrightarrow \{ u_{i}(x) \}$ i.e. $ \| \left| {f} \right>  \|^{2} = \sum_{i=1}^{\infty} \| c^{i} \|^{2}$.
+  \item Que la serie $c^{i} \left| {u}_{i} \right> \Leftrightarrow \sum_{i=1}^{\infty} c^{i} u_{i}(x) $ converja uniformemente, para $x \in \left[a,b \right]$.
+\end{itemize}
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+
+\section{Series de Laurent }
+\label{TaylorLaurent}
+Anteriormente  consideramos series complejas de potencias. En esta sección revisaremos, desde la perspectiva de haber expresado la derivada $n$-ésima de una función analítica,  el equivalente a las series de Taylor para funciones complejas de variable complejas. 
+
+\subsection{Series de Taylor para funciones analíticas}
+Si $f(z)$ es analítica en un círculo de radio $R$, encerrado por un contorno $\mathcal{C}$ y centrado en un punto $z = z_{0}$, entonces $f(z)$ puede ser expandida en series de potencias (enteras positivas) para todo $|z - z_{0}| < R$ de la forma:
+\[
+f(z) = \sum_{n=0}^{\infty} \frac{f^{(n)}(z_{0}) }{n!} (z - z_{0})^{n} \equiv f(z_{0}) + f'(z_{0})(z - z_{0}) +  \frac{f''(z_{0})}{2}(z - z_{0})^{2} +\cdots +  \frac{f^{(n)}(z_{0}) }{n!} (z - z_{0})^{n} + R_{n}\,,
+\]
+con el resto $R_{n}(z)$ definido como: 
+\[
+R_{n}(z) =  \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z_{0})^{n}(\zeta - z)} \,.
+\]
+
+Para probar esta afirmación partimos de la fórmula integral de Cauchy escrita convenientemente:
+\begin{equation}
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} = 
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{z - z_{0}}{\zeta - z_{0}} } \right] \,,
+  \label{TrampaSerie1}
+\end{equation}
+de donde:
+\[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} \equiv
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ 1 + \left(  \frac{z - z_{0}}{\zeta - z_{0}} \right) + \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{2} + \cdots 
+  + \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{n} 
+  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n+1}}{\left(\dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] \,,
+\]
+este último corchete proviene de una forma ingeniosa de utilizar una serie geométrica de razón $r =  \dfrac{z - z_{0}}{\zeta - z_{0}}$. 
+
+Para entenderlo, recordemos que para una serie geométrica,  se cumple que: 
+\[
+1 + r + r^{2} + r^{3} + \cdots + r^{n} = \frac{1 - r^{n+1}}{1 - r} = \frac{1}{1 - r} - 
+\frac{ r^{n+1}}{1 - r} \,\, \Rightarrow \,\,
+ \frac{1}{1 - r} = 1 + r + r^{2} + r^{3} + \cdots + r^{n} + \frac{ r^{n+1}}{1 - r}\,.
+\]
+
+Entonces:
+\[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z} \equiv
+   \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \sum_{j=0}^{n}  \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{j}  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n+1}}{\left(  \dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] \,,
+\]
+con lo cual:
+
+\begin{equation}
+  f(z) = 
+  \sum_{j=0}^{n} (z - z_{0})^{j} \left(  \frac{1}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ \frac{f(\zeta) }{(\zeta - z_{0})^{j+1}} \right) +  R_{n}(z) =  \sum_{j=0}^{n}  \frac{ f^{(j)}(z_{0})}{j!} (z - z_{0})^{j} +  R_{n}(z) \,,
+  \label{TaylorAnalitica}
+\end{equation}
+donde:
+\begin{equation}
+  R_{n}(z) =  \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ 
+  \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} \,.
+  \label{RestoTaylorAnalitica}
+ \end{equation}
+ 
+ Obvio que la serie (\ref{TaylorAnalitica}) converge si $R_{n}(z) \rightarrow 0$ cuando $n \rightarrow \infty$ y de eso es fácil convencerse al acotar la ecuación (\ref{RestoTaylorAnalitica}). Esto es, considerando $\zeta$ sobre el contorno $\mathcal{C}$ y $z$ en el interior de $\mathcal{R}$, entonces:
+\begin{eqnarray*}
+ |R_{n}(z)| = \left| \frac{(z - z_{0})^{n}}{2 i \pi} \oint_{\mathcal{C}}  \mathrm{d}\zeta \ 
+  \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} \right| 
+ &<& \frac{|z - z_{0}|^{n}}{2 \pi} \oint_{\mathcal{C}} \ \left| \frac{f(\zeta) }{(\zeta - z_{0})^{n} (\zeta - z)} \mathrm{d}\zeta \right| \\
+ &<& \frac{|z - z_{0}|^{n}}{2 \pi} M \frac{1}{R^{n}} 2\pi R \,,
+ \label{ConvergenciaR}
+\end{eqnarray*}
+donde, una vez más, hemos utilizado la forma polar $\tilde{\zeta} = \zeta -z_{0} = R e^{i\theta}$ y hemos acotado $\left| \dfrac{f(\zeta) }{\zeta - z} \right| < M$, con lo cual es inmediato constatar que $\lim_{n \rightarrow \infty} \left| \dfrac{z - z_{0}}{R} \right|^{n} =0 \,\, \Rightarrow \,\, R_{n}(z) \rightarrow 0$, con lo cual la serie converge.
+
+Veamos el siguiente ejemplo, vamos a expandir
+\[
+f(z) = \dfrac{1}{1 -z} \,,
+\] 
+alrededor de $z = z_{0}$.
+
+Esto es:
+\[
+  f(z) = \frac{1}{1 -z_{0}} + \frac{1}{(1 -z_{0})^{2}}(z - z_{0}) +  \frac{1}{(1 -z_{0})^{3}}(z - z_{0})^{2} +  \frac{1}{(1 -z_{0})^{4}}(z - z_{0})^{3} +\cdots +  \frac{(z - z_{0})^{n}}{(1 -z_{0})^{n+1}} +\cdots = \sum_{n=0}^{\infty}  \frac{(z - z_{0})^{n}}{(1 -z_{0})^{n+1}} \,.
+\]
+
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/02_Series/Figuras/Fig7VarCompleja.png}
+\caption{Expansión de Laurent}
+\label{Fig7VarCompleja}
+\end{center}
+\end{figure}
+
+\subsection{Las series de Laurent}
+ Hemos dicho que si una función $f(z)$ es analítica en una región (digamos que circular) $\mathcal{R}$, entonces puede ser expandida por series de Taylor. Sin embargo, si $f(z)$ tiene un polo de orden $p$, digamos, en $z = z_{0}$, dentro de la región $\mathcal{R}$, no será analítica en ese punto, mientras que la función: $g(z) = (z - z_{0})^{p}f(z)$ si lo será en todos los puntos de esa región. Entonces $f(z)$ podrá ser expandida como series de potencias (de Laurent) de la forma
+\begin{equation}
+f(z) = \sum_{k = -\infty} ^{\infty} u_{k} (z - z_{0})^{k}  =\sum_{n=0}^{\infty} u_{n} (z - z_{0})^{n} + 
+\sum_{n=0}^{\infty} \frac{u_{-n}}{(z - z_{0})^{n}}\,,  \, \text{con }  u_{n} = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z_0)^{n+1}}\,,\label{SerieLaurent1}
+\end{equation} 
+para: $n =0, \pm 1, \pm 2, \cdots$ y $ R_1<|z-z_0|<R_2$. Equivalentemente
+\begin{equation}
+ f(z) =\frac{g(z)}{(z - z_{0})^{p}} = \frac{a_{-p}}{(z - z_{0})^{p}} +\frac{a_{-p+1}}{(z - z_{0})^{p-1}} + \cdots 
+ + \frac{a_{-1}}{(z - z_{0})} + a_{0} + a_{1}(z - z_{0}) + a_{2}(z - z_{0})^{2} + \cdots
+\label{SerieLaurent2}
+\end{equation}
+La suma de todos los términos que tengan potencias negativas, vale decir $\sum_{n=0}^{\infty} \frac{u_{-n}}{(z - z_{0})^{n}}$, se denomina \textit{parte principal} de $f(z)$.
+
+ Para demostrar  (\ref{SerieLaurent1}) o (\ref{SerieLaurent2}), recordamos que, tal y como muestra la figura \ref{Fig7VarCompleja} cuadrante $I$, si $f(z)$ es analítica en la regiún anular, entonces el Teorema de Cauchy, nos garantiza que 
+ \[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z_{0}} +
+ \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z_{0}} \equiv
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z_{0}} -
+ \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{\zeta - z_{0}}
+ \] 
+ donde en el segundo caso hemos supuesto que ambas circulaciones tienen el mismo sentido.
+ 
+ Del mismo modo como procedimos en la ecuación (\ref{TrampaSerie1}) reescribimos el segundo par de integrales como 
+ \[
+ f(z) = \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{z - z_{0}}{\zeta - z_{0}} } \right] 
+  +  
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{z - z_{0}} 
+  \left[ \frac{1}{1 - \dfrac{\zeta - z_{0}}{z - z_{0}} } \right]
+ \] 
+ y ahora invocando, una vez más la progresión geométrica (\ref{progresion}) podemos construir expresiones de integrales equivalentes a la ecuación (\ref{EcuacionSerie}). Vale decir
+ \[
+  f(z) =   \frac{1}{2 i \pi} \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{\zeta - z_{0}} 
+  \left[ \sum_{j=0}^{n-1}  \left(  \frac{z - z_{0} }{\zeta - z_{0}} \right)^{j}  +  \frac{\left(  \dfrac{z - z_{0}}{\zeta - z_{0}} \right)^{n}}{\left(  \dfrac{\zeta - z }{\zeta - z_{0}} \right)}  \right] 
+  + 
+  \frac{1}{2 i \pi} \oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  \frac{ f(\zeta) }{z - z_{0}} 
+  \left[ \sum_{j=0}^{n-1}  \left( \frac{\zeta - z_{0}}{z - z_{0} } \right)^{j}  +  
+  \frac{\left(  \dfrac{\zeta - z_{0}}{z - z_{0} } \right)^{n}}{\left(  \dfrac{\zeta - z}{z - z_{0} } \right)}  \right]
+ \]
+ y equivalentemente
+\begin{equation}
+ f(z) = \frac{1}{2 i \pi}
+ \sum_{j=0}^{n-1} (z - z_{0})^{j} \underbrace{ \oint_{\mathcal{C}_{1}}  \mathrm{d}\zeta \  \frac{f(\zeta) }{(\zeta - z_{0})^{j+1}}
+}_{u_{j}} + R_{n1}(z) + 
+  \frac{1}{2 i \pi}  \sum_{j=0}^{n-1}  \frac{1}{(z - z_{0} )^{j+1}} \underbrace{\oint_{\mathcal{C}_{2}}  \mathrm{d}\zeta \  f(\zeta)(\zeta - z_{0})^{j}}_{u_{-j}}  + R_{n2}(z)
+  \label{DemostraLaurent} 
+\end{equation}
+ Con lo cual queda demostrado la forma funcional de los coeficientes de la expansión de Laurent. La demostración de la convergencia, esto es  $n \rightarrow \infty \Rightarrow R_{n1}(z)  \rightarrow R_{n2}(z)  \rightarrow 0$ sigue el mismo esquema que utilizamos para demostrar la convergencia de la ecuación (\ref{ConvergenciaR}) y  se lo dejamos como ejercicio al lector.
+ 
+Otra manera de representar las series de Laurent es por medio de las fórmulas:
+\begin{equation}
+f(z) = \sum_{k=0}^{\infty} a_{k}(z - z_0)^{k}+\sum_{k=1}^{\infty} \frac{b_{k}}{(z-z_{0})^{k}}\,,\quad
+R_1<|z-z_0|<R_2\,.\label{otrolaurent} 
+\end{equation}
+donde:
+\begin{eqnarray}
+a_k&=& \frac{1}{2\pi i}\int_C \frac{f(z)}{(z - z_{0})^{k+1}}dz \,, \quad k=0, 1, 2, \dots \,,\\
+b_k&=& \frac{1}{2\pi i}\int_C \frac{f(z)}{(z - z_{0})^{-k+1}}dz \,, \quad k=1, 2, \dots \,.
+\end{eqnarray}
+En este caso, se supone que la función es analítica en el dominio anular: $R_1<|z-z_0|<R_2$ y $C$
+es un contorno cerrado simple en torno a $z_0$ y contenido en la región anular.
+
+En el caso de $b_k$ podemos ver que el integrando se puede escribir también como 
+$f(z)(z-z_0)^{k-1}$. Si $f$ es analítica en $|z-z_0|<R_2$, entonces el integrando es
+una función analítica en dicho disco y por lo tanto $b_k=0$. Es decir, 
+la serie (\ref{otrolaurent}) se reduce a una serie de Taylor donde los coeficientes son:
+\[
+a_k= \frac{1}{2\pi i}\int_C \frac{f(z)}{(z - z_{0})^{k+1}}dz = \frac{f^{(k)}(z_0)}{n!} 
+\,, \quad k=0, 1, 2, \dots \,.
+\]
+
+En muchos casos las expansiones en series de Laurent no se generan a partir de las  ecuaciones (\ref{SerieLaurent1}) o (\ref{otrolaurent}) sino a partir de manipulaciones  algebráicas y expansiones en Taylor moduladas por otros factores. Analicemos el siguiente ejemplo. 
+
+El primero lo haremos directamente, vale decir, que como lo vamos a hacer no lo haremos otra vez. Queremos hacer una representación en serie de Laurent de la función:
+\[
+f(z) = \frac{1}{z(z-1)}\,.
+\]
+Utilizando las fórmulas de (\ref{DemostraLaurent}), construimos la relación 
+\[
+u_{j} = \frac{1}{2\pi i}\oint_{\mathcal{C}_{1}}\frac{f(\zeta) \mathrm{d}\zeta}{(\zeta - z_{0})^{j+1}} 
+= \frac{1}{2\pi i}\oint_{\mathcal{C}_{1}}\frac{ \mathrm{d}\zeta}{\zeta^{j+2}(\zeta -1)} 
+=-\frac{1}{2\pi i}\oint_{\mathcal{C}_{1}}\frac{\mathrm{d}\zeta}{\zeta^{j+2}}\sum_{n=0}^{\infty}\zeta^{n} 
+= -\frac{1}{2\pi i}\sum_{n=0}^{\infty} \oint_{\mathcal{C}_{1}} \frac{ \mathrm{d}\zeta }{\zeta^{j+2-n}}
+\] 
+ convirtiendo a la forma polar tendremos que
+ \[
+-\frac{1}{2\pi i} \sum_{n=0}^{\infty}  \oint_{\mathcal{C}_{1}}  \frac{r i \theta e^{i \theta } \mathrm{d} \theta}{r^{j+2-n} e^{ i(j+2-n) \theta}} =-\sum_{n=0}^{\infty} \delta_{j+2-n,1} 
+  \quad \Rightarrow 
+  \left\{ 
+   \begin{array}{l l}
+   u_{n} = -1& \text{para } n \geq -1   \\ \\
+   u_{n} = 0 & \text{para } n < -1        
+\end{array}
+  \right.
+ \]es decir
+ \[
+ f(z) = \frac{1}{z(z-1)}  = -\frac{1}{z} - 1 - z -z^{2}-z^3- \cdots
+ \]
+ 
+
+
+\subsection{Integración por el método de los residuos: los residuos de Laurent}
+\label{ResiduosLaurent}
+Las expansiones de funciones en series de potencias dejan ``residuos'' al detener la expansión a para una determinada potencia. Esto se puede apreciar claramente en la expresión de Taylor para funciones analíticas. Ahora, las expansiones de Laurent  nos muestran otro ``residuo''. Explotaremos las series de Laurent para funciones con polos y construiremos un método para evaluar integrales de funciones en esos puntos.  Primero estudiaremos los residuos en general y luego los utilizaremos para evaluar integrales.
+
+Hemos dicho que si $f(z)$ tiene un polo de orden $p$ en $z = z_{0} \in \mathcal{R}$, entonces 
+\[
+ \oint_{\mathcal{C}} \mathrm{d}z \ f(z) \neq 0 \,\, \Rightarrow \,\, f(z) = \sum_{n = -\infty} ^{\infty} a_{k} (z - z_{0})^{k}  = \frac{a_{-p}}{(z - z_{0})^{p}} +\frac{a_{-p+1}}{(z - z_{0})^{p-1}} + \cdots 
+ + \frac{a_{-1}}{(z - z_{0})} + a_{0} + a_{1}(z - z_{0}) + a_{2}(z - z_{0})^{2} + \cdots
+\]
+más aún, tendremos que los coeficientes de la expansión pueden ser calculados a partir de 
+\begin{equation}
+a_{n} = \frac{1}{2 i \pi} \oint_{\mathcal{C}}    \frac{f(\zeta) \ \mathrm{d}\zeta}{(\zeta - z)^{n+1}} \quad n =0, \pm 1, \pm 2, \cdots \quad \text{si } n = -1 \\,\, \Rightarrow \,\,  \oint_{\mathcal{C}}    f(\zeta) \ \mathrm{d}\zeta = 2 i \pi a_{-1} \equiv 2 i \pi \mathrm{Res} \; f(z)
+\label{ResiduoPoloSimple} 
+\end{equation}
+Es decir, la integración a lo largo de un contorno $\mathcal{C}$ que aisle al polo $z = z_{0}$ es proporcional al residuo correspondiente a la expansión de Laurent alrededor de ese polo. Nos queda entonces calcular el residuo para así no calcular la integral.
+
+Esta situación se ilustra con el siguiente ejemplo. Supongamos
+\[
+f(z)= \frac{\mathrm{sen} \; z}{z^{4}} = \frac{1}{z^4} \left(z - \frac{z^{3}}{3!} +\frac{z^{5}}{5!} + \cdots  \right) = \frac{1}{z^{3}} - \frac{1}{3! z} + \frac{z}{5!} + \cdots \,,
+\]
+por lo tanto:
+\[
+a_{-1} =  - \frac{1}{3! } \,\, \Rightarrow \,\, \oint_{\mathcal{C}}    f(\zeta) \ \mathrm{d}\zeta = 2 i \pi a_{-1}= - \frac{i \pi}{3 } 
+\]
+
+En general, si $f(z)$ tiene un polo de orden $p$ en $z = z_{0} \in \mathcal{R}$, entonces 
+\[
+  (z - z_{0})^{p}f(z) = a_{-p} + a_{-p+1}(z - z_{0}) + \cdots + a_{0}(z - z_{0})^{p} + \cdots \, \,\, \Rightarrow \,\,  \frac{\mathrm{d}^{p-1}}{\mathrm{d}z^{p-1}} [ (z - z_{0})^{p}f(z) ] = (p-1)! a_{-1} + \sum_{n=1}^{\infty} b_{n}(z - z_{0})^{n}
+\]con lo cual concluimos que
+\begin{equation}
+\label{ResiduosGeneral}
+a_{-1} \equiv \mathrm{Res} \; f(z)  = \lim_{z \rightarrow z_{0}} \left( \frac{1}{ (p-1)!}  \frac{\mathrm{d}^{p-1}}{\mathrm{d}z^{p-1}} [ (z - z_{0})^{p}f(z) ] \right)
+\end{equation}
+
+Si, por ejemplo consideramos
+\[
+f(z)= \frac{e^{iz}}{(z^{2} +1)^{2}} \equiv \frac{e^{iz}}{(z +i)^{2}(z -i)^{2}}  \,\, \Rightarrow \,\, 
+\left\{
+\begin{array}{rl }
+ z_{0} = i     \,\, \Rightarrow \,\,   &  \dfrac{\mathrm{d}}{\mathrm{d}z} [ (z - i)^{2} f(z) ] =  \dfrac{\mathrm{d}}{\mathrm{d}z} \left[  \dfrac{e^{iz}}{(z +i)^{2}} \right] \\ \\
+  z_{0} = -i     \,\, \Rightarrow \,\,   &  \dfrac{\mathrm{d}}{\mathrm{d}z} [ (z + i)^{2} f(z) ] =  \dfrac{\mathrm{d}}{\mathrm{d}z} \left[  \dfrac{e^{iz}}{(z -i)^{2}} \right] 
+  \end{array}
+\right.
+\]
+con lo cual 
+\[
+\left. \mathrm{Res} \;  \frac{e^{iz}}{(z^{2} +1)^{2}} \right|_{i} = \lim_{z \rightarrow i}  \frac{1}{1!} \frac{\mathrm{d}}{\mathrm{d}z} \left[  \frac{e^{iz}}{(z +i)^{2}} \right]  = 
+ \lim_{z \rightarrow i}  \frac{(z +i)^{2} ie^{iz} - e^{iz} 2(z +i)}{(z +i)^{2}}  = \frac{-4i e^{-1} --4i e^{-1}}{16} = -\frac{i}{2e}
+\]
+del mismo modo se procede para el caso $z = -i$
+
+Un caso particular y muy útil lo constituyen las funciones racionales del tipo $f(z) = \dfrac{p(z)}{q(z)}$ y $f(z)$ tiene un polo simple en $z = z_{0}$. Esto es $q(z_{0})= 0$ entonces 
+\begin{equation}
+\label{ResiduoLHopital}
+\left. \mathrm{Res} \;  f(z) \right|_{z_{0}} = \lim_{z \rightarrow z_{0}} \frac{(z-z_{0}) p(z)}{q(z)} = 
+ p(z_{0}) \lim_{z \rightarrow z_{0}} \frac{(z-z_{0}) }{q(z)} = \frac{p(z_{0})}{q'(z_{0})}
+\end{equation}
+porque hemos utilizado el Teorema de L'Hopital. Este caso lo podemos ejemplificar si consideramos una función
+\begin{equation}
+\label{EjemResiduos}
+ f(z)= \frac{4 -3z}{z^{2} -z } \equiv \frac{4 -3z}{z(z -1) } \quad \text{con polos en } 
+\left\{
+ \begin{array}{l }
+ \left. z = 0 \,\, \Rightarrow \,\,  \mathrm{Res} \; f(z) \right|_{z =0}  =  \left.   \dfrac{4 -3z}{2z -1} \right|_{z =0} = -4   \\  \\
+   \left. z = 1\,\, \Rightarrow \,\,  \mathrm{Res} \; f(z) \right|_{z =1}  =  \left.  \dfrac{4 -3z}{2z -1} \right|_{z =1} = 1      
+\end{array}
+ \right.
+\end{equation}
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\begin{enumerate}
+\item Expandir 
+\[
+f(z) = \ln(1 +z)
+\]  
+alrededor de $z = 0$ (Serie de Maclaurin)
+ \[
+  f(z) = \ln(1 +z) = \left. \ln(1 +z) \right|_{z =0} + \sum_{n =1}^{\infty} \left. \frac{(-1)^{n+1} n!}{(1 -z)^{n+1}} \right|_{z =0} z^{n} \equiv f(0) + f'(0)z + \frac{f''(0)}{2}z^{2} + \frac{f'''(0)}{3!}z^{3} +\cdots = 
+  z -\frac{z^{2}}{2} +\frac{z^{3}}{3} +  \cdots 
+  \]
+  
+\item Expandir 
+\[
+f(z) = \ln \left[\dfrac{1 +z }{1 -z }\right]\,,
+\] 
+alrededor de $z = 0$ (Serie de Maclaurin) 
+  
+\[
+  \ln \left[ \dfrac{1 +z}{1 -z} \right] \equiv \ln [1+z] - \ln [1-z] = 
+  \left[z -\frac{z^{2}}{2} +\frac{z^{3}}{3}  \cdots  \right] - 
+  \left[-z -\frac{z^{2}}{2} -\frac{z^{3}}{3} \cdots \right] =  
+  2 \left[ z +\frac{z^{3}}{3} +\frac{z^{5}}{5}   \cdots \right]
+= \sum_{n=0}^{\infty} \frac{2 z^{2n +1}}{2n +1}\,.
+ \]
+
+Consideremos los siguientes ejemplos de desarrollos en Series de Laurent
+
+\item Dada la función:
+\[ 
+f(z) = \frac{1}{z(z-2)} \,.
+\] 
+La función puede escribirse en la forma:
+\[
+f(z) = \frac{1}{z(z-2)}= -\frac12\left[ \frac1z - \frac{1}{z-2}\right] \,,\quad 0<|z|<2\,.
+\]
+Por otro lado, sabemos que:
+\[
+- \frac{1}{z-2}=\frac12 \,\frac{1}{1-z/2}=\frac12 \sum_{n=0}^{\infty} \left( \frac{z}{2}\right)^n 
+= \sum_{n=0}^{\infty} \frac{z^n}{2^{n+1}} \,,\quad |z|<2\,,
+\]
+por lo tanto:
+\begin{eqnarray*}
+f(z) = \frac{1}{z(z-2)} &=& -\frac12 \frac1z - \frac12 \sum_{n=0}^{\infty} \frac{z^n}{2^{n+1}} \\
+&=& -\frac12 \frac1z -{\frac {1}{4}}-{\frac {1}{8}}z-{\frac {1}{16}
+}{z}^{2}-{\frac {1}{32}}{z}^{3}-{\frac {1}{64}}{z}^{4}-{\frac {1}{128}}{z}^{5}- \cdots
+\,,\quad 0<|z|<2\,.
+\end{eqnarray*}
+
+\item Sea la función
+\[ 
+f(z) = \frac{1}{(z-1)(z-3)} \,.
+\] 
+
+Esta función tienes polos de orden $1$ en $z=1$ y  $z=3$. Además, expresando 
+$f(z)$ como una suma de fracciones parciales, tendremos:
+ \[
+f(z)=\frac{1}{(z-1)(z-3)}= -\frac12\left[ \frac{1}{z-1}-\frac{1}{z-3}\right]\,,\quad 1<|z|<3\,,
+ \]
+\begin{itemize}
+\item Para $1 < |z| <3$. \\ 
+Tenemos los siguientes desarrollos:
+\begin{eqnarray*}
+\frac{1}{z-1}&=&\frac1z \,\frac{1}{1-1/z}=\frac1z \sum_{n=0}^{\infty} \left( \frac{1}{z}\right)^n 
+= \sum_{n=0}^{\infty} \frac{1}{z^{n+1}} \,,\quad |z|>1\,,\\
+-\frac{1}{z-3}&=&\frac13 \,\frac{1}{1-z/3}=\frac13 \sum_{n=0}^{\infty} \left( \frac{z}{3}\right)^n 
+= \sum_{n=0}^{\infty} \frac{z^n}{3^{n+1}} \,,\quad |z|<3\,,
+\end{eqnarray*}
+La serie es:
+\begin{eqnarray*}
+f(z) = \frac{1}{(z-1)(z-3)}&=& -\frac12\left[\sum_{n=0}^{\infty} \frac{z^n}{3^{n+1}}+\sum_{n=0}^{\infty} \frac{1}{z^{n+1}} \right]\\
+&=& 
+-\frac16-\frac1{18}\,z-{\frac {1}{54}}\,{z}^{2}-{\frac {1}{162}}\,{z}^{3}-\frac12\,{
+z}^{-1}-\frac12\,{z}^{-2}-\frac12\,{z}^{-3}-\frac12\,{z}^{-4}-\cdots \,.
+\end{eqnarray*}
+ 
+\item Para $|z| > 3$. \\
+En este caso no podemos utilizar el segundo desarrollo anterior, ya que éste es válido 
+sólo para $|z|<3$. Por lo tanto:
+\begin{eqnarray*}
+-\frac{1}{z-3}&=&-\frac1z \,\frac{1}{1-3/z}=-\frac1z \sum_{n=0}^{\infty} \left( \frac{3}{z}\right)^n 
+= -\sum_{n=0}^{\infty} \frac{3^n}{z^{n+1}} \,,\quad |z|>3\,,
+\end{eqnarray*}
+podemos entonces escribir
+\begin{eqnarray*}
+f(z) = \frac{1}{(z-1)(z-3)}&=& -\frac12\left[\sum_{n=0}^{\infty} \frac{1}{z^{n+1}} -
+\sum_{n=0}^{\infty} \frac{3^n}{z^{n+1}}\right]= -\frac12 \sum_{n=0}^{\infty} \frac{1-3^n}{z^{n+1}}\\
+&=& 
+{z}^{-2}+4\,{z}^{-3}+13\,{z}^{-4}+40\,{z}^{-5} + \cdots \,.
+\end{eqnarray*}
+
+\item para $|z| < 1$. \\
+Escribimos
+ \[
+f(z)=\frac{1}{(z-1)(z-3)}= -\frac12\left[ \frac{1}{z-1}-\frac{1}{z-3}\right]
+=\frac12 \frac{1}{1-z}- \frac16 \frac{1}{1-z/3}\,,
+ \]
+como $|z| < 1$ y $|z/3| < 1$ en este dominio, entonces:
+\begin{eqnarray*}
+f(z)&=& \frac12 \sum_{n=0}^{\infty} z^n - \frac16 \sum_{n=0}^{\infty} \frac{z^n}{3^n} = 
+\frac12  \sum_{n=0}^{\infty} z^n\left[1-\frac{1}{3^{n+1}} \right] \\
+&=&\frac13+\frac49\,z+{\frac {13}{27}}\,{z}^{2}+{\frac {40}{81}}\,{z}^{3}+{\frac 
+{121}{243}}\,{z}^{4}+ \cdots \,.
+\end{eqnarray*}
+\end{itemize}
+
+\item Dada la siguiente función
+\[ 
+f(z) = \frac{e^{2z}}{(z-1)^{3}} \,.
+\] 
+
+Sabemos que:
+\[
+e^z=\sum_{n=0}^{\infty} \frac{z^n}{n!}\,,\quad |z|<\infty\,,
+\]
+por lo tanto:
+\begin{eqnarray*}
+f(z)=\frac{e^{2z}}{(z-1)^{3}} &=& \frac{e^2e^{2(z-1)}}{(z-1)^{3}}= 
+e^2\sum_{n=0}^{\infty} \frac{ 2^n (z-1)^n}{n!(z-1)^{3}}=
+e^2\sum_{n=0}^{\infty} \frac{ 2^n}{n!}(z-1)^{n-3}\\
+&=&
+{e}^{2} \left[ \frac23+ \left( z-1 \right) ^{-3}+2\, \left( z-1 \right) ^{
+-2}+2\, \left( z-1 \right) ^{-1}+\frac23\,z+{\frac {4}{15}}\, \left( z-1
+ \right) ^{2} + \cdots\right] \,,
+\end{eqnarray*}
+la cual es válida para: $0<|z-1|<\infty$.
+
+\item Consideremos la función
+\[ 
+f(z) = \frac{z -\mathrm{sen} \, z}{z^{3}}.
+\] 
+Esta función se puede escribir como:
+\[ 
+f(z) = \frac{1}{z^2}-\frac{\mathrm{sen}\, z}{z^{3}}.
+\] 
+Sabemos que:
+\[
+\mathrm{sen}\, z = \sum_{n=0}^{\infty} (-1)^n\frac{z^{2n+1}}{(2n+1)!}\,,\,\quad |z|<\infty\,,
+\]
+entonces
+\begin{eqnarray*}
+f(z) = \frac{1}{z^2}-\frac{\mathrm{sen}\, z}{z^{3}} &=&    
+\frac{1}{z^2}-\sum_{n=0}^{\infty} (-1)^n\frac{z^{2n+1}}{z^3(2n+1)!}=
+\frac{1}{z^2}-\sum_{n=0}^{\infty} (-1)^n\frac{z^{2(n-1)}}{(2n+1)!}\\
+&=& \frac{1}{z^2}-\frac{1}{z^2}-\sum_{n=1}^{\infty} (-1)^n\frac{z^{2(n-1)}}{(2n+1)!}=
+-\sum_{n=1}^{\infty} (-1)^n\frac{z^{2(n-1)}}{(2n+1)!}\\
+&=&\frac16-{\frac {1}{120}}\,{z}^{2}+{\frac {1}{5040}}\,{z}^{4}-{\frac {1}{
+362880}}\,{z}^{6}+{\frac {1}{39916800}}\,{z}^{8} - \cdots \,,
+\end{eqnarray*}
+válida para: $0<|z|<\infty$.
+
+
+
+
+
+\end{enumerate}
+
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+
+
+\section{Teorema del Residuo}
+\label{TeoremaResiduo}
+
+\subsection{Integrales impropias}
+\label{IntImpropias}
+Hemos visto como calcular las integrales de funciones, en regiones múltiplemente conexas, con polos simples a partir de residuos. Ahora generalizaremos ese esquema para una región, también múltiplemente conexa, pero con un número finito de polos.  Tal y como se muestra en la figura \ref{Fig7VarCompleja} en el cuadrante $II$, realizamos una circulación ingeniosa, de tal modo que aislamos los distintos polos. Ahora bien, como la función es analítica en la región bordeada por todos esos contornos, entonces 
+\[
+ \oint_{\mathcal{C}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) +\cdots \oint_{\mathcal{C}_{m}} \mathrm{d}z \ f(z) = 0 \,,
+\]
+y al cambiar el sentido de circulación comprobamos lo que ya sabíamos
+\[
+\oint_{\mathcal{C}} \mathrm{d}z \ f(z) = \oint_{\mathcal{C}_{1}} \mathrm{d}z \ f(z) + \oint_{\mathcal{C}_{2}} \mathrm{d}z \ f(z) +\cdots \oint_{\mathcal{C}_{m}} \mathrm{d}z \ f(z) \quad \Leftrightarrow \quad \oint_{\mathcal{C}} \mathrm{d}z \ f(z) =  2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}
+\]
+donde hemos utilizado lo que hicimos para la ecuación (\ref{ResiduoPoloSimple})
+
+Con ello podemos enunciar el Teorema del Residuo que ya hemos demostrado
+
+Si $f(z)$ es analítica en una región $\mathcal{R}$ excepto en un número, $m$, finito de polos $z_{0_{1}},z_{0_{2}},z_{0_{3}},\cdots z_{0_{m}}$ entonces 
+\[
+\oint_{\mathcal{C}} \mathrm{d}z \ f(z) =  2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} 
+\]
+
+Una vez más ejemplificamos. Sea la función 
+\[
+f(z) = \dfrac{4 -3z}{z^2 -z} \,,
+\] 
+una función con polos simples en $z =0$ y $z=1$ correspondientes a residuos $4$ y $1$, respectivamente, tal y como se vio en la  sección (\ref{ResiduosLaurent}). Entonces, utilizamos los resultado expuestos en el ejemplo (\ref{EjemResiduos})
+\[
+\oint_{C} \mathrm{d} z \dfrac{4 -3z}{z^2 -z} = 2 \pi i (-4 + 1) = -6 \pi i \,,
+\]
+siempre y cuando el circuito $C$ encierre los dos polos, $z=0$ y $z=1$, para los cuales hemos calculado los residuos.
+
+
+\subsection{Evaluación de integrale reales e impropias}
+El teorema del residuo (\ref{TeoremaResiduo}) es una herramienta poderosa para evaluar algunos  tipos de integrales definidas en variable real. La intención es ``extender'' el dominio de las funciones de la recta real al plano complejo. Una de las restricciones es que los contornos deben ser cerrados antes de que sean evaluados los residuos. El punto es que muchas integrales reales tienen contornos abiertos y la posibilidad de evaluar estas integrales a través del Teorema del Residuo descansa en la forma como se cierran los contornos. En estos casos se debe estimar las contribuciones de esos contornos adicionales que permiten cerrar los contornos abiertos. A continuación expondremos algunas técnicas para cerrar algunos tipos de contornos abiertos.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/02_Series/Figuras/Fig8VarCompleja.png}
+\caption{Circuitos y evaluación de integrales reales, impropias}
+\label{Fig8VarCompleja}
+\end{center}
+\end{figure}
+\subsection{Integrales impropias del tipo $\int_{-\infty}^{\infty} \mathrm{d}x \; f(x)$}
+\label{IntImpropias}
+Este tipo de integrales implica, si ambos límites existen
+\[
+\int_{-\infty}^{\infty} \mathrm{d}x \; f(x) = 
+\lim_{r \rightarrow -\infty} \int_{r}^{0} \mathrm{d}x \; f(x) + \lim_{r \rightarrow \infty} \int_{0}^{r} \mathrm{d}x \; f(x) \leftrightarrow \lim_{r \rightarrow \infty} \int_{-r}^{r} \mathrm{d}x \; f(x)
+\]
+Necesitaremos que el integrando sea una función racional $f(x) = p(x)/q(x)$, donde $q(x) \neq 0 \; \; \forall  \;x$. Adicionalmente requeriremos que cuando menos $q(x) \sim x^{2}p(x)$. Supuesto todo esto, convertimos nuestra función racional en una función de variable compleja $f(x) \rightarrow f(z)$ y consideramos la integral de circulación, $\oint_{C} \mathrm{d}z \; f(z)$, sobre un contorno $C$ descrito por el eje real y una semicircunsfrencia $\Gamma$ en el plano complejo con $y \geq 0$, tal y como se muestra en el cuadrante $I$ la figura \ref{Fig8VarCompleja}. La intención es hacer $r \rightarrow \infty$ y con ello evaluar la integral $\int_{0}^{\infty} \mathrm{d}x \; f(x)$. 
+Es fácil convencerse que 
+\[
+\oint_{C} \mathrm{d}z \; f(z) = \int_{\Gamma} \mathrm{d}z \; f(z) + \int_{-r}^{r} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} 
+\] 
+es decir, 
+\[
+\int_{-r}^{r} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}  -  \int_{\Gamma} \mathrm{d}z \; f(z)
+\] 
+
+Esta estrategia es válida porque hemos supuesto que $f(x)$ es racional y que $q(x) \neq 0 \; \; \forall  \;x$, entonces si existen polos para $f(z)$ estarán en el plano complejo (no sobre el eje real). Todos esos polos serán encenrados por el contorno $C$ que hemos seleccionado. Más aún, comprobaremos que $\int_{\Gamma} \mathrm{d}z \; f(z) \rightarrow 0 \quad \text{cuando} z \rightarrow \infty$. Esto es sencillo si notamos que 
+\[
+q(x) \sim x^{2}p(x) \quad \Rightarrow |f(z)| < \frac{k}{|z|^{2}} \quad \Rightarrow \left|  \int_{\Gamma} \mathrm{d}z \; f(z) \right| < \frac{k}{r^{2}} \pi r = \frac{k \pi}{r} \qquad \text{para } |z| = r \geq 0 
+\] con lo cual llegamos a que para este tipo de integrales
+\begin{equation}
+\label{Impropia1}
+\int_{-\infty}^{\infty} \mathrm{d}x \; f(x) =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}} \quad \text{para } f(x) = \frac{p(x)}{q(x)}, \quad \text{con } q(x) \neq 0 \; \; \forall  \;x \; \wedge p(x) \sim x^{2}q(x) \,.
+\end{equation}
+
+Como un ejemplo consideremos evaluar la siguiente integral
+\[
+\int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} \,\,  \Rightarrow \,\,  \int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \; f(z)_{z = z_{0j}}  
+\]
+donde hemos utilizado la expresión (\ref{Impropia1}). La extensión analítica 
+\[
+f(x) \rightarrow f(z) = \frac{1}{z^{4} + 1} \quad \text{tendró cuatro polos simples: } z = e^{\pm\frac{ i \pi}{4}}; \; z = e^{\pm \frac{ 3i \pi}{4}}; 
+\]correspondientes a las cuatro raíces de  $z^{4} = -1$. Acto seguido calculamos los residuos invocando la relación (\ref{ResiduoLHopital}) que hemos construido para funciones racionales. Esto es 
+\[
+\left. \mathrm{Res} \;  \frac{p(z)}{q(z)} \right|_{z=z_{0}} = \frac{p(z_{0})}{q'(z_{0})}  \,\,  \Rightarrow \,\, 
+\left\{
+ \begin{array}{l }
+ z = e^{\frac{ i \pi}{4}} \,\,  \Rightarrow \,\,  \mathrm{Res} \; \left.  f(z) \right|_{z = e^{\frac{ i \pi}{4}}}  = 
+  \left.   \dfrac{1}{4z^{3}} \right|_{z =e^{\frac{ i \pi}{4}}} = \dfrac{e^{\frac{ -3i \pi}{4}}}{4} = \dfrac{e^{\frac{ i \pi}{4}}}{4}  \\  \\
+z = e^{\frac{ 3i \pi}{4}} \,\,  \Rightarrow \,\,  \mathrm{Res} \; \left.  f(z) \right|_{z = e^{\frac{ 3i \pi}{4}}}  = 
+  \left.   \dfrac{1}{4z^{3}} \right|_{z =e^{\frac{3 i \pi}{4}}} = \dfrac{e^{\frac{ -9i \pi}{4}}}{4} = \dfrac{e^{\frac{- i \pi}{4}}}{4}   
+\end{array}
+ \right.
+\] 
+
+Hemos considerado únicamente los polos para el semiplano complejo $y > 0$ ya que seguimos considerando el circuito descrito en el cuadrante $I$ de la figura \ref{Fig8VarCompleja}. Quedan dos polos ubicados en el semiplano complejo $y < 0$, tal y como se muestra en el cuadrante $II$ de la misma figura \ref{Fig8VarCompleja}. 
+
+Consecuentemente, tendremos que 
+\[
+\int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1}  = \dfrac{2 \pi i}{4} \left( e^{\frac{ i \pi}{4}} + e^{\frac{- i \pi}{4}} \right) = \pi \mathrm{sen} \left( \frac{\pi}{4}\right) = \dfrac{\sqrt{2}}{2} \pi \,\,  \Rightarrow \,\,  \int_{0}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} = \frac{1}{2} \int_{-\infty}^{\infty}\frac{ \mathrm{d}x}{x^{4} + 1^{4}} = \dfrac{\sqrt{2}}{4} \pi \,.
+\]
+
+
+\subsection{Integrales de funciones racionales de $\cos \theta $ y $\mathrm{sen} \; \theta$}
+
+Ahora mostraremos la estrategia para integrales de funciones racionales de funciones trigonométricas, $\mathcal{G}(\cos (\theta), \mathrm{sen}(\theta))$. La idea es transformar estas integrales en otras de funciones de variable compleja a través de los cambios de variables que conectan las funciones trigonométricas y los números complejos. Esto es transformar integrales de la forma
+\[
+\int_{0}^{2 \pi} \mathrm{d} \theta \;  \mathcal{G}(\cos \theta, \mathrm{sen} \; \theta)
+\quad  \rightarrow \quad 
+\oint_{C}  \frac{\mathrm{d} z}{z i} f(z) \,,
+\]
+mediante cambios de variables estándares
+\begin{equation}
+\label{CambiosComplejos}
+z = r e^{i \theta} \,\,  \Rightarrow \,\,  \mathrm{d} \theta =   \frac{\mathrm{d} z}{z i} ; \quad 
+\cos \theta = \frac{1}{2} \left( z + \frac{1}{z} \right); \quad \text{y} \quad
+ \mathrm{sen} \; \theta = \frac{1}{2i} \left( z - \frac{1}{z} \right)
+\end{equation}
+
+Por ejemplo, en las tablas de integrales encontrábamos\footnote{\textit{Encontrábamos} porque hoy en día estas integrales las calculamos con manipuladores simbólicos del tipo \texttt{Maple}, \texttt{Reduce}, \texttt{Matemathica} o \texttt{Mupad}} que 
+\[
+\int_{0}^{2 \pi}\frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } = \frac{2 \pi }{ \sqrt{ a^{2} - b^{2}}} \quad \text{con } |a| > |b| \,,
+\]
+veamos como se llega a ese resultado.
+
+Haciendo $z = r e^{i \theta} $ y asumiendo las consecuencias, tal y como se presenta en (\ref{CambiosComplejos}) arriba, tendremos que 
+\[
+\int_{0}^{2 \pi}\frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } =
+\oint_{C} \frac{  \frac{\mathrm{d} z}{z i}  }{ a +  \frac{b}{2i} \left( z - \frac{1}{z} \right)  } =
+\oint_{C} \frac{ 2 \mathrm{d} z  }{b z^{2} + 2a i z  - b} \quad \text{con } C \text{ una circunferencia } |z| =1
+\]
+los polos de 
+\[
+f(z) =  \frac{ 2 }{b z^{2} + 2a i z  - b} \,\,  \Rightarrow \,\,     z_{\pm 0} = \frac{-a \pm \sqrt{a^{2} - b^{2}}}{b}i \,,
+\] 
+son los valores de $z$ que anulan el denominador de $f(z)$. Seguidamente verificamos la ubicación de los polos simples y comprobamos que como $|a| > |b|$ entonces
+\[
+|z_{+0}| = \left| \frac{-a + \sqrt{a^{2} - b^{2}}}{b}i \right| < 1 \qquad \text{y} \qquad |z_{-0}| = \left| \frac{-a - \sqrt{a^{2} - b^{2}}}{b}i \right| > 1  \,,
+\] 
+y por lo tanto, sólo el primero de los polos está encerrado por el circuito $C$ con $|z| =1$ tal y como muestra en el cuadrante $III$ de la figura \ref{Fig8VarCompleja}.
+
+Una vez más calculamos el residuo para $z_{+0}$ a partir de (\ref{ResiduosGeneral}). 
+Entonces tendremos que 
+\[
+\mathrm{Res} \; \left.  f(z) \right|_{z = z_{+0}} =   \lim_{z \rightarrow z_{+0}} (z - z_{+0}) \frac{ 2  }{b z^{2} + 2a i z  - b} =  \lim_{z \rightarrow z_{+0}} \frac{ 2  }{2bz + 2a i} = \frac{1}{b z_{+0} +ai} \equiv \frac{-i}{\sqrt{a^{2} + b^{2}}} 
+\] 
+finalmente 
+\[
+\int_{0}^{2 \pi} \frac{ \mathrm{d} \theta }{a + b \mathrm{sen} \; \theta } =
+\oint_{C} \frac{ 2 \mathrm{d} z  }{b z^{2} + 2a i z  - b} =   2 i \pi \mathrm{Res} \; f(z)_{z = z_{+0}} =  \frac{2 \pi}{\sqrt{a^{2} - b^{2}}} \,.
+\]
+
+
+\subsection{Integrales de Fourier}
+Otro grupo de integrales que pueden ser evaluadas mediante el teorema de Residuos son las integrales de Fourier. Integrales que involucran funciones racionales, $f(x)$, que satisfacen las condiciones expuestas anteriormente y funciones senos y cosenos. Integrales del tipo 
+\begin{equation}
+\label{IntFourier}
+\int_{-\infty}^{\infty}  \mathrm{d} x \; f(x) 
+\left\{ \begin{array}{ c}
+      \cos mx  \\ 
+      \mathrm{sen} \; mx   
+\end{array} \right\} 
+ \leftrightarrow  \int_{-\infty}^{\infty}  \mathrm{d} x \; f(x) e^{imx}
+\, \rightarrow \oint_{C}  \mathrm{d} z \; f(z) e^{imz} =   2 i \pi \sum_{j=1}^{m} \mathrm{Res} \left| f(z) e^{imz} \right|_{z = z_{0j}}  
+\end{equation}
+Con $m > 0$ y los polos correspondientes a los residuos que se muestran en el lado derecho, están ubicados en el semiplano complejo con $y > 0$. Es claro que el circuito seleccionado es $\Gamma$ que muestra el cuadrante $II$ de la figura \ref{Fig8VarCompleja}.
+
+Equivalentemente, igualando partes reales e imaginarias
+\begin{eqnarray*}
+\int_{-\infty}^{\infty}  \mathrm{d} x \; f(x)  \cos mx &=& -2  \pi \sum_{j=1}^{m} \mathrm{Im} \; \mathrm{Res} \left| f(z) e^{imz}  \right|_{z = z_{0j}}\\
+\int_{-\infty}^{\infty}  \mathrm{d} x \; f(x)   \mathrm{sen} \; mx &=& 2  \pi \sum_{j=1}^{m} \mathrm{Re} \; \mathrm{Res} \left| f(z) e^{imz}  \right|_{z = z_{0j}} \,.
+\end{eqnarray*}
+Otra vez, el circuito $C$ se separa en una semicircunferencia $\Gamma$ y el eje real. 
+
+Para demostrar que para evaluar las integrales de Fourier (\ref{IntFourier}) se requiere la suma de los residuos  nos convencemos que la integral a lo largo de la semicircunferencia se anula. Esto es fácil si comprobamos  que $y >0$ y $m > 0$, entonces si $z = x + iy$ tendremos que 
+\[
+|e^{imz}| = |e^{imx}||e^{-my}| = e^{-my} < 1 \quad \Rightarrow  
+|f(z)e^{imz}| = |f(z)| \leq |f(z)| \; |e^{imz}|
+\]
+con lo cual redujimos al de una función racional. 
+
+Por ejemplo,  comprobemos que 
+\[
+\int_{-\infty}^{\infty} \frac{ \mathrm{d} x \;  \cos mx }{x^{2} + k^{2}} = \frac{\pi}{k} e^{-km} 
+\qquad \text{y} \qquad 
+\int_{-\infty}^{\infty} \frac{ \mathrm{d} x \;  \mathrm{sen}\; mx }{x^{2} + k^{2}} = 0
+\]
+es fácil  ver que el polo simple de la continuación analítica de $f(x)$ es $z_{0} = ik$ y su residuo será
+\[
+f(z) = \frac{ e^{imz} }{z^{2} + k^{2}}  \quad \Rightarrow z_{0} = ik \quad \Rightarrow 
+\mathrm{Res} \; \left. \frac{ e^{imz} }{z^{2} + k^{2}}\right| _{z = ik} =  \left. \frac{ e^{imz} }{2z}\right| _{z = ik} =
+ \frac{ e^{-mk} }{2ik}
+\]y por lo tanto
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x  \frac{  e^{imx} }{x^{2} + k^{2}} = 2 i \pi  \frac{ e^{-mk} }{2ik} = \frac{ \pi}{k}e^{-mk} 
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=4.0in]{VOLUMEN_2/02_Series/Figuras/Fig8VarCompleja.png}
+\caption{Circuitos y evaluación de integrales reales, impropias}
+\label{Fig8VarCompleja}
+\end{center}
+\end{figure}
+
+
+\subsection{Otras integrales impropias}
+
+Existen integrales definidas para las cuales el integrando se hace infinito para un determinado punto en el rango de integración. Esto es, en general
+\[
+\lim_{x \rightarrow x_{0}} |f(x)| \rightarrow \infty \quad \Rightarrow \int_{a}^{b}  \mathrm{d} x \; f(x) = 
+\lim_{\zeta \rightarrow 0} \int_{a}^{x_{0} - \zeta}  \mathrm{d} x \; f(x) + \lim_{\xi \rightarrow 0} \int_{x_{0} + \xi}^{b}  \mathrm{d} x \; f(x) 
+\]
+donde $\zeta$ y $\xi$ tienden a cero de forma independiente, es decir, ambos límites se efectúan independientemente. Ahora bien, puede darse el caso que uno o ambos límites no existan pero si existe 
+\[
+\lim_{\epsilon \rightarrow 0} \left(\int_{a}^{x_{0} - \epsilon}  \mathrm{d} x \; f(x) + \lim_{\xi \rightarrow 0} \int_{x_{0} + \epsilon}^{b}  \mathrm{d} x \; f(x)  \right) \quad \Leftrightarrow \quad V.P. \;  \int_{a}^{b}  \mathrm{d} x \; f(x) 
+\]
+Diremos entonces que existe el \textit{Valor Principal de Cauchy} para esa integral. La estrategia en estos casos será diseñar un circuito tal que evite los polos de la extensión analítica de la función. Normalmente se establece este recorrido rodeando los polos con arcos de circunferencia cuyos radios luego tenderán a cero. Veamos con un ejemplo esta estrategia de circunnavegación.
+
+Por ejemplo,  consideremos que queremos evaluar la siguiente integral
+\[
+ \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x}  \quad \leftrightarrow \quad \lim_{x \rightarrow -0} \frac{ \mathrm{sen} \; x}{x}  = 1 \,.
+\]
+
+Si bien el límite está definido, cuando hacemos la extensión analítica\footnote{Nótese que la extensión analítica ha sido $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = e^{iz}/z$ y no $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = \mathrm{sen} \; z/ z $ La razón de esta selección se fundamenta en el comportamiento patológico (oscilante) de la función seno en infinito.} $ f(x) = \mathrm{sen} \; x/ x \rightarrow f(z) = e^{iz}/z$ la función compleja presenta un polo simple en $z = 0$, con lo cual la integral compleja presenta un polo en la región de integración. Esto es
+\[
+ \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x}  \quad \rightarrow 
+ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} =
+   \int_{-R}^{-\epsilon}  \mathrm{d} x \; \frac{e^{ix}}{x} + \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z} +  \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix}}{x} +  \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z} = 0 \,,
+\]
+donde hemos construido un circuito que rodea el polo $z = 0$ (cuadrante $IV$ de la figura \ref{Fig8VarCompleja}). Es claro que $ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} = 0$ porque la región no contiene ningún polo. 
+
+Ahora mostraremos que $ \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z} \rightarrow 0$, 
+cuando $R \rightarrow \infty$. 
+
+Para ello, convertimos 
+\[
+z=R e^{i \theta} \,\, \Rightarrow \,\, \frac{\mathrm{d} z}{z}= i\mathrm{d}\theta\,,
+\]
+entonces
+\[
+\left| \int_{C_{1}} \mathrm{d} z \; \frac{e^{iz}}{z}  \right| = \left| \int_{0}^{\pi} \mathrm{d} \theta \; i e^{iz}  \right|
+\leq  \int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | =  \int_{0}^{\pi} \mathrm{d} \theta \; \underbrace{| e^{i R \cos(\theta)} | }_{1} | e^{-R  \mathrm{sen}(\theta)} | =  \int_{0}^{\pi} \mathrm{d} \theta \;  e^{-R  \mathrm{sen}(\theta)} \,,
+\]
+con lo cual
+\[
+\mathcal{I}_{1} =\int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | =  
+\int_{0}^{\pi} \mathrm{d} \theta \;  e^{-R  \mathrm{sen}(\theta)} = 2 \int_{0}^{\pi /2} \mathrm{d} \theta \;  e^{-R  \mathrm{sen} (\theta)} =
+2 \left[ \int_{0}^{\zeta} \mathrm{d} \theta \;  \underbrace{e^{-R  \mathrm{sen}(\theta)} }_{I_{1}} +  \int_{\zeta}^{\pi /2} \mathrm{d} \theta \; \underbrace{ e^{-R  \mathrm{sen}(\theta)} }_{I_{2}} \right] \,,
+\]
+para  $0 \leq \zeta \leq \pi/2$. 
+
+Es claro que $e^{-R  \mathrm{sen}(\theta)} $ es una función decreciente en $\theta$ y como estamos tratando de demostrar que la integral a lo largo del circuito se anula $\mathcal{I}_{1} \rightarrow 0$, podremos considerar los máximos valores para $I_{1}$ y $I_{2}$ en el entorno de integración y fijarlos como constantes, al hacer esto tendremos lo máximos valores que podrán tomar las integrales respectivas. Los máximos valores para  $I_{1}$ y $I_{2}$, son, $1$ y $e^{-R \zeta}$. 
+
+Entonces, 
+\[
+\mathcal{I}_{1} =\int_{0}^{\pi} \mathrm{d} \theta \; | e^{iz} | \leq 
+2 \left[ \int_{0}^{\zeta} \mathrm{d} \theta  +  e^{-R  \mathrm{sen}( \zeta)} \int_{\zeta}^{\pi /2} \mathrm{d} \theta  \right] =
+2\left[ \zeta +  e^{-R  \mathrm{sen}( \zeta)} \left(\frac{\pi}{2}  - \zeta \right) \right] < 
+2\zeta  +\pi e^{-R  \mathrm{sen}( \zeta)}  \,.
+\]
+Al considerar que $\zeta \rightarrow 0$ y $R \rightarrow \infty$ comprobamos que $\mathcal{I}_{1}  \rightarrow 0$.
+
+Seguidamente nos toca demostrar que $\mathcal{I}_{2} =  \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z}  \rightarrow 0$ cuando $\epsilon \rightarrow 0$. Para este caso $z = \epsilon e^{i \theta}$ y como siempre, $\mathrm{d} z/z~=~i\mathrm{d}\theta$, entonces la integral 
+\[
+\mathcal{I}_{2} = \int_{C_{2}} \mathrm{d} z \; \frac{e^{iz}}{z} =  \int_{0}^{\pi} \mathrm{d} \theta \; i e^{i \epsilon \exp(i \theta)} \,\,\Rightarrow \,\, \lim_{\epsilon \rightarrow 0 } \mathcal{I}_{2} = \lim_{\epsilon \rightarrow 0 } \int_{0}^{\pi} \mathrm{d} \theta \; i e^{i \epsilon \exp(i \theta)} = i \pi \,.
+\]
+
+Esto implica que
+\[
+ \oint_{C}  \mathrm{d} z \; \frac{e^{iz}}{z} =    \int_{-R}^{-\epsilon}  \mathrm{d} x \; \frac{e^{ix}}{x} + i\pi +  \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix}}{x}  =0  \quad \underbrace{\,\,\Rightarrow \,\,}_{x \rightarrow -x}  \quad
+ \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix} - e^{-ix} }{x} + i\pi =0 \,,
+\]
+con lo cual es claro que 
+\[
+ \int_{\epsilon}^{R}  \mathrm{d} x \; \frac{e^{ix} - e^{-ix} }{x} = -i \pi \,\,\Rightarrow \,\, 2i \int_{\epsilon}^{R}  \mathrm{d} x  \;\frac{ \mathrm{sen} \; x}{x}  = -i \pi  \,\,\Rightarrow \,\,  \int_{0}^{\infty}  \mathrm{d} x \;\frac{ \mathrm{sen} \; x}{x} = \frac{\pi}{2}\,,
+\]
+donde hemos hecho los límites $R \rightarrow \infty$ y $\epsilon \rightarrow 0$.
+
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\begin{enumerate}
+\item Para evaluar la siguiente integral
+\[
+\int_{-\infty}^{\infty}\frac{ x^{2}  \mathrm{d}x}{(x^{2} +1)^{2}( x^{2} +2x + 2)} \,\,  \Rightarrow \,\, 
+f(z) = \frac{ z^{2}}{(z^{2} +1)^{2}( z^{2} +2z + 2)} 
+\] donde hemos realizado la extensión analítica $f(x) \rightarrow f(z)$ y ubicado sus polos de $z = i$ y $z = i -1$ en el  semiplano complejo $y > 0$ y los encerrados por el circuito descrito en el cuadrante $I$ de la figura \ref{Fig8VarCompleja}. El primero de estos polos es de segundo orden, mientras que el segundo corresponde a un polo simple. Consecuentemente, los residuos se calculan invocando la relación general (\ref{ResiduosGeneral}) arriba expuesta. Con lo cual para 
+\[
+z =i  \,\,  \Rightarrow \,\,  \lim_{z \rightarrow i} \left(   \frac{\mathrm{d}}{\mathrm{d}z} \left[ (z - i)^{2}\frac{ z^{2}}{(z - i)^{2}(z +i)^{2}( z^{2} +2z + 2)}  \right] \right) = \frac{-12 +9i }{100}
+\] y para
+\[
+z = i - 1  \,\,  \Rightarrow \,\,  \lim_{z \rightarrow i-1}  (z - i + 1) \frac{ z^{2}}{(z^{2} +1)^{2}( z -  i - 1 )( z  + i - 1 )}   = \frac{3 - 4i}{25}
+\]
+Finalmente, podemos evaluar la integral
+\[
+\int_{-\infty}^{\infty} \frac{ x^{2}  \mathrm{d}x}{(x^{2} +1)^{2}( x^{2} +2x + 2)}   =   2 i \pi \sum_{j=1}^{2} \mathrm{Res} \; f(z)_{z = z_{0j}} = 2 \pi i \left(  \frac{-12 +9i }{100} + \frac{3 - 4i}{25} \right) =
+\frac{7 \pi}{50}
+\]
+
+\item Evaluemos
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5} 
+\]
+Partimos de la continuación analítica de 
+\[
+f(x) \rightarrow f(z) =  \frac{z e^{iz \pi}}{z^{2} +2z +5} \quad \Rightarrow z_{\pm0} = -1 \pm 2i \quad \Rightarrow 
+\oint_{C}  \mathrm{d} z \frac{z e^{iz \pi}}{z^{2} +2z +5} = \mathrm{Res} \; \left. \frac{z e^{iz \pi}}{z^{2} +2z +5} \right| _{z = -1 + 2i } 
+\]
+ya que ese es el único polo encerrado por la circulación $\Gamma$. Calculando el residuo tendremos
+\[
+ \mathrm{Res} \; \left. \frac{z e^{iz \pi}}{z^{2} +2z +5} \right| _{z = -1 + 2i } = 
+ \lim_{z \rightarrow -1 + 2i }\left( (z +1 - 2i )\frac{z e^{iz \pi}}{z^{2} +2z +5}  \right) = (-1 + 2i )\frac{e^{-\pi(2 +i)}}{4i}
+\]con lo cual
+\[
+\oint_{C}  \mathrm{d} z \frac{z e^{iz \pi}}{z^{2} +2z +5} = 
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \cos \; \pi x}{x^{2} +2x +5} + i \int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5} 
+=2 i \pi (-1 + 2i )\frac{e^{-\pi(2 +i)}}{4i} = \frac{\pi}{2}(1 - 2i) e^{-2 \pi}
+\]
+igualando parte real e imaginaria tendremos que
+\[
+\int_{-\infty}^{\infty} \mathrm{d} x \frac{x \cos \; \pi x}{x^{2} +2x +5} =  \frac{\pi}{2} e^{-2 \pi} \qquad \text{y} \qquad \int_{-\infty}^{\infty} \mathrm{d} x \frac{x \mathrm{sen} \; \pi x}{x^{2} +2x +5}  = - \pi e^{-2 \pi}
+\]
+
+
+
+\end{enumerate}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+\begin{enumerate}
+\item Determinar los polos y los residuos correspondientes para cada una de las funciones propuestas
+\[
+f(z) = \frac{2z + 1}{z^{2} -z -2}; \quad f(z) = \left(\frac{z +1}{z -1} \right)^{2}; \quad f(z) = \frac{\mathrm{sen}\; z}{z^{2}}; \quad f(z) =\cot z 
+\]
+ \item Evaluar
+ \begin{enumerate}
+  \item  \[
+ \oint_{C} \frac{ \mathrm{d}z \; e^{z}}{\cosh z} \quad \text{a lo largo de una circunsferencia } |z| = 5  
+ \]
+  \item \[ 
+ \oint_{C} \frac{(2z^{2} + 5) \mathrm{d}z }{(z +2)^{3}(z^{2} +4)z^{2}}  \quad \text{a lo largo de una circunsferencia } |z- 2i| = 6 \text{ y} 
+  \]un cuadrado de vértices $z = 1 + i; z = 2 + i; z = 2 + 2i$ y $z = 1 + 2i$.
+\end{enumerate}
+
+\item Evaluar las siguientes integrales
+\[ 
+  \int_{0}^{\infty} \frac{ \mathrm{d}x}{(x^{2} +1)(x^{2} +4)^{2}}; \qquad    \int_{0}^{\infty} \frac{   \mathrm{d}x}{x^{4} +x^{2} +1 }; \qquad    \int_{-\infty}^{\infty} \frac{   \mathrm{d}x}{(x^{2} +4x +5)^{2} } 
+\]
+
+\item Compruebe las siguientes evaluaciones
+\[
+\int_{0}^{2 \pi} \frac{ \mathrm{d} \theta }{a + b \cos \theta + c \mathrm{sen} \; \theta } = \frac{2 \pi}{\sqrt{a^{2} - b^{2} - c^{2}}} \quad \text{con } a^{2} > b^{2} + c^{2}; \qquad  \int_{0}^{2 \pi} \frac{ \cos^{2}3\theta \; \mathrm{d} \theta }{5 - 4 \cos 2\theta } =\frac{3 \pi}{8}\,.
+\]
+
+\item Compruebe que
+\[
+\text{Para } m > 0 \quad \int_{0}^{\infty} \mathrm{d} x \frac{ \cos mx}{(x^{2} +1)^{2}} = \frac{\pi e^{-m}(1 +m)}{4} \qquad \text{y} \quad \int_{0}^{\infty} \mathrm{d} x \frac{ \cos 2 \pi x}{x^{4} +x^{2}+1} = \frac{\pi}{2\sqrt{3}}e^{-\pi /\sqrt{3}}
+\]
+
+\item Comprobar las evaluaciones para las siguientes integrales
+\begin{enumerate}
+  \item \[ \int_{0}^{\infty}  \mathrm{d} x \; \mathrm{sen} \; x^{2} =  \int_{0}^{\infty}  \mathrm{d} x \; \cos \; x^{2} =\frac{\sqrt{2 \pi}}{4} \]
+  \item \[  \int_{0}^{\infty}  \mathrm{d} x \;  \frac{\ln x}{x^{4} + 1} = -\frac{\pi^{2} \sqrt{2}}{16}; \qquad  \int_{0}^{\infty}  \mathrm{d} x  \;  \frac{(\ln x)^{2}}{x^{4} + 1} = \frac{3\pi^{3} \sqrt{2}}{16}  \]
+  \item \[  \int_{0}^{\infty}  \mathrm{d} x \; \frac{ x^{-p} }{ x^{2} + 2x \cos \alpha +1} = \left(\frac{\pi}{ \mathrm{sen} \;p \pi} \right)\left( \frac{ \mathrm{sen} \;p \alpha}{\mathrm{sen} \; \alpha} \right)  \]
+\end{enumerate}
+
+\end{enumerate}
+
+
+\section{Tranformadas de Fourier}
+\label{TransFourier}
+La transformada de Fourier representa (como combinación lineal de funciones sinusoidales) a funciones definidas en toda la recta real y/o sin una periodicidad definida. Puede ser considerada como la generalización de la representación en serie de Fourier, y es mayormente utilizada para expresar funciones que varían en el tiempo con el único requisito que tengan norma acotada, i.e. $ \int_{-\infty}^{\infty} \mathrm{d}t \ |f( t)|$ finita.
+
+Anteriormente hemos visto, que podemos expresar una función en término de series de Fourier complejas
+\[
+f(t) = \sum_{n = -\infty}^{\infty}{C}_{n} e^{ i \frac{2 n \pi}{T} t} = 
+\sum_{n = -\infty}^{ \infty} {C}_{n} e^{i \omega_{n}t} \,,
+\]
+donde hemos definido $\omega_{n} = \frac{2n \pi }{T}$. 
+
+Ahora bien, podemos hacer  $T \rightarrow \infty$ con lo cual $[-T/2,T/2]  \rightarrow [-\infty,\infty]$ pero también se tiene:
+\[
+T \rightarrow \infty \,\, \Rightarrow \,\, \frac{2 \pi }{T} = \frac{\omega}{n} = 
+\Delta \omega \rightarrow \mathrm{d} \omega \text{  y además }
+\frac{ \int_{-T/2}^{T/2} \mathrm{d}t  \ f(t)}{ T } \rightarrow 0 \quad \text{ya que } \int_{-\infty }^{\infty } \mathrm{d}t  \ f(t) \text{ , existe y es acotada.}
+\] 
+
+Si recordamos la expresión que toman los coeficientes de la expansión
+\[
+{C}_{n}  =  \frac{1 }{T} \int_{-T/2}^{ T/2} \mathrm{d}x \ e^{\frac{-i2 n\pi x}{T}} f(x) \,\, \Rightarrow \,\, f(t) = \sum_{n = -\infty}^{ \infty} \left( \frac{\Delta \omega }{2 \pi} \int_{-T/2}^{ T/2} \mathrm{d}x \ e^{-inx} f(x) \right)e^{i \omega_{n}t} \,,
+\]
+con lo cual hacer $T \rightarrow \infty$ 
+\[
+f(t) = \frac{1}{2 \pi} \int_{-\infty}^{\infty} \mathrm{d} \omega \ e^{i \omega t} \underbrace{ \int_{-\infty}^{\infty} \mathrm{d}x \ e^{-i \omega x} f(x)}_{F(\omega)}\,.
+\] 
+
+De este modo, la transformada de Fourier de una función y su inversa, pueden escribirse como
+\[
+F(\omega) \equiv \mathcal{F}[f(t)] =  \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} t \ e^{-i \omega t} f(t)
+\quad \Leftrightarrow \quad
+f(t) \equiv \mathcal{F}^{-1}[F(\omega)] = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} \omega \ e^{i \omega t} F(\omega) \,.
+\]
+
+\subsection{Propiedades}
+Las transformada de Fourier cumplen con las siguiente propiedades, las cuales de derivan de la definición arriba expuesta
+\begin{enumerate}
+  \item Las transformada de la derivada $ \mathcal{F}[f'(t)] = i \omega F(\omega)$ y en general 
+  $ \mathcal{F}[f^{n}(t)] = i^{n} \omega^{n} F(\omega)$. Esta propiedad es más o menos inmediata a partir de la definición integrando por partes
+  \[
+\mathcal{F}[f'(t)] = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} t \ e^{i \omega t} f'(t) = 
+ \frac{1}{\sqrt{2 \pi}} \left. e^{i \omega t} f(t) \right|_{-\infty}^{\infty} + \frac{i \omega}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} t \  e^{i \omega t} f'(t)  i \omega F(\omega)
+  \]
+  \item La transformada de la integral
+  \[
+ \mathcal{F}\left[ \int^{t} \mathrm{d} s \ f(s)   \right] = \frac{1}{i \omega} F(\omega) + 2 \pi c \delta (\omega)
+  \]donde la función (distribución) $\delta (\omega)$ se denomina delta de Dirac y el término $ 2 \pi c \delta (\omega)$ representa la transformada de la constante de integración
+  \item Escalamiento $ \mathcal{F}[f(at)] = \frac{1}{a}  F(\frac{\omega}{a})$
+  \item Traslación $ \mathcal{F}[f(t + a)] = e^{ia \omega} F(\omega)$
+  \item Multiplicación por un exponencial $ \mathcal{F}\left[e^{\alpha t} f(t)\right] = f(\omega + i \alpha)$
+\end{enumerate}
+
+\subsection{Funciones pares e impares}
+Al igual que en las expansiones de Fourier, la paridad de las función $f(t)$ es importante. Esto se nota rápidamente a partir de la definición. Supongamos $f(t)= - f(-t)$, entonces
+\[
+F(\omega) =  \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} t \ e^{-i \omega t} f(t) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{\infty} \mathrm{d} t  \left( \cos(\omega t) -  i \mathrm{sen}(\omega t) \right) f(t) = \frac{-2i}{\sqrt{2  \pi}} \int_{0}^{\infty} \mathrm{d} t \; \mathrm{sen} (\omega t)\; f(t) \,,
+\]
+con lo cual podremos definir las transformadas de Fourier seno y coseno para funciones impares y pares respectivamente. Esto es para funciones impares $f(t)= - f(-t)$
+\[
+F(\omega) =  \sqrt{\frac{2}{ \pi}} \int_{0}^{\infty} \mathrm{d} t \; \cos(\omega t) \; f(t)  \quad \Leftrightarrow \quad f(t) =  \sqrt{\frac{2}{ \pi}} \int_{0}^{\infty} \mathrm{d} \omega \; \cos(\omega t) \;  F(\omega)\,,
+\]
+y para funciones pares $f(t)= f(-t)$
+\[
+F(\omega) =  \sqrt{\frac{2}{ \pi}} \int_{0}^{\infty} \mathrm{d} t \; \mathrm{sen}(\omega t) \; f(t)  \quad \Leftrightarrow \quad f(t) =  \sqrt{\frac{2}{ \pi}} \int_{0}^{\infty} \mathrm{d} \omega \; \mathrm{sen}( \omega t) \;  F(\omega)\,.
+\]
+
+\subsection{Bases discreta y contínuas: la base de ondas planas}
+
+Haremos una digresión para fijar conceptos y extender algunos de los razonamientos que hemos desarrollado hasta aquí. Tal y como hemos visto repetidas veces, la representación de un vector $|{F}\rangle$ en un espacio vectorial abstracto $\mathbf{V}$ puede darse en término de una base ortonormal de vectores (discreta y finita $B_{DF}=\left\{  \left| {u}_{1}\right\rangle ,\ \left|  {u}_{2}\right\rangle ,\ \left| {u}_{3}\right\rangle ,\cdots\left|  {u}_{n}\right\rangle \right\}  $ o discreta e infinita $B_{DI}=\left\{  \left|  {v}_{1}\right\rangle ,\ \left|  {v}_{2}\right\rangle ,\ \left| {v}_{3}\right\rangle \cdots\left|  {v}_{n}\right\rangle\cdots\right\} $) 
+de la forma:
+\[
+|{F}\rangle=\left\{
+\begin{array}
+[c]{c}
+\sum_{i=0}^{n}c_{i}\ \left| {u}_{i}\right\rangle =\sum_{i=0}
+^{n}\left\langle{u}_{i}\right|  \left. {F}\right\rangle
+\ \left| {u}_{i}\right\rangle \qquad\Leftarrow B_{DF}=\left\{  \left|
+{u}_{1}\right\rangle ,\ \left| {u}_{2}\right\rangle ,\ \left|
+{u}_{3}\right\rangle \cdots\left| {u}_{n}\right\rangle \right\}
+\\
+\\
+\sum_{i=0}^{\infty}c_{i}\ \left| {v}_{i}\right\rangle =\sum
+_{i=0}^{\infty}\left\langle{v}_{i}\right|  \left. {F}
+\right\rangle \ \left| {v}_{i}\right\rangle \qquad\Leftarrow
+B_{DI}=\left\{  \left| {v}_{1}\right\rangle ,\ \left| {v}
+_{2}\right\rangle ,\ \left| {v}_{3}\right\rangle \cdots\left|
+{v}_{n}\right\rangle \cdots\right\}
+\end{array}
+\right.
+\]
+donde en ambos casos:
+\[
+c_{i}=\left\langle{u}_{i}\right|  \left. {F}\right\rangle
+=\sum_{j=0}^{\infty}c_{j}\ \left\langle{u}_{i}\right.  \left|
+{u}_{j}\right\rangle =\sum_{j=0}^{\infty}c_{j}\ \delta_{ij} \,,
+\]
+la intención ahora será utilizar la transformada de Fourier para construir la generalización de bases discretas a continua $\left|{w}_{\alpha}\right\rangle $ de tal forma que transformamos el índice de la sumatoria en la variable de una integral
+\[
+\left| {\Psi}\right\rangle =\int\mathrm{d}\alpha\ c\left(
+\alpha\right)  \ \left| {w}_{\alpha}\right\rangle \,,
+\]
+donde
+\[
+c\left(  \beta\right)  =\left\langle{w}_{\beta}\right.  \left|
+{\Psi}\right\rangle =\int\mathrm{d}\alpha\ c\left(  \alpha\right)
+\ \left\langle{w}_{\beta}\right.  \left| {w}_{\alpha
+}\right\rangle =\int\mathrm{d}\alpha\ c\left(  \alpha\right)  \ \delta\left(
+\alpha-\beta\right) \,,
+\]
+con en la cual $\delta\left(  \alpha-\beta\right)  $ es una Delta de Dirac.
+
+Así, los dos conceptos expresados hasta ahora tienen una expresión:
+\begin{center}
+\begin{tabular}
+[c]{|c|c|c|}\hline
+\textbf{Propiedad
+$\backslash$
+Base} & \textbf{Discreta} & \textbf{Continua}\\\hline
+\textsf{Ortogonalidad} & $\left\langle{v}_{i}\right.  \left|
+{v}_{j}\right\rangle =\delta_{ij}$ & $\ \left\langle{w}_{\beta
+}\right.  \left| {w}_{\alpha}\right\rangle =\delta\left(  \alpha
+-\beta\right)  $\\\hline
+\textsf{Cierre} & ${1=}\sum_{j=0}^{\infty}\ \left| {v}
+_{j}\right\rangle \left\langle{v}_{j}\right|  $ & ${1=}
+\int\mathrm{d}\alpha\ \left| {w}_{\alpha}\right\rangle \left\langle
+{w}_{\alpha}\right|  $\\\hline
+\textsf{Expansión } & $\left| {F}\right\rangle =\sum_{i=0}
+^{\infty}c_{i}\ \left| {u}_{i}\right\rangle $ & $\left| {\Psi
+}\right\rangle =\int\mathrm{d}\alpha\ c\left(  \alpha\right)  \ \left|
+{w}_{\alpha}\right\rangle $\\\hline
+\textsf{Componentes} & $c_{i}=\left\langle{u}_{i}\right|  \left.
+{F}\right\rangle $ & $c\left(  \beta\right)  =\left\langle
+{w}_{\beta}\right.  \left| {\Psi}\right\rangle $\\\hline
+\textsf{Producto Interno} & $\left\langle{G}\right|  \left.
+{F}\right\rangle =\sum_{i=0}^{\infty}\ g_{i}^{\ast}\ f_{i}$ &
+$\left\langle{G}\right|  \left. {F}\right\rangle
+=\int\mathrm{d}\alpha\ g^{\ast}\left(  \alpha\right)  \ f\left(
+\alpha\right)  $\\\hline
+\textsf{Norma} & $\left\langle{F}\right|  \left. {F}
+\right\rangle =\sum_{i=0}^{\infty}\ \left|  f_{i}\right|  ^{2}$ &
+$\left\langle{F}\right|  \left. {F}\right\rangle
+=\int\mathrm{d}\alpha\ \left|  f\left(  \alpha\right)  \right|  ^{2}$\\\hline
+\end{tabular}
+\end{center}
+
+Ilustraremos esta generalización con la construcción de la base de ondas planas. Hemos visto que la transformada compleja de Fourier compleja para una función, se puede escribir como
+\[
+F(s)= \int_{-\infty}^{\infty} \mathrm{d}t \ {\large e}^{i st}\ f(t)\qquad\rightleftarrows\qquad f(t)= \int_{-\infty}^{\infty} \mathrm{d}s\ {\large e}^{-i st}\ F(s) \,,
+\]
+las cuales reescribiremos en términos más familiares a la comunidad de físicos como
+\[
+\psi\left(  x\right)  =\frac{1}{\sqrt{2\pi\hbar}} \int_{-\infty}^{\infty} \mathrm{d}p\ {\large e}^{i px/\hbar}\ \bar{\psi}\left(  p\right) \quad \rightleftarrows \quad \bar{\psi}\left(  p\right)  =\frac{1}{\sqrt{2\pi\hbar}}
+\int_{-\infty}^{\infty}\mathrm{d}x\ {\large e}^{-ipx/\hbar}\ \psi\left(  x\right)
+\]
+Hemos tenido cuidado de incluir los factores de normalización adecuados para el caso de las descripciones en mecánica cuántica. Estas fórmulas pueden ser reinterpretadas en función de los conceptos anteriormente expuestos y podemos definir una base continua de la forma
+\[
+\psi\left(  x\right)  =\frac{1}{\sqrt{2\pi\hbar}}
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}p\ \underset{v_{p}\left(  x\right)  }{\underbrace{\left(  \frac
+{1}{\sqrt{2\pi\hbar}}{\large e}^{i\ px/\hbar}\right)  }}\ \bar{\psi}\left(
+p\right)  \qquad\rightleftarrows\qquad\bar{\psi}\left(  p\right)  =\frac
+{1}{\sqrt{2\pi\hbar}}
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}x\ \underset{v_{p}^{x}\left(  x\right)  }{\underbrace{\left(
+\frac{1}{\sqrt{2\pi\hbar}}{\large e}^{-i\ px/\hbar}\right)  }}\ \psi\left(
+x\right)\,,
+\]
+por lo cual
+\[
+\psi\left(  x\right)  =
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}p\ v_{p}\left(  x\right)  \ \bar{\psi}\left(  p\right)
+\qquad\rightleftarrows\qquad\bar{\psi}\left(  p\right)  =
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}x\ v_{p}^{\ast}\left(  x\right)  \ \psi\left(  x\right) \,.
+\]
+
+Diremos que la función $\psi\left(  x\right)  $ está expresada en la base de ondas planas $v_{p}\left(  x\right)  =\frac{1}{\sqrt{2\pi\hbar}}{\large e}^{i\ px/\hbar}$
+
+Nótese
+
+\begin{itemize}
+\item  El índice $p$ de $v_{p}\left(  x\right)  $ varía de forma continua entre $-\infty$ e $\infty.$
+
+\item  Que $v_{p}\left(  x\right)  =\frac{1}{\sqrt{2\pi\hbar}}{\large e}^{i\ px/\hbar}\notin\mathcal{L}^{2}$ es decir no pertenece al espacio vectorial de funciones de cuadrado integrable ya que su norma diverge
+\[
+\left\langle{v}_{p}\right|  \left. {v}_{p}\right\rangle ={\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}x\ \left|  v_{p}\left(  x\right)  \right|  ^{2}={\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}x\ \frac{1}{2\pi\hbar}\rightarrow\infty
+\]
+
+\item  Que las proyecciones de $\psi\left(  x\right)  $ sobre la base de ondas
+planas es $\bar{\psi}\left(  p\right)  =\left\langle{v}_{p}\right|
+\left.  \mathbf{\psi}\right\rangle $
+
+\item  La relación de cierre para esta base se expresa como
+\[
+{\Large 1}=\int\mathrm{d}\alpha\ \left| {v}_{\alpha
+}\right\rangle \left\langle{v}_{\alpha}\right|  \qquad \rightleftarrows
+\qquad
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}p\ v_{p}^{\ast}\left(  x^{\prime}\right)  \ v_{p}\left(  x\right)  =
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}p\ \frac{1}{2\pi\hbar}{\large e}^{i\ p\left(  x^{\prime}-x\right)
+/\hbar}=\mathbf{\delta}\left(  x^{\prime}-x\right)
+\]
+mientras que de la definición de producto interno, uno obtiene
+\[
+\left\langle{v}_{p^{\prime}}\right|  \left. {v}_{p}
+\right\rangle =
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}x\ v_{p^{\prime}}^{\ast}\left(  x\right)  \ v_{p}\left(  x\right)  =
+{\displaystyle\int_{-\infty}^{\infty}}
+\mathrm{d}p\ \frac{1}{2\pi\hbar}{\large e}^{i\ x\left(  p^{\prime}-p\right)
+/\hbar}=\mathbf{\delta}\left(  p^{\prime}-p\right)
+\]
+\end{itemize}
+
+Un ejemplo inmediato lo tenemos al considerar la función 
+\[
+f(t) = 
+\left\{
+\begin{array}{cl }
+    1  & \text{ si } |t| < 1   \\
+    0  & \text{ el resto }    
+\end{array}
+\right. \,\, \Rightarrow \,\, F(\omega) = \frac{1}{\sqrt{2 \pi}} \int_{-1}^{1} \mathrm{d}t \; 1 \ e^{-i \omega t} =
+\frac{1}{\sqrt{2 \pi}} \left. \frac{e^{-i \omega} - e^{i \omega}}{-i \omega} \right|_{-1}^{1} =
+\frac{2\mathrm{sen} \ \omega}{\sqrt{2 \pi} \omega}
+\]
+
+Otro lo podremos construir a si consideramos la ecuación diferencial inhomogénea y buscamos su solución
+\[
+\frac{\mathrm{d} \phi (x)}{\mathrm{d} x^2} - K^2 \phi (x) = f(x) \,\, \Rightarrow \,\,  
+ \frac{1}{\sqrt{2 \pi}} \int_{-1}^{1} \mathrm{d}t \;  \left[ \frac{\mathrm{d} \phi (x)}{\mathrm{d} x^2} - K^2 \phi (x) \right] e^{-i \omega t} = F(\omega) \,,
+\]
+donde  $F(\omega) $ es la transformada de Fourier de la función $f(x)$. 
+
+Utilizando las propiedades de la transformada de Fourier obtenemos que 
+\[
+\frac{1}{\sqrt{2 \pi}} \int_{-1}^{1} \mathrm{d}t \;  \left[ \frac{\mathrm{d} \phi (x)}{\mathrm{d} x^2}  \right] e^{-i \omega t} - K^2 \tilde{\phi} (\omega) = F(\omega)  \,\, \Rightarrow \,\,  
+-k^2 \tilde{\phi} (\omega) - K^2 \tilde{\phi} (\omega) = F(\omega) \,\, \Rightarrow \,\,  
+\tilde{\phi} (\omega) = - \frac{ F(\omega)}{k^2 + K^2} \,,
+\]
+donde hemos representado $\tilde{\phi} (\omega)$ como la transformada de Fourier de la solución 
+$\phi(x)$. Con lo cual
+\[
+\phi(x) =  \frac{1}{\sqrt{2 \pi}} \int_{-1}^{1} \mathrm{d}t \; \tilde{\phi} (\omega) \ e^{-i \omega t} =
+ -\frac{1}{\sqrt{2 \pi}} \int_{-1}^{1} \mathrm{d}t \;  \frac{ F(\omega)}{k^2 + K^2} \ e^{-i \omega t} \,.
+\] 
+
+Como solución formal de la ecuación diferencial resulta sencilla y el método también es inmediato. El punto crucial es la solución del la integral que resulta de la transformación inversa. Normalmente este tipo de integrales no son tratables de manera analítica. Pero siempre queda el recurso numérico.
+
+\subsection{Tranformadas discretas de Fourier}
+Aquí haremos algo más contemporáneo que será estudiar la versión discreta de esta transformación. En general las integrales, en su mayoría, no se pueden resolver analíticamente por lo que tenemos que proceder a resolverlas de forma numérica. La mayor parte de los métodos numéricos involucra convertir  integrales en sumatorias. Es decir en series de funciones.
+
+Hemos visto como las funciones trigonométricas (y las exponenciales de argumento imaginario) son ortogonales bajo integrales evaluadas en un determinado intervalo. En otras palabras con la definición de producto interno en un espacio de funciones. Ahora  bien, esas mismas funciones (\textit{Fourier Generalidades}, \textit{cosenos} y funciones \textit{exponenciales} de argumento imaginario) serán también ortogonales al ser evaluadas en puntos muy particulares. 
+
+Consideremos los siguientes $2N$ puntos $t_{k} = \frac{kT}{2N}$ y probaremos que las funciones $e^{2 \pi i p t_{k}/ T }$ y  $e^{2 \pi i q t_{k}/ T }$ serán ortogonales $\propto \delta_{qp}$ en un conjunto esos puntos $t_{k}$. Esto es
+\[
+\sum_{k=0}^{2N-1} \left[ e^{ \frac{2 \pi i p t_{k} }{ T} } \right]^{*}e^{\frac{2 \pi i q t_{k}}{ T}} = \sum_{k=0}^{2N-1} e^{\frac{2 \pi i s t_{k} }{ T} } = \sum_{k=0}^{2N-1} e^{\frac{2 \pi i s k}{2N }} =
+\left\{
+\begin{array}{l l}
+ \dfrac{1 -r^{2N}}{1-r} = 0 & r \neq 1       \\
+       &   \\
+  2N       & r=1
+\end{array}
+\right.
+\]
+donde hemos sustituido $s = q - p$, y evaluado en los puntos $ t_{k} = \dfrac{kT}{2N} $ con $k=1,2,3,\cdots,2N -1$. Nótese que la última de las series es una serie finita y geométrica con razón $r = e^{(\pi i s)/N}$, que comienza con $1$ y por lo tanto suma (dependiendo del valor de $r$) lo que aparece en la llave. Es inmediato convencerse que, para todo $N$ se cumple que $r^{2N} = e^{2\pi i s} = 1 $ (con $s$ entero) con lo cual se cumple la relación de ortogonalidad que buscamos
+\begin{equation}
+\sum_{k=0}^{2N-1} \left[ e^{ \frac{2 \pi i p t_{k} }{ T} } \right]^{\star}e^{\frac{2 \pi i q t_{k}}{ T}} =
+2N \delta_{qp} \quad \text{con } k=1,2,3,\cdots,2N -1
+\label{FourierOrtoDisc}
+\end{equation}
+Si hacemos un ligero cambio de notación y llamamos $\omega_{m} = \dfrac{2\pi m}{T}$ tendremos algunos cambios, en apariencia, cosméticos
+\begin{equation}
+e^{\pm \frac{2 \pi i m t_{k} }{ T} } \quad \rightarrow e^{\pm \omega_{m} \, t_{k} }
+\,\, \Rightarrow \,\, F(\omega_{m}) = \frac{1}{2N} \sum_{k=0}^{2N-1} f( t_{k}) e^{\pm \omega_{m} \, t_{k} }
+\quad \Leftrightarrow \quad 
+f( t_{k}) = \frac{1}{2N} \sum_{m=0}^{2N-1} F(\omega_{m}) e^{\pm \omega_{m} \, t_{k} }
+\label{FourierDiscret}
+\end{equation}
+La función $F(\omega_{m})$ representa la transformada discreta de Fourier de la $f( t_{k})$. Para despejar la función $f( t_{k})$ hemos utilizado la relación de ortogonalidad \ref{FourierOrtoDisc}.
+
+Consideremos el siguiente $f( t_{k}) = \cos (t_{k})$ evaluado en un período $T = 2 \pi$ y dividido, digamos en $N = 2$ intervalos. Los puntos en los cuales evaluaremos nuestra serie serán $2N = 4$, vale decir
+\[
+ t_{k} = \frac{kT}{2N} \equiv \frac{k \pi}{2} \quad \text{con } k = 0,1,2,3 
+\quad \Leftrightarrow \quad \omega_{m} = \frac{2 \pi m}{T} \equiv m 
+ \,\, \Rightarrow \,\, \dfrac{e^{i \omega_{m} t_{k}}}{2N} \equiv \dfrac{e^{i m k \pi /2}}{2N}
+\]
+nótese que la función $f( t_{k})$ puede ser escrita como un vector $f( t_{k}) = \left( 1, 0, -1,0 \right)$, con lo cual para encontrar la expresión de su transformada discreta de Fourier, $F(\omega_{m})$, podemos expresar la suma como una matriz de transformación con índices $m,k$. Esto es 
+\[
+ \dfrac{e^{i m k \pi /2}}{2N} \quad \Leftrightarrow \quad 
+ \frac{1}{4}
+ \left(
+ \begin{array}{cccc}
+ 1 & 1 & 1 & 1 \\
+ 1 & i & -1 & -i \\
+ 1 & -1 & 1 & -1 \\
+ 1 & -i & -1 & 0
+ \end{array}
+ \right) 
+\] con lo cual
+ \[
+ F(\omega_{m}) = \frac{1}{2N} \sum_{k=0}^{2N-1} f( t_{k}) e^{\pm \omega_{m} \, t_{k} }   
+\,\, \Rightarrow \,\, 
+    \left(
+ \begin{array}{c}
+ F(\omega_{0})  \\
+ F(\omega_{1})  \\
+ F(\omega_{2})  \\
+ F(\omega_{3}) 
+ \end{array}
+ \right) 
+=  \frac{1}{4}
+  \left(
+ \begin{array}{crrr}
+ 1 & 1 & 1 & 1 \\
+ 1 & i & -1 & -i \\
+ 1 & -1 & 1 & -1 \\
+ 1 & -i & -1 & 0
+ \end{array}
+ \right) 
+   \left(
+ \begin{array}{r}
+ 1  \\
+ 0  \\
+ -1  \\
+ 0 
+ \end{array}
+ \right) =  \frac{1}{2}
+   \left(
+ \begin{array}{r}
+ 0  \\
+ 1  \\
+ 0  \\
+ 1 
+ \end{array}
+ \right)
+ \]
+ 
+ Respecto a la ecuación \ref{FourierDiscret} se deben puntualizar varios elementos
+\begin{itemize}
+  \item la frecuencia angular $\omega_{m} = \dfrac{2\pi m}{T}$ corresponde a lo que en Física se denomina el espacio recíproco (al temporal), espacio de frecuencias u $\omega$-espacio. Por ello la función $F(\omega_{m})$ está expresada en este espacio de frecuencias, mientras que la función $f( t_{k}) $ en el de tiempos.
+  \item La elección de uno de los signos $+$ y $-$ en la expresión $e^{\pm \omega_{m} \, t_{k} }$ es arbitraria.
+\end{itemize}
+
+Con lo cual  si ``reconstruimos'' la función original a partir de la transformada discreta nos sorprende el resultado, por cuanto no coincide
+\[
+f(t_{k}) = \frac{1}{2} e^{-i t_{k}} + \frac{1}{2} e^{-3i t_{k}} \,\, \Rightarrow \,\,  \Re\left[ f(t_{k}) \right] =  \frac{1}{2} \cos(t_{k}) + \frac{1}{2} \cos(3 t_{k})
+\] 
+
+Ahora bien, para los puntos $t_{k} = 0, \frac{\pi}{2}, \pi,$ y $\frac{\pi}{2}$ si se cumple que los valores $\cos(t_{k}) = \frac{1}{2} \cos(t_{k}) + \frac{1}{2} \cos(3 t_{k})$.  En los pocos puntos seleccionados $\cos( t_{k})$ y $\cos(3t_{k})$ se asemejan. En la medida que seleccionemos más puntos en esa medida se dejan de parecer y la reconstrucción de la función será más fidedigna.
+
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+
+
+
+
+
+\begin{thebibliography}{9}
+
+\bibitem[Aleksandrov Kolmogorov y Lavrentiev 1999]{AleksandrovKolmogorovLavrentiev1999}A. D. Aleksandrov, A. N. Kolmogorov y M. A. Lavrentiev (1999) \textbf{Mathematics: Its Content, Methods and Meaning.} (\textit{Dover Publications, New York}) Existe traducción por Editorial Alianza Universidad.
+
+\bibitem[Arfken, Weber y Weber 2000]{ArfkenWeberWeber2000}Arfken, G. B., Weber, H., y Weber, H.J. (2000)
+\textbf{Mathematical Methods for Physicists} 5ta Edición (\textit{Academic Press, Nueva York})
+
+\bibitem{ByronFuller1970}Byron, F.W. y Fuller W.F. (1970) \textbf{Mathematics of Classical and Quantum Physics } (\textit{Dover Publications, New York})
+
+\bibitem[Cushing 1975]{Cushing1975}Cushing, J. (1975)\textbf{ Applied Analytical Mathematics for Physical Sciences } (\textit{John Wiley \& Sons, New York})
+
+\bibitem[Hamming 1973]{Hamming1973} Hamming R.W. (1973) \textbf{Numerical Methods For Scientist and Engineers, 2nd ed. } (Dover, New York.)
+
+\bibitem[Hassani 1991]{Hassani1991}  Hassani, S. (1991) \textbf{Foundations of Mathematical Physics} 
+(\textit{Prentice Hall, International Edition, London:})
+
+\bibitem[Lebedev 1972]{Lebedev1972} Lebedev, N.N. (1972) \textbf{Special Functions \& Their Applications} (\textit{Dover Publications, New York})
+
+\bibitem[math-atlas.org URL]{math-atlas.org} \textbf{The Mathematical Atlas} \url{http://www.math-atlas.org/welcome.html}
+
+\bibitem[Richards 2002]{Richards2002} Richards, D. (2002) \textbf{Advanced Mathematical Methods with MAPLE} (\textit{Cambridge University Press Cambridge})
+
+\bibitem[Riley Hobson y Bence 2002]{RileyHobsonBence2002}  Riley, K.F., Hobson, M.P. y Bence, S.J. (2002)
+\textbf{Mathematical Methods for Physics and Engineering } (\textit{Cambridge University Press Cambridge})
+
+\bibitem[Weisstein URL]{WeissteinURL} Weisstein, E. W.,  \textbf{MathWorld} \url{http://mathworld.wolfram.com/}
+
+\end{thebibliography}
+
+
+  

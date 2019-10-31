@@ -1,0 +1,1342 @@
+\section*{La ruta de este capítulo}
+\section{Series de Polinomios Ortogonales}
+\label{IntroPoliOrto}
+
+Enunciaremos un teorema debido a Weierstrass el cual garantiza que una función continua en un intervalo $[a,b]$ puede ser aproximada uniformemente por una serie de polinomios. Por lo tanto, cualquier función continua podrá ser aproximada por combinaciones lineales de potencias.
+
+El Teorema de aproximación polinómica de Weiernstrass queda enunciado como sigue. Cualquier función continua $f(x)$ en un intervalo cerrado $x \in \left[a,b \right]$ podrá ser aproximada uniformemente por polinomios en ese mismo intervalo si, para un $n$ suficientemente grande y un $\epsilon$ suficientemente pequeño siempre se tiene que 
+\[
+| \mathcal{P}_{n}(x) - f(x) | < \epsilon \qquad \forall \ x \in [a,b]
+\]
+Aceptaremos este teorema sin demostración\footnote{Consultar: Byron, F.W. y Fuller W.F. (1970) \textbf{Mathematics of Classical and Quantum Physics }  y Cushing, J. (1975)\textbf{ Applied Analytical Mathematics for Physical Sciences.}}, sin embargo este teorema nos permitirá desarrollar 
+las secciones siguientes.
+
+\subsection{Polinomios de Legendre}
+El primero de los ejemplos de una base ortonormal de polinomios en la cual podremos expresar cualquier función continua en el intervalo cerrado  $x \in \left[-1,1 \right]$ serán los \textit{Polinomios de Legendre}. Estos vienen construidos a partir de la Fórmula de Rodrígues
+\[
+P_{n}(x)=\frac1{n!2^{n}}\frac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}(x^{2}-1)^{n}, \qquad n=0,1,2,.....
+\]
+con $P_{0}(x)=1.$
+
+Es decir
+\begin{align*}
+ P_{0}(x) = 1   						 &  & P_{1}(x) =  x  				\\
+ P_{2}(x)=\frac12(3x^{2}-1) 			 &  & P_{3}(x) = \frac12(5x^3-3x)	 \\
+ P_{4}(x)= \frac{1}{8}(35x^4-30x^2+3)  &  & P_{5}(x) = \frac{1}{8}(63x^5-70x^3+15x) \\
+	 \vdots 				    	          &  &	    \vdots 	
+\end{align*}
+
+\subsection{Generalidades de los Polinomios de Legendre}
+
+Es fácil comprobar que los polinomios de Legendre  son mutuamente 
+ortogonales para un producto interno definido de la siguiente manera
+\[
+\int_{-1}^{1}P_{n}(x)P_{m}(x)\mathrm{d}x=\frac{2}{2n+1}\delta_{nm}\,.
+\]
+Donde la función delta de Kronecker es 
+$\delta_{\alpha\beta}=0$ si $\alpha\neq\beta$; y $\delta_{\beta\beta}=1.$ 
+La norma es definida por
+\[
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x = \frac{2}{2n+1}
+\]
+nótese que los polinomios de Legendre, calculados a partir de la Fórmula de Rodrigues no están normalizados.
+
+\paragraph{Ejemplos:} 
+\begin{enumerate}
+\item 
+\[
+\int_{-1}^1 P_1(x)\,P_2(x)\,\mathrm{d}x = \int_{-1}^1 [x] \left[\frac12\left( 3x^2-1\right) \right]\,\mathrm{d}x =
+\int_{-1}^1 \left( \frac32x^3 -\frac12x \right) \mathrm{d}x =0 \,.
+\]
+\item
+\[
+\int_{-1}^1 P_2(x)\,P_2(x)\,\mathrm{d}x = \int_{-1}^1 \left[\frac12\left( 3x^2-1\right)\right] \left[\frac12\left( 3x^2-1\right)\right]\,\mathrm{d}x = 
+\int_{-1}^1 \left( \frac94x^4 -\frac32x^2 + \frac14 \right) \mathrm{d}x =\frac25 \,.
+\]
+\end{enumerate}
+
+Al ser los Polinomios de Legendre un conjunto completo de funciones, ellos expanden el espacio de funciones continuas en el intervalo cerrado $x \in \left[-1,1 \right]$. Por ello cualquier función en el intervalo $\left[  -1,1\right]  $ puede ser expresada en esa base.
+\[
+f(x)= \sum_{k=0}^{\infty} \underbrace{
+\frac{2k+1}{2}\left[\int_{-1}^1 f(t)P_k(t)\,\mathrm{d}t \right] }_{a_k} \, P_k(x)\,,
+\]
+los primeros términos son: 
+\begin{eqnarray*}
+f(x)&=& \frac12 \int_{-1}^1 f(t)\mathrm{d}t +\frac32 \left[\int_{-1}^1 t f(t)\mathrm{d}t\right] P_1(x)+
+\frac54 \left[\int_{-1}^1 (3t^2-1) f(t)\mathrm{d}t\right] P_2(x) \\
+&+&\frac74 \left[\int_{-1}^1(5t^3-3t) f(t)\mathrm{d}t\right] P_3(x)+
+\frac{9}{16} \left[\int_{-1}^1 (35t^4-30t^2+3) f(t)\mathrm{d}t\right] P_4(x)+\cdots
+\end{eqnarray*}
+
+\paragraph{Ejemplos}
+\begin{enumerate}
+\item Si $f(x)$ es un polinomio
+\[
+f(x)=\sum_{n=0}^{m}b_{n}x^{n}=\sum_{n=0}^{\infty}a_{n}P_{n}(x)\,,
+\]
+entonces, no se requiere hacer ninguna integral por cuanto los coeficientes $a_{n}$ se determinan a 
+través de un sistema de ecuaciones algebraicas. Para el caso de $f(x)=x^{2}$ tendremos
+\begin{eqnarray*}
+f(x) = x^{2} & = & a_{0}P_{0}(x)+a_{1}P_{1}(x)+a_{2}P_{2}(x) \\
+ & = & a_{0}+a_{1}x+\frac12a_{2}(3x^{2}-1) \\
+ & = & \left(a_{0}-\frac12 a_2\right) +a_1 x+\frac32 a_2 x^2 \, \Rightarrow \,  a_0=\frac13\,, a_1=0 \,,a_2=\frac23  \\
+ & = & \frac13P_{0}(x)+\frac23P_{2}(x)\,.
+\end{eqnarray*}
+
+\item En el caso de una función mas complicada
+\[
+f(x)=\sqrt{\frac{1-x}2}\,,
+\]
+por un lado
+\[
+\int_{-1}^{1}f(x)P_{k}(x)\mathrm{d}x=\int_{-1}^{1}\sqrt{\frac{1-x}2}P_{k}(x)\mathrm{d}x
+\]
+la expansión en series de Legendre quedaría como
+\begin{eqnarray*}
+\sqrt{\frac{1-x}2}&=& \frac12 \int_{-1}^1 \sqrt{\frac{1-t}2} \mathrm{d}t + \frac32 \left[\int_{-1}^1 t \sqrt{\frac{1-t}2} \mathrm{d}t\right] P_1(x) +
+\frac54 \left[\int_{-1}^1 (3t^2-1) \sqrt{\frac{1-t}2}\mathrm{d}t\right] P_2(x) \\
+&+&\frac74 \left[\int_{-1}^1(5t^3-3t) \sqrt{\frac{1-t}2}\mathrm{d}t\right] P_3(x)+
+\frac{9}{16} \left[\int_{-1}^1 (35t^4-30t^2+3) \sqrt{\frac{1-t}2}\mathrm{d}t\right] P_4(x)+\cdots\\
+&=&\frac23 P_0(x) - \frac25  P_1(x)- \frac{2}{21} P_2(x)-\frac{2}{45}P_3(x)-\frac{2}{77}P_4(x)
+-\frac{2}{117} P_5(x) -\cdots \\
+&=&\frac23 P_0(x) - 2\sum_{n=1}^{\infty}\frac{P_{n}(x)}{\left(2n-1\right)  \left(  2n+3\right) }\,.
+\end{eqnarray*}
+\end{enumerate}
+
+Antes de entrar en el detalle de las propiedades de estos polinomios, hay que enfatizar que los Polinomios de Legendre constituyen la única base ortogonal para un espacio de Hilbert con un producto interno definido como el producto simple de funciones en el intervalo cerrado. Al ortonormalizar mediante Gram Schmidt la base  $\left\{1,x,x^{2},x^{3},\cdots,x^{n}, \cdots \right\}  $ del espacio de polinomios, $\mathcal{P}^{n},$ de grado $n$ en el intervalo $\left[  -1,1\right]  $, con el producto interno definido
+por $\int_{-1}^{1}\mathrm{d}x\ f\left(  x\right)  \ g\left(  x\right)$ se obtienen los polinomios de Legendre.
+
+Los polinomios de Legendre surgen, originalmente, como soluciones a la ecuación diferencial ordinaria del tipo 
+\[
+\frac{\mathrm{d}}{\mathrm{d} x}\left[\left(1-x^2\right)\frac{\mathrm{d} y}{\mathrm{d} x} \right] +
+\lambda\, y =0 \,,\,\, -1 \leq x \leq 1\,.
+\]
+o de manera equivalente a ecuaciones como
+\[
+(1-x^{2})\ \frac{\mathrm{d}^2 P_{n}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{n}(x)}{\mathrm{d} x} + n(n+1)\ P_{n}(x) =0\,,
+\]
+donde $y=P_{n}(x)$ y $\lambda=n(n+1)$.
+
+La siguiente tabla muestra algunas ecuaciones diferenciales con sus respectivas soluciones  
+\begin{center}
+\begin{tabular}
+[c]{lcc}\hline\hline
+$n$ & Ecuación de Legendre & Solución\\ \hline\hline
+$0$ & \multicolumn{1}{r}{$(1-x^{2})\ \frac{\mathrm{d}^2 P_{0}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{0}(x)}{\mathrm{d} x}=0$} & \multicolumn{1}{l}{$P_{0}(x)=1$}\\ \\
+$1$ & \multicolumn{1}{r}{$(1-x^{2})\ \frac{\mathrm{d}^2 P_{1}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{1}(x)}{\mathrm{d} x}+2\ P_{1}(x)=0$} & \multicolumn{1}{l}{$P_{1}(x)=x$}\\ \\
+$2$ & \multicolumn{1}{r}{$(1-x^{2})\ \frac{\mathrm{d}^2 P_{2}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{2}(x)}{\mathrm{d} x} +6\ P_{2}(x)=0$} & \multicolumn{1}{l}{$P_{2}(x)=1-3x^{2}$}\\ \\
+$3$ & \multicolumn{1}{r}{$(1-x^{2})\ \frac{\mathrm{d}^2 P_{3}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{3}(x)}{\mathrm{d} x} +12\ P_{3}(x) = 0$} & \multicolumn{1}{l}{$P_{3}(x)=x-\frac{5}{3}x^{3}$}\\ \\
+$4$ & \multicolumn{1}{r}{$(1-x^{2})\ \frac{\mathrm{d}^2 P_{4}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} P_{4}(x)}{\mathrm{d} x} +20\ P_{4}(x)=0$} & \multicolumn{1}{l}{$P_{4}(x)=1-10x^{2}+\frac{35}{3}x^{4}$} \\ \\ \hline \hline
+\end{tabular}
+\end{center}
+
+
+\subsection{Relación de Recurrencia}
+
+Supongamos que conocemos todos los polinomios de Legendre hasta $P_{n}(x)$ y queremos generar
+el próximo. Obviamente  ese polinomio será de grado $n+1$.  Nos
+plantemos generarlo a partir de $xP_{n}(x)$. Como estos polinomios
+son base del espacio de funciones, entonces
+\[
+xP_{n}(x)=\sum_{k=0}^{n+1} 
+\frac{2k+1}{2}\left[\int_{-1}^1 P_k(t) t P_n(t) \,\mathrm{d}t \right]  \, P_k(x)\,,
+\]
+Observando con algo más de detalle
+\begin{eqnarray*}
+xP_{n}(x)&=& 
+\frac12 \int_{-1}^1 t P_n(t)\mathrm{d}t +
+\frac32 \left[\int_{-1}^1 t^2 P_n(t)\mathrm{d}t\right] P_1(x)+ 
+\frac54 \left[\int_{-1}^1 (3t^3-t) P_n(t)\mathrm{d}t\right] P_2(x) \\
+&+&
+\frac74 \left[\int_{-1}^1(5t^4-3t^2) P_n(t)\mathrm{d}t\right] P_3(x)+
+\frac{9}{16} \left[\int_{-1}^1 (35t^5-30t^3+3t) P_n(t)\mathrm{d}t\right] P_4(x)+\cdots\,.
+\end{eqnarray*}
+
+Notemos que 
+\[
+\int_{-1}^{1}P_{n}(t)tP_{n}(t)\mathrm{d}t =\int_{-1}^{1}tP_{n}^{2}(t)\mathrm{d}t\,,
+\]
+por lo tanto, el integrando es una función impar. Consideremos algunos casos:
+
+Para $n=0$
+\begin{eqnarray*}
+xP_{0}(x)&=& 
+\frac32 \left[\int_{-1}^1 t^2 \mathrm{d}t\right] P_1(x) = P_1(x)
+\end{eqnarray*}
+Para $n=1$
+\begin{eqnarray*}
+xP_{1}(x)&=& 
+\frac12 \left[\int_{-1}^1 t^2 \mathrm{d}t\right] + 
+\frac54 \left[\int_{-1}^1 (3t^4-t^2)\mathrm{d}t\right] P_2(x) = \frac13 + \frac23 P_2(x)
+\end{eqnarray*}
+Para $n=2$
+\begin{eqnarray*}
+xP_{2}(x)&=& 
+\frac34 \left[\int_{-1}^1 (3t^4-t^2)\mathrm{d}t\right] P_1(x)+ 
+\frac7{16} \left[\int_{-1}^1(5t^3-3t)(3t^3-t)\mathrm{d}t\right] P_3(x)\\
+&=& 
+\frac25  P_1(x)+ \frac{3}{5} P_3(x) \,.
+\end{eqnarray*}
+Para $n=3$
+\begin{eqnarray*}
+xP_{3}(x)&=& 
+\frac37  P_2(x)+ \frac47 P_4(x) \,.
+\end{eqnarray*}
+Se puede apreciar que
+\[
+\int_{-1}^{1}P_{n}(x)xP_{k}(x)\mathrm{d}x=0\,,\,\,\mbox{para}\,\, k<n-1\,.
+\]
+Esto implica que sobreviven únicamente tres términos
+\[
+xP_{n}(x)=AP_{n+1}(x)+BP_{n-1}(x)\,.
+\]
+Desarrollando con la fórmula de Rodrígues
+\begin{eqnarray*}
+\frac{x}{n!2^{n}}\frac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}(x^{2}-1)^{n}&=&
+\frac{A}{(n+1)!2^{n+1}}\frac{\mathrm{d}^{n+1}}{\mathrm{d}x^{n+1}}(x^{2}-1)^{n+1} +
+\frac{B}{(n-1)!2^{n-1}}\frac{\mathrm{d}^{n-1}}{\mathrm{d}x^{n-1}}(x^{2}-1)^{n-1}\,,\\
+x\frac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}(x^{2}-1)^{n}&=&
+\frac{A}{2(n+1)}\frac{\mathrm{d}^{n+1}}{\mathrm{d}x^{n+1}}(x^{2}-1)^{n+1} +
+2nB\frac{\mathrm{d}^{n-1}}{\mathrm{d}x^{n-1}}(x^{2}-1)^{n-1}\,.
+\end{eqnarray*}
+Igualando coeficientes resulta 
+\[
+A=\frac{n+1}{2n+1}\,,\,\, B=\frac{n}{2n+1}
+\]
+La relación de recurrencia se puede obtener entonces de:
+\[
+\left(  n+1\right)  P_{n+1}(x)=\ \left(  2n+1\right)  xP_{n}(x)-nP_{n-1}(x)\,.
+\]
+
+\subsection{Norma de los Polinomios de Legendre}
+Conociendo que la
+ortogonalidad de los polinomios de Legendre y la relación de recurrencia,
+procedemos encontrar el valor de su norma
+\[
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x =\frac2{2n+1}
+\]
+De la relación de recurrencia cambiando $n\rightarrow n-1$ se tiene
+\begin{eqnarray}
+n P_{n}(x)&=& \left(2n-1\right)  xP_{n-1}(x)-\left(n-1\right)P_{n-2}(x)\,,\nonumber\\
+\left(2n+1\right)P_{n}(x) n P_{n}(x)&=&\left(2n+1\right)P_{n}(x)\left[\left(2n-1\right)xP_{n-1}(x)-
+\left(n-1\right)P_{n-2}(x) \right]\,,\label{ecu1}
+\end{eqnarray}
+ahora multiplicamos la relación de recurrencia por $\left(2n-1\right) P_{n-1}(x)$ para obtener
+\begin{equation}
+\left(2n-1\right)P_{n-1}(x)\left(n+1\right)P_{n+1}(x) =\left(2n-1\right)P_{n-1}(x) 
+\left[ \left(2n+1\right)  xP_{n}(x)-nP_{n-1}(x)\right]\,,\label{ecu2}
+\end{equation}
+restando miembro a miembro (\ref{ecu1}) - (\ref{ecu2}) obtenemos :
+\[
+\left(2n+1\right)\left[n P_{n}^2(x)+\left(n-1\right)P_{n}(x)P_{n-2}(x)\right] -
+\left(2n-1\right)\left[\left(n+1\right) P_{n-1}(x)P_{n+1}(x)+nP_{n-1}^{2}(x)\right] =0\,,
+\]
+lo que es igual a:
+\begin{eqnarray*}
+\left(2n+1\right)\left[n P_{n}^2(x)+\left(n-1\right)P_{n}(x)P_{n-2}(x)\right] &=&
+\left(2n-1\right)\left[\left(n+1\right) P_{n-1}(x)P_{n+1}(x)+nP_{n-1}^{2}(x)\right]\,,\\
+P_{n}^2(x)+ \frac{\left(n-1\right)}{n}P_{n}(x)P_{n-2}(x) &=&
+\frac{2n-1}{2n+1}\left[\frac{\left(n+1\right)}{n} P_{n-1}(x)P_{n+1}(x)+P_{n-1}^{2}(x)\right]\,,
+\end{eqnarray*}
+integrando y considerando la ortogonalidad
+\begin{align*}
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x  & =\frac{2n-1}{2n+1}\left[\int_{-1}^{1} P_{n-1}^{2}(x)\mathrm{d}x\right]\\
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x  & =\left(\frac{2n-1}{2n+1}\right) \left[\left(\frac{2n-3}{2n-1}\right)  \int_{-1}^{1}P_{n-2}^{2}(x)\mathrm{d}x\right]\\
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x  & =\left(\frac{2n-1}{2n+1}\right)
+\left[\left(\frac{2n-3}{2n-1}\right)  \left(\frac{2n-5}{2n-3}\right)  \int_{-1}^{1}P_{n-3}^{2}(x)\mathrm{d}x\right]
+\end{align*}
+continuando con este proceso 
+\begin{align*}
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x  & =\frac3{2n+1} \left[\int_{-1}
+^{1}P_{1}^{2}(x)\mathrm{d}x\right] = \frac3{2n+1}\left[ \frac23 \right]\\
+\int_{-1}^{1}P_{n}^{2}(x)\mathrm{d}x  & =\frac2{2n+1}\,.
+\end{align*}
+
+\subsection{Función Generatriz de los Polinomios de Legendre}
+Se puede encontrar una función generatriz $\mathcal{P}(t,x)$ de los polinomios de
+Legendre, es decir una función que tenga la forma:
+\[
+\mathcal{P}(t,x)=\frac1{\sqrt{1-2xt+t^{2}}}=P_{0}(x)\ +P_{1}(x)\ t+P_{2}
+(x)\ t^{2}+\cdots=\sum_{n=0}^{\infty}P_{n}(x)\ t^{n}\,,\,\, |t| <1\,, |x| \leq 1\,,
+\]
+para la cual los $P_{n}(x)$ son los coeficientes de su desarrollo en series de
+potencias. Esta serie converge para $|  2xt+t^{2} |  <1.$ Para
+demostrar que el desarrollo en serie de la función $\mathcal{G}(t,x)$
+tiene como coeficientes a los $P_{n}(x)$ partimos de que:
+\[
+\mathcal{P}(t,x)=\frac1{\sqrt{1-2xt+t^{2}}}\quad\Rightarrow\quad\frac
+{\partial\mathcal{P}(t,x)}{\partial t}=\frac{t-x}{\left(  1-2xt+t^{2}\right)
+^{3/2}}\quad
+\]
+combinando estas dos expresiones, resulta
+\[
+\left(  t-x\right)  \mathcal{P}(t,x)+\left(  1-2xt+t^{2}\right)
+\frac{\partial\mathcal{P}(t,x)}{\partial t}=0
+\]
+y, consecuentemente
+\[
+\left(t-x\right)  \sum_{n=0}^{\infty}P_{n}(x)\ t^{n}+\left(1-2xt+t^{2}
+\right)  \sum_{n=1}^{\infty}nP_{n}(x)\ t^{n-1}=0\, .
+\]
+
+Multiplicando y acomodando queda
+\begin{eqnarray*}
+\left(t-x\right)P_{0}(x) 
+&+&\left(t-x\right) \sum_{n=1}^{\infty}P_{n}(x)\ t^{n}
++\sum_{n=1}^{\infty}nP_{n}(x) t^{n-1} 
+-\sum_{n=1}^{\infty} 2xnP_{n}(x) t^{n}
++\sum_{n=1}^{\infty}nP_{n}(x) t^{n+1}=0\,,\\
+\left(t-x\right)P_{0}(x) 
+&+&\sum_{n=1}^{\infty}P_{n}(x)\ t^{n+1}
+-\sum_{n=1}^{\infty}x P_{n}(x)\ t^{n}
++\sum_{n=1}^{\infty}nP_{n}(x) t^{n-1} 
+-\sum_{n=1}^{\infty} 2xnP_{n}(x) t^{n}\\
+&+&\sum_{n=1}^{\infty}nP_{n}(x) t^{n+1}=0\,,
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\left(t-x\right)P_{0}(x) 
+&+&\sum_{n=2}^{\infty}P_{n-1}(x)\ t^{n}
+-\sum_{n=1}^{\infty}x P_{n}(x)\ t^{n}
++\sum_{n=0}^{\infty}(n+1)P_{n+1}(x) t^{n} 
+-\sum_{n=1}^{\infty} 2xnP_{n}(x) t^{n} \\
+&+&\sum_{n=2}^{\infty}(n-1)P_{n-1}(x) t^{n}=0\,,\\
+\left(t-x\right)P_{0}(x)
+&+&\sum_{n=0}^{\infty}(n+1)P_{n+1}(x) t^{n}
+-\sum_{n=1}^{\infty}(2n+1)x P_{n}(x)\ t^{n}
++\sum_{n=2}^{\infty}n P_{n-1}(x) t^{n}=0\,,\\
+tP_{0}(x)&-&x P_{0}(x)+ P_1(x) + 2 P_2(x)t+\sum_{n=2}^{\infty}(n+1)P_{n+1}(x) t^{n}-3xP_1(x) t-
+\sum_{n=2}^{\infty}(2n+1)x P_{n}(x)\ t^{n}\\
+&+&\sum_{n=2}^{\infty}n P_{n-1}(x) t^{n}=0
+\end{eqnarray*}
+por lo tanto
+\begin{eqnarray*}
+\left[  \underbrace{P_{1}(x)-x\ P_{0}(x)}_{=0}\right]  
+&+& \ \left[ \underbrace{2P_{2}(x)-3xP_{1}(x)+P_{0}(x)}_{=0}\right]  t \\
+&+&
+\sum_{n=2}^{\infty}\left[  \underbrace{\left(  n+1\right)  P_{n+1}(x)-\left(2n+1\right)  \ xP_{n}(x)+nP_{n-1}(x)}_{=0}\right]   t^{n}   =0
+\end{eqnarray*}
+
+El primero de los términos se cumple siempre por cuanto $P_{0}(x)=1$ y $P_{1}(x)=x.$ El tercer término conforma la relación de recurrencia para los polinomios de Legendre. Con esto queda demostrado que el desarrollo en series de potencias de la función generatriz, tiene como coeficientes a los polinomios de Legendre.
+
+La función generatriz muestra su utilidad en la expansión de 
+\[
+f(x)=\sqrt{\frac{1-x}2} \,,
+\]
+recordemos que por la definición del producto interno se tiene
+\[
+\int_{-1}^{1}f(x)P_{k}(x)\mathrm{d}
+x=\int_{-1}^{1}\sqrt{\frac{1-x}2}P_{k}(x)\mathrm{d}x\,.
+\] 
+Al formar el producto
+\[
+\sqrt{\frac{1-x}2}\left[ \frac1{\sqrt{1-2xt+t^{2}}}\right] = 
+\sqrt{\frac{1-x}2} \sum_{n=0}^{\infty}t^{n} P_{n}(x)\,,
+\]
+e integrando, se obtiene
+\begin{align*}
+{\displaystyle \int_{-1}^{1}} \sqrt{\frac{1-x}2}\left[  \frac1{\sqrt{1-2xt+t^{2}}}\right]  \mathrm{d}x &
+=\sum_{n=0}^{\infty}t^{n}
+{\displaystyle\int_{-1}^{1}} \sqrt{\frac{1-x}2}P_{n}(x)\mathrm{d}x\\
+\frac1{2t}\left[  1+t-\frac{\left(  1-t\right)  ^{2}}{2\sqrt{t}}
+\ln \left(\frac{1+\sqrt{t}}{1-\sqrt{t}}\right)  \right]   & =\sum_{n=0}^{\infty}t^{n}{\displaystyle\int_{-1}^{1}}\sqrt{\frac{1-x}2}P_{n}(x)\mathrm{d}x\,.
+\end{align*}
+Expandiendo el lado izquierdo en series de potencias de $t$
+\[
+\frac43-4\sum_{n=1}^{\infty}\frac{t^{n}}{\left(  4n^{2}-1\right)  \left(
+2n+3\right)  }=\sum_{n=0}^{\infty}t^{n}%
+{\displaystyle \int_{-1}^{1}}
+\sqrt{\frac{1-x}2}P_{n}(x)\mathrm{d}x
+\]
+lo cual nos conduce, al igualar coeficientes a
+\[
+\frac43 ={\displaystyle\int_{-1}^{1}} \sqrt{\frac{1-x}2}P_{0}(x)\mathrm{d}x \quad\mbox{y}\quad 
+\frac{-4}{\left(  4n^{2}-1\right)  \left(  2n+3\right)} ={\displaystyle\int_{-1}^{1}}
+\sqrt{\frac{1-x}2}P_{n}(x)\mathrm{d}x
+\]
+y finalmente a la forma de la expansión en series
+\[
+\sqrt{\frac{1-x}2}=\frac23P_{0}(x)-2\sum_{n=1}^{\infty}\frac{P_{n}(x)}{\left(
+2n-1\right)  \left(  2n+3\right)  }
+\]
+\subsection{Otras propiedades de los polinomios de Legendre}
+\begin{itemize}
+\item $P_{n}(1)=1$ y $P_{n}(-1)=(-1)^{n}$. Entonces se tiene lo que se conoce como la relación
+de paridad: $P_{n}(-x)=(-1)^nP_n(x)$ para todo $n$.
+\item $P_{n}(x)$ tiene $n$ raíces en el intervalo $\left(  -1,1\right) $
+Esta propiedad puede apreciarse para los primeros 5 polinomios en la figura \ref{poligendre}.
+\end{itemize}
+\begin{center}
+\begin{figure}
+[ptb]
+\begin{center}\includegraphics[natheight=7.489300in,natwidth=9.989500in,height=3.3987in,width=4.5238in]
+{VOLUMEN_2/02_Series/Figuras/Legendre1.eps}
+\caption{Polinomios de Legendre}
+\label{poligendre}
+\end{center}
+\end{figure}
+\end{center}
+\begin{itemize}
+\item  Tienen una representación integral de la forma
+\[
+P_{n}(x)=\frac1{2\pi}\int_{0}^{\pi}\left[  x+\sqrt{x^{2}-1}\cos\varphi\right]
+^{n}\mathrm{d}\varphi
+\]
+\item  Cambios de variables inmediatos conllevan a ecuaciones diferenciales equivalentes
+\begin{itemize}
+\item  Forma autoadjunta
+\[
+\left[  (1-x^{2})\ y^{\prime}\right]  ^{\prime}+\lambda(\lambda+1)\ y=0
+\]
+\item  En coordenadas esféricas con $u=P_{n}(\cos(\theta))$
+\[
+\frac1{\operatorname*{sen}(\theta)}\frac{\mathrm{d}}{\mathrm{d}\theta}\left(
+\operatorname*{sen}(\theta) \frac{\mathrm{d}u}{\mathrm{d}\theta}\right)
++\lambda(\lambda+1)u=0
+\]
+\item  En coordenadas esféricas con $u=\sqrt{\operatorname*{sen}\theta
+}P_{n}(\cos\theta)$
+\[
+\frac{\mathrm{d}^{2}u}{\mathrm{d}\theta^{2}}+\left[  \left(  \lambda
++\frac12\right)  ^{2}+\frac1{4\operatorname*{sen}^{2}(\theta)}\right]  u=0
+\]
+\end{itemize}
+\end{itemize}
+
+\subsection{Potencial Electrostático de un Dipolo Eléctrico}
+
+En Física el ejemplo claro es el cálculo del potencial electrostático producido por dos cargas $q_{1}=+q$ y $q_{2}=-q$ separadas por una distancia $2d$ en un punto $P$ cualquiera de un plano $\left(  x,y\right)  $. El potencial en ese punto
+genérico viene dado por
+\[
+V=q\left(  \frac{1}{R^{\prime}}-\frac{1}{R}\right)
+\]
+\begin{figure}
+[ptb]
+\begin{center}
+\includegraphics[width=4.0in]{VOLUMEN_2/02_Series/Figuras/Potencial.eps}
+\caption{Potencial electrostático de un dipolo eláctrico}
+\label{potencial1}
+\end{center}
+\end{figure}
+Tal y como puede apreciarse de la figura \ref{potencial1}
+\[
+\left(R^{\prime}\right)^{2}=r^{2}+d^{2}-2r\ d\cos(\theta) \quad \mbox{y} \quad
+R^{2}=r^{2}+d^{2}-2r\ d\cos\left(\pi-\theta\right)\,,
+\]
+por lo cual
+\begin{align*}
+\frac{1}{R^{\prime}}& =\frac{1}{r}\left[1-2 \cos(\theta)\left(\frac{d}{r}\right) +
+\left(\frac{d}{r}\right)^{2}  \right]^{-1/2}\\
+\frac{1}{R}  & =\frac{1}{r}\left[ 1- 2\cos\left(\pi-\theta\right) 
+\left( \frac{d}{r}\right)   +\left( \frac{d}{r}\right)^{2}  \right]^{-1/2}\,
+\end{align*}
+y consecuentemente
+\begin{align*}
+\frac{1}{R^{\prime}}  & =\frac{1}{r}\sum_{n=0}^{\infty}
+P_{n}(\cos (\theta)) \left(  \frac{d}{r}\right)^{n}\\
+\frac{1}{R}  & =\frac{1}{r}\sum_{n=0}^{\infty}
+P_{n}\left[ \cos\left(\pi-\theta\right)  \right] \left(\frac{d}{r}\right)^{n}=\frac{1}
+{r}\sum_{n=0}^{\infty}P_{n}(-\cos(\theta)) \left(  \frac{d}{r}\right) ^{n}
+\end{align*}
+El potencial será
+\[
+V=\frac{q}{r}\ \sum_{n=0}^{\infty}\left[ P_{n}(\cos(\theta)) -P_{n}
+(-\cos(\theta)) \right]  \left(\frac{d}{r}\right)^{n}
+\]
+donde todos los términos pares de $P_{n}(\cos(\theta))$ se anulan y finalmente tendremos la expresión del potencial para cualquier punto del plano
+\[
+V=\frac{2q}{r}\ \sum_{n=0}^{\infty}P_{2n+1}(\cos(\theta))\ \left(
+\frac{d}{r}\right)^{2n+1}
+\]
+Nos quedamos con el primer término de la serie, si
+\[
+\frac{d}{r}\ll1\quad\Rightarrow\quad V\approx\frac{q}{r^{2}}\ 2d\cos(\theta)\,.
+\]
+
+\subsection{Resumen de Propiedades Polinomios Legendre}
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+\begin{tabular}{rl} 
+Definición: &  $P_{n}(x)=\dfrac1{n!2^{n}}\dfrac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}(x^{2}-1)^{n},
+\quad n=0,1,2, \dots$ \\ \\
+Ejemplos: &  $ P_{0}\equiv1;\quad P_{1}=x; \quad P_{2}=\frac12(3x^{2}-1);\quad P_{3}=\frac12(5x^{3}-3x) $ \\ \\
+Relación de Recurrencia: & $\left(  n+1\right)  P_{n+1}(x)=\ \left(2n+1\right)  xP_{n}(x)-nP_{n-1}(x)$ \\ \\
+Ecuaciones Diferenciales: & $(1-x^{2})\ y^{\prime\prime}-2x\ y^{\prime}+\lambda(\lambda+1)\ y=0 $\\ \\
+ &$\dfrac1{\mbox{sen}(\theta)}\dfrac{\mathrm{d}}{\mathrm{d}\theta}\left(
+\mbox{sen}(\theta) \dfrac{\mathrm{d}u}{\mathrm{d}\theta}\right)
++n(n+1)u=0;\quad u=P_{n}(\cos(\theta))$ \\ \\
+Función Generatriz:  & $\mathcal{P}(t,x)=\dfrac1{\sqrt{1-2xt+t^{2}}}={\displaystyle\sum_{n=0}^{\infty}}
+P_{n}(x)\ t^{n}$ \\ \\
+Representación Integral: & $P_{n}(x)=\dfrac1{2\pi}{\displaystyle\int_{0}^{\pi}}
+\left[  x+\sqrt{x^{2}-1}\cos\varphi\right]  ^{n}\mathrm{d}\varphi$ \\ \\
+Ortogonalidad: & ${\displaystyle\int_{-1}^{1}} P_{\alpha}(x)P_{\beta}(x)\mathrm{d}x=\delta_{\alpha\beta}\dfrac2{2\alpha+1}$
+\end{tabular}
+%\end{boxedminipage}
+%\end{center}
+
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+Practicando con Maple: \\
+\textcolor{red}{ $>$ {\tt restart:} } \\
+\textcolor{red}{ $>$ {\tt plot([LegendreP(0,x),LegendreP(1,x),LegendreP(2,x),LegendreP(3,x),\\   
+ LegendreP(4,x)],x=-1..1);}} 
+%\end{boxedminipage}
+%\end{center}
+
+
+\subsection{Polinomios de Hermite}
+
+Los polinomios de Hermite a diferencia de los de Legendre (y Tchevychev), vienen definidos en toda la recta real, vale decir, $x \in (-\infty, \infty)$, por lo cual la función peso $w(x)$ en el producto interno deberá decrecer más rápido que $|x|^{n}$, para garantizar que la norma de los vectores en este espacio vectorial sea finita. La función más simple que cumple estos requisitos es $w(x)= e^{-x^{2}} $ (también algunos autores utilizan $w(x)= e^{-x^{2}/2})$ Esto es, el producto interno entre los polinomios de Hermite vendrá definido como
+\[
+ \int_{-\infty}^{\infty}\mathrm{d}x \ w(x) f(x)g(x)=  \int_{-\infty}^{\infty}\mathrm{d}x \ e^{-x^{2}} f(x)g(x)\,.
+\]
+Otra vez, para este producto interno, si ortogonalizamos con Gram-Schmidt se obtienen los polinomios de Hermite. Al igual que el resto de los polinomios ortogonales, existe una fórmula de Rodrigues para los polinomios de Hermite
+\[
+H_{n}(x) = (-1)^{n} \ e^{x^{2}} \frac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}e^{-x^{2}}\,,
+\]
+los cinco primeros polinomios de Hermite son los siguientes:
+\begin{align*}
+ H_{0}(x) = 1,   						 &  & H_{1}(x) =  2x  				\\
+ H_{2}(x) = 4x^{2} - 2,  				     &  & H_{3}(x)  =  8x^{3} -12x,	 \\
+ H_{4}(x)= 16x^{4} -48 x^{2} +12	         &  & H_{5}(x) = 32x^{5} -160x^{3} +120 x
+\end{align*}
+
+\subsection{Generalidades de los Polinomios de Hemite}
+Los polinomios de Hermite serán ortogonales, pero no normales
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\beta}(x)H_{\alpha}(x)\mathrm{d}x=2^{\alpha}\alpha!\sqrt{\pi}\ \delta_{\alpha\beta}\,,
+\]
+por lo tanto:
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha}
+^{2}(x)\mathrm{d}x=2^{\alpha} \alpha! \sqrt{\pi}\,.
+\]
+Donde la función delta de Kronecker es 
+$\delta_{\alpha\beta}=0$ si $\alpha\neq\beta$; y $\delta_{\beta\beta}=1.$  
+
+Antes de desarrollar funciones en
+términos de los polinomios de Hermite, expondremos un par de teoremas sin
+demostración.
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+\paragraph{Teorema 1:} Sean $f$ y $g$ dos funciones arbitrarias, cuando menos continuas a trozos en
+$\left(  -\infty,\infty\right)  $ y que cumplen con
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}f^{2}(x)\mathrm{d}x \quad \exists \quad \wedge
+\qquad\int_{-\infty}^{\infty}e^{-x^{2}}g^{2}(x)\mathrm{d} \quad \exists \quad 
+\]
+Entonces el conjunto de estas funciones forman un espacio vectorial euclideano
+$\mathcal{I}_{2}^{w}$ con un producto interno definido por
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}f(x)g(x)\mathrm{d}x
+\]
+Las funciones $f(x)$ y $g(x)$ se denominan cuadrado-integrables respecto al
+peso $w$. Es por ello que denotamos el espacio de funciones como
+$\mathcal{I}_{2}^{w}$.
+%\end{boxedminipage}
+%\end{center}
+
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+\paragraph{Teorema 2:}  Si $f(x)$ es una función continua arbitraria en
+$\mathcal{I}_{2}^{w}$ entonces puede ser aproximada por un polinomio en ese
+mismo espacio. Es decir
+\[
+\lim_{n\rightarrow\infty}\left|  f(x)-p_{n}(x)\right|  =\lim_{n\rightarrow
+\infty}\left(  \int_{-\infty}^{\infty}e^{-x^{2}}\left[  f(x)-p_{n}(x)\right]
+^{2}\mathrm{d}x\right)  ^{1/2}=0
+\]
+%\end{boxedminipage}
+%\end{center}
+
+
+As\'{\i}, la expresión de una función arbitraria en la base de los
+polinomio de Hermite se reduce a
+\[
+f(x)=
+\sum_{k=0}^{\infty} \frac1{2^{k}k!\sqrt{\pi}}\left[ \int_{-\infty}^{\infty}e^{-t^{2}
+}f(t)H_{k}(t)\, \mathrm{d}x\right] \ H_{k}(x)\,,
+\]
+donde
+\[
+a_{k}=\frac1{2^{k}k!\sqrt{\pi}} \int_{-\infty}^{\infty}e^{-t^{2}
+}f(t)H_{k}(t)\, \mathrm{d}x \,.
+\]
+
+\paragraph{Ejemplo:}
+Si $f(x)=x^{2}$
+\[
+f(x)=x^{2}=\sum_{k=0}^{2}b_{k} x^k = \sum_{k=0}^{\infty}a_{k}\ H_{k}(x)
+\]
+\begin{eqnarray*}
+f(x)=x^{2}&=& a_0 H_0(x)+a_1 H_1(x)+a_2 H_2(x)\\
+&=& a_0+a_1(2x)+a_2(4x^2-1)\\
+&=& (a_0-a_2) + 2 a_1 x + 4a_2 x^2 \,\,\, \Rightarrow a_0=\frac14\,, a_1=0\,, a_2=\frac14\,.\\
+&=& \frac14 H_0(x)+\frac14  H_2(x)\,
+\end{eqnarray*}
+
+Si generalizamos para funciones del tipo  $f(x)=x^{2p}$ con $p=1,2,3,\cdots$, entonces 
+\[
+f(x)=x^{2p}=\sum_{k=0}^{2p}b_{k} x^k = \sum_{k=0}^{\infty}a_{2k}\ H_{2k}(x)\,,
+\]
+por lo tanto
+\[
+a_{2k} =\frac1{2^{2k}(2k)!\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-x^{2}
+}x^{2p}H_{2k}(x)\mathrm{d}x = \frac1{2^{2k}(2k)!\sqrt{\pi}}\int_{-\infty}^{\infty}x^{2p}\frac
+{\mathrm{d}^{2k}}{\mathrm{d}x^{2k}}e^{-x^{2}}\mathrm{d}x\,.
+\]
+
+Una integración por partes estratégica muestra que:
+\[
+a_{2k}=\frac1{2^{2k}(2k)!\sqrt{\pi}}\left\{  \left.  x^{2p}\frac
+{\mathrm{d}^{2k-1}}{\mathrm{d}x^{2k-1}}e^{-x^{2}}\right|  _{-\infty}^{\infty
+}-\int_{-\infty}^{\infty}2px^{2p-1}\frac{\mathrm{d}^{2k-1}}{\mathrm{d}
+x^{2k-1}}e^{-x^{2}}\mathrm{d}x\right\}\,.
+\]
+El primer término de la resta se anula debido a la definición de
+los polinomios de Hermite
+\[
+\left.  x^{2p}\frac{\mathrm{d}^{2k-1}}{\mathrm{d}x^{2k-1}}e^{-x^{2}}\right|
+_{-\infty}^{\infty}=\left.  x^{2p}(-1)^{2k-1}e^{-x^{2}}H_{2k-1}(x)\right|
+_{-\infty}^{\infty}\,.
+\]
+
+Repitiendo el proceso $2k$ veces, tendremos
+\[
+a_{2k}=\frac1{2^{2k}(2k)!\sqrt{\pi}}\frac{\left(  2p\right)  !}{\left(
+2p-2k\right)  !}\int_{-\infty}^{\infty}x^{2p-2k}\ e^{-x^{2}}\mathrm{d}x
+\]
+si en la integral hacemos $x=\sqrt{t}$ obtenemos
+\begin{align*}
+a_{2k}  & =\frac1{2^{2k}(2k)!\sqrt{\pi}}\frac{\left(  2p\right)  !}{\left(
+2p-2k\right)  !}\int_{-\infty}^{\infty}t^{p-k}\ e^{-t}\frac{\mathrm{d}%
+t}{2\sqrt{t}}\\
+& =\frac1{2^{2k+1}(2k)!\sqrt{\pi}}\frac{\left(  2p\right)  !}{\left(
+2p-2k\right)  !}\int_{-\infty}^{\infty}t^{p-k-\frac12}\ e^{-t}\mathrm{d}t
+\end{align*}
+y utilizando la definición $\Gamma\left(  z\right)  \equiv\int_{0}%
+^{\infty}e^{-t}t^{z-1}\mathrm{d}t\equiv\left(  z-1\right)  !$ , queda como
+\[
+a_{2k}=\frac1{2^{2k+1}(2k)!\sqrt{\pi}}\frac{\left(  2p\right)  !}{\left(
+2p-2k\right)  !}\Gamma\left(  p-k+\frac12\right)\,.
+\]
+
+Ahora, recurrimos a la propiedad de ``duplicación'' de la Función
+Gamma, i.e.
+\[
+2^{2z-1}\Gamma\left(  z\right)  \Gamma\left(  z+\frac12\right)  =\sqrt{\pi
+}\Gamma\left(  2z\right)
+\]
+tenemos que
+\[
+2^{2p-2k}\Gamma\left(  p-k+\frac12\right)  \left(  p-k\right)  !=\sqrt{\pi
+}\left(  2p-2k\right)  !
+\]
+quedan entonces los coeficientes determinados como
+\[
+a_{2k}=\frac{\left(  2p\right)  !}{2^{2p+1}(2k)!\left(  p-k\right)  !}
+\]
+y, por lo tanto el desarrollo en la base de los polinomios de Hermite
+\[
+f(x)=x^{2p}=\frac{\left(  2p\right)  !}{2^{2p+1}}\sum_{k=0}^{p}\ \frac
+{H_{2k}(x)}{(2k)!\left(  p-k\right)  !}\qquad-\infty<x<\infty\,.
+\]
+
+Muestre que del mismo modo se puede encontrar
+\[
+f(x)=x^{2p+1}=\frac{\left(  2p-1\right)  !}{2^{2p-1}}\sum_{k=0}^{p}%
+\ \frac{H_{2k+1}(x)}{(2k+1)!\left(  p-k\right)  !}\qquad-\infty<x<\infty\,.
+\]
+
+Si $f(x)=e^{-a^{2}x^{2}}$ con $\operatorname{Re}a^{2}>-1.$ Otra vez
+\[
+f(x)=e^{-a^{2}x^{2}}=\sum_{k=0}^{\infty}a_{2k}\ H_{2k}(x)
+\]
+entonces
+\begin{equation}
+a_{2k}=\frac1{2^{2k}(2k)!\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-(a^{2}+1)x^{2}%
+}H_{2k}(x)\mathrm{d}x\nonumber
+\end{equation}
+Sustituyendo $H_{2k}(x)$ por su expresión integral tendremos
+\begin{align*}
+a_{2k}  & =\frac1{2^{2k}(2k)!\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-(a^{2}%
++1)x^{2}}\left[  \frac{2^{2k+1}(-1)^{k}e^{x^{2}}}{\sqrt{\pi}}\int_{0}^{\infty
+}e^{-t^{2}}t^{2k}\cos2xt\ \mathrm{d}t\right]  \mathrm{d}x\\
+& =\frac{2(-1)^{k}}{\pi(2k)!}\int_{-\infty}^{\infty}e^{-a^{2}x^{2}}\left[
+\int_{0}^{\infty}e^{-t^{2}}t^{2k}\cos2xt\ \mathrm{d}t\right]  \mathrm{d}x\\
+& \equiv\frac{2(-1)^{k}}{\pi(2k)!}\int_{0}^{\infty}e^{-t^{2}}t^{2k}\left[
+\int_{-\infty}^{\infty}e^{-a^{2}x^{2}}\cos2xt\ \mathrm{d}x\right]
+\ \mathrm{d}t\\
+& =\frac{2(-1)^{k}}{\pi(2k)!}\int_{0}^{\infty}e^{-t^{2}}t^{2k}\left[
+\sqrt{\frac\pi{a^{2}}}\ e^{-t^{2}/a^{2}}\right]  \ \mathrm{d}t=\\
+& =\frac{2(-1)^{k}}{\sqrt{\pi}(2k)!a}\int_{0}^{\infty}e^{-t^{2}(1+a^{-2}%
+)}\ t^{2k}\ \mathrm{d}t\\
+& =\frac{(-1)^{k}}{\sqrt{\pi}(2k)!}\ \frac{a^{2k}}{\left(  1+a^{2}\right)
+^{k+1/2}}\int_{0}^{\infty}e^{-s}\ s^{k-\frac12}\ \mathrm{d}s\qquad\leftarrow
+t^{2}(1+a^{-2})=s\\
+& =\frac{(-1)^{k}}{\sqrt{\pi}(2k)!}\ \frac{a^{2k}}{\left(  1+a^{2}\right)
+^{k+1/2}}\Gamma\left(  k+\frac12\right)
+\end{align*}
+y ahora usando, otra vez la propiedad de ``duplicación'' de la función
+gamma,
+\[
+2^{2k}\Gamma\left(  k+\frac12\right)  k!=\sqrt{\pi}\left(  2k\right)  !
+\]
+obtenemos
+\[
+a_{2k}=\frac{(-1)^{k}a^{2k}}{2^{2k}\ k!\left(  1+a^{2}\right)  ^{k+1/2}}\
+\]
+por lo tanto
+\[
+f(x)=e^{-a^{2}x^{2}}=\sum_{k=0}^{\infty}\frac{(-1)^{k}a^{2k}}{2^{2k}%
+\ k!\left(  1+a^{2}\right)  ^{k+1/2}}\ H_{2k}(x)
+\]
+
+Al igual que los polinomios de Legendre, los de Hermite, surgen tambián en sus orígenes como soluciones a la ecuación diferencial ordinaria del tipo 
+\[
+ \frac{\mathrm{d}^2 H_{n}(x)}{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} H_{n}(x)}{\mathrm{d} x} + nH_{n}(x) =0
+\]
+Vale decir:
+\begin{center}
+\begin{tabular}{cll}
+$n$ & Ecuación de Hermite & Solución \\ \hline \hline\\
+0 & $ \dfrac{\mathrm{d}^2 H_{0}(x)}{\mathrm{d} x^2} -2x \dfrac{\mathrm{d} H_{0}(x)}{\mathrm{d} x}=0$  &$ H_{0}(x)=1$ \\ \\
+1 & $ \dfrac{\mathrm{d}^2 H_{1}(x)}{\mathrm{d} x^2} -2x \dfrac{\mathrm{d} H_{1}(x)}{\mathrm{d} x}+ 2 H_{1}(x)=0$ & $H_{1}(x) = 2x $ \\ \\
+2 & $ \dfrac{\mathrm{d}^2 H_{2}(x)}{\mathrm{d} x^2} -2x \dfrac{\mathrm{d} H_{2}(x)}{\mathrm{d} x} + 4 H_{2}(x)=0$ & $H_{2}(x)=4x^{2} -2$ \\ \\
+3 & $ \dfrac{\mathrm{d}^2 H_{3}(x)}{\mathrm{d} x^2} -2x \dfrac{\mathrm{d} H_{3}(x)}{\mathrm{d} x} + 6 H_{3}(x) = 0$ & $H_{3}(x)= 8x^{3} -12x $ \\ \\
+4& $ \dfrac{\mathrm{d}^2 H_{4}(x)}{\mathrm{d} x^2} -2x \dfrac{\mathrm{d} H_{4}(x)}{\mathrm{d} x} + 8 H_{4}(x)=0$ & $H_{4}(x)=16 x^{4} -48x^{2} +12$  \\\\
+\hline \hline
+\end{tabular}
+\end{center}
+
+\subsection{Función Generatriz de los Polinomios de Hermite}
+
+Se puede encontrar una función generatriz $\mathcal{H}(t,x)$ de los polinomios de Hermite:
+\[
+\mathcal{H}(t,x)=e^{2xt-t^{2}}=H_{0}(x)\ +H_{1}(x)\ t+\frac{H_{2}(x)}
+2\ t^{2}+\frac{H_{3}(x)}{3!}\ t^{2}+\cdots=\sum_{n=0}^{\infty}\frac{H_{n}
+(x)}{n!}\ t^{n}
+\]
+para la cual los $H_{n}(x)$ son los coeficientes de su desarrollo en series de
+potencias. Es fácil darse cuenta que esta expresión proviene del
+desarrollo en Serie de Taylor
+\[
+\mathcal{H}(t,x)=e^{2xt-t^{2}}=\sum_{n=0}^{\infty}\frac1{n!}\left[
+\frac{\partial^{n}\mathcal{H}(t,x)}{\partial t^{n}}\right]  _{t=0}
+\ t^{n}\qquad\left\|  t\right\|  <\infty
+\]
+para lo cual
+\[
+\left[  \frac{\partial^{n}\mathcal{H}(t,x)}{\partial t^{n}}\right]
+_{t=0}=e^{x^{2}}\left[  \frac{\partial^{n}}{\partial t^{n}}e^{-\left(
+x-t\right)  ^{2}}\right]  _{t=0}=\left(  -1\right)  ^{n}e^{x^{2}}\left[
+\frac{\mathrm{d}^{n}}{\mathrm{d}u^{n}}e^{-\left(  u\right)  ^{2}}\right]
+_{u=x}=H_{n}(x)
+\]
+\subsection{Relación de Recurrencia}
+
+A partir de la función generatriz se puede construir la siguiente identidad
+\[
+\frac{\partial\mathcal{H}(t,x)}{\partial t}=\left(2x-2t\right)  \mathcal{H}
+\]
+y utilizando el desarrollo en series de potencias en $t$ tendremos,
+\begin{eqnarray*}
+\sum_{n=1}^{\infty}\frac{H_{n}(x)}{n!} nt^{n-1} &=& 2x\sum_{n=0}^{\infty}
+\frac{H_{n}(x)}{n!}\ t^{n}-\sum_{n=0}^{\infty}\frac{H_{n}(x)}{n!}\ t^{n+1}\,, \\
+\sum_{n=1}^{\infty}\frac{H_{n}(x)}{n!} nt^{n-1} &-& 2x\sum_{n=0}^{\infty}
+\frac{H_{n}(x)}{n!}\ t^{n}+\sum_{n=0}^{\infty}\frac{H_{n}(x)}{n!}\ t^{n+1}=0\,,\\
+\sum_{n=0}^{\infty}\frac{H_{n+1}(x)}{(n+1)!} (n+1)t^{n} &-& 2x\sum_{n=0}^{\infty}
+\frac{H_{n}(x)}{n!}\ t^{n}+\sum_{n=1}^{\infty}\frac{H_{n-1}(x)}{(n-1)!}\ t^{n}=0\,,\\
+H_1(x)+\sum_{n=1}^{\infty}\frac{H_{n+1}(x)}{(n+1)!} (n+1)t^{n} &-& 2x H_0(x) -2x\sum_{n=1}^{\infty}
+\frac{H_{n}(x)}{n!}\ t^{n}+\sum_{n=1}^{\infty}\frac{H_{n-1}(x)}{(n-1)!} t^{n}=0\,,\\
+\underbrace{H_1(x)-2x H_0(x)}_{=0} &+& \sum_{n=1}^{\infty}\left[ \frac{H_{n+1}(x)}{(n+1)!} (n+1)
+ -2x \frac{H_{n}(x)}{n!} +\frac{H_{n-1}(x)}{(n-1)!}\right]t^n=0\,,
+\end{eqnarray*}
+es decir:
+\[
+\sum_{n=1}^{\infty} 
+\left[\underbrace{ \frac{H_{n+1}(x)}{(n+1)!} (n+1) -2x
+\frac{H_{n}(x)}{n!}+\frac{H_{n-1}(x)}{(n-1)!} }_{=0}\right] t^{n}  =0\,.
+\]
+Por lo tanto:
+\[
+\frac{H_{n+1}(x)}{n!} -2x\frac{H_{n}(x)}{n!}+\frac{H_{n-1}(x)}{(n-1)!}=0
+\]
+As\'{\i} la relación de recurrencia será
+\[
+H_{n+1}(x)-2xH_{n}(x)+2nH_{n-1}(x)=0
+\]
+De igual modo, podemos partir de otra identidad
+\[
+\frac{\partial\mathcal{H}(t,x)}{\partial x}=2t\ \mathcal{H}\Rightarrow
+\sum_{n=0}^{\infty}\frac{H_{n}^{\prime}(x)}{n!}\ t^{n}=2\sum_{n=0}^
+{\infty}\frac{H_{n}(x)}{n!}\ t^{n+1}\,,
+\]
+es decir:
+\[
+\sum_{n=1}^{\infty}\frac{H_{n}^{\prime}(x)}{n!}\ t^{n}=
+2\sum_{n=1}^{\infty}\frac{H_{n-1}(x)}{(n-1)!}\ t^{n}\,\Rightarrow
+\frac{H_{n}^{\prime}(x)}{n!} =2\frac{H_{n-1}(x)}{(n-1)!}
+\]
+y encontrar una relación para generar las derivadas de los polinomios de Hermite en 
+término de ellos mismos:
+\[
+H_{n}^{\prime}(x)=2n\ H_{n-1}(x),\qquad n=1,2,3,\cdots\,.
+\]
+
+Finalmente, utilizando la ecuación anterior en la relación de
+recurrencia y derivando esa expresión una vez más, queda como:
+\begin{align*}
+H_{n+1}(x)-2xH_{n}(x)+H_{n}^{\prime}(x)  & =0\\
+H_{n}^{\prime\prime}(x)-2xH_{n}^{\prime}(x)+2n\ H_{n}(x)  & =0
+\end{align*}
+con lo cual queda demostrado que los polinomios de Hermite son una solución particular 
+de esa ecuación diferencial.
+\[
+y^{\prime\prime}-2xy^{\prime}+2ny=0,
+\]
+Donde hemos hecho $y=H_{n}(x)$ Adicionalmente, podremos demostrar 
+que $y=e^{-x^{2}/2}H_{n}(x)$ es solución de la ecuación diferencial autoadjunta
+\[
+y^{\prime\prime}+\left(  2n+1-x^{2}\right)  y=0 \,.
+\]
+\subsection{Ortogonalidad y Norma de los Polinomios de Hermite}
+En general
+estos polinomios cumplen con
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\beta}(x)H_{\alpha}(x)\mathrm{d}x = 
+2^{\alpha}\alpha!\sqrt{\pi} \delta_{\alpha\beta}\,.
+\]
+Donde la función delta de Kronecker es $\delta_{\alpha\beta}=0$ si
+$\alpha\neq\beta$; y $\delta_{\beta\beta}=1$.
+Para demostrar el caso $\alpha\neq\beta$ partimos de
+\begin{align*}
+u_{\beta}\left[  u_{\alpha}^{\prime\prime}+\left(  2\alpha+1-x^{2}\right)
+u_{\alpha}\right]   & =0\\
+u_{\alpha}\left[  u_{\beta}^{\prime\prime}+\left(  2\beta+1-x^{2}\right)
+u_{\beta}\right]   & =0
+\end{align*}
+restando miembro a miembro e integrando se tiene que:
+\begin{align*}
+\left[  u_{\alpha}^{\prime}u_{\beta}-u_{\beta}^{\prime}u_{\alpha}\right]
+^{\prime}+2\left(  \alpha-\beta\right)  u_{\alpha}u_{\beta} & =0\\
+\left(  \alpha-\beta\right)  \int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha
+}(x)H_{\beta}(x)\mathrm{d}x  & =0\\
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha}(x)H_{\beta}(x)\mathrm{d}x  &
+=0\qquad\alpha\neq\beta;
+\end{align*}
+ya que
+\[
+\left.  e^{-x^{2}/2}\left\{  2\alpha\ H_{\alpha-1}(x)H_{\beta}(x)-2\beta
+\ H_{\beta-1}(x)H_{\alpha}(x)\right\}  \right|  _{-\infty}^{\infty}=0
+\]
+Para encontrar el valor de la norma, procedemos a partir de la relación de
+recurrencia
+\begin{align*}
+H_{n}(x)\left[  H_{n}(x)-2xH_{n-1}(x)+2(n-1)H_{n-2}(x)\right]   & =0\\
+H_{n-1}(x)\left[  H_{n+1}(x)-2xH_{n}(x)+2nH_{n-1}(x)\right]   & =0
+\end{align*}
+restando miembro a miembro, multiplicando por $e^{-x^{2}}$ e integrando entre
+$(-\infty,\infty)$ se obtiene
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha}^{2}(x)\mathrm{d}x=2\alpha
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha-1}^{2}(x)\mathrm{d}x
+\]
+repitiendo la operación y recordando que al final queda
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}x^{2}\mathrm{d}x=2\sqrt{\pi}
+\]
+Obtenemos
+\[
+\int_{-\infty}^{\infty}e^{-x^{2}}H_{\alpha}
+^{2}(x)\mathrm{d}x=2^{\alpha}\alpha!\sqrt{\pi}
+\]
+\subsection{Representación Integral de los Polinomios de Hermite}
+ Los
+polinomios de Hermite pueden ser representados como
+\[
+H_{n}(x)=\frac{2^{n}(-i)^{n}e^{x^{2}}}{\sqrt{\pi}}\int_{-\infty}^{\infty
+}e^{-t^{2}+2itx}t^{n}\mathrm{d}t
+\]
+que puede ser separada como
+\[
+H_{2n}(x)=\frac{2^{2n+1}(-1)^{n}e^{x^{2}}}{\sqrt{\pi}}\int_{0}^{\infty
+}e^{-t^{2}}t^{2n}\cos(2xt) \mathrm{d}t\,,\quad n=1,2,3,\cdots
+\]
+y para los términos impares
+\[
+H_{2n+1}(x)=\frac{2^{2n+2}(-1)^{n}e^{x^{2}}}{\sqrt{\pi}}\int_{0}^{\infty
+}e^{-t^{2}}t^{2n+1}\mbox{sen}(2xt) \mathrm{d}t \,, \quad n=1,2,3,\cdots
+\]
+La forma de llegar a cualquiera de estas últimas fórmulas se parte de
+las conocidas integrales desarrolladas en el plano complejo
+\[
+e^{-x^{2}}=\frac2{\sqrt{\pi}}\int_{-\infty}^{\infty}e^{-t^{2}}\cos(2xt) \mathrm{d}t
+\]
+se deriva $2n$ veces a ambos miembros se utiliza la definición de los
+polinomios de Hermite.
+
+\begin{center}
+\begin{figure}
+[ptb]
+\begin{center}
+\includegraphics[width=4.8in]{VOLUMEN_2/02_Series/Figuras/hermite.eps}
+\caption{Polinomios de Hermite}
+\end{center}
+\end{figure}
+\end{center}
+\subsection{El Oscilador armónico, independiente del tiempo, en Mecánica Cuántica.}
+
+La Ecuación de Schr\"{o}dinger independiente del tiempo y en una
+dimensión es
+\[
+\frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}}\psi(x)+\frac{2\mu}{\hbar^{2}}
+\left[E-\mathcal{U}(x)\right]  \psi(x)=0\,,
+\]
+con $\mu$ la ``masa'' de la partícula;$\ E$ los niveles de energía y
+$\mathcal{U}(x)$ el potencial al cual está sometida la partícula. En
+el caso que estudiemos un potencial del tipo $\mathcal{U}(x)=\frac{1}{2}\mu\omega
+^{2}x^{2}$ en el cual la frecuencia angular del oscilador viene representada
+por $\omega$. La ecuación de Schr\"{o}dinger se convierte en
+\[
+\frac{\mathrm{d}^{2}}{\mathrm{d}x^{2}}\psi(x)+\frac{2\mu}{\hbar^{2}}\left[
+E-\frac{1}{2}\mu\omega^{2}x^{2}\right]  \psi(x)=0\,,
+\]
+haciendo un cambio de variable $\xi=x\sqrt{\mu\omega/\hbar}$ para
+adimensionalizar la ecuación de Schr\"{o}dinger, se obtiene
+\[
+\psi^{\prime\prime}(\xi)+\left[  \frac{2E}{\hbar\omega}-\xi^{2}\right]\psi(\xi)=0\,,
+\]
+la cual corresponde a la forma autoadjunta de la Ecuación de Hermite:
+\[
+\psi^{\prime\prime}(\xi)+\left[2n+1-\xi^{2}\right]\psi(\xi)=0\,,
+\]
+y por lo tanto identificamos
+\[
+\frac{2E}{\hbar\omega}=2n+1\quad\Rightarrow\quad E=\left(n+\frac{1}
+{2}\right)  \hbar\omega\,,
+\]
+con lo cual comprobamos la forma como viene cuantizada la energía en este
+sistema y la energía del estado fundamental. Por su parte, la función
+de onda se podrá expresar en la base de soluciones de esa ecuación
+\[
+\psi(\xi)=\sum_{n=0}^{\infty}c_{n}\ \psi_{n}(\xi)=\sum_{n=0}^{\infty}
+c_{n}\ e^{-\xi^{2}/2}H_{n}(\xi)\,.
+\]
+Si mantenemos la normalización
+\[
+\int_{-\infty}^{\infty}\psi_{n}^{2}(\xi)\mathrm{d}\xi=1 \qquad 
+\text{con }c_{n}=\left(\frac{\mu\omega}{\pi\hbar}\right)^{1/4}\frac{1}{\sqrt{2^{n}n!}}\,.
+\]
+
+\subsection{Resumen de Propiedades Polinomios Hermite}
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+\begin{tabular}{rl} 
+Definición: &  $H_{n}(x)=(-1)^{n}e^{x^{2}}\dfrac{\mathrm{d}^{n}}{\mathrm{d}x^{n}}e^{-x^{2}},\qquad n=0,1,2, \dots$ \\ \\
+& $H_{n}(x)={\displaystyle\sum_{k=0}^{n/2}} \dfrac{(-1)^{k}n!}{k!\left(  n-2k\right)  !}\left(  2x\right)  ^{n-2k} $ \\ \\
+Ejemplos: &  $H_{0}(x)=1;\,\, H_{1}(x)=2x; \,\, H_{2}(x)=4x^{2}-2; \,\, H_{3}(x)=8x^{3}-12x$ \\ \\
+Relaciones de Recurrencia: & $H_{0}(x)=1;\qquad H_{1}(x)=2x;\qquad H_{2}(x)=4x^{2}-2 $\\ \\
+ &  $H_{n}^{\prime}(x)=2n\ H_{n-1}(x),\qquad n=1,2,3,\dots $\\ \\ 
+Ecuaciones Diferenciales: & $y^{\prime\prime}-2xy^{\prime}+2ny=0 $ \\ \\
+  & $u^{\prime\prime}+\left(  2n+1-x^{2}\right)  u=0;\quad u(x)=e^{-x^{2}/2}H_{n}(x)$  \\ \\
+Función Generatriz:  & $\mathcal{H}(t,x)=\mathbf{e}^{2xt-t^{2}}={\displaystyle\sum_{n=0}^{\infty}}
+\dfrac{H_{n}(x)}{n!}\ t^{n}$ \\ \\
+Representación Integral: &$H_{2n}(x)=\dfrac{2^{2n+1}(-1)^{n}e^{x^{2}}}{\sqrt{\pi}}
+{\displaystyle\int_{0}^{\infty}}e^{-t^{2}}t^{2n}\cos(2xt)\ \mathrm{d}t $  \\ \\
+   &$H_{2n+1}(x)=\dfrac{2^{2n+2}(-1)^{n}e^{x^{2}}}{\sqrt{\pi}}
+{\displaystyle\int_{0}^{\infty}}e^{-t^{2}}t^{2n+1}\mbox{sen}(2xt)\ \mathrm{d}t $ \\ \\
+Ortogonalidad: & $2^{\alpha}\alpha!\sqrt{\pi}\ \delta_{\alpha\beta}=
+{\displaystyle\int_{-\infty}^{\infty}} e^{-x^{2}}H_{\beta}(x)H_{\alpha}(x)\mathrm{d}x$
+\end{tabular}
+%\end{boxedminipage}
+%\end{center}
+
+%\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+Practicando con Maple: \\
+\textcolor{red}{ $>$ {\tt restart: with(orthopoly):} } \\
+\textcolor{red}{ $>$ {\tt plot([H(0,x), H(1,x), H(2,x), H(3,x), H(4,x)], x=-3..3,y=-25..25);}} 
+%\end{boxedminipage}
+%\end{center}
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+\section{Planteamiento General para Polinomios Ortogonales}
+
+Hemos considerado un par de ejemplos de Polinomios Ortogonales. En ambos podemos idenficar algunas características comunes. En base a estas características comunes definiremos otras familias de polinomios ortogonales.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|} \hline
+\textbf{Nomenclatura} & \textbf{Nombre} 	& $a$ & $b$ & $w(x)$ & $h_{n}$ & $h_{0}$ \\ \hline \hline 
+$P_{n}(x)$ 	& Legendre 		& $-1$ 	& $1$ 	& $1$ 		& $\dfrac{2}{2n +1}$ &  \\\hline 
+$T_{n}(x)$ 	& Tchebychev 1E 	& $-1$ 	& $1$ 	& $\dfrac{1}{\sqrt{1 -x^{2}}}$ & $\dfrac{\pi}{2}$ & $\pi$ \\\hline 
+$U_{n}(x)$ 	& Tchebychev 2E 	& $-1$ 	& $1$ 	& $\sqrt{1 -x^{2}}$ & $\dfrac{\pi}{2}$ &  \\\hline 
+$H_{n}(x)$ 	& Hermite 		& $-\infty$& $\infty$ & $e^{-x^{2}}$ & $2^{n}n! \sqrt{\pi}$ &  \\\hline 
+$L_{n}(x)$ 	& Laguerre 		& $0$ 	& $\infty$& $e^{-x}$ & $1$ &  \\\hline 
+$L_{n}^{\alpha}(x)$ & Laguerre G 	& $0$ 	& $\infty$ & $x^{\alpha}e^{-x}$ con $\alpha > -1$ & 
+	$\frac{\Gamma(n + \alpha +1) }{n!}$ &  \\\hline 
+$P_{n}^{\alpha \beta}(x)$ & Jacobi & $-1$ 	& $1$ & $(1-x)^{\alpha} (1+x)^{\beta}$ & \dag & \\ \hline \hline
+\end{tabular} 
+\caption{Propiedades genéricas de los Polinomios Ortogonales, $N_{n}$ indica la norma del 
+polinomio de grado $n$.
+\label{PropiedadesGenericas}}
+\end{table}
+$\dag $ En el caso de los polinomios de Jacobi, la norma es 
+\[
+h_{n} = \frac{2^{\alpha + \beta +1}}{2n + \alpha + \beta +1} 
+\frac{ \Gamma(n + \alpha  +1) \Gamma(n +  \beta +1)}{n! \Gamma(n + \alpha + \beta +1) } 
+\quad \mbox{con} \quad \alpha > -1 \quad \mbox {y} \quad \beta > -1 \,.
+\]
+
+\subsection{Producto interno genérico, norma y ortogonalidad}
+Los polinomios ortogonales se definen como un conjunto de polinomios $\{ p_{n}(x) \}$ de orden $n$ definidos en un determinado intervalo $a \leq x \leq b$, los cuales son ortogonales respecto a una definición de producto interno 
+\[
+\int_{a}^{b} w(x) p_{m}(x) p_{n}(x)\mathrm{d}x = h_{n} \delta_{nm} \quad \text{con } w(x) > 0 \text{ una función peso en } a \leq x \leq b
+\] que garantiza que la norma sea finita en ese intervalo. Dado que el Teorema de Weierstrass garantiza que el conjunto de polinomios  $\{ 1, x, x^2, \cdots, x^n, \cdots \}$ es una base completa para un espacio vectorial $\mathbb{E}^{\infty}$, se procede a ortogonalizar esa base con la definición de producto interno y el intervalo que corresponda. Para cada caso tendremos una base ortogonal de polinomios. 
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|} \hline \hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \textbf{Polinomio} 	& $\mu_{n}$ 													   & $w(x)$ 				& $q(x)$ \\  \hline \hline
+  $P_{n}$ 			& $ 2^{n}n!  $ 											   & $1$					&$1 -x^{2}$  \\  \hline  
+  $T_{n}$ 			& $\dfrac{(-1)^{n}}{\sqrt{\pi}} 2^{n+1} \Gamma \left(n + \frac{1}{2} \right)$ 	   & $\dfrac{1}{\sqrt{1 -x^{2}}}$ & $1 -x^{2}$  \\  \hline 
+  $U_{n}$ 			& $\dfrac{(-1)^{n}}{(n+1)\sqrt{\pi}} 2^{n+1} \Gamma \left(n + \frac{3}{2} \right) $ &$ \sqrt{1 -x^{2}}$ 			&$1 -x^{2}$  \\  \hline
+  $H_{n}$ 			& $(-1)^{n}$ 													   &$e^{-x^{2}} $ 			&$1$ \\  \hline 
+  $L_{n}$ 			& $n!$ 														   & $e^{-x} $ 				&$x$ \\  \hline 
+  $L_{n}^{\alpha}$ 	& $n!$ 														   & $x^{\alpha}e^{-x} $ 	& $x$\\  \hline 
+\hline
+\end{tabular}
+  \caption{Funciones para determinar la Fórmula de Rodrigues generalizada } 
+  \label{FormulaRodrigues}
+\end{table}
+
+En el cuadro \ref{PropiedadesGenericas} resumimos las propiedades más resaltantes, com lo son: la función peso en el producto interno, el intervalo en el cual están definidas estas fuciones y su norma.
+\subsection{Fórmula de Rodrigues genelarizada}
+En general todos los polinomios ortogonales $\{ p_{n}(x) \}$ vienen definidos por la fórmula de Rodrigues generalizada 
+\[
+p_{n}(x)= \dfrac{1}{w(x) \mu_{n}}  \dfrac{\mathrm{d}^{n} }{\mathrm{d}x^{n} } \left( w(x) q(x)^{n} \right)
+\]
+donde $w(x), q(x)$ y $ \mu_{n}$ vienen especficados en el cuadro \ref{FormulaRodrigues} para cada conjunto de polinomios ortogonales
+
+\subsection{Ejemplos de Polinomios Ortogonales}
+Utilizando la fórmula de Rodrigues generalizada, podemos construir algunos polinomios generalizados. El cuadro \ref{EjemplosPolinomios} muestra algunos de ejemplos de estos polinomios ortogonales
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|c|c|} \hline \hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+\textbf{Polinomio} &$n=0$ 	& $n=1$ & $n=2$ 				&$n=3$ 					& $n=4$ 				 \\  \hline \hline
+  $P_{n}$ 			&$1$ 	& $x$	&$ \dfrac{1}{2}(3x^{2} -1)$&$ \dfrac{1}{2}(5x^{3} -3x)$	& $ \dfrac{1}{8}(35x^{4} -30x^{2} +3)$  \\  \hline  
+  $T_{n}$ 			& $1 $ 	& $x$ 	& $2x^{2} -1$ 			&$4x^{3} -3x$ 				&$8x^{4} -8x^{2} +1$ 	 \\  \hline 
+  $U_{n}$ 			& $1 $ 	&$ 2x $ 	&$4x^{2} -1$ 			&$8x^{3} -4x$				&$16x^{4} -12x^{2} +1$	  \\  \hline
+  $H_{n}$ 			& $1 $ 	&$2x$ 	&$4x^{2} -2$  			&$8x^{3} -12x$ 			&$16x^{4} -48x^{2} +12$ 	 \\  \hline 
+  $L_{n}$ 			& $1$ 	& $1-x $ 	&$\dfrac{1}{2}x^{2} -2x +1$ &$-\dfrac{1}{6}(x^{3} -9x^{2} +18x -6)$ &$\dfrac{1}{24}(x^{4} -16x^{3} +72x^{2} -96x +24)$   \\  \hline 
+\hline
+\end{tabular}
+  \caption{Ejemplos de Polinomios Ortogonales } 
+  \label{EjemplosPolinomios}
+\end{table}
+\subsection{Relaciones de Recurrencia}
+También se pueden formular, de manera genérica las relaciones de recurrencia. Obviamente, las relaciones de recurrencia también constituyen una forma alternativa de ir construyendo los polinomios ortogonales. Así, un polinomio ortogonal genérico, $p_{n}(x)$, cumplirá
+\[
+p_{n+1}(x) = ( a_{n} +xb_{n} ) p_{n}(x) - c_{n}p_{n-1}(x)
+\]
+El cuadro \ref{RelacionRecurrencia} contiene las expresiones de los coeficientes para construir las relaciones de recurrencia generalizadas para cada uno de los polinomios
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|} \hline \hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \textbf{Polinomio}&$a_{n}$ 				& $b_{n}$ 		& $c_{n}$ 		\\  \hline \hline
+  $P_{n}$ 			&$0 $ 				& $\dfrac{2n+1}{n+1}$&$\dfrac{n}{n+1}$  \\  \hline  
+  $T_{n}$ 			&$0 $ 				& $2$ 			& $1$  			\\  \hline 
+  $U_{n}$ 			&$0 $ 				& $2$ 			& $1$  			\\  \hline 
+  $H_{n}$ 			&$0 $ 				& $2$ 			& $2n$  			\\  \hline 
+  $L_{n}$ 			&$\dfrac{2n+1}{n+1}$ 	& $-\dfrac{1}{n+1}$ & $\dfrac{n}{n+1}$  \\  \hline 
+  $L_{n}^{\alpha}$ 	&$\dfrac{2n+1+\alpha}{n+1}$ & $-\dfrac{1}{n+1}$ & $\dfrac{n+\alpha}{n+1}$  \\  \hline 
+\end{tabular}
+  \caption{Funciones para determinar la Relación de Recurrencia Generalizada } 
+  \label{RelacionRecurrencia}
+\end{table}
+\subsection{Función generatriz generalizada}
+Para todos los polinomimos ortogonales podemos definir una función generatriz $\mathcal{G}(x,t)$, de tal manera que cada uno de los polinomios ortogonales $\{ p_{n}(x) \}$ será proporcional al coeficiente de $t^{n}$ del desarrollo en series de Taylor, en potencias de $t$ alrededor del punto $x=0$. Esta función generatriz que constituye una forma alternativa de definir los polinomios ortogonales viene expresada por la serie
+\[
+\mathcal{G}(x,t) = \sum_{n=0}^{\infty}  C_{n}  p_{n}(x) \ t^{n} \qquad \text{con } a_{n} \text{ constante}
+\]
+Las funciones generatrices no son exclusivas de los polinomios ortogonales. Como veremos más adelante, existen funciones generatrices para las funciones de Bessel.
+
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|} \hline \hline
+  \textbf{Polinomio} & $C_{n} $ 			& $\mathcal{G}(x,t)$ 			        \\  \hline \hline
+  $P_{n}$ 			& $1$ 				& $\dfrac{1}{\sqrt{1 -2xt +t^{2}}}$	\\  \hline  
+  $T_{n}$ 			& $2$ 				& $\dfrac{1-t^{2}}{ 1 -2xt +t^{2}}+1$  \\  \hline 
+  $U_{n}$ 			& $1$ 				& $\dfrac{1}{ 1 -2xt +t^{2} }$      \\  \hline
+  $H_{n}$ 			& ${1}/{n!}$ 	    & $e^{2xt-x^{2}}$ 			         \\  \hline 
+  $H_{2n}$ 	     	& ${1^n}/{(2n)!} $   & $\cos(2xt) e^{t^{2}}$ 			 \\  \hline 
+  $H_{2n+1}$ 		& ${1^n}/{(2n+1)!}$  & $\mathrm{sen}(2xt) e^{t^{2}}$ 	 \\  \hline 
+  $L_{n}$ 			& $1$ 				& $\dfrac{1}{1-t}e^{-\dfrac{xt}{1-t}} $ \\  \hline 
+  $L_{n}^{\alpha}$ 	& $1$ 				& $\dfrac{1}{(1-t)^{\alpha}}e^{-\dfrac{xt}{1-t}}$ \\  \hline 
+\hline
+\end{tabular}
+  \caption{Funciones para determinar la función generatriz generalizada } 
+  \label{FuncionGeneratriz}
+\end{table}
+
+\subsection{Ecuación diferencial para los Polinomios Ortogonales}
+
+Cada uno de los polinomios ortogonales habrá de ser solución de una ecuación diferencial ordinaria de la forma
+\[
+g_{2}(x)  \dfrac{\mathrm{d}^{2} p_{n}(x) }{\mathrm{d}x^{2} } + g_{1}(x)  \dfrac{\mathrm{d} p_{n}(x) }{\mathrm{d}x } + \alpha_{n} p_{n}(x) =0
+\]En el cuadro \ref{SolEcuacionDiferencial} mostramos las expresiones para los coeficientes de las ecuaciones correspondientes a las ecuaciones diferenciales para las cuales cada uno de los polinomio ortogonales es solución
+
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|} \hline \hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \textbf{Polinomio}&$g_{2}(x)$ 	& $g_{1}(x)$ & $\alpha_{n}$ 	\\  \hline \hline
+  $P_{n}$ 			&$1- x^{2} $ 	& $-2x$	&$n(n+1)$ 	 \\  \hline  
+  $T_{n}$ 			&$1- x^{2} $  	& $-x$ 	& $n^{2}$  	\\  \hline 
+  $U_{n}$ 			&$1- x^{2} $ 	& $-2x$	&$n(n+1)$ 	 \\  \hline  
+  $H_{n}$ 			&$1 $ 		& $-2x$ 	& $2n$  		\\  \hline 
+  $L_{n}$ 			&$x$ 		& $1-x $ 	& $n$  		\\  \hline 
+  $L_{n}^{\alpha}$ 	&$x$ 		& $1-x+\alpha $ 	& $n$  		\\  \hline
+  $P_{n}^{\alpha \beta}$ 	&$1- x^{2} $ & $\beta -\alpha -x(2 + \alpha +\beta ) $ 	& $n(n + \alpha +\beta +1)$  \\  \hline
+\end{tabular}
+  \caption{Funciones para determinar la ecuación diferencial para la cual son solución los polinomios ortogonales}
+  \label{SolEcuacionDiferencial}
+\end{table}
+
+\subsection{Aplicaciones para los polinomios ortogonales}
+
+\subsubsection{Interpolación polinomial de puntos experimentales}
+Muchas veces nos encontramos con la situación en la cual tenemos un conjunto de $n$ medidas o puntos experimentales $\{ (x_{1},y_{1}) = f(x_{1}) ,(x_{2},y_{2}) = f(x_{2}) ,\cdots , (x_{n},y_{n}) = f(x_{n})  \}$ y para modelar ese experimento quisiéramos una función que ajuste estos puntos. El tener una función nos provee la gran ventaja de poder intuir o aproximar los puntos que no hemos medido. La función candidata más inmediata es un polinomio y debemos definir el grado del polinomio y la estrategia que aproxime esos puntos. Si queremos aproximar esos puntos por una recta el Método de Mínimos Cuadrados es el más utilizado.
+
+Puede ser que el polinomio  no sea lineal y sea necesarios  ajustar esos puntos a un polinomio tal que éste pase por los puntos experimentales. Queda entonces por decidir la estrategia. Esto es, ajustamos la función como ``trozos'' de polinomios que a su vez se ajusten a subconjuntos:  $\{ (x_{1},y_{1} )= f(x_{1}), (x_{2},y_{2})= f(x_{2}), \cdots , (x_{m},y_{m}) = f(x_{m}) \}$, con $m < n$, de los puntos experimentales  En este caso tendremos una función de ajuste, para cada conjunto de puntos. 
+
+También podemos ajustar la función a todo el conjunto de puntos experimentales y, en ese caso, el máximo grado del polinomio que los ajuste será  $n -1$.  Para encontrar este polinomio lo expresaremos  como una  combinación lineal de Polinomios de Legendre. Esto es:
+\[
+\mathcal{P}(x) = f(x) =  \sum_{k=0}^{n-1} C_{k} P_{k}(x) \,\, \Rightarrow \,\, 
+\left\{ 
+\begin{array}{l}
+  y_{1} = f(x_{1})  =  C_{0} P_{0}(x_{1}) +C_{1} P_{1}(x_{1}) +\cdots + C_{n-1} P_{n-1}(x_{1})   \\
+  y_{2} = f(x_{2})  =  C_{0} P_{0}(x_{2}) +C_{1} P_{1}(x_{2}) +\cdots + C_{n-1} P_{n-1}(x_{2})   \\     
+   \vdots \\
+     y_{n} = f(x_{n})  =  C_{0} P_{0}(x_{n}) +C_{1} P_{1}(x_{n}) +\cdots + C_{n-1} P_{n-1}(x_{n})      
+\end{array}
+\right.
+\] que no es otra cosa que un sistema de $n$ ecuaciones con $n$ incógnitas: los coeficientes 
+$\{ C_{0}, C_{1}, \cdots  C_{n-1}  \}$ Al resolver el sistema de ecuaciones y obtener los coeficientes, podremos obtener la función polinómica que interpola esos puntos. 
+
+Una expansión equivalente se pudo haber logrado con cualquier otro conjunto de polinomios ortogonales, ya que ellos son base del espacio de funciones. Es importante hacer notar que debido a que los polinomios de Legendre están definidos en el intervalo $[-1,1]$ los puntos experimentales deberán re-escalarse a ese intervalo para poder encontrar el polinomio de interpolación como combinación lineal de los Polinomios de Legendre. Esto se puede hacer con la
+ayuda del siguiente cambio de variable:
+\[
+x=\frac{(b-a)t +b+a}{2}, \quad \mathrm{d}x = \frac{b-a}{2} \mathrm{d}t 
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=2.5in]{VOLUMEN_2/02_Series/Figuras/FigPuntExp}
+\includegraphics[width=2.6in]{VOLUMEN_2/02_Series/Figuras/FigPuntExpyf}
+\caption{En el lado izquierdo se muestran el conjunto de puntos experimentales: 
+$\{ (2, 8), (4,10), (6,11), (8,18), (10,20), (12,34) \}$ y a la derecha la función polinómica que los interpola.}
+\label{FigPuntExpInterp}
+\end{center}
+\end{figure}
+
+Consideremos los puntos experimentales representado en la figura \ref{FigPuntExpInterp}. Al construir el sistema de ecuaciones obtendremos: ($a=2$ y $b=12$)
+\[
+\begin{array}{r l}
+\left(-1,8\right) \Rightarrow & 8=C_{{0}}-C_{{1}}+C_{{2}}-C_{{3}}+C_{{4}}-C_{{5}}     \\ \\
+\left(-\frac35,10\right) \Rightarrow  &  10=C_{{0}}- \frac{3}{5}\,C_{{1}}+ \frac{1}{25} \,C_{{2}}+{\frac {9}{25}}\,C_{{3}}-{\frac {51}{125}}\,C_{{4}}+{\frac {477}{3125}}\,C_{{5}}    \\ \\
+\left(-\frac15,11\right) \Rightarrow  & 11=C_{{0}}- \frac{1}{5} \,C_{{1}}-{\frac {11}{25}}\,C_{{2}}+{\frac {7}{25}}\,C_{{3}}+{\frac {29}{125}}\,C_{{4}}-{\frac {961}{3125}}\,C_{{5}}  \\ \\   
+\left(\frac15,18\right) \Rightarrow  &18=C_{{0}}+ \frac{1}{5} \,C_{{1}}-{\frac {11}{25}}\,C_{{2}}-{\frac {7}{25}}\,C_{{3}}+{\frac {29}{125}}\,C_{{4}}+{\frac {961}{3125}}\,C_{{5}}	\\ \\
+\left(\frac35,20\right) \Rightarrow  &20=C_{{0}}+ \frac{3}{5}\,C_{{1}}+ \frac{1}{25} \,C_{{2}}-{\frac {9}{25}}\,C_{{3}}-{\frac {51}{125}}\,C_{{4}}-{\frac {477}{3125}}\,C_{{5}}	 \\ \\ 
+\left(1,34\right) \Rightarrow  & 34=C_{{0}}+C_{{1}}+C_{{2}}+C_{{3}}+C_{{4}}+C_{{5}}
+\end{array}
+\]
+y al resolver el sistema obtendremos que
+\[
+  C_{0} ={\frac {2249}{144}}, \quad C_{1} ={\frac {3043}{336}}, \quad C_{2} ={\frac {1775}{504}},  \quad C_{3} =-{\frac {175}{216}}, \quad C_{4} ={\frac {625}{336}}, \quad C_{5} ={\frac {14375}{3024}}
+\] con lo cual
+\[
+\mathcal{P}(x) = f(x) ={\frac {2249}{144}}+{\frac {3043}{336}}\,x+{\frac {1775}{504}}\,{\it P} \left( 2,x \right) -{\frac {175}{216}}\,{\it P} \left( 3,x \right) +{\frac {625}{336}}\,{\it P} \left( 4,x \right) +{\frac {14375}{3024}}\,{\it P} \left( 5,x \right) 
+\] la interpolación queda representada en al figura \ref{FigPuntExpInterp}.
+
+Es importante se~nalar que mientras más puntos experimentales se incluyan para la interpolación, el polinomio resultante será de mayor grado y, por lo tanto incluirá oscilaciones que distorcionarán una aproximación más razonable. Por ello, la estrategia de hacer la interpolación a trozos, digamos de tres puntos en tres puntos, generará un mejor ajuste, pero será una función (polinomio) continua a trozos.
+ 
+ %\begin{center}
+%\begin{boxedminipage}[h]{16.9cm}
+Practicando con Maple: \\
+\textcolor{red}{ $>$ {\tt restart: with(plots):} } \\
+\textcolor{red}{ $>$ {\tt pointplot({[2,8],[4,10],[6,11],[8,18],[10,20],[12,34]});}} \\ 
+\textcolor{red}{ $>$  } \\
+\textcolor{red}{ $>$ {\tt P:=pointplot({[-1,8],[-3/5,10],[-1/5,11],[1/5,18],[3/5,20],[1,34]}):} } \\
+\textcolor{red}{ $>$ {\tt eq1:=C0-C1+C2-C3+C4-C5=8:} }\\
+\textcolor{red}{ $>$ {\tt eq2:=C0-3/5*C1+1/25*C2+9/25*C3-51/125*C4+477/3125*C5=10:} }\\
+\textcolor{red}{ $>$ {\tt eq3:=C0-1/5*C1-11/25*C2+7/25*C3+29/125*C4-961/3125*C5=11:} }\\
+\textcolor{red}{ $>$ {\tt eq4:=C0+1/5*C1-11/25*C2-7/25*C3+29/125*C4+961/3125*C5=18: } }\\
+\textcolor{red}{ $>$ {\tt eq5:=C0+3/5*C1+1/25*C2-9/25*C3-51/125*C4-477/3125*C5=20:} }\\
+\textcolor{red}{ $>$ {\tt eq6:=C0+C1+C2+C3+C4+C5=34:} }\\
+\textcolor{red}{ $>$ {\tt s:=solve({eq1,eq2,eq3,eq4,eq5,eq6},[C0,C1,C2,C3,C4,C5]);assign(s); } }\\
+\textcolor{red}{ $>$ {\tt f:=C0 + C1*x + C2*LegendreP(2,x) + C3*LegendreP(3,x) + C4*LegendreP(4,x)+\\
+C5*LegendreP(5,x);} }\\
+\textcolor{red}{ $>$ {\tt F:=plot(f,x=-1..1):} }\\
+\textcolor{red}{ $>$ {\tt display({F, P});} }
+%\end{boxedminipage}
+%\end{center}
+ 
+ 
+\subsubsection{Cuadratura de Gauss-Legendre}
+Una de los usos más comunes de los polinomios ortogonales es la de aproximar funciones, en particular integrales que requieren ser resueltas numéricamente. La idea es aproximar una integral, para una funcion $f(x)$, definida en el intervalo $\left[a,b \right]$ y suficientemente bien comportada, por una suma finita de términos $ c_{k} f(x_{k})$ y estimar el error que cometemos en esta aproximación. Esto es:
+\begin{equation}
+\int^{b}_{a} f(x) \mathrm{d}x = \sum_{k=1}^{N} c_{k} f(x_{k}) + E_{N}
+\end{equation}
+Nótese que la intención es utilizar la función a integrar evaluada en un conjunto de puntos estratégicos para los cuales están definidos unos coeficientes, también inteligentemente seleccionados. Es decir se requieren $2N$ números ($c_{k}$ y los $x_{k}$ con $k=1,2,\cdots N$). Más aún, esas $2N$ cantidades pueden ser seleccionadas de forma tal que la aproximación es exacta $E_{N}=0$ cuando $f(x)$ es un polinomio de grado $\leq 2N-1$.
+
+Supongamos, para empezar que la función $f(x)$ está definida para $x \in \left[ -1,1\right]$\footnote{Esta no es una limitación muy severa porque siempre podemos hacer, como ya vimos,  un cambio de variable del tipo $x = \left( \frac{b-a}{2} \right) t + \left( \frac{b+a}{2} \right)$ y convertir cualquier intervalo cerrado $\left[ a, b\right]$ en un intervalo cerrado $\left[ -1, 1 \right]$.} y por lo tanto los polinomios ortogonales que seleccionaremos para aproximar la integral (y la función) serán los del Legendre (igual pudimos haber utilizado los polinomios de Tchebychev), con lo cual
+\[
+f(x) = \sum_{k=0}^{\infty} a_{k} P_{k}(x) \,,
+\]
+donde:
+\[
+a_{k}= \left( k +\frac{1}{2} \right) \int_{-1}^{1}\mathrm{d}x \ f(x) P_{k}(x) \,\, \text{  y  }  \,\,
+a_{0}= \frac{1}{2}  \int_{-1}^{1}\mathrm{d}x \ f(x) \,.
+\]
+Con lo cual
+\[
+\int^{1}_{-1} f(x) \mathrm{d}x \approx  \sum_{k=1}^{N} c_{k} f(x_{k}) =  
+\sum_{k=1}^{N} c_{k} \sum_{n=0}^{\infty} a_{n} P_{n}(x_{k}) = 
+\sum_{n=0}^{\infty} a_{n} \sum_{k=1}^{N} c_{k}  P_{n}(x_{k}) \,.
+\]
+Quedan todavía por determinar los pesos $c_{k}$ y los puntos $x_{k}$. Para ello procedemos de la siguiente forma. Notamos que $P_{N}(x)$ tiene $N$ raíces, $x=x_{j}$, en el intervalo $-1 \leq x \leq 1$. Entonces, si seleccionamos esos puntos $x=x_{j}$ para evaluar la función $f(x_{k})$ se anulan el coeficiente para el término $a_{N}$ y, además podremos encontrar los pesos $c_{k}$ resolviendo el sistema de $N$ ecuaciones de la forma 
+\[
+\sum_{j=1}^{N} c_{j}P_{0}(x_{j}) = \sum_{j=1}^{N} c_{j} = 2 \qquad \wedge \qquad 
+\sum_{j=1}^{N} c_{j}P_{k}(x_{j}) = 0 \quad \text{para } k=1,2,\cdots N-1
+\] 
+donde los $P_{k}(x_{j})$ son los distintos polinomios evaluados en las raíces del polinomio de grado $N$, i.e. $P_{N}(x_{j}) =0$
+
+Se puede demostrar que la solución de este sistema provee los pesos escritos de la forma
+\[
+c_{j} = \frac{2}{(1 -x_{j}^2) \left(P'_N(x_j)  \right)^{2} },  \quad \mbox{donde:} \quad  P'_N(x_j) =  \left. \dfrac{\mathrm{d} P_{N}(x) }{\mathrm{d}x } \right|_{x=x_{j}} 
+\]
+
+Más aún, podremos escribir 
+\[
+\int^{1}_{-1} f(x) \mathrm{d}x \approx  \sum_{k=1}^{N} c_{k} f(x_{k}) = 2a_{0} + E_{N} \quad \text{con }\quad 
+E_{N} =\sum_{n=N+1}^{\infty} a_{n}  \sum_{k=1}^{N} c_{k}  P_{n}(x_{k}) \,,
+\]
+pero como 
+\[
+a_{0}= \frac{1}{2}  \int_{-1}^{1}\mathrm{d}x \ f(x) \quad \Rightarrow  \quad
+\int_{-1}^{1}\mathrm{d}x \ f(x) = \sum_{k=1}^{N} c_{k} f(x_{k}) - E_{N}
+\]
+Es decir, demostramos que es posible aproximar la integral del la función con un promedio pesado de la función evaluada en unos puntos estratégicos. Los puntos estratégicos son los ceros del polinomio de Legendre de grado igual al número de puntos con los cuales se quiere aproximar la función y los pesos vienen de resolver las ecuaciones para los coeficientes de la expansión. 
+En el cuadro \ref{PesosPuntos} se ilustran los valores de los puntos de interpolación y sus pesos correspondientes. 
+\begin{table}
+  \centering
+  \begin{tabular}{|c|c|c|c|}\hline
+    &  &  &  \\
+ $N$  & $P_N(x_j)=0$  & $c_{j} = \dfrac{2}{(1 -x_{j}^2) \left(P'_N(x_j)  \right)^{2} }$ & $2N -1$ \\
+   &  &  &  \\\hline
+  $2$& $\pm {\sqrt{3}}/{3}$  	&$1$ 		 & $3$ 	\\ \hline \hline
+  $3$	& $0$ 				&$8/9$&  $5$ 	\\
+   	& $\pm {\sqrt{15}}/{5}$&$5/9$&  		\\ \hline \hline
+  $4$ & $\pm 0.3399810436$ 	&$0.65214515$& $7$ 	\\
+   	&  $\pm 0.8611363116$	&$0.34785485$& 		\\  \hline \hline
+  $5$&  $0$ 				&$0.56888889$& $9$ 	\\
+   	& $\pm 0.5384693101$  	&$0.47862867$ & 		\\
+   	& $\pm 0.9061798459$  	&$0.23692689$  & 		\\  \hline \hline
+  $6$& $\pm 0.2386191861$ 	&$0.46791393$ & $11$ 	\\
+  	& $\pm 0.6612093865$ 	&$0.36076157$ &  		\\ 
+   	& $\pm 0.9324695142$ 	&$0.17132449$ &  		\\  \hline \hline 
+   $\vdots$& $\vdots$ & $\vdots$ & $\vdots$ \\ 
+   \hline
+\end{tabular} 
+  \caption{Puntos y pesos para una cuadratura de Gauss-Legendre }\label{PesosPuntos}
+\end{table}
+
+Es inmediato comprobar que si $f(x)$ es un polinomio de grado $\leq N-1$ la aproximación es exacta y el error es nulo. Pero lo que realmente hace útil a este tipo de aproximaciones es que también será exacta para polinomios de grado $\leq 2N -1$. Esto se puede ver si expresamos un polinomio de grado $2N -1$ como la suma de dos polinomios
+\[
+f(x)=P_{N}(x)Y_{1}(x) + Y_{2}(x)
+\]
+donde $Y_{1}$ y $Y_{2}$ son polinomios de grado $N-1$. Entonces, al integrar miembro a miembro 
+\[
+\int_{-1}^{1}\mathrm{d}x \ f(x)= \underbrace{\int_{-1}^{1}\mathrm{d}x \ P_{N}(x)Y_{1}(x)}_{=0} + \int_{-1}^{1}\mathrm{d}x \ Y_{2}(x)
+\]
+el primer término se anula por ser $P_{N(x)}$ ortogonal a cualquier polinomio de grado inferior, y el segundo término no es más que el caso que analizamos anteriormente de un polinomio de grado $\leq N-1$.
+
+Puede resultar conveniente escribir la ecuación 
+\[
+\int^{b}_{a} f(x) \mathrm{d}x = \frac{b-a}{2}\int^{1}_{-1} f\left( \frac{(b-a)t +b+a}{2}\right) \mathrm{d}t
+\]
+Entonces, para  la cuadratura de Gauss-Legendre 
+\[
+\int^{b}_{a} f(x) \mathrm{d}x = \frac{b-a}{2} \sum_{k=1}^{N} c_{k} f\left( \frac{(b-a)t_k +b+a}{2}\right)
+\]
+donde los $t_k$ son las raíces de $P_N(t)=0$.
+
+\paragraph{Ejemplo} Utilizar la fórmula de cuadratura de dos puntos de Gauss-Legendre para calcular
+\[
+\int^{4}_{2} (x^2-2x+1) \mathrm{d}x
+\]
+Entonces, $N=2$:
+\begin{eqnarray*}
+\int^{4}_{2} (x^2-2x+1) \mathrm{d}x &=& \frac{4-2}{2}\left[  c_{1} f\left( \frac{(4-2)t_1 +4+2}{2}\right) + 
+c_{2} f\left( \frac{(4-2)t_2 +4+2}{2}\right)  \right]\\
+&=& (1) f\left( \frac{2t_1 +6}{2}\right) + (1) f\left( \frac{2t_2 +6}{2}\right) =  
+f\left( \frac{2 \sqrt{3}/3 +6}{2}\right) +  f\left( \frac{-2\sqrt{3}/3  +6}{2}\right) \\
+&=& \frac{4\sqrt{3}}{3}+\frac{13}{3} -  \frac{4\sqrt{3}}{3}+\frac{13}{3} = \frac{26}{3}\,.
+\end{eqnarray*}
+
+\subsubsection{Estrategia General para cuadraturas de Gauss}
+Para el caso general, la aproximación de una integral 
+\[
+\int_{a}^{b}\mathrm{d}x \ w(x) f(x) \approx  \sum_{k=1}^{N} c_{k} f(x_{k}) \,,
+\]
+donde las $\{ x_{1},\cdots x_{k},\cdots x_{N} \}$ son los ceros del polinomio ortogonal, de grado $N$, $p_{N}(x)$, elegido para hacer esta aproximación. Los $N$ pesos $\{ c_{1},\cdots c_{k},\cdots c_{N} \}$ surgen de resolver el sistema de ecuaciones 
+\[
+\sum_{j=1}^{N} c_{j} = \dfrac{h_{0}}{p_{0}^{2}} \quad \text{con } 
+h_{0} = \int_{a}^{b} w(x) p_{0}^{2}(x) \mathrm{d}x  \qquad \wedge \qquad 
+\sum_{j=1}^{N} c_{j}p_{k}(x_{j}) = 0 \quad \text{para } k=1,2,\cdots N-1\,.
+\] 
+Así para aproximar integrales con funciones pesos, $w(x)$, utilizaremos cuadraturas adaptadas a los polinomios ortogonales. Esto es
+\[
+\int_{0}^{\infty} \mathrm{d}x \ e^{-x} f(x) \Rightarrow \text{Laguerre}, \quad 
+\int_{-\infty}^{\infty} \mathrm{d}x \ e^{-x^{2}} f(x) \Rightarrow \text{Hermite}, \quad 
+\int_{-1}^{1} \mathrm{d}x \  \dfrac{f(x)}{\sqrt{1-x^{2}}} \Rightarrow \text{Tchebychev} \,.
+\]
+
+\paragraph{Ejercicio}
+Para integrales con funciones peso del tipo
+\[
+w(x)=\frac{1}{\sqrt{1-x^2}}
+\]
+los pesos son: $w_i=\pi/N$, rsultando
+\[
+\int_{-1}^{1} \mathrm{d}x \  \frac{f(x)}{\sqrt{1-x^{2}}} \simeq \frac{\pi}{N} \sum_{k=1}^{N} f(x_{k}) \,, \quad 
+\mbox{con} \quad x_k=\cos\left( \frac{k-\frac12}{N}\right)\pi
+\]
+
+Muestre que para un intervalo arbitrario $a \leq x \leq b$, esta última integral es:
+\[
+\int_{a}^{b} \mathrm{d}x \  \frac{f(x)}{\sqrt{(x-a)(b-x)}}  \simeq \frac{\pi}{N} \sum_{k=1}^{N} f(x_{k}) 
+\]
+donde:
+\[
+x_{k} = \frac12(b+a)+ \frac12(b-a)\cos\left( \frac{k-\frac12}{N}\right)\pi \,.
+\]
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+
+
+  

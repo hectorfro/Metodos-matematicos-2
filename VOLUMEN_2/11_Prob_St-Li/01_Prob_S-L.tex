@@ -1,0 +1,553 @@
+\section{El problema de Sturm-Liuoville}
+
+\subsection{Cálculo Operacional}
+Toda ecuación diferencial puede ser descrita de la siguiente forma
+\begin{equation}
+\frac{{\mathrm d}}{{\mathrm d}x} F(x)=f(x)\,\, \Rightarrow \,\, \mathbb{D}F(x)=f(x)\,,
+\end{equation}
+donde $\mathbb{D}\left(  \bullet\right)$ es un operador diferencial lineal, tal y como los estudiamos en su momento. De esta forma
+\begin{equation}
+\mathbb{D}\left(  Ax^{n}+Bx^{m}\right)  =A\mathbb{D}\left(  x^{n}\right)+B\mathbb{D}\left(  x^{m}\right)  =nAx^{n-1}+mBx^{m-1}\,,
+\end{equation}
+y en muchos aspectos ese operador diferencial $\mathbb{D}\left(\bullet\right)  $ puede ser tratado como un número más. 
+
+De esta forma una ecuación diferencial homogénea puede ser descrita en forma de operadores cómo 
+\begin{equation}
+a\ y^{\prime\prime}+b\ y^{\prime}+c\ y= 0 \,\, \Rightarrow \,\, \mathbb{O} \left| y \right> = 0 \,\, \Leftrightarrow \,\,\left(a\ \mathbb{D}^{2}+b\ \mathbb{D}+c\right)\left| y \right> = 0\,,
+\end{equation}
+y consecuentemente 
+\begin{equation}
+\left( \mathbb{D} - r_{1}\right) \left(\mathbb{D} - r_{2}\right)\left| y \right> = 0 \quad \mathrm{con} \; r_{1} \ \mathrm{y} \  r_{1} \quad \mathrm{raices} \ \mathrm{de} \; a\, r^2 + b\, r+c = 0 \,,
+\end{equation}
+con soluciones, como era de esperarse de la forma
+\begin{equation}
+\begin{array}{lcl }
+  r_{1} =  r_{2} = r \quad &\mathrm{reales}     &\,\, \Rightarrow \,\,y(x) = \left(A+ Bx\right)  \mathrm{e}^{r \, x}   \\
+  r_{1} \neq  r_{2} \quad & \mathrm{reales}     &\,\, \Rightarrow \,\, y(x) = A\, \mathrm{e}^{r_{1} \, x}  + B\, \mathrm{e}^{r_{2} \, x}   \\
+  r_{1} =  r_{2}^{*} \quad  & \mathrm{complejas} \ r_{1} = \alpha +i\, \beta    & \,\, \Rightarrow \,\, y(x) = \mathrm{e}^{\alpha \, x} \left( A \cos (\beta \, x) + B \, \mathrm{sen}(\beta \, x)  \right)  
+\end{array}
+\end{equation}
+
+Esta notación también se presta para algunas curiosidades. Para una ecuación diferencial genérica con coeficientes constantes se tiene
+\begin{equation}
+y^{\prime\prime}-3\ y^{\prime}+2\ y=x^{2}\,\, \Rightarrow \,\, \left(\mathbb{D}^{2}-3\mathbb{D}+2\right)  y=x^{2}\,\, \Rightarrow \,\, \left(\mathbb{D}-1\right)  \left(  \mathbb{D}-2\right)  y=x^{2} \,.
+\end{equation}
+más aún
+\begin{equation}
+y=\frac{x^{2}}{\left(  \mathbb{D}-1\right)  \left(  \mathbb{D}-2\right)}\,\, \Rightarrow \,\, y=\frac{x^{2}}{\left(  \mathbb{D}-2\right)  }-\frac{x^{2}}{\left(  \mathbb{D}-1\right)  }\,,
+\end{equation}
+por lo cual expandiendo
+\begin{equation}
+\frac{1}{\mathbb{D}-1}=\frac{-1}{1-\mathbb{D}}=-1-\mathbb{D}-\mathbb{D}^{2}-\mathbb{D}^{3}-\mathbb{D}^{4}-\cdots
+\end{equation}
+
+\begin{equation}
+\frac{1}{\mathbb{D}-2}=\frac{-1}{2}\frac{1}{1-\frac{\mathbb{D}}{2}}=-\frac{1}{2}-\frac{\mathbb{D}}{4}-\frac{\mathbb{D}^{2}}{8}-\frac{\mathbb{D}^{3}}{16}-\cdots
+\end{equation}
+de donde
+\begin{equation}
+y=\left(  -\frac{1}{2}-\frac{\mathbb{D}}{4}-\frac{\mathbb{D}^{2}}{8}-\frac{\mathbb{D}^{3}}{16}-\cdots\right)  x^{2}-\left(  -1-\mathbb{D}-\mathbb{D}^{2}-\mathbb{D}^{3}-\mathbb{D}^{4}-\cdots\right)  x^{2}\,,
+\end{equation}
+por lo tanto tendremos la solución particular de la ecuación $y^{\prime\prime}-3\ y^{\prime}+2\ y=x^{2}$
+\begin{equation}
+y=\left(  -\frac{x^{2}}{2}-\frac{x}{2}-\frac{1}{4}\right)  -\left(-x^{2}-2x-2\right)  =\frac{x^{2}}{2}+\frac{3}{2}x+\frac{7}{4}\,.
+\end{equation}
+
+Las operaciones que se usaron arriba están relacionadas muy estrechamente con las propiedades de la integral
+\begin{equation}
+\int_{0}^{\infty}{\large e}^{-st}f(t){\mathrm d} t \,.
+\end{equation}
+
+En el mismo espíritu anterior podemos asociar una ecuación diferencial de segundo orden a un operador diferencial 
+\begin{equation}
+\label{OperadEcuacion}
+\underbrace{\left(P(x)\frac{\mathrm{d}^{2} }{\mathrm{d} x^{2}} + Q(x) \frac{\mathrm{d} }{\mathrm{d} x} + R(x)  \right) }_{\mathbb{L}} u(x) =0 \,\, \Rightarrow \,\,  \left( P(x)\mathbb{D}^{2} + Q(x)\mathbb{D} + R(x)  \right) \left| u \right> =0  \ \Leftrightarrow \  \mathbb{L}\left| u \right> =0 \,.
+\end{equation}
+
+Donde las funciones $P(x), Q(x)$ y $R(x)$ son funciones reales, definidas en el intervalo $[a,b]$ y que cumplen con las siguientes exigencias 
+\begin{itemize}
+  \item $P^{\prime \prime}(x)$, $Q^{\prime}(x)$ y $R(x)$ existen y son contínuas en $[a,b]$, y
+  \item $P(x)$ no contiene ceros en $(a,b)$. 
+\end{itemize}
+
+\subsection{Operadores diferenciales de segundo orden}
+Consideremos el espacio de Hilbert de funciones continuas en $[a,b]$, en el cual representaremos a esas funciones como $\left| u \right>$ y los operadores lineales actúan en ese espacio de Hilbert de la forma acostumbrada $\mathbb{L}\left| u \right> =  \left| \tilde{u} \right> $. Entonces, a través de la definición del producto interno podemos construir
+\begin{equation}
+\left< v\right.\left|\tilde{u}\right>  = \left< \tilde{u} \right.\left|  v \right>^{*}  \Leftrightarrow  
+\left<v\right| \mathbb{L} \left| u \right>  =  \left< u \right| \mathbb{L}^{\dag} \left| v \right> ^{*}\,.
+\end{equation} 
+
+Sabemos que, los operadores hermíticos (o autoadjuntos: $ \mathbb{L} = \mathbb{L}^{\dag}$) tendrán autovalores $\left\{ \lambda_{1}, \lambda_{2}, \lambda_{3}, \cdots , \lambda_{n} \right\}$ reales y los correspondientes autovectores $ \left\{ \left|w_{1} \right>, \left|w_{2} \right>, \left|w_{3} \right>,  \cdots , \left|w_{n} \right> \right\} $ serán ortogonales, $\left< w^{i} \right.\left|w_{j}\right> \propto \delta^{i}_{\, j} $. 
+
+El hecho que construyamos una ecuación de autovalores con $\mathbb{L}$ de la forma expresada en (\ref{OperadEcuacion}) implica una ecuación de la forma 
+\begin{equation}
+\label{OperadEcuacionAuto}
+\mathbb{L}\left| v_{i} \right> = \lambda_{i} \ \left| v_{i} \right>  \quad \Leftrightarrow \quad \left( P(x)\mathbb{D}^{2} + Q(x)\mathbb{D} + R(x)  \right) \left| v_{i} \right> = \lambda_{i} \ \left| v_{i} \right> \,.
+\end{equation}
+
+Con lo cual estaríamos resolviendo una familia de ecuaciones diferenciales homogéneas del tipo
+\begin{equation}
+\label{EcuacDifer}
+P(x)\frac{\mathrm{d}^{2} y_{i}(x) }{\mathrm{d} x^{2}} + Q(x) \frac{\mathrm{d} y_{i}(x) }{\mathrm{d} x} + \left(R(x) - \lambda_{i} \right)  y_{i}(x) = 0   \,,
+\end{equation}
+parametrizadas por el parámetro $\lambda_{i}$. Más aún, con esta estrategia podremos integrar ecuaciones diferenciales de la forma 
+\begin{equation}
+\label{EcuacDiferGen}
+P(x)\frac{\mathrm{d}^{2} y_{i}(x) }{\mathrm{d} x^{2}} + Q(x) \frac{\mathrm{d} y_{i}(x) }{\mathrm{d} x} + \left(R(x) - \lambda_{i} w(x) \right)  y_{i}(x) = 0\,,  
+\end{equation}
+si consideramos productos internos generalizados con funciones peso $w(x)$ de la forma 
+\begin{equation}
+\label{ProducInternoGen}
+\left< g \right.\left|  f \right> = \int_{a}^{b} \, \mathrm{d}x \ w(x)\, g^{*}(x) f(x)\,.
+\end{equation}
+
+Varios son los ejemplos de esta forma general de abordar las ecuaciones diferenciales como un problema de autovalores. Entre ellos podemos mencionar:
+\begin{itemize}
+  \item El oscilador armónico:
+\begin{equation}
+\underbrace{\left(\frac{\mathrm{d}^{2}  }{\mathrm{d} x^{2}}\right)}_{\mathbb{L}} y(x) = -\omega^2 y(x) \,.
+\end{equation}  
+  \item La ecuación de Legendre:
+\begin{equation}
+\underbrace{\left((1-x^{2})\ \frac{\mathrm{d}^2 }{\mathrm{d} x^2} -2x \ \frac{\mathrm{d} }{\mathrm{d} x} \right)}_{\mathbb{L} } P_{n}(x) = -n(n+1)\ P_{n}(x)\,.
+\end{equation}
+
+En general toda las familias de polinomios ortogonales, $p_{n}(x)$ con producto interno definido como 
+\[
+\langle \mathbf{p}^m\ | \mathbf{p}_n\rangle=\int_{a}^{b} w(x) p_{m}(x) p_{n}(x)\mathrm{d}x = h_{n} \delta_{m \, n} \,,
+\] 
+con  $w(x) > 0$  una función peso en $a \leq x \leq b$.
+
+Esto es:
+\begin{equation}
+\label{ }
+\underbrace{\left(P(x)  \dfrac{\mathrm{d}^{2}  }{\mathrm{d}x^{2} } + Q(x)  \dfrac{\mathrm{d}  }{\mathrm{d}x }\right)}_{\mathbb{L} } p_{n}(x) = - \alpha_{n} p_{n}(x) =0 \,.
+\end{equation} 
+Donde las expresiones para $P(x)$, $Q(x)$ y $\alpha_{n}$ se encuentran especificadas en la Tabla (\ref{SolEcuacionDiferencial2})
+
+\begin{table}[h]
+  \centering 
+  \begin{tabular}{|c|c|c|c|} \hline \hline
+% after \\ : \hline or \cline{col1-col2} \cline{col3-col4} ...
+  \textbf{Polinomio}&$P(x)$ 	& $Q(x)$ & $\alpha_{n}$ 	\\  \hline \hline
+  $P_{n}$ 			&$1- x^{2} $ 	& $-2x$	&$n(n+1)$ 	 \\  \hline  
+  $T_{n}$ 			&$1- x^{2} $  	& $-x$ 	& $n^{2}$  	\\  \hline 
+  $U_{n}$ 			&$1- x^{2} $ 	& $-2x$	&$n(n+1)$ 	 \\  \hline  
+  $H_{n}$ 			&$1 $ 		& $-2x$ 	& $2n$  		\\  \hline 
+  $L_{n}$ 			&$x$ 		& $1-x $ 	& $n$  		\\  \hline 
+  $L_{n}^{\alpha}$ 	&$x$ 		& $1-x+\alpha $ 	& $n$  		\\  \hline
+  $P_{n}^{\alpha \beta}$ 	&$1- x^{2} $ & $\beta -\alpha -x(2 + \alpha +\beta ) $ 	& $n(n + \alpha +\beta +1)$  \\  \hline
+\end{tabular}
+  \caption{Funciones para determinar la ecuación diferencial para la cual son solución los polinomios ortogonales. Con $P_{n}$ Legendre, $T_{n}$ Tchebychev 1E; $U_{n}$ Tchebychev 2E;  $H_{n}$ Hermite; $L_{n}$ Laguerre; $L_{n}^{\alpha}(x)$ Laguerre G; $P_{n}^{\alpha \beta}(x)$  Jacobi }   	
+  \label{SolEcuacionDiferencial2}
+\end{table}
+  \item La ecuación de Bessel
+  \begin{equation}
+\label{ }
+\underbrace{\left(x^{2}\dfrac{\mathrm{d}^{2}  }{\mathrm{d}x^{2} } + x \dfrac{\mathrm{d}  }{\mathrm{d}x } +  x^{2}\right) }_{\mathbb{L} }  J_{k}(x) = k^{2} J_{k}(x) ;\quad
+k \in \mathds{R}\,.
+\end{equation}
+\end{itemize}
+
+\subsection{Operadores diferenciales autoadjuntos}
+Es claro que las funciones $P(x), Q(x)$ y $R(x)$ tendrán algunas restricciones adicionales a las expresadas arriba, de tal forma que se garantice que el operador $\mathbb{L}$ sea autoadjunto (hermítico).
+
+Para encontrar esas restricciones a los coeficientes, partimos de la definición de producto interno en un espacio de funciones. En general, vimos que, para un espacio de funciones continuas y continuamente diferenciales  en  $[a,b]$ una posible definición de producto interno es 
+\begin{equation}
+\left< g\right.\left| {f}\right> = \int_{a}^{b} \, \mathrm{d}x \ g^{*}(x) f(x) \,\, \Rightarrow \,\, \left<g\right| \mathbb{L} \left| f \right>  = \int_{a}^{b} \, \mathrm{d}x \ g^{*}(x) \ \mathbb{L} f(x) \,,
+\end{equation}
+es decir
+\begin{equation}
+\label{ }
+\left<g\right| \mathbb{L} \left| f \right>  = \int_{a}^{b}  \mathrm{d}x \, g^{*}(x) \, P(x)\frac{\mathrm{d}^{2} f(x) }{\mathrm{d} x^{2}} + \int_{a}^{b}  \mathrm{d}x \,g^{*}(x)\,  Q(x) \frac{\mathrm{d} f(x) }{\mathrm{d} x} +\int_{a}^{b}  \mathrm{d}x \, g^{*}(x)\,  R(x) f(x) \,.
+\end{equation}
+
+Integrando por partes la primera y segunda integral tendremos
+\begin{equation}
+\label{ }
+\int_{a}^{b}  \mathrm{d}x \, g^{*}(x) \, P(x)\frac{\mathrm{d}^{2} f(x) }{\mathrm{d} x^{2}} =\left. \left( P(x) \,g^{*}(x) \frac{\mathrm{d} f(x) }{\mathrm{d} x} - f(x) \frac{\mathrm{d} (P(x) \,g^{*}(x))}{\mathrm{d} x}  \right)    \right|^{b}_{a} + \int_{a}^{b}  \mathrm{d}x \, f(x) \frac{\mathrm{d}^{2} (P(x) \,g^{*}(x))}{\mathrm{d} x^{2}} \,,
+\end{equation}
+y
+\begin{equation}
+\int_{a}^{b}  \mathrm{d}x \,g^{*}(x)\,  Q(x) \frac{\mathrm{d} f(x) }{\mathrm{d} x} =\left.  f(x) \, Q(x) \,g^{*}(x)   \right|^{b}_{a} -\int_{a}^{b}  \mathrm{d}x \, f(x) \frac{\mathrm{d} (Q(x) \,g^{*}(x))}{\mathrm{d} x}\,.
+\end{equation}
+
+Con lo cual podremos escribir:
+\begin{eqnarray}
+\left<g\right| \mathbb{L} \left| f \right>  & = & \int_{a}^{b}  \mathrm{d}x  f(x) \underbrace{\left( P(x) \frac{\mathrm{d}^{2}}{\mathrm{d} x^{2} } +\left(2  \frac{\mathrm{d} P(x)}{\mathrm{d} x} -Q(x)\right)\frac{\mathrm{d} }{\mathrm{d} x} +\left( R(x) -\frac{\mathrm{d} Q(x)}{\mathrm{d} x} + \frac{\mathrm{d}^{2} P(x)}{\mathrm{d} x^{2}}\right) \right)}_{\mathbb{L}^{\dag} } g^{*}(x)  \nonumber \\
+ &  & + \left. \left( f(x) \left( Q(x) -\frac{\mathrm{d} P(x)}{\mathrm{d} x}\right)  g^{*}(x) +P(x) \left( \frac{\mathrm{d} f(x)}{\mathrm{d} x} g^{*}(x) - \frac{\mathrm{d} g^{*}(x)}{\mathrm{d} x} f(x)  \right) \right)  \right|^{b}_{a} \,,
+\label{EcAutAdj}
+\end{eqnarray}
+donde hemos identificado por $\mathbb{L}^{\dag}$ al operador adjunto de $\mathbb{L} $. Ahora bien, si queremos que $\mathbb{L} $ sea autoadjunto (o hermítico ) $\mathbb{L} = \mathbb{L}^{\dag}$, entonces se debe cumplir que
+\begin{equation}
+\label{CondPQ}
+2  \frac{\mathrm{d} P(x)}{\mathrm{d} x} -Q(x) = Q(x) \quad \mathrm{y} \quad -\frac{\mathrm{d} Q(x)}{\mathrm{d} x} + \frac{\mathrm{d}^{2} P(x)}{\mathrm{d} x^{2}} =0 \,,
+\end{equation}
+y ambas se satisfacen idénticamente si 
+\begin{equation}
+\label{CondQ}
+Q(x) = \frac{\mathrm{d} P(x)}{\mathrm{d} x}\,.
+\end{equation}
+
+Estas restricciones sobre $P(x)$ y $Q(x)$ son aparentes, porque siempre podremos construir un operador diferencial autoadjunto a partir de cualquier operador diferencial de segundo orden. En efecto, como $P(x)$ únicamente puede tener raíces en los extremos del intervalo $[a,b]$, siempre podremos definir
+\begin{equation}
+h(x) = \frac{1}{P(x)} \exp\left( \int_{a}^{b}  \mathrm{d}x \, \frac{Q(x)}{P(x)}  \right) 
+\,\, \Rightarrow \,\,
+\left\{ \begin{array}{l}
+ \bar{P}(x) = h(x) P(x)         \\
+ 		\\
+  \bar{Q}(x) = h(x) Q(x)          
+\end{array} 
+\right.
+\end{equation}
+con lo cual se cumple inmediatamente la condición (\ref{CondQ}), a saber
+\begin{equation}
+\label{ }
+\frac{\mathrm{d} \bar{P}(x)}{\mathrm{d} x} = \frac{\mathrm{d} }{\mathrm{d} x} \exp\left( \int_{a}^{b}  \mathrm{d}x \, \frac{Q(x)}{P(x)}  \right) =  \frac{Q(x)}{P(x)} \exp\left( \int_{a}^{b}  \mathrm{d}x \, \frac{Q(x)}{P(x)}  \right) = \bar{Q}(x)\,,
+\end{equation} 
+y entonces $h(x)\mathbb{L}$ siempre será auto adjunto.
+
+Entonces, al utilizar (\ref{CondQ}) en (\ref{OperadEcuacion}) es fácil convencerse que todo operador autoadjunto puede ser escrito como
+\begin{equation}
+\label{OperAutAd}
+\mathbb{L} \leftrightarrow \frac{\mathrm{d} }{\mathrm{d} x} \left( P(x) \frac{\mathrm{d} ( \bullet ) }{\mathrm{d} x} \right) + R(x) \,.
+\end{equation}
+
+ Adicionalmente, la ecuación general (\ref{EcAutAdj}) quedaría escrita como:
+\begin{equation}
+\label{ }
+\left<g\right| \mathbb{L} \left| f \right>   = \underbrace{\int_{a}^{b}  \mathrm{d}x \, f(x) \, \mathbb{L}^{\dag} g^{*}(x)}_{\left<f\right| \mathbb{L}^{\dag} \left| g \right>^{*} } + \left. P(x) \left( \frac{\mathrm{d} f(x)}{\mathrm{d} x} g^{*}(x) - \frac{\mathrm{d} g^{*}(x)}{\mathrm{d} x} f(x)  \right) \right|^{b}_{a}  \,.
+\end{equation}
+
+Claramente, si $\mathbb{L}$ es autoadjunto y $f(x)$ y $g(x)$ son soluciones de una ecuación diferencial autoadjunta,  el segundo término se debe anular, y allí habrán de incidir las condiciones de borde que se impongan al problema.
+
+\subsection{El Sistema Sturm-Liouville}
+\label{ProbSturmLiouville}
+
+Evidentemente, si consideramos que $f(x)$ y $g(x)$ son soluciones de una ecuación diferencial autoadjunta (que puede ser representada por un operador lineal de segundo orden autoadjunto $\mathbb{L}$), entonces la ecuación de autovalores 
+\begin{equation}
+\label{SistSL}
+ \mathbb{L}\left| u_{i} \right> = -\lambda_{i}  \left| u_{i} \right>  \quad \Leftrightarrow \quad \left(\frac{\mathrm{d} }{\mathrm{d} x} \left( P(x) \frac{\mathrm{d}  }{\mathrm{d} x} \right) + R(x) \right) u_{i}(x) = -\lambda_{i} \, w(x) u_{i}(x)\,,
+\end{equation}
+donde, $\lambda_{i}$ son los autovalores, $u_{i}(x)$ las autofunciones soluciones y $w(x)>0$ es la función peso descrita en (\ref{ProducInternoGen}). Claramente esta ecuación (\ref{SistSL}) debe ser complementada con las condiciones de frontera 
+\begin{equation}
+\label{CondFront}
+ \left. P(x) u^{*}_{j}(x) \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x}  \right|^{b}_{a} = 0 \quad \forall \ i, j \,.
+\end{equation}
+Las ecuaciones (\ref{SistSL}) y (\ref{CondFront}) constituyen el Sistema Sturm-Liouville y también se le refiere como el problema de Sturm-Liouville. 
+
+Se distinguen tres posibles situaciones con las condiciones de frontera: 
+\begin{enumerate}
+\item \textbf{Condiciones Regulares:} Para este caso se especifican los valores de una combinación de las funciones y las derivadas:
+\[ 
+\beta_{1}\, u_{i}(x) + \gamma_{1} \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x} = C_{1} \quad \mbox{y} \quad
+\beta_{2}\, u_{i}(x) + \gamma_{2} \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x} = C_{2}\,,
+ \]
+ en los extremos $x=a$ y $x=b$. 
+ 
+ Estos valores son finitos en todo el intervalo de validez de las funciones. Claramente de ésta pueden derivarse cuatro tipos de condiciones de frontera
+\begin{enumerate}
+  \item \textbf{{Condiciones Regulares Puras:}} Para este caso se especifican los valores para la combinación lineal completa, con $\beta_{1}\neq 0$, $\beta_{2} \neq 0$, $\gamma_{1}\neq 0$ y $\gamma_{2} \neq 0$.
+  \item \textbf{{Condiciones de Dirichlet:}} Para este caso se especifican los valores de la función $u_{i}(x)$ en los extremos, $x=a$ y $x=b$. Esto es para $\gamma_{1}=\gamma_{2}=0$. 
+  \item \textbf{Condiciones de Neumann:} Para este caso se especifican los valores de las derivadas  $  \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x}$ en los extremos, $x=a$ y $x=b$. Esto es para $\beta_{1}=\beta_{2}=0$. 
+  \item \textbf{{Condiciones Mixtas:}}  Cuando se especifican los valores de un tipo de condiciones de frontera en un extremo y otro en el otro. Esto es para $\beta_{1}=\gamma_{2}=0$ o $\gamma_{1}=\beta_{2}=0$.
+\end{enumerate}
+\item \textbf{Condiciones Periódicas:} Para este caso el valor de la función y su derivada es el mismo en los extremos $u_{i}(a) = u_{i}(b)$ y   $ \left. \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x} \right|_{a} = \left. \frac{\mathrm{d} u_{i}(x)}{\mathrm{d} x} \right|_{b}  $. Otra vez, estos valores son finitos en todo el intervalo de validez de las funciones.
+\item \textbf{Condiciones Singulares:} Para este caso encontramos valores singulares para las funciones y sus derivadas.   
+\end{enumerate}
+
+Veamos algunos ejemplos ilustrativos.  Vamos a analizar el caso muy simple de la ecuación diferencial tipo oscilador armónico libre. Esto es:
+\begin{equation}
+\label{TipoOscilador}
+\frac{\mathrm{d}^{2} y(x)}{\mathrm{d} x^{2}} + \lambda  y(x) = 0\,,
+\end{equation}
+y veremos como cambia cuando se tienen en cuenta distintos tipos de condiciones de frontera.
+
+\begin{itemize}
+\item {\bf Condición Regular con} 
+\[
+y(0) = 0 \ \wedge \ \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=\pi} = 0\,.
+\]
+
+Este caso corresponde una condición de frontera regular con $\gamma_{1}=\beta_{2}=0$ y,  en principio,  tendrá soluciones distintas para $\lambda > 0$, $\lambda = 0$, y $\lambda < 0$
+\begin{itemize}
+  \item[$\lambda =0$]  La solución será de la forma $y(x) = C_{1}x + C_{2}$ como $y(0)=0$ tendremos que  $C_{2}=0$ y como $ \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=\pi} = 0$ necesariamente $C_{1}=0$. Con lo cual la única solución es $y(x)=0$ y $\lambda$ no será un autovalor de la ecuación (\ref{TipoOscilador}).
+ \item[$\lambda < 0$]  Podemos re-escribirla con $\lambda = -\mu^{2}$. Entonces la solución general para (\ref{TipoOscilador}) tendrá la forma $y(x) = C_{1}\mathrm{e}^{\mu \, x} + C_{2}\mathrm{e}^{-\mu \, x}$. 
+ 
+Las condiciones de frontera imponen
+\[
+0 = C_{1} + C_{2} \qquad \wedge \qquad 0 = \mu\left(C_{1}\mathrm{e}^{\mu \, \pi} +-C_{2}\mathrm{e}^{-\mu \, \pi}\right) \,,
+\] 
+y otra vez, tendremos como única solución $0 = C_{1} = C_{2}$ y $\lambda$ no será un autovalor de la ecuación (\ref{TipoOscilador}).
+
+ \item[$\lambda > 0$]  Para éste caso usamos $\lambda = \mu^{2}$ y la solución será del tipo $y(x) = C_{1}\cos(\mu \, x)  + C_{2}\,\mathrm{sen}(\mu \, x)$. Las condiciones de frontera imponen: $y(0) = 0 \,\, \Rightarrow \,\, C_{1}= 0$ y   
+\[
+ \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=\pi} = C_{2} \mu \cos (\mu \pi) = 0 \,\, \Rightarrow \,\,
+ \mu_{n} = \pm \frac{2n +1}{2} \,\, \Rightarrow \,\, \lambda_{n} =  \frac{(2n +1)^{2}}{4} \quad \mathrm{para} \ n = 0,1,2,3, \cdots 
+\]
+
+Es decir, tendremos infinitos auto valores asociados con infinitas autofunciones $y_{i}(x) = \mathrm{sen}\left( \frac{2n +1}{2}  x\right) $ para $ n = 0,1,2,3, \cdots$.  
+
+En primer lugar, es importante señalar  que, por ser $\mathbb{L}$  un operador hermítico sus autovalores son reales y cumplen $\lambda_{0} < \lambda_{1} < \lambda_{2} < \lambda_{3} \cdots$, es decir, son crecientes para índices crecientes de las autofunciones.  En segundo lugar que las infinitas autofunciones  forman una base ortogonal y, por lo tanto la suma de todas esas soluciones, también será solución de (\ref{TipoOscilador}), con las condiciones de frontera: $y(0) = 0 \ \wedge \ \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=\pi} = 0$ y  $\lambda > 0$ puede ser escrita como
+\begin{equation}
+\label{SumaSoluc}
+y(x) = \sum_{n=0}^{\infty} \mathrm{sen}\left( \frac{2n +1}{2}  x\right) \,.
+\end{equation}
+Esta hecho nos permitirá resolver el problema inhomogéneo, $ \mathbb{L}\left| u \right> = \left| f \right> $, y será analizado en detalle más adelante.
+ 
+\end{itemize}
+
+\item {\bf Condición Regular con} 
+\[
+y(0) = 0 \ \wedge \ y(\pi) + \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=\pi} = 0\,.
+\]
+
+Para este caso tendremos una condición de frontera regular con $\gamma_{1}=0$ y,  en principio,  tendrá soluciones distintas para $\lambda > 0$, $\lambda = 0$, y $\lambda < 0$.
+\begin{itemize}
+  \item[$\lambda =0$]  Se cumplen las mismas situaciones que el caso anterior y se demuestra que sólo es posible la solución trivial $y(x)=0$.
+  
+  \item[$\lambda < 0$]  Una vez más hacemos $\lambda = -\mu^{2}$ y la solución general tendrá la forma $y(x)=C_{1}\mathrm{e}^{\mu \, x}+C_{2}\mathrm{e}^{-\mu \, x}$. Las condiciones de frontera imponen:
+\[
+C_{1} = - C_{2} \qquad \wedge \qquad 0 = \left(C_{1}\mathrm{e}^{\mu \, \pi} + C_{2}\mathrm{e}^{-\mu \, \pi}\right) + \mu\left(C_{1}\mathrm{e}^{\mu \, \pi} - C_{2}\mathrm{e}^{-\mu \, \pi}\right) \,,
+\]
+con lo cual
+\[
+\mu = -\frac{\left(\mathrm{e}^{\mu \, \pi} - \mathrm{e}^{-\mu \, \pi}\right)}{\left(\mathrm{e}^{\mu \, \pi} + \mathrm{e}^{-\mu \, \pi}\right)} \equiv -\tanh(\mu \, \pi) \,.
+\] 
+
+Esta ecuación trascendente se tiene que resolver numéricamente. Si  $\mu >0$ no existirá solución para $\mu = -\tanh(\mu \, \pi) $. Esto se ilustra claramente en la figura \ref{mutanhmu}. No hay punto de corte entre las dos funciones. Por lo tanto volvemos al caso de la solución trivial $y(x)=0$.  Si $\mu < 0$ entonces, al resolver numéricamente, encontramos que $\mu \approx -0.9962$, con lo cual $\lambda \approx -0.9924$ y consecuentemente $y(x)~\approx~C_{1}\left(\mathrm{e}^{-0.9962 \, x} - \mathrm{e}^{0.9962\, x}\right) $\,.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=2in]{VOLUMEN_2/11_Prob_St-Li/Figuras/mutanhmu.pdf}
+\caption{Las posibles soluciones $\mu = -\tanh(\mu \, \pi) $, tanto para $\mu > 0$ como para  $\mu > 0$ para el intervalo $[0,2]$ se muestra claramente en la figura. Para $\mu > 0$ no existe solución, pero para $\mu <0$, se encuentra numéricamente que $\mu \approx -0.9962$}
+\label{mutanhmu}
+\end{center}
+\end{figure}
+
+  \item[$\lambda > 0$]  En éste caso una vez más hacemos $\lambda = \mu^{2}$ y la solución será del tipo $y(x)=C_{1}\cos(\mu \, x) +C_{2}\,\mathrm{sen}(\mu \, x)$. Las condiciones de frontera imponen: $y(0) = 0 \,\, \Rightarrow \,\, C_{1}= 0$ y, para este caso
+ \[
+ y(\pi) = 0 = C_{2}\left(\mathrm{sen}(\mu \, \pi) + \mu \cos(\mu \, \pi) \right) \,\, \Rightarrow \,\,  \mu = -\tan(\mu \, \pi)\,.
+ \]
+ Otra vez, la ecuación trascendente $\mu = -\tan(\mu \, \pi)$,  se tiene que resolver numéricamente. No obstante, procedemos a analizar una posible representación gráfica que se muestra en la Figura \ref{mutanmu}. Claramente, tanto para $\mu > 0$ como para $\mu <0$ existen infinitas soluciones. Si resolvemos numéricamente para el caso $\mu > 0$ encontramos que:
+\[
+\mu_{1} \approx 0.7876, \ \mu_{2} \approx 1.6716,  \ \mu_{3} \approx 2.6162 \cdots 
+\,\, \Rightarrow \,\,
+\lambda_{1} \approx 0.6204, \ \lambda_{2} \approx 2.7943, \ \lambda_{3} \approx 6.8446 \cdots
+\]
+Del mimo modo, para $\mu < 0$ se obtiene:
+\[
+\tilde{\mu}_{1} \approx  -1.2901, \ \tilde{\mu}_{2} \approx -2.3731,  \ \tilde{\mu}_{3} \approx -3.4092 \cdots \,\, \Rightarrow \,\, 
+\tilde{\lambda}_{1} \approx 1.6644, \ \tilde{\lambda}_{2} \approx 5.6314, \ \tilde{\lambda}_{3} \approx 11.6225 \cdots
+\]
+
+Por lo tanto la solución, se podrá escribir,  
+\begin{equation}
+\label{SumaSoluc}
+y(x) = \sum_{n=0}^{\infty} \mathrm{sen}\left( \mu_{n} x\right) - \mathrm{sen}\left( |\tilde{\mu}_{n}|  x\right) \,.
+\end{equation}
+    
+ \begin{figure}[t]
+\begin{center}
+\includegraphics[width=2in]{VOLUMEN_2/11_Prob_St-Li/Figuras/mutanmu.pdf}
+\caption{Las posibles soluciones de $\mu = -\tan(\mu \, \pi) $, tanto para $\mu > 0$ como para  $\mu > 0$ para el intervalo $[0,4]$ se muestra claramente en la figura. Tanto para $\mu > 0$ como para $\mu <0$ existen infinitas soluciones.}
+\label{mutanmu}
+\end{center}
+\end{figure}
+\end{itemize}
+
+\item {\bf Condiciones Periódicas}
+
+Paras las condiciones de frontera periódicas tendremos: $y(0) = y(L)$ y $\left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=0} = \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=L}$. 
+
+Una vez más se distinguen tres escenarios.
+\begin{itemize}
+  \item[$\lambda =0$]En este caso, la solución vuelve a ser $y(x) = C_{1}x + C_{2}$ y las condiciones de frontera imponen
+\[
+y(0) = y(L) \,\, \Rightarrow \,\, C_{2} = C_{1}L + C_{2} \,\, \Rightarrow \,\,  C_{1} = 0 
+\qquad \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=0} = \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=L} \,\, \Rightarrow \,\, C_{2} =  C_{2}  \,.
+\]
+Por lo tanto, para $\lambda =0$, la solución (\ref{TipoOscilador}) con condiciones de borde periódicas, será $y(x) = C_{2}$     
+
+\item[$\lambda < 0$] Una vez más, $\lambda = -\mu^{2}$ y la solución general tendrá la forma $y(x)=C_{1}\mathrm{e}^{\mu \, x}+C_{2}\mathrm{e}^{-\mu \, x}$. 
+Las condiciones de frontera imponen
+\[
+y(0) = y(L) \,\, \Rightarrow \,\,C_{1}\left( 1 - \mathrm{e}^{\mu \, L} \right)  = C_{2}\left(\mathrm{e}^{-\mu \, L} -1\right)  \,,
+\]
+y
+\[
+\left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=0} = \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=L} \,\, \Rightarrow \,\,  C_{1}\left( 1 - \mathrm{e}^{\mu \, L} \right)  = -C_{2}\left(\mathrm{e}^{-\mu \, L} -1\right)  \,.
+\]
+
+Por lo tanto, $C_{1} = C_{2} = 0$, y obtenemos la solución trivial $y(x) = 0$ para valores de $\lambda < 0$.  
+
+\item[$\lambda > 0$] Al igual que en lo casos anteriores hacemos $\lambda = \mu^{2}$ y la solución será del tipo $y(x)=C_{1}\cos(\mu \, x) +C_{2}\,\mathrm{sen}(\mu \, x)$. Las condiciones de frontera imponen:
+\[
+y(0) = y(L)\,\, \Rightarrow \,\, C_{1}\left( 1 - \cos(\mu \, L) \right)  = C_{2} \, \mathrm{sen}(\mu \, L)\,, 
+\]  
+y
+\[
+\left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=0} = \left. \frac{\mathrm{d} y(x)}{\mathrm{d} x} \right|_{x=L} \,\, \Rightarrow \,\,  C_{2}\left( 1 - \cos(\mu \, L) \right)  = -C_{1} \, \mathrm{sen}(\mu \, L)  \,,
+\]
+con lo cual, al resolver para $C_{2}$ se obtiene
+\[
+2C_{1}\left( 1 - \cos(\mu \, L) \right)  = 0 \,\, \Rightarrow \,\, \cos(\mu \, L) = 1 \,\, \Rightarrow \,\,\mu_{n} = \pm \frac{2n\pi}{L}  \,\, \Rightarrow \,\,  \lambda_{n} = \left(\frac{2n\pi}{L}\right)^{2} \quad \mathrm{para} \ n= 0,1,2,3 \cdots
+\] 
+por lo cual, para cada autovalor $\lambda_{n}$ tendremos asociadas dos autofunciones: $y_{1}(x) = \cos\left( \frac{2n\pi}{L} x\right) $ y $y_{2}(x) = \mathrm{sen}(\frac{2n\pi}{L} x)$.
+  
+\end{itemize}
+
+\item {\bf Condiciones Singular}
+
+Aquí se presentan uno o más infinitos en el intervalo de validez $x \in [a,b]$. En esta sección analizaremos únicamente el caso para el cual los puntos singulares estén en los extremos $x=a$ y $x=b$. En este caso, la ecuación (\ref{SistSL}), vale decir 
+\begin{equation}
+\label{SistSL2}
+ \mathbb{L}\left| u_{i} \right> = -\lambda_{i} w(x) \left| u_{i} \right>  \,\, \Leftrightarrow \,\, \frac{\mathrm{d} }{\mathrm{d} x} \left( P(x) \frac{\mathrm{d} u_{i}(x)  }{\mathrm{d} x} \right) +\left( R(x) + \lambda_{i} \, w(x)\right)  u_{i}(x) = 0 \,,
+\end{equation}
+tendremos $P(a) = 0$ o $P(b) = 0$ o ambos. La aparición de polos en el intervalo de validez de las ecuaciones diferenciales fue lo que motivó el uso del método de Frobenius que se discutió en la sección \ref{MetodoFrobenius}. Particularmente, la ecuación de Bessel (\ref{besselecua}) en la sección \ref{RevisitandoBessel} representa este caso. Tal y como discutimos en esas secciones, si incluimos $x=0$ en el intervalo de validez de la ecuación esta presenta un polo en uno de los extremos del intervalo.  Es decir, en la ecuación de Bessel escrita en forma autoadjunta:
+\begin{equation}
+\label{EcBesselAutoAd}
+x^{2}y^{\prime\prime}+xy^{\prime}+\left(   k^{2}x^{2} -n^{2}\right)  y=0 \,\, \Leftrightarrow \,\,\frac{\mathrm{d} }{\mathrm{d} x} \left( x \frac{\mathrm{d} y(x)  }{\mathrm{d} x} \right) +\left( k^{2}x - \frac{n^{2}}{x} \right)  y(x) = 0 \,,
+\end{equation}
+identificamos: $P(x) = x$, $R(x) = - \frac{n^{2}}{x}$, $ \lambda = k^{2}$ y finalmente $w(x) = x$. Tal y como mostramos en (\ref{RevisitandoBessel}) la solución general de esta ecuación es:
+\begin{equation}
+\label{SolGBessel}
+y(x) = C_{1}\, J_{n}(k\,x) + C_{2}\, Y_{n}(k\,x) \quad  \ \text{con} \ y(a = 0) = 0 \,\, \Rightarrow \,\, C_{2} = 0 \,\, \Rightarrow \,\, y(x) = C_{1}\, J_{n}(k\,x)  \,.
+ \end{equation}
+ 
+La condición de borde $y(a=0) = 0$ impone que $C_{2} = 0$ porque $Y_{n}(k\,x \rightarrow 0) \rightarrow \infty$.
+
+Si adicionalmente, imponemos $y(b) = 0$, entonces se cumplirá que $J_{n}(k\,a) = 0$ por lo cual $k\,a = r_{J \, n \, \nu}$, donde $r_{J \, n \, \nu}$ con $\nu = 1, 2, 3, \cdots$ son las raíces de las función de Bessel  $J_{n}(x)$, tal y como se expresan en la Tabla \ref{TablaCerosBessel}. Entonces, al igual que en los casos anteriores tendremos 
+ \begin{equation}
+\label{CerosBessel}
+k_{n} = \frac{r_{J \, n \, \nu}}{a} \,\, \Rightarrow \,\, \ \lambda_{n} = \frac{r^{2}_{J \ n \, \nu}}{a^{2}}   \,\, \Rightarrow \,\, y_{\nu}(x) = C_{1}\, J_{n}\left(\frac{r_{J \, n \, \nu}}{a} \,x \right)  \,. 
+\end{equation}
+
+De esta forma se tendrán las funciones asociadas con los autovalores y los ceros de la función de Bessel reescalarán el argumento de la función. 
+\end{itemize}
+
+\subsection{Función de Green}
+Consideremos ahora la solución de caso inhomogéneo
+\begin{equation}
+\label{LPsiInhomogeneo}
+\mathbb{L}  \left| y \right> =  \left| f \right>  \quad \Leftrightarrow \quad \frac{\mathrm{d} }{\mathrm{d} x} \left( P(x) \frac{\mathrm{d} y(x)  }{\mathrm{d} x} \right) +   R(x) y(x) = f(x) \,.
+\end{equation}
+
+Claramente
+\begin{equation}
+\label{AutoValores1}
+ \mathbb{L}\left| u_{i} \right> = -\lambda_{i} \left| u_{i} \right> \,\, \Rightarrow \,\,  \left| y \right> = \sum_{i =0}^{\infty} C^{i} \left| u_{i} \right> \,,
+ \end{equation}
+donde $\left\{ \left| u_{i} \right>  \right\}$ son las autofunciones de $ \mathbb{L}$. Por lo tanto podemos expresar  (\ref{LPsiInhomogeneo}) de la forma
+\begin{equation}
+\label{fAutoFunc}
+ \left| f \right> = \mathbb{L}  \left| y \right>  \,\, \Rightarrow \,\, 
+ \left| f \right>   =  \mathbb{L} \left( \sum_{i =0}^{\infty} C^{i} \left| u_{i} \right> \right) =
+  \sum_{i =0}^{\infty} C^{i}  \mathbb{L} \left| u_{i} \right> =   -\sum_{i =0}^{\infty} C^{i} \lambda_{i} \left| u_{i} \right> \,,
+\end{equation}
+para finalmente proyectar (\ref{LPsiInhomogeneo}) a lo largo de las mismas autofunciones $\left| u_{i} \right>$ y dado que las funciones $\left\{ \left| u_{i} \right>  \right\}$ son ortogonales, obtenemos los coeficientes $C^{i} $
+\begin{equation}
+\left< u^{j} \right. \left| f \right> =  -\sum_{i =0}^{\infty} C^{i} \lambda_{i} \underbrace{\left< u^{j} \right. \left| u_{i} \right>}_{\delta_{i \, j}}
+\,\, \Rightarrow \,\, C^{j} = \frac{1}{\lambda_{j}}\frac{\left< u^{j} \right. \left| f \right> }{\left< u^{j} \right. \left| u_{j} \right>} \ \Leftrightarrow \ 
+C^{j} = \frac{\int_{a}^{b} \mathrm{d} x \ u^{*}_{j}(x) \, w(x) f(x) }{ \int_{a}^{b} \mathrm{d} x \ u^{*}_{j}(x) \, w(x) u_{j}(x) }\,.
+\end{equation}
+Por lo tanto, 
+\begin{equation}
+\label{SolucGreen1}
+ \left| y \right> = \sum_{i =0}^{\infty} \left( \frac{1}{\lambda_{i}} \frac{\left< u^{i} \right. \left| f \right> }{\left< u^{i} \right. \left| u_{i} \right>} \right)  \left| u_{i} \right> \ \Leftrightarrow \ y(x) = \sum_{i =0}^{\infty}  \frac{1}{\lambda_{i}}\left( \frac{\int_{a}^{b} \mathrm{d} \xi \ u^{*}_{i}(\xi) \, w(\xi) f(\xi) }{ \int_{a}^{b} \mathrm{d} \zeta \ u^{*}_{i}(\zeta) \, w(\zeta) u_{i}(\zeta) } \right) u_{i}(x)\,.
+\end{equation}
+
+Siempre se puede normalizar las autofunciones y con ello se simplifica la expresión anterior 
+\begin{equation}
+\label{Normalizacion}
+\left< \hat{u}^{i} \right. \left| \hat{u}_{i} \right> = 1 \ \Leftrightarrow \  \int_{a}^{b} \mathrm{d} \zeta \ \hat{u}^{*}_{i}(\zeta) \, w(\zeta) \hat{u}_{i}(\zeta) =1 \,\, \Rightarrow \,\, 
+y(x) = \sum_{i =0}^{\infty} \frac{1}{\lambda_{i}} \left( \int_{a}^{b} \mathrm{d} \xi \ \hat{u}^{*}_{i}(\xi) \, w(\xi) f(\xi)  \right) \hat{u}_{i}(x)\,,
+\end{equation}
+donde
+\begin{equation}
+\label{AutoFuncNormal}
+\left| \hat{u}_{i} \right> = \frac{\left| u_{i} \right>}{\sqrt{\left< u^{i} \right. \left| u_{i} \right>}} \ \Leftrightarrow \ 
+\hat{u}_{i}(x) = \frac{u_{i}}{\sqrt{ \int_{a}^{b} \mathrm{d} \zeta \ u^{*}_{i}(\zeta) \, w(\zeta) u_{i}(\zeta)}}\,.
+\end{equation}
+De este modo, tendremos
+\begin{equation}
+\label{ }
+ y(x) = \sum_{i =0}^{\infty} \frac{1}{\lambda_{i}} \left( \int_{a}^{b} \mathrm{d} \xi \ \hat{u}^{*}_{i}(\xi) \, w(\xi) f(\xi)  \right) \hat{u}_{i}(x) =
+ \int_{a}^{b} \mathrm{d} \xi \underbrace{\left(  \sum_{i =0}^{\infty} \frac{1}{\lambda_{i}}  \hat{u}^{*}_{i}(\xi) \hat{u}_{i}(x)  \right) }_{G(x,\xi)} w(\xi) f(\xi)  \,.
+\end{equation}
+
+Por lo tanto, la solución al problema de Sturm-Liouville se puede expresar en términos de la función de Green como
+\begin{equation}
+\label{ }
+ y(x) =  \int_{a}^{b} \mathrm{d} \xi \ G(\xi, x) w(\xi) f(\xi) \,, \quad \text{con: } \  G(\xi, x) =  \sum_{i =0}^{\infty} \frac{1}{\lambda_{i}}  \hat{u}^{*}_{i}(\xi) \hat{u}_{i}(x) \,.
+\end{equation}
+
+Para ejemplificar esta técnica, consideremos la ecuación diferencial del oscilador armónico forzado 
+\begin{equation}
+\label{OscilArmonicoForzado}
+\ddot{x}(t) + \omega^{2} x(t) = \cos(\bar{\omega}\, t ) \,, \quad \text{con: } \ x(0) = x(\pi) = 0 \quad \text{donde} \  \ddot{x} \equiv  \frac{\mathrm{d}^{2} x(t) }{\mathrm{d} t^{2}}\,.
+\end{equation}
+
+Resolvemos primero el problema de autovalores
+\begin{equation}
+\label{ }
+\ddot{x}(t) + \omega^{2} x(t) = \lambda \, x(t) \,\, \Rightarrow \,\, 
+x(t) = A \cos \left(t\,\sqrt{ \omega^{2}  - \lambda} \right) + B \  \mbox{sen}\left(t\,\sqrt{ \omega^{2}  - \lambda} \right)
+\end{equation}
+
+Las condiciones de frontera imponen
+\begin{equation}
+x(0) = 0 \,\, \Rightarrow \,\,  A = 0 \quad \text{y} \quad  x(\pi) = 0 \,\, \Rightarrow \,\,  \mathrm{sen}\left(\pi \,\sqrt{ \omega^{2}  - \lambda} \right) = 0 \,\, \Rightarrow \,\,\sqrt{ \omega^{2}  - \lambda} = n \quad \text{con} \ n= 0, \pm 1, \pm 2, \cdots  
+\end{equation}
+
+Las autofunciones tendrán la forma de $x_{n}(t) = A_{n}  \mathrm{sen}(n t)$. Al normalizarlas tendremos  
+\[
+x_{n}(t)=\left(\frac{2}{\pi} \right)^{1/2} \mathrm{sen}(n  t)\,.
+\]
+
+De este modo la función de Green y la solución quedan como:
+ \begin{equation}
+ G(\tau, t) =  \frac{2}{\pi}  \sum_{n=0}^{\infty} \frac{\mathrm{sen}(n  \tau)\, \mathrm{sen}(n  t)}{\omega^{2} - n^{2}}\,\, \Rightarrow \,\,
+x(t) =  \frac{2}{\pi} \int_{0}^{\pi} \mathrm{d} \tau \left(  \sum_{n =0}^{\infty} \frac{\mathrm{sen}(n  \tau)\, \mathrm{sen}(n  t)}{\omega^{2} - n^{2}}  \right) \cos(\bar{\omega}\, \tau)\,,
+\end{equation}
+con lo cual
+\begin{equation}
+x(t) = \frac{2}{\pi}  \sum_{n =0}^{\infty} \frac{\mathrm{sen}(n t)}{\omega^{2} - n^{2}} \int_{0}^{\pi} \mathrm{d} \tau \ \mathrm{sen}(n  \tau)\,\cos(\bar{\omega}\, \tau) \,\, \Rightarrow \,\, x(t) = \frac{2}{\pi}\left(\frac{\bar{\omega}\left(1 \pm \cos(\bar{\omega} \pi)\right) }{\bar{\omega}^{2}-\omega^{2} + \lambda }\right)   \sum_{n =0}^{\infty} \frac{\mathrm{sen}(n  t)}{\omega^{2} - n^{2}} \,,
+\end{equation}
+la cual constituye la solución más general para la ecuación del oscilador armónico forzado (\ref{OscilArmonicoForzado}). 
+
+Inspirados en el nuestra motivación inicial, (\ref{LPsiInhomogeneo}), podemos extenderla para considerar las siguientes ecuaciones diferenciales
+\begin{equation}
+\label{GeneralLPsiF}
+\left(\mathbb{L} + \lambda \right)   \left| y \right> =  \left| f \right>  \quad \Leftrightarrow \quad \frac{\mathrm{d} }{\mathrm{d} x} \left( P(x) \frac{\mathrm{d} y(x)  }{\mathrm{d} x} \right) +   \left(R(x) + \lambda \, w(x)\right)  y(x) = f(x) \,,
+\end{equation}
+donde $y(x)$ estará sometida a algunas de las condiciones de frontera expresadas en \ref{ProbSturmLiouville}. Una vez más resolvemos el problema de autovalores para encontrar las autofunciones en las cuales expandiremos todas las funciones involucradas en el problema. Esto es, en general y siguiendo el esquema presentado en (\ref{AutoValores1})
+\begin{equation}
+\label{ }
+ \mathbb{L}\left| \hat{u}_{i} \right> = -\lambda_{i} \left| \hat{u}_{i} \right> \,\, \Rightarrow \,\,  \left| f \right> = \sum_{i =0}^{\infty} F^{i} \left| \hat{u}_{i} \right> \equiv \sum_{i =0}^{\infty} \left<\hat{u}^{i} \right. \left| f \right> \left| \hat{u}_{i} \right> \,,
+\end{equation}
+donde hemos supuesto que las autofunciones fueron normalizadas, $\left<\hat{u}^{j} \right. \left| \hat{u}_{i} \right> = \delta^{j}_{i}$. Con lo cual 
+\begin{equation}
+\label{ }
+\left(\mathbb{L} + \lambda \right)   \left| y \right> =  \left| f \right>  \,\, \Rightarrow \,\, \left(\mathbb{L} + \lambda \right)\left(  \sum_{i =0}^{\infty} C^{i} \left| \hat{u}_{i} \right> \right) = \sum_{i =0}^{\infty} \left<\hat{u}^{i} \right. \left| f \right> \left| \hat{u}_{i} \right>  \,\, \Rightarrow \,\,  C^{i} \left( \lambda_{i} + \lambda \right) - \left<\hat{u}^{i} \right. \left| f \right> = 0  \,,
+\end{equation}
+y se sigue que 
+\begin{equation}
+\label{ }
+C^{i} = \frac{\left<\hat{u}^{i} \right. \left| f \right> }{\left( \lambda_{i} + \lambda \right)} \,\, \Rightarrow \,\, \left| y \right> = \sum_{i =0}^{\infty} \left(\frac{\left<\hat{u}^{i} \right. \left| f \right> }{\left( \lambda_{i} + \lambda \right)}  \right)  \left| \hat{u}_{i} \right> \ \Leftrightarrow \ y(x) =   \sum_{i =0}^{\infty} \left(\frac{ \int_{a}^{b} \mathrm{d} \xi \, \hat{u}^{*}_{i}(\xi) \, w(\xi) f(\xi) }{\lambda_{i} + \lambda}\right) \hat{u}_{i}(x)\,,
+\end{equation}
+intercambiando sumatorias e integrales tendremos
+\begin{equation}
+\label{ }
+y(x) =  \int_{a}^{b} \mathrm{d} \xi \,  w(\xi) f(\xi)  \sum_{i =0}^{\infty} \frac{ \hat{u}^{*}_{i}(\xi) \hat{u}_{i}(x)}{\lambda_{i} + \lambda}  \,\, \Rightarrow \,\, G(\xi, x) = \sum_{i =0}^{\infty} \frac{ \hat{u}^{*}_{i}(\xi) \hat{u}_{i}(x)}{\lambda_{i} + \lambda}\,.
+\end{equation}
+
+Podemos identificar claramente la función de Green. Nótese que para el caso $\lambda_{i} + \lambda = 0$, es decir si $\lambda$ en (\ref{GeneralLPsiF}) coincide con alguno de los autovalores del operador $\mathbb{L} $, la función de Green se hace infinita y este esquema presenta dificultades para su aplicación. 
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+

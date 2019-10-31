@@ -1,0 +1,327 @@
+\section{Algunos ejemplos resueltos}
+\label{Capt1EjemplosResueltos}
+
+\begin{enumerate}
+\item   Hemos definido como la posición, ${\bf R}$, del  centro de masa para un sistema de $N$ partículas como
+\[
+{\bf R} = \frac{\Sigma_{i=1}^{N} m_{i} {\bf r}_{i} }{\Sigma_{j=1}^{N} m_{j}}
+\]donde ${\bf r}_{i} $ corresponde con la posición de la $i-$ésima partícula.
+
+Determine la posición del centro de masa para un sistema de tres masas, $m_{i} = $ 1,2,3, colocadas en los vértices de un triángulo equilátero de lado $l=2$.
+
+\textbf{Solución:} Al colocar el origen de coordenadas en uno de los vértices y uno de los ejes de coordenadas sobre uno de los lados, entonces 
+\[
+{\bf R} = \frac{\Sigma_{i=1}^{3} m_{i} {\bf r}_{i} }{\Sigma_{j=1}^{3} m_{j}} = \frac{m_{1}{\bf r}_{1} +  m_{1}{\bf r}_{1} }{M_{T}} = \frac{1 \cdot 2 {\bf i} + 3 \cdot \left({\bf i} + \sqrt{3} {\bf j}  \right)}{6} =  \frac{ 5}{6 }{\bf i} + \frac{\sqrt{3}}{2} {\bf j} 
+\]
+
+\item Dada una base ortonormal $\{ {\bf i}, {\bf j}, {\bf k} \}$ y los siguientes vectores
+\[
+{\bf a} = 3{\bf i} + 2{\bf j} + {\bf k}\,,  \quad {\bf b} = 3{\bf i} - 2{\bf j} + {\bf k}\,,  \quad {\bf c} = {\bf i} -  {\bf k} 
+\]
+\begin{enumerate}
+  \item Comprobar si $\{ {\bf a}, {\bf b}, {\bf c} \}$ forman una base.
+  
+\textbf{Solución:} Para que los vectores formen una base tienen que ser linealmente independientes. Esto es
+$
+\alpha {\bf a} + \beta {\bf b} + \gamma  {\bf c}  =0 \,\, \Rightarrow \,\, \alpha = \beta = 
+\gamma = 0 $,  con lo cual 
+\[
+\alpha \left(  3{\bf i} + 2{\bf j} + {\bf k} \right) + \beta \left(  3{\bf i} - 2{\bf j} + {\bf k} \right) + 
+\gamma  \left(  {\bf i} -  {\bf k}  \right) =0 \,\, \Rightarrow \,\, 
+\left\{\begin{array}{ l}
+  3 \alpha + 3 \beta + \gamma = 0      \\
+  2 \alpha - 2 \beta  = 0        \\
+   \alpha +  \beta - \gamma = 0          
+\end{array} 
+\right.
+\]
+y al resolver el sistema se obtiene: $\alpha = \beta = \gamma =0$ con lo cual se 
+demuestra que son linealmente independientes.
+
+Otra manera de resolverlo es mostrar que: ${\bf c} \cdot \left( {\bf a} \times {\bf b} \right) \neq 0$ y efectivamente
+\[
+{\bf c} \cdot \left( {\bf a} \times {\bf b} \right) = \left|\begin{array}{ccc}1 & 0 & -1 \\3 & 2 & 1 \\3 & -2 & 1\end{array}\right| = 4 \neq 0 \,.
+\]
+
+\item Si $\{ {\bf a}, {\bf b}, {\bf c} \}$ forman una base, exprese 
+ $
+{\bf d} = {\bf i} + 2{\bf j}\,,  
+ \,\, {\bf e} = 3{\bf i} - 2{\bf j}$  y  ${\bf f} =   {\bf a} \times {\bf b}$  
+en término de esa base $\{ {\bf a}, {\bf b}, {\bf c} \}$. De lo contrario, construya una base como $\{ {\bf a}, {\bf b},  {\bf a} \times {\bf b} \}$ y exprese los vectores 
+  $\{ {\bf d}, {\bf e}, {\bf f} \}$ en término de esa nueva base.
+  
+\textbf{Solución:} Como forman base expresamos los vectores en esos términos. Esto es
+ \[
+ {\bf i} + 2{\bf j} = \alpha \left(  3{\bf i} + 2{\bf j} + {\bf k}\right) + \beta \left(  3{\bf i} - 2{\bf j} + {\bf k}\right) + \gamma  \left(  {\bf i} -  {\bf k} \right)  \,\, \Rightarrow \,\, 
+\left\{\begin{array}{ l}
+  3 \alpha + 3 \beta + \gamma = 1      \\
+  2 \alpha - 2 \beta  = 2        \\
+   \alpha +  \beta - \gamma = 0          
+\end{array} 
+\right.
+\] resolviendo tendremos que ${\bf d} = \frac{5}{8} {\bf a} -\frac{3}{8}  {\bf b} + \frac{1}{4}   {\bf c}   $. 
+Seguidamente
+ \[
+3{\bf i} - 2{\bf j} = \alpha \left(  3{\bf i} + 2{\bf j} + {\bf k}\right) + \beta \left(  3{\bf i} - 2{\bf j} + {\bf k}\right) + \gamma  \left(  {\bf i} -  {\bf k} \right)  \,\, \Rightarrow \,\, 
+\left\{\begin{array}{ l}
+  3 \alpha + 3 \beta + \gamma = 3      \\
+  2 \alpha - 2 \beta  = -2        \\
+   \alpha +  \beta - \gamma = 0          
+\end{array} 
+\right.
+\] resolviendo tendremos que ${\bf e} = -\frac{1}{8} {\bf a} +\frac{7}{8}  {\bf b} + \frac{3}{4}   {\bf c}   $
+
+Ahora bien 
+\[
+{\bf f}= {\bf a} \times {\bf b} \equiv \left(  3{\bf i} + 2{\bf j} + {\bf k}\right) \times  \left(  3{\bf i} - 2{\bf j} + {\bf k}\right)
+ \equiv \left|\begin{array}{ccc}{\bf i} & {\bf j} & {\bf k}\\3 & 2 & 1 \\3 & -2 & 1\end{array}\right| =
+ 4{\bf i}  -12{\bf k}
+\]con lo cual
+ \[
+4{\bf i}  -12{\bf k}= \alpha \left(  3{\bf i} + 2{\bf j} + {\bf k}\right) + \beta \left(  3{\bf i} - 2{\bf j} + {\bf k}\right) + \gamma  \left(  {\bf i} -  {\bf k} \right)  \,\, \Rightarrow \,\, 
+\left\{\begin{array}{ l}
+  3 \alpha + 3 \beta + \gamma = 4      \\
+  2 \alpha - 2 \beta  = 0        \\
+   \alpha +  \beta - \gamma = -12          
+\end{array} 
+\right.
+\]y finalmente ${\bf f}=  {\bf a} \times {\bf b} = -{\bf a} - {\bf b} +10   {\bf c}$\,.
+\end{enumerate}
+
+\item Utilizando la notación de índices demostrar que para cualquier trío de vectores $\{ {\bf a}, {\bf b}, {\bf c} \}$ se cumple que
+$
+ {\bf a} \times ({\bf b} \times {\bf c}) +  {\bf b} \times ({\bf c} \times {\bf a}) +  {\bf c} \times ({\bf a} \times {\bf b})    = 0.
+$ 
+
+\textbf{Solución:} En notación de índices
+ \[
+  {\bf a} \times ({\bf b} \times {\bf c}) +  {\bf b} \times ({\bf c} \times {\bf a}) +  {\bf c} \times ({\bf a} \times {\bf b})    = 
+  \epsilon^{lmi}a_{m}\epsilon_{ijk}b^{j}c^{k} + \epsilon^{lmi}b_{m}\epsilon_{ijk}c^{j}a^{k} + \epsilon^{lmi}c_{m}\epsilon_{ijk}a^{j}b^{k} 
+ \]con lo cual, arreglando
+ \[
+  \epsilon^{lmi}\epsilon_{ijk}a_{m}b^{j}c^{k} + \epsilon^{lmi}\epsilon_{ijk}b_{m}c^{j}a^{k} + \epsilon^{lmi}\epsilon_{ijk}c_{m}a^{j}b^{k} = 
+  \]
+  \[
+   \left( \delta^{l}_{j} \delta^{m}_{k} -  \delta^{m}_{j} \delta^{l}_{k}  \right) a_{m}b^{j}c^{k} + 
+  \left( \delta^{l}_{j} \delta^{m}_{k} -  \delta^{m}_{j} \delta^{l}_{k}  \right) b_{m}c^{j}a^{k} + 
+ \left( \delta^{l}_{j} \delta^{m}_{k} -  \delta^{m}_{j} \delta^{l}_{k}  \right) c_{m}a^{j}b^{k} 
+ \]
+ y ahora desarrollando los productos de las $\delta$'s, e indentificando término a término, notamos que se anula
+  \[
+ \left( \underbrace{a_{k}b^{l}c^{k} }_{I}\underbrace{-a_{k}b^{k}c^{l} }_{II} \right) + \left( \underbrace{b_{k}c^{l}a^{k}}_{II} \underbrace{-b_{k}c^{k}a^{l}}_{III} \right) 
+ + \left( \underbrace{c_{k}a^{l}b^{k}}_{III} \underbrace{-c_{k}a^{k}b^{l}}_{I} \right) = 0\,.
+ \]
+ 
+
+\item Una partícula se mueve a lo largo de una curva descrita por 
+\[
+x(t) = 3 t^{2} \quad y(t) = 4t^{3} -t \quad z(t) = t 
+\]
+\begin{enumerate}
+  \item Encuentre las expresiones para los vectores: posición, velocidad y aceleración de esa partícula.
+  
+    \textbf{Solución:}
+    \[
+    {\bf r}(t) = 3 t^{2} {\bf i} + (4t^{3} -t ){\bf j} + t{\bf k} \,,\quad 
+    {\bf{v}} = 6 t {\bf i} + (12t^{2} -1 ){\bf j} + {\bf k} \,, \quad
+    {\bf a} = 6  {\bf i} + 24t {\bf j} \,.
+    \]
+  \item  Encuentre las expresiones, más generales, de los vectores tangentes y perpendiculares a todo punto de la trayectoria de la partícula.
+   
+      \textbf{Solución:} Vector tangente a todo punto de la trayectoria es el vector velocidad
+\[
+    {\bf v} = 6 t {\bf i} + (12t^{2} -1 ){\bf j} + {\bf k}\,,
+\]
+El perpendicular a todo punto, será un vector ${\bf b} =b_{x} {\bf i} + b_{y}{\bf j} + b_{z}{\bf k}$, tal que
+\[
+( 6 t {\bf i} + (12t^{2} -1 ){\bf j} + {\bf k})\cdot (b_{x} {\bf i} + b_{y}{\bf j} + b_{z}{\bf k}) =
+6 t b_{x} + (12t^{2} -1 )b_{y} + b_{z} =0\,,
+\]
+con lo cual
+\[
+{\bf b} = b_{x} {\bf i} + b_{y}{\bf j} - (6 t b_{x} + (12t^{2} -1 )b_{y}){\bf k}\,.
+\]
+\end{enumerate}
+
+\item  El campo de fuerzas del oscilador anarmónico anisótropo bidimensional se escribe como
+\begin{equation}
+{\bf F} = -k_{1}x^{2} {\bf i} + k_{2}y {\bf j}\,.
+\end{equation}
+Encuentre el trabajo realizado, $\int^{(x_{2},y_{2})}_{(x_{1},y_{1})} \; \mathrm{d}{\bf r}\cdot {\bf F}$ a 
+lo largo de las siguientes trayectorias
+\begin{enumerate}
+  \item $(1,1) \rightarrow (4,1) \rightarrow (4,4)$
+  
+ \textbf{Solución:}
+\[
+\int^{(4,1)}_{(1,1)} \; ({\bf i}\mathrm{d}x ) \cdot (-k_{1}x^{2} {\bf i} + k_{2}{\bf j}) + 
+\int^{(4,4)}_{(4,1)} \; ({\bf j}\mathrm{d}y ) \cdot (-k_{1}16 {\bf i} + k_{2}y {\bf j})  = 
+-21k_{1} +\frac{15k_{2}}{2}
+\]        
+  \item $(1,1) \rightarrow (1,4) \rightarrow (4,4)$
+  
+\textbf{Solución:}
+\[
+\int^{(1,4)}_{(1,1)} \; ({\bf j}\mathrm{d}y ) \cdot (-k_{1} {\bf i} + k_{2}y {\bf j})  +
+\int^{(4,4)}_{(1,4)} \; ({\bf i}\mathrm{d}x ) \cdot (-k_{1}x^{2} {\bf i} + k_{2} 4 {\bf j}) = 
+-21k_{1} +\frac{15k_{2}}{2}
+\] 
+  \item $(1,1) \rightarrow (4,4)$ para $x=y$ 
+  
+\textbf{Solución:}
+\[
+\int^{(4,4)}_{(1,1)} \; ({\bf i}\mathrm{d}x + {\bf j}\mathrm{d}x ) \cdot (-k_{1}x^{2}  {\bf i} + k_{2}x {\bf j}) =
+\int^{(4,4)}_{(1,1)} \;  (-k_{1}x^{2}  + k_{2}x )\mathrm{d}x  =
+-21k_{1} +\frac{15k_{2}}{2}
+\] 
+\end{enumerate}
+\item  Dados los siguientes puntos en el espacio $(1,0,3); ( 2,-1,0 ); ( 0,-1,1) ; (  -1,0,1)  .$
+
+\begin{enumerate}
+\item  Considere los tres primeros puntos. ¿Estos tres puntos son coplanares? ¿por qué? Explique.
+
+\textbf{Solución:} Tres puntos en el espacio definen un plano, por lo tanto siempre serán coplanares.
+
+
+\item  Encuentre el área del triángulo que tiene por vértices esos tres puntos.
+
+\textbf{Solución:} {Para ello seleccionamos uno de los puntos como un vértice privilegiado (digamos $( 2,-1,0 )$) respecto al cual construirémos dos vectores que representan dos de los lados del triángulo. Esto es }
+\[ {\bf a} = (1,0,3) - ( 2,-1,0 )  \leftrightarrow {\bf a} = - {\bf i} +{\bf j} +3 {{\bf k}}\,,
+\]
+y
+\[{\bf b} = (0,-1,1) - ( 2,-1,0 )  \leftrightarrow {\bf b} = -2{\bf i}   +{{\bf k}}\,,
+\]
+con lo cual, el área del vértice será la mitad del área del paralelogramo que tiene por lados estos dos vectores. Es decir
+\[
+A = \frac{1}{2} | {\bf a} \times {\bf b} | \Rightarrow  {\bf a} \times {\bf b} = \left|\begin{array}{ccc}{\bf i} & {\bf j} & {{\bf k}} \\-1 & 1 & 3 \\-2 & 0 & 1\end{array}\right| = {\bf i} -5 {\bf j} +2{{\bf k}} \Rightarrow A = \frac{1}{2}| {\bf i} -5 {\bf j} +2{{\bf k}}|=\frac{\sqrt{30}}{2}\,.
+\]
+\item  Encuentre la ecuación del plano que los contiene
+
+\textbf{Solución:} {La ecuación del plano vendrá dada por}
+\[
+\left(  {\bf r}-{\bf r}_{1}\right)  \cdot\left(  \left(  {\bf r}_{2}-{\bf r}_{1}\right)  \times\left(  {\bf r}_{3}-{\bf r}_{1}\right)  \right) =0\,,
+\]
+donde
+\[
+{\bf r} = x {\bf i} + y{\bf j} + z {{\bf k}}, \quad {\bf r}_{1} =  {\bf i}  + 3 {{\bf k}}, \quad {\bf r}_{2} = 2 {\bf i} -{\bf j}, \quad {\bf r}_{3} =  -{\bf j} + {{\bf k}},
+\]
+con lo cual la ecuación del plano queda como
+\[
+\left|\begin{array}{ccc}(x -1) & y  & (z - 3) \\1 & -1 & -3 \\-1 & -1 & -2\end{array}\right|=0 
+\,\, \Rightarrow \,\,
+ -(x -1) + 5y -2(z -3) = 0 \,\, \Rightarrow \,\, x -5y +2z = 7\,.
+\]
+
+
+
+\item  Considere los cuatro puntos ¿Estos cuatro puntos son
+coplanares? ¿por qué? De NO ser coplanares, encuentre
+la distancia del cuarto punto al posible plano que contiene a los otros tres.
+
+\textbf{Solución:} {Para verificar si el cuarto punto está en el plano, verificamos si cumple la ecuación que lo define}
+\[
+(-1) -5(0) +2(1) \neq 7\,,
+\]
+los cuatro puntos no son coplanares. Para calcular la distancia del cuarto punto al plano se construye el vector unitario normal al plano
+\[
+\hat{\bf n}_{P} = \frac{{\bf a} \times {\bf b} }{| {\bf a} \times {\bf b}|} =\frac{1}{\sqrt{30}} \left(  {\bf i} -5 {\bf j} +2{\bf k} \right) \,, \quad  d =  \hat{\bf n}_{P}  \cdot {\bf c} = \frac{1}{\sqrt{30}} \left(  {\bf i} -5 {\bf j} +2{\bf k} \right) \cdot \left( -3 {\bf i}  +{\bf j} + {\bf k}\right)\,,
+\]
+con lo cual la distancia al cuarto punto será
+\[
+d =  \hat{\bf n}_{P}  \cdot {\bf c} = \frac{1}{\sqrt{30}} \left(  {\bf i} -5 {\bf j} +2{\bf k} \right) \cdot \left( -3 {\bf i}  +{\bf j} + {\bf k}\right) = -\frac{6}{\sqrt{30}}\,.
+\]
+\end{enumerate}
+
+\item  Considere los siguientes tres vectores
+\[
+{\bf w}_{1}={\bf i} +3 {{\bf k}}\,, \quad {\bf w}_{2}
+=2{\bf i}-3{\bf j}\,, \quad {\bf w}_{3}
+=-{\bf j}+ {\bf k}\,.
+\]
+
+\begin{enumerate}
+\item \textquestiondown Forman una base para $\mathbb{R}^{3}$? Explique detalladamente
+
+\textbf{Solución:} {Son linealmente independientes, estos es}
+\[\alpha {\bf w}_{1} + \beta{\bf w}_{2} +\gamma {\bf w}_{3} = 0 \,\, \Rightarrow \,\, \alpha=\beta=\gamma= 0 \,,
+\]
+que se comprueba directamente al resolver
+\[\left.
+\begin{array}{cccc}\alpha & +2 \beta &  & =0 \\ & -3 \beta & - \gamma & =0 \\3 \alpha &  & +\gamma & =0 
+\end{array}\right.
+\]
+\item  Si es que forman base, exprese el vector 
+${\bf a}={\bf i} -3{\bf j}+3{\bf k}$ en la posible base $\left\{ {\bf w}_{1}, {\bf w}_{2}, {\bf w}_{3}\right\}  $
+
+\textbf{Solución:} {Como son linealmente independientes, forman base, con lo cual cualquier vector puede ser expresado como combinación lineal de estos tres. Eso es:}
+\[{\bf a} = \alpha {\bf w}_{1} + \beta {\bf w}_{2} +\gamma {\bf w}_{3} \,\, \Rightarrow \,\, 
+\left\{
+\begin{array}{cccc}
+\alpha & +2 \beta &  & =1 \\
+ & -3 \beta & - \gamma & =-3 \\
+ 3 \alpha &  & +\gamma & =3
+\end{array}\right\} \,\, \Rightarrow \,\,\left\{ 
+\begin{array}{c}\alpha = \frac{1}{3} \\ \\ \beta = \frac{1}{3} \\ \\ \gamma = 2 \end{array} \right.
+\]
+\end{enumerate}
+
+\item  Utilizando la notación de índices muestre si se cumple la siguiente identidad
+
+ ${\boldsymbol \nabla} \times\left(  {\bf a}\times{\bf b}\right)  ={\bf a}\left( {\boldsymbol \nabla}\cdot{\bf b}\right)  -{\bf b}\left(  {\boldsymbol \nabla} \cdot {\bf a}\right)  +\left(  {\bf b}\cdot{\boldsymbol \nabla}\right)  {\bf a}-\left(   {\bf a}\cdot{\boldsymbol \nabla}\right)  {\bf b}$.
+ 
+\textbf{Solución:}
+\[
+{\boldsymbol \nabla}\times\left(  {\bf a}\times{\bf b}\right)  = \epsilon^{ijk} \partial_{j}(\epsilon_{klm} a^{l}b^{m}) =
+(\delta^{i}_{l}\delta^{j}_{m}-\delta^{i}_{m}\delta^{j}_{l}) \partial_{j} (a^{l}b^{m}) 
+= \partial_{m} (a^{i}b^{m}) - \partial_{l} (a^{l}b^{i})  \,,
+\]
+expandiendo la derivada
+\[
+{\boldsymbol \nabla}\times (  {\bf a}\times{\bf b})  = b^{m} \partial_{m} (a^{i}) + a^{i} \partial_{m} (b^{m}) - b^{i} \partial_{l} (a^{l}) - a^{l} \partial_{l} (b^{i}) \equiv  ({\bf b}\cdot {\boldsymbol \nabla}) {\bf a} + ({\boldsymbol \nabla} \cdot {\bf b}) {\bf a} -  ({\boldsymbol \nabla} \cdot {\bf a}) {\bf b} -  ({\bf a}\cdot {\boldsymbol \nabla}) {\bf b}\,.
+\]
+
+\item  La trayectoria de un punto en el plano vista por un observador $1$ es
+\[
+{\bf r}_{1} ( t )  =5 \cos(3t^{2})\ {\bf i} +5\operatorname{sen}(3t^{2})\ {\bf j} \,.
+\]
+
+\begin{enumerate}
+\item  Exprese las aceleraciones radiales y tangenciales de esta partícula.
+
+\textbf{Solución:} {Es claro que la partícula describe un movimiento circular donde 
+$\theta(t) = 3t^{2}$} 
+\[
+{\bf r}(t) = 5 \hat{\bf u}_{r} \,\, \Rightarrow \,\, {\bf v}(t) = \frac{\mathrm{d}{\bf r}(t)}{\mathrm{d}t} = 5  \frac{\mathrm{d} \theta(t)}{\mathrm{d}t}  \hat{\bf u}_{\theta} = 30 t \; \hat{\bf u}_{\theta} \,\, \Rightarrow \,\,
+{\bf a}(t) = \frac{\mathrm{d}{\bf a}(t)}{\mathrm{d}t} = 30 \; \hat{\bf u}_{\theta}  -30t \; \hat{\bf u}_{r} \,.
+\]
+\item  Considere ahora un segundo observador, el cual describe una trayectoria
+respecto al primero representada por
+\[
+{\bf r}_{21}(t)  = (  t^{3}- 4t) {\bf i}+ (  t^{2}+4t )  \ {\bf j}\,.
+\]
+Encuentre las expresiones para los vectores posición, velocidad y
+aceleración de la partícula medidos respecto al segundo observador.
+
+\textbf{Solución:} {La trayectoria de la partícula respecto al segundo observador será}
+\[
+{\bf r}_{2}(t) = {\bf r}_{1}(t) - {\bf r}_{21}(t) = 5 \cos(3t^{2})\ {\bf i} +5\operatorname{sen}(3t^{2})\ {\bf j} -((  t^{3}- 4t) {\bf i}+ (  t^{2}+4t )  \ {\bf j}) \,,
+\]
+con lo cual
+\[
+{\bf r}_{2}(t) = (5\cos(3t^{2}) - (  t^{3}- 4t) ) {\bf i} + (5\operatorname{sen}(3t^{2}) - (  t^{2}+4t )) {\bf j} \,,
+\]
+{entonces}
+\[
+{\bf v}_{2}(t) =\frac{\mathrm{d}{\bf r}_{2}(t)}{\mathrm{d}t} = (30 t \; \cos(3t^{2}) - (  3t^{2}- 4) ) {\bf i} + (30 t \; \operatorname{sen}(3t^{2}) - (  2t + 4 )) {\bf j} \,,
+\]
+y
+\[
+{\bf a}_{2}(t) =\frac{\mathrm{d}{\bf v}_{2}(t)}{\mathrm{d}t} = (30  \; \cos(3t^{2}) - 180 t^{t} \; \operatorname{sen}(3t^{2}) -   6t ) {\bf i} + (30 \; \operatorname{sen}(3t^{2}) - 180 t^{2} \; \cos(3t^{2})   -  2) {\bf j} \,.
+\]
+
+\end{enumerate}
+
+
+
+
+\end{enumerate}

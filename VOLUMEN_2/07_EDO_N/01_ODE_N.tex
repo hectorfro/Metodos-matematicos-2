@@ -1,0 +1,3734 @@
+Vamos a estudiar algunos métodos para resolver ecuaciones diferenciales ordinarias de orden mayor a $1$, esto es, ecuaciones del tipo
+\[
+\mathcal{F}[x,y(x),y'(x),y''(x), . . . , y^{(n)}(x)]=0\,.
+\]
+Primero estudiemos las lineales.
+
+Una ecuación diferencial lineal de orden $n$, es una ecuación de la forma
+\begin{equation}
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q(x)\,,
+\label{edonlineal}
+\end{equation}
+donde $f_0(x), f_1(x), f_2(x), . . . , f_n(x)$ y $Q(x)$ son funciones contínuas de $x$ en un 
+intervalo ${\bf I}$ y $f_n(x) \neq 0$.
+
+Si $Q(x)\neq 0$ la E.D.O se denomina una E.D.O. Lineal de orden $n$ inhomogénea. Si $Q(x)=0$ 
+se llama una E.D.O. Lineal de orden $n$ homogénea.
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Teorema}: Si $f_0(x), f_1(x), f_2(x), . . . , f_n(x)$ y $Q(x)$ son todas funciones contínuas
+sobre un intervalo común ${\bf I}$, y $f_n(x) \neq 0$ cuando $x \in {\bf I}$, entonces la ecuación diferencial
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q(x)\,,
+\]
+tiene una y sólo una solución
+\[
+y=y(x)\,,
+\]
+que satisface el conjunto de condiciones iniciales 
+\[
+y(x_0)=y_0, \ y'(x_0)=y_1, \  y''(x_0)=y_2, \dots , y^{(n)}(x_0)=y_{n-1}\,.
+\]
+Donde $x_0 \in {\bf I}$ y $y_0,  y_1,  y_2 , \dots , y_{n-1}$ son constantes.
+\end{mdframed}
+
+
+
+Estudiemos algunas propiedades
+\begin{enumerate}
+\item La ecuación diferencial homogénea asociada a la ecuación (\ref{edonlineal}), es decir, cuando
+$Q(x)=0$: 
+\begin{equation}
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=0\,,
+\label{edonlinealhomo}
+\end{equation}
+
+tienen $n$ soluciones linealmente independientes: $y_1(x), y_2(x), y_3(x), \dots ,  y_{n}(x)$.
+\item La combinación lineal de esas soluciones 
+\[
+y_h(x)= c_1 y_1(x) + c_2 y_2(x) + c_3 y_3(x) + \cdots + c_n y_{n}(x)\,,
+\]
+donde $c_1, c_2, c_3 , \dots , c_{n}$ son un conjunto de constantes arbitrarias, es también una 
+solución de (\ref{edonlinealhomo}). De dice que se tiene una familia $n$-paramétrica de soluciones 
+de la ecuación  (\ref{edonlinealhomo}).
+\item La función 
+\[
+y(x) = y_h(x) + y_p(x)\,,
+\]
+donde $y_p(x)$ es una solución particular de la ecuación diferencial inhomogénea (\ref{edonlineal}), es una familia $n$-paramétrica de soluciones  de la ecuación  (\ref{edonlineal}).
+\item Si $y_p(x)$ es una solución particular de (\ref{edonlineal}), entonces $\alpha y_p(x)$ es una
+solución de (\ref{edonlineal}) si reemplazamos $Q(x)$ por $\alpha Q(x)$.
+\item Si $y_{p1}(x)$ es una solución de: 
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q_1(x)
+\]
+y $y_{p2}(x)$ es una solución de
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q_2(x)
+\]
+entonces $y_{p}(x)=y_{p1}(x)+y_{p2}(x)$ es una solución de
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q_1(x)+Q_2(x)\,.
+\]
+Esta propiedad se conoce como el Principio de Superposición.
+\item Si $y_{p}(x)=u(x)+iv(x)$ es una solución de
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=R(x)+iC(x)\,,
+\]
+entonces, la función $u(x)$ es una solución de
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=R(x)\,,
+\]
+y la parte imaginaria $v(x)$ es una solución de
+\[
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=C(x)\,,
+\]
+\end{enumerate}
+
+\section{Lineales homogéneas con coeficientes constantes}
+Por lo general, las ecuaciones del tipo (\ref{edonlineal}) donde los coeficientes 
+$f_0(x), f_1(x), f_2(x) , \dots , f_n(x)$ no presentan ningún tipo de restricción no 
+tienen soluciones exactas. Recordemos que las soluciones exactas son aquellas que se pueden 
+escribir en términos de funciones elementales. Sin embargo, si los coeficientes de (\ref{edonlineal})
+son todos constantes es posible obtener soluciones exactas.
+
+Una ecuación diferencial lineal con coeficientes constantes es una ecuación de la forma
+\begin{equation}
+a_n y^{(n)}(x) + a_{n-1} y^{(n-1)}(x) + \cdots + a_2y''(x)+ a_1y'(x) +a_0 y(x)=0\,,
+\label{edolcc}
+\end{equation}
+donde $a_0, a_1, a_2 , \dots , a_{n}$ son constantes y $a_n \neq 0$.
+
+Consideremos (!`o adivinemos!) que una posible solución a la ecuación (\ref{edolcc}) tiene la forma
+\begin{equation}
+y(x)=e^{mx}\,.
+\label{sol_edolcc}
+\end{equation}
+Ahora bien, ?`que forma debe tener $m$ para que (\ref{sol_edolcc}) sea la solución de (\ref{edolcc})?
+Sustituyamos la solución de prueba (\ref{sol_edolcc}) en (\ref{edolcc}):
+\begin{eqnarray}
+a_n\frac{\mathrm{d}^n}{\mathrm{d}x^n} e^{mx} &+& a_{n-1}\frac{\mathrm{d}^{n-1}}{\mathrm{d}x^{n-1}} e^{mx}
++ \cdots + a_2 \frac{\mathrm{d}^2}{\mathrm{d}x^2} e^{mx} + a_1 \frac{\mathrm{d}}{\mathrm{d}x} e^{mx} +
+a_0  e^{mx}\nonumber\\
+a_n m^n e^{mx}&+&a_{n-1}m^{n-1}e^{mx}+ \cdots + a_2 m^2 e^{mx} + a_1 m e^{mx} + a_0e^{mx}=0\nonumber\\
+a_n m^n &+&a_{n-1}m^{n-1}+ \cdots + a_2 m^2  + a_1 m  + a_0=0 
+\label{ecuacara}
+\end{eqnarray}
+
+De esta manera hemos respondido a la pregunta: el valor de $m$ que hace que (\ref{sol_edolcc}) sea la solución de (\ref{edolcc}) es aquel valor que satisface ésta última ecuación algebraica de grado 
+$n$.
+La ecuación (\ref{ecuacara}) tendrá por lo menos $n$ raíces que denotaremos por: $m_1, m_2, m_3, \dots , m_{n}$. Esto significa que cada función $y_i(x)=e^{m_i x}$ con $i=1,2,3 \dots$ será una solución de (\ref{edolcc}).
+
+La ecuación (\ref{ecuacara}) se denomina {\it Ecuación Característica} de (\ref{edolcc}) y se obtiene de una manera muy sencilla simplemente intercambiando  $y'(x)$ por $m$ y el orden de la derivada por su correspondiente valor numérico. Por ejemplo:
+\[
+5y''(x)+3y'(x)+y(x)=0 \,\, \Rightarrow \,\, 5m^2+3m+1=0 \,.
+\]
+
+Como se puede ver, la ecuación característica
+\[
+a_n m^n +a_{n-1}m^{n-1}+ \cdots + a_2 m^2  + a_1 m  + a_0=0 \,,
+\]
+condicionará la solución de la siguiente forma
+
+\begin{enumerate}
+\item  Si $m$ es una raí­z real con multiplicidad $k\geqq2$ entonces las
+$k$ soluciones asociadas con $m$ serán de la forma
+\[
+e^{mx}, xe^{mx}, x^{2}e^{mx}, x^{3}e^{mx}, \cdots, x^{k-1}e^{mx} \,.
+\]
+
+\item  Si $m$ y $\overline{m}$ son parejas de soluciones complejas, $\alpha\pm
+i\beta$ , del polinomio caracterí­stico y tienen multiplicidad $k$, 
+entonces las soluciones correspondientes serán
+\[
+e^{\alpha x}\cos(\beta x), e^{\alpha x}\mathrm{sen}(\beta x), \cdots, 
+ x^{k-1}e^{\alpha x}\cos(\beta x), x^{k-1}e^{\alpha x}\mathrm{sen}(\beta x)\,.
+\]
+\end{enumerate}
+
+Podemos ver algunos casos y ejemplos
+
+\begin{itemize}
+\item  La ecuación
+\[
+24y^{\prime\prime\prime}+2y^{\prime\prime}-5y^{\prime}-y=0 
+\,\, \Leftrightarrow \,\, 24r^{3}+2r^{2}-5r-1=(3r+1)(2r-1)(4r+1)=0\,,
+\]
+consecuentemente tendrá  las raí­ces
+\[
+m_{1}=-\frac13,\quad m_{2}=\frac12,\quad m_{3}=-\frac14,\quad
+\]
+y una  solución de la forma
+\[
+y(x)=C_{1}e^{-x/3}+C_{2}e^{x/2}+C_{3}e^{-x/4}\,.
+\]
+
+\item  La ecuación
+\[
+y^{\prime\prime\prime}+3y^{\prime\prime}+3y^{\prime}+y=0
+\,\, \Leftrightarrow \,\, r^{3}+3r^{2}+3r+1=(r+1)^{3}=0\,,
+\]
+con las raí­ces $m=-1$ y con multiplicidad $k=3$, tendrá una
+solución de la forma
+\[
+y(x)=C_{1}e^{-x}+C_{2}xe^{-x}+C_{3}x^{2}e^{-x}\,.
+\]
+
+\item  La ecuación
+\[
+4y^{(4)}+12y^{\prime\prime\prime}+49y^{\prime\prime}+42y^{\prime}+10y=0
+\,\, \Leftrightarrow \,\, 4r^{4}+12r^{3}+49r^{2}+42r+10=(r^{2}+2r+10)(2r+1)^{2}=0\,,
+\]
+con raí­ces
+\[
+m_{1}=-1+3i,\quad m_{2}=-1-3i,\quad m_{3}=-\frac{1}{2}, \text{ con multiplicidad 2}\,.
+\]
+Tendrá como  solución
+\[
+y(x)=e^{-x}\left[C_{1}\cos(3x)+C_{2}\mathrm{sen}(3x)\right]+C_{3}e^{-x/2}+C_{4} xe^{-x/2}
+\]
+
+\item  La ecuación
+\[
+y^{(4)}+4y^{\prime\prime\prime}+24y^{\prime\prime}+40y^{\prime}+100y=0
+\,\, \Leftrightarrow \,\, r^{4}+4r^{3}+24r^{2}+40r+100=(r^{2}+2r+10)^{2}=0\,,
+\]
+tendrá las raí­ces
+\[
+m_{1}=-1+3i,\quad m_{2}=-1-3i,\quad \text{con multiplicidad 2}\,.
+\]
+Y una  solución  de la forma
+\[
+y(x)=e^{-x}\left[C_{1}\cos(3x)+C_{2}\mathrm{sen}(3x)+C_{3}\ x\cos(3x)+C_{4}
+\ x\mathrm{sen}(3x)\right]
+\]
+
+\item  La ecuación
+\[
+4y^{\prime\prime\prime}+33y^{\prime}-37y=0\,,
+\]
+con
+\[
+y(0)=0;\quad y^{\prime}(0)=-1;\quad y^{\prime\prime}(0)=3
+\,\, \Leftrightarrow \,\, 4r^{3}+33r-37=(r-1)(4r^{2}+4r+37)=0 \,,
+\]
+consecuentemente con una solución general de la forma
+\[
+y(x)=C_{1}e^{x}+e^{-x/2}\left[C_{2}\cos(3x)+C_{3}\mathrm{sen}(3x)\right]\,,
+\]
+y con la solución particular
+\[
+y(x)=\frac{8}{45}e^{x}-e^{-x/2}\left[\frac{8}{45}\cos(3x)+\frac{19}{45}
+\mathrm{sen}(3x)\right]\,.
+\]
+\end{itemize}
+
+Como pudimos ver, al buscar las raíces de la ecuación característica puede ocurrir varios casos los cuales vamos a resumir a continuación.
+
+\subsection{Las raíces de la ecuación característica son todas diferentes}
+Cuando las $n$ raíces de la ecuación (\ref{ecuacara}) son distintas entonces las $n$ 
+soluciones linealmente independientes de (\ref{edolcc}) se pueden escribir como:
+\[
+y_1(x)=e^{m_1 x}\,, \ y_2(x)=e^{m_2 x}\,, \ y_3(x)=e^{m_3 x}\,,\quad  \dots \quad, 
+y_n(x)=e^{m_n x}\,,
+\]
+por lo tanto, la solución general de (\ref{edolcc}) será
+\[
+y(x)= c_1 e^{m_1 x}+c_2 e^{m_2 x}+ c_3 e^{m_3 x} + \cdots + c_n e^{m_n x} \,.
+\]
+
+
+\subsection{Las raíces de la ecuación característica se repiten}
+Cuando la ecuación característica tiene una raíz $m=a$ que se repite $k$ veces, entonces la solución general de (\ref{edolcc}) es 
+\[
+y(x)= \left(c_1 +c_2 x + c_3 x^2 + \cdots + c_n x^{k-1}\right) e^{a x} 
+\]
+Si la ecuación característica presenta raíces múltiples puede ser que la ecuación 
+característica se pueda escribir como una colección de productos de términos,  por ejemplo, supongamos que la ecuación característica se puede factorizar de la forma siguiente
+\[
+m^2(m-a)^3(m+b)^4(m+c)=0\,,
+\]
+en este caso se tiene que las raíces son 
+\begin{eqnarray*}
+m&=&0 \quad (2 \mbox{ veces}) \quad \rightarrow \quad y_1=c_1+c_2 x\\
+m&=&a \quad (3 \mbox{ veces}) \quad \rightarrow \quad y_2=\left(c_3+c_4 x + c_5x^2\right)e^{ax}\\
+m&=&-b\quad(4 \mbox{ veces})  \,\, \rightarrow \quad y_3=\left(c_6+c_7x+c_8x^2+c_9x^3\right)e^{-bx}\\
+m&=&-c\quad(1 \mbox{ vez})       \,\quad \rightarrow \quad y_4=c_{10} e^{-cx}
+\end{eqnarray*}
+La solución general será entonces
+\[
+y(x)= c_1 +c_2 x +  \left(c_3+c_4 x + c_5x^2\right)e^{ax} + \left(c_6+c_7x+c_8x^2+c_9x^3\right)e^{-bx}+c_{10} e^{-cx}\,.
+\]
+
+
+\subsection{Las raíces de la ecuación característica son números complejos}
+
+Puede suceder también que las raíces resultantes sean números complejos. En este caso es bueno notar que si lo coeficientes de la ecuación característica son todos reales, entonces las raíces imaginarias que puedan aparecer lo harán en la forma de pares conjugados, es decir, que si  $a+ib$ es una raíz entonces $a-ib$ también lo será. Supongamos por un momento que $m_1=a+ib$  y $m_2=a-ib$  son dos raíces de la ecuación característica, entonces la solución de la ecuación diferencial de segundo orden asociada será:
+\[
+y(x)= c_1 e^{(a+ib)x} + c_2 e^{(a-ib)x} = c_1 e^{ax} e^{ibx}+ c_2 e^{ax}e^{-ibx}=
+e^{ax}\left[c_1 e^{ibx}+ c_2 e^{-ibx} \right]
+\]
+si utilizamos la fórmula de Euler
+\begin{eqnarray*}
+y(x)&=& e^{ax}\left[ c_1\{\cos(bx)+ i \mbox{sen}(bx)\} + c_2\{\cos(bx)- i \mbox{sen}(bx)\}\right]\\
+&=& e^{ax}\left[ (c_1+c_2)\cos(bx)  + i (c_1-c_2)\, \mbox{sen}(bx)\right]\\
+&=& e^{ax}\left[ {\cal C}_1\cos(bx)  + i\, {\cal C}_2\, \mbox{sen}(bx)\right]
+\end{eqnarray*}
+lo que viene a ser una segunda manera de escribir la solución de la ecuación diferencial.
+
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+\begin{enumerate}
+\item Queremos encontrar la solución general de 
+\[
+y'''+2y''-y'-2y=0\,.
+\]
+La ecuación característica asociada a la ecuación diferencial es
+\[
+m^3+2m^2-m-2=0 \,\, \Rightarrow \,\, 
+\left\{
+\begin{array}{l}
+m_1 =1  \\
+m_2 =-1 \\
+m_3 =-2     
+\end{array} 
+\right.
+\]
+por lo tanto, la solución general es:
+\[
+y(x)= c_1 e^x + c_2 e^{-x} + c_3 e^{-3x}\,.
+\]
+
+\item Intentemos encontrar la solución general de 
+\[
+y''''-3y''+2y'=0\,.
+\]
+La ecuación característica asociada a la ecuación diferencial es
+\[
+m^4-3m^2+2m=0 \,\, \Rightarrow \,\, 
+\left\{
+\begin{array}{l}
+m_1 =0  \\
+m_2 =1 \\
+m_3 =1 \\
+m_4 = -2     
+\end{array} 
+\right.
+\]
+la solución será
+\[
+y(x)= c_1 + \left(c_2+c_3 x \right)e^{x} + c_4 e^{-2x}\,.
+\]
+
+\item Encontremos la solución general de 
+\[
+y''''+2y''+1=0\,.
+\]
+
+La ecuación característica asociada a la ecuación diferencial es
+\[
+m^4+2m^2+1=0 \,\, \Rightarrow \,\, \left(m^2+1 \right)^2 =0 \,\, \Rightarrow \,\,
+\left\{
+\begin{array}{l}
+m_1 =i  \\
+m_2 =i \\
+m_3 =-i \\
+m_4 = -i     
+\end{array} 
+\right.
+\]
+la solución será entonces de la forma
+\[
+y(x)= (c_1 + c_2 x) e^{ix} + (c_3 + c_4 x) e^{-ix}\,.
+\]
+
+\item Veamos otro ejemplo, encontrar la solución general de 
+\[
+y'''-8y''+22y'-20 y=0\,.
+\]
+La ecuación característica asociada es
+\[
+m^3-8m^2+22m-20=0 \,\, \Rightarrow \,\, \left(m-2 \right)\left(m^2-6m+10 \right) =0 
+\,\, \Rightarrow \,\,
+\left\{
+\begin{array}{l}
+m_1 =2  \\
+m_2 =3+i \\
+m_3 =3-i 
+\end{array} 
+\right.
+\]
+la solución será:
+\begin{eqnarray*}
+y(x)&=& c_1 e^{2x} + c_2 e^{(3+i)x} + c_3 e^{(3-i)x} \\
+&=&c_1 e^{2x} + e^{3x}\left[ c_2 e^{ix} + c_3 e^{-ix}\right]\\
+&=&c_1 e^{2x}+ e^{3x}\left[ {\cal C}_2\cos(x)  + i\, {\cal C}_3\, \mbox{sen}(x)\right]\,.
+\end{eqnarray*}
+
+\end{enumerate}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+
+\section{Lineales no homogéneas con coeficientes constantes}
+
+Antes de entrar de lleno en los métodos de solución de ecuaciones diferenciales no homogéneas vamos a estudiar una herramienta que es utilizada  para demostrar que un conjunto de soluciones es linealmente independiente. Hablaremos de el wronskiano.
+
+Pero primero que todo recordemos el concepto de independencia y dependencia lineal de funciones.
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Definición}: Independencia y dependencia lineal.
+
+Sean $n$ funciones $f_{1}(x),\ f_{2}(x),\ f_{3}(x),\ f_{4}(x),\ \cdots f_{n}(x),$
+cuando menos $n-1$ veces diferenciables. Entonces, el conjunto $S=\{f_{1}
+(x),\ f_{2}(x),\ f_{3}(x),\ f_{4}(x),\ \cdots f_{n}(x)\}$, se dice linealmente
+dependiente en el intervalo $I$, si existen algunas constantes, $c_{1}
+,\ c_{2},\ c_{3},\ c_{4},\ \cdots c_{n}$ distintas de cero tal que
+\[
+\sum_{i=1}^{n}c_{i}\ f_{i}(x)=c_{1}\ f_{1}(x)+c_{2}\ \ f_{2}(x)+\cdots
++c_{n}\ f_{n}(x)=0
+\]
+Por el contrario, si no existe ninguna constante $c_{i}\neq0,$ se dirá que
+$S$ es linealmente independiente.
+\end{mdframed}
+
+\subsection{El wronskiano}
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Definición}: Wronskiano.
+ 
+ El conjunto $S=\{f_{1}
+(x),\ f_{2}(x),\ f_{3}(x),\ f_{4}(x),\ \cdots f_{n}(x)\}$ de funciones, cuando
+menos $n-1$ veces diferenciables, conforman el wronskiano,
+\[
+W(S)=W(f_{1}(x),\ f_{2}(x),\ f_{3}(x),\ f_{4}(x),\ \cdots f_{n}(x))
+\]
+a través del siguiente determinante
+\[
+W(S)=\left|
+\begin{array}
+[c]{cccc}
+f_{1}(x) & f_{2}(x) & \cdots &  f_{n}(x)\\
+f_{1}^{\prime}(x) & f_{2}^{\prime}(x) & \cdots &  f_{n}^{\prime}(x)\\
+\vdots & \vdots & \ddots & \vdots\\
+f_{1}^{(n-1)}(x) & f_{2}^{(n-1)}(x) & \cdots &  f_{n}^{(n-1)}(x)
+\end{array}
+\right|
+\]
+
+Si $W(S)\neq0$ al menos en un punto dentro del intervalo $I$, entonces $S$ es
+linealmente independiente
+\end{mdframed}
+
+Definamos ahora lo que se denomina un conjunto fundamental de soluciones.
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Definición}: Conjunto fundamental de soluciones. 
+
+El conjunto $S=\{f_{1}(x),\ f_{2}(x),\ f_{3}(x),\ f_{4}(x),\ \cdots f_{n}(x)\}$
+de $n$ soluciones no triviales a la ecuación diferencial:
+\begin{equation}
+a_{0}(x)\ y(x)+a_{1}(x)\ y^{\prime}(x)+\cdots+a_{n}(x)\ y^{(n)}
+(x)=0,\label{ecudifn}
+\end{equation}
+Se le denomina conjunto fundamental de soluciones. 
+
+La combinación lineal
+\[
+f(x)=\sum_{i=1}^{n}c_{i}\ f_{i}(x)=c_{1}\ f_{1}(x)+c_{2}\ \ f_{2}
+(x)+\cdots+c_{n}\ f_{n}(x)
+\]
+también es solución de la ecuación diferencial (\ref{ecudifn}) y se denomina como solución general de (\ref{ecudifn}). 
+
+Adicionalmente, si los coeficientes $a_{i}(x)$ son continuos en el intervalo abierto $I$,  para todo $i=1,2,\cdots,n$, entonces la ecuación diferencial (\ref{ecudifn}) tiene un conjunto fundamental de $n$ soluciones linealmente independientes.
+\end{mdframed}
+
+Esto nos lleva a distinguir entre los diferentes tipos de soluciones. 
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Definición}: Soluciones particulares y generales. 
+
+Dada una ecuación diferencial lineal no homogénea
+\begin{equation}
+a_{0}(x)\ y(x)+a_{1}(x)\ y^{\prime}(x)+\cdots+a_{n}(x)\ y^{(n)}(x)=Q(x)
+\label{ecudifih}
+\end{equation}
+
+Si $y_{p}(x)$ es solución de (\ref{ecudifih}) sin constantes arbitrarias,
+entonces $y_{p}(x)$ se denomina solución particular de (\ref{ecudifih}).
+De igual modo, se denominará solución general de (\ref{ecudifih}) a la
+suma de la solución, $y_{h}(x)$, de la ecuación homogénea
+(\ref{ecudifn}) más la solución particular:
+\[
+y(x)=y_{h}(x)+y_{p}(x)\,.
+\]
+\end{mdframed}
+
+
+Anteriormente vimos que la solución general de la ecuación diferencial 
+\[
+a_n y^{(n)}(x) + a_{n-1} y^{(n-1)}(x) + \cdots + a_2y''(x)+ a_1y'(x) +a_0 y(x)=Q(x)\,,
+\]
+se puede escribir como
+\[
+y(x) = y_h(x) + y_p(x) \,,
+\]
+donde $y_h(x)$ es la solución de la ecuación diferencial homogénea asociada a la no homogénea, es decir, cuando $Q(x)=0$, y $y_p(x)$ es una solución particular de la  ecuación diferencial no homogénea. 
+
+Como ya sabemos de un método para resolver la ecuación homogénea queda preguntarse como se hace para calcular una solución particular. Veamos algunos métodos.
+
+\subsection{El método de los coeficientes indeterminados}
+
+Este método se utiliza si la función $Q(x)$ esta conformada por funciones que tienen un número finito de derivadas linealmente independientes, es decir, que $Q(x)$ contenga únicamente términos del tipo: $a$, $x^k$, $e^{ax}$, $\mbox{sen}\,(ax)$, $\cos(ax)$ y combinaciones  lineales de tales términos. Por ejemplo, si $Q(x)=\mbox{sen}(ax)$ podemos construir un conjunto con las derivadas sucesivas, esto es:
+\[
+\mbox{sen}\,(ax) \, \rightarrow \, \left\{ a\cos(ax)\,,\, -a^2\mbox{sen}\,(ax)\,,\, -a^3\cos (ax)\,,\, a^4\mbox{sen}\,(ax) \dots \right\}
+\]
+pero de este conjunto infinito únicamente las funciones: $ \{\mbox{sen}\,(ax)\,,\,  \cos(ax)\}$ son linealmente independientes. Otros ejemplos son:
+\begin{eqnarray*}
+x^3 \quad &\rightarrow & \quad \left\{3x^2\,,\, 6x  \,,\, 6  \right\} \\
+\frac{1}{x} \quad &\rightarrow & \quad \left\{-\frac{1}{x^2}\,,\, \frac{2}{x^3} \,,\, -\frac{6}{x^4} \,, \dots  \right\}
+\end{eqnarray*}
+
+Podemos estudiar el wronskiano de este conjunto de funciones para ver si son linealmente independientes. Para el  ejemplo anterior tenemos 
+\begin{eqnarray*}
+\left|\begin{array}{cc}
+f_1(x) & f_2(x) \\ \\
+f'_1(x) & f'_2(x)
+\end{array}
+\right| \,\, = \,\,
+\left|\begin{array}{cc}
+\mbox{sen}\,(ax) & \cos(ax) \\ \\
+a \cos(ax)  & -a \mbox{sen}\,(ax)
+\end{array}
+\right| &=& -a \mbox{sen}^2\,(ax) - a\cos^2(ax)\\
+&=&-a\left[\mbox{sen}^2\,(ax)+\cos^2(ax)\right] = -a \neq 0\,.
+\end{eqnarray*}
+
+Volviendo al punto que tiene que ver con la búsqueda de $y_p(x)$, para el método de los
+coeficientes indeterminados necesitamos comparar los términos de $Q(x)$ con los de $y_h(x)$ y 
+pueden resultar los siguientes casos:
+
+\begin{description}
+\item[Caso 1] 
+La funciones $Q(x)$ y $y_h(x)$ no contienen términos en común. En este caso, se construye una solución particular $y_p(x)$ con el conjunto conformado por $Q(x)$ y todas sus derivadas linealmente independientes.
+
+Por ejemplo,  encuentremos la solución general de
+\[
+y''+4y'+4y=4x^2+6e^{x}\,.
+\]
+
+Si resolvemos la ecuación homogénea: $y''+4y'+4y=0$, encontraremos que 
+\[
+y_h(x)=(c_1+c_2x)e^{-2x}
+\]
+Queda claro que $Q(x)$ y $y_h(x)$ no contienen términos en común. La solución particular  la construiremos de esta manera:
+\[
+Q(x)=4x^2+6e^{x} \quad \rightarrow \quad 
+\underbrace{\left\{ x^2\,,\,  x\,,\, 1 \right\}}_{x^2} \quad \cup \quad  
+\underbrace{\left\{e^{x} \right\}}_{e^{x}}
+\]
+
+No hace falta  tomar en cuenta las constantes. La solución particular será una combinación lineal de los elementos que resultan de la unión de esos conjuntos
+\[
+y_p(x)= A x^2 + Bx + C + D e^{x} 
+\]
+donde las constantes $A, B, C, D$ tendrán que ser determinadas.
+
+Una vez que la solución es propuesta,  no queda más que derivar y sustituir en la ecuación diferencial problema:
+\begin{eqnarray*}
+y'_p(x)&=& 2Ax +B +De^{x} \\
+y''_p(x)&=& 2A +De^{x}
+\end{eqnarray*}
+Al sustituir en la ecuación diferencial resulta
+\begin{eqnarray*}
+\left[2A +De^{x}\right]+ 4\left[2Ax +B +De^{x}\right] + 4\left[A x^2 + Bx + C + D e^{x} \right]&=&4x^2+6e^{x}\\
+4Ax^2+\left[8A+4B\right] x + \left[2A + 4B + 4C \right]+ 9De^{x} &=&4x^2+6e^{x}
+\end{eqnarray*}
+igualando coeficientes
+\[
+\left\{\begin{array}{rcl}
+4A &= &4 \\
+8A+4B  & =&0\\
+2A + 4B + 4C &= &0 \\
+9D  &= &6
+\end{array}
+\right. \,\, \Rightarrow \,\, A=1\,,\, B=-2\,,\,C=\frac32\,,\, D=\frac23\,,
+\]
+por lo tanto, la solución general es
+\[
+y(x)=y_h(x)+y_p(x)=(c_1+c_2x)e^{-2x} +  x^2 -2 x + \frac32 + \frac23 e^{x}
+\]
+
+
+\item[Caso 2] Los términos de $Q(x)$ aparecen como $x^k$ veces un término de la solución $y_h(x)$, donde $k$ es un entero positivo. Esto es, si la función  $y_h(x)$ contiene un término, digamos  $u(x)$, tal que un término de $Q(x)$ es $x^k u(x) $  entonces una solución particular se puede construir con una combinación lineal de $x^{k+1} u(x)$ y todas las derivadas linealmente independientes. En todo lo anterior se  ignoran las constantes. Si  $Q(x)$ contienen términos que cumplen con el Caso 1 estos también deben ser agregados a la solución particular.
+
+Por ejemplo,  dada la siguiente ecuación diferencial
+\[
+y''-3y'+2y=2x^2+3e^{2x} \,.
+\]
+Si resolvemos la ecuación homogénea: $y''-3y'+2y=0$, encontraremos que 
+\[
+y_h(x)= c_1 e^{x} + c_2 \underbrace{e^{2x} }_{u(x)}
+\]
+Notemos que 
+\[
+Q(x)= 2x^2+3 \underbrace{e^{2x} } \quad \rightarrow \quad   e^{2x} =   x^0\ \overbrace{e^{2x}}^{u(x)}  \quad \rightarrow \quad k=0\,.
+\]
+La solución particular se puede construir a partir del siguiente conjunto:
+\[
+\underbrace{\left\{ x  e^{2x} \,,\, e^{2x}   \right\}}_{ x^{0+1}  e^{2x}} \quad \cup \quad  
+\underbrace{\left\{x^2\,,\, x \,,\, 1 \right\}}_{x^2}
+\]
+Del primer conjunto no tomamos en cuenta el término $e^{2x}$ porque éste ya aparece en $y_h(x)$. Por lo tanto, la solución particular será una combinación lineal de los elementos que resultan de la unión de esos conjuntos:
+\[
+\left\{ x  e^{2x} \,,\,  x^2\,,\, x \,,\, 1  \right\}\,,
+\]
+esto significa que proponemos como solución particular la siguiente:
+\[
+y_p(x)= A x^2 + Bx + C + D x  e^{2x} \,.
+\]
+Derivando:
+\begin{eqnarray*}
+y'_p(x)&=& 2Ax +B +2Dxe^{2x} + D  e^{2x}\\
+y''_p(x)&=& 2A +4Dxe^{2x} + 4De^{2x}\,.
+\end{eqnarray*}
+Al sustituir en la ecuación diferencial resulta
+\begin{eqnarray*}
+\left[2A +4Dxe^{2x} + 4De^{2x}\right] -3\left[2Ax +B +2Dxe^{2x} + D  e^{2x}  \right] + 2\left[A x^2 + Bx + C + D x  e^{2x}  \right]&=&2x^2+3e^{2x}\\
+2Ax^2+\left[2B-6A\right] x + \left[2A -3B + 2C \right]+ De^{2x} &=&2x^2+3e^{2x}\,.
+\end{eqnarray*}
+Igualando coeficientes
+\[
+\left\{\begin{array}{rcl}
+2A &= &2 \\
+2B-6A  & =&0\\
+2A -3B + 2C &= &0 \\
+D  &= &3
+\end{array}
+\right. \quad \Rightarrow \quad A=1\,,\, B=3\,,\,C=\frac72\,,\, D=3\,,
+\]
+por lo tanto, la solución general es
+\[
+y(x)= c_1 e^{x} + c_2  e^{2x} + x^2 + 3x + \frac72 + 3 x  e^{2x} \,.
+\]
+
+\item[Caso 3]  Este caso se aplica si se cumplen las siguientes condiciones
+\begin{enumerate}
+\item La ecuación característica de la ecuación diferencial homogénea tiene una raíz multiple que se repite $r$ veces.
+\item $Q(x)$ contiene un término que es $x^k$ veces un término, digamos $u(x)$, de la solución $y_h(x)$. La función $u(x)$ se obtiene 
+de la raíz múltiple.
+\end{enumerate}
+En este caso, la solución particular será una combinación lineal de $x^{k+r} u(x)$ y todas las derivadas linealmente independientes. Si además $Q(x)$ contiene términos que correspondan al Caso 1 estos deben agregarse.
+
+Por ejemplo, dada la ecuación
+\[
+y''+4y'+4y=3xe^{-2x}\,.
+\]
+Si resolvemos la ecuación homogénea: $y''+4y'+4y=0$, encontraremos que 
+\[
+y_h(x)= c_1 e^{-2x} + c_2 x  \underbrace{e^{-2x} }_{u(x)} \,\, \Rightarrow \,\,m_1=-2\,,\, m_2=-2 \,\, \Rightarrow \,\, r=2
+\]
+Notemos que 
+\[
+Q(x)= 3 \underbrace{xe^{-2x} } \,\, \Rightarrow \,\,   xe^{-2x} =   x^1\ \overbrace{ e^{-2x}}^{u(x)}  \,\, \Rightarrow \,\,k=1\,.
+\]
+
+La solución particular se puede construir a partir del siguiente conjunto:
+\[
+\underbrace{\left\{ x^3 e^{-2x} \,,\, x^2e^{-2x}\,,\,x e^{-2x} \,,\,e^{-2x}   \right\}}_{ x^{1+2}  e^{-2x}} 
+\]
+No tomaremos en cuenta los términos $\left\{x e^{-2x} \,,\,e^{-2x}\right\}$ porque estos ya aparecen en $y_h(x)$. Por lo tanto, la solución particular será la siguiente combinación lineal 
+\[
+y_p(x)= A x^3 e^{-2x} + Bx^2e^{-2x} \,.
+\]
+Se deriva 
+\begin{eqnarray*}
+y'_p(x)&=& -2Ax^3e^{-2x}  + 3Ax^2e^{-2x}-2Bx^2e^{-2x} +2Bxe^{-2x}\\
+y''_p(x)&=& 4Ax^3e^{-2x}-12Ax^2e^{-2x}+6Axe^{-2x}+4Bx^2e^{-2x}-8Bxe^{-2x}+2Be^{-2x}
+\end{eqnarray*}
+Se  sustituye en la ecuación diferencial 
+\begin{eqnarray*}
+\left[ 4Ax^3e^{-2x}-12Ax^2e^{-2x}+6Axe^{-2x}+4Bx^2e^{-2x}-8Bxe^{-2x}+2Be^{-2x}\right] &+&\\
+4\left[  -2Ax^3e^{-2x}  + 3Ax^2e^{-2x}-2Bx^2e^{-2x} +2Bxe^{-2x} \right] + 4\left[  A x^3 e^{-2x} + Bx^2e^{-2x}   \right]&=&3xe^{-2x}\\
+6Ax e^{-2x} +2Be^{-2x}&=& 3xe^{-2x}
+\end{eqnarray*}
+igualando coeficientes
+\[
+\left\{\begin{array}{rcl}
+6A &= &3 \\
+2B & =&0
+\end{array}
+\right. \quad \Rightarrow \quad A=\frac12\,,\, B=0 \,,
+\]
+por lo tanto, la solución general es
+\[
+y(x)= c_1 e^{-2x} + c_2 x  e^{-2x}  + \frac12 x^3 e^{-2x} \,.
+\]
+\end{description}
+
+
+\subsection{Método de la variación de parámetros}
+
+Vamos a continuar con el estudio de los métodos para resolver ecuaciones del tipo:
+\begin{equation}
+a_n y^{(n)}(x) + a_{n-1} y^{(n-1)}(x) + \cdots + a_2y''(x)+ a_1y'(x) +a_0 y(x)=Q(x)\,,
+\label{edolnhcc}
+\end{equation}
+donde $a_0, a_1, a_2, . . . , a_{n}$ son constantes y $a_n \neq 0$.
+
+El método de los coeficientes indeterminados, para encontrar una solución particular de
+ (\ref{edolnhcc}), esta limitado por la condición de que la función
+$Q(x)$ sea una función con la que se pueda construir un conjunto finito de derivadas linealmente independientes. Estudiemos un método que quita esta  restricción.
+
+Por simplicidad, para desarrollar este método vamos a considerar el caso $n=2$, 
+luego veremos como generalizar al caso de orden $n$. Es decir, vamos a estudiar la ecuación 
+\begin{equation}
+a_2y''(x)+ a_1y'(x) +a_0 y(x)=Q(x)\,, \quad a_2 \neq 0\,,
+\label{edolccn2}
+\end{equation}
+donde $Q(x)$ es una función continua y diferente de cero.
+Si $y_1(x)$ y $y_2(x)$ son un par de soluciones linealmente independientes de la ecuación diferencial homogénea asociada a (\ref{edolccn2}), es decir, de la ecuación
+\begin{equation}
+a_2y''(x)+ a_1y'(x) +a_0 y(x)=0\,,
+\label{edolccn2h}
+\end{equation}
+entonces, vamos a proponer que una solución particular de la ecuación (\ref{edolccn2}) es de la forma:
+\begin{equation}
+y_p(x)= u_1(x)y_1(x) +u_2(x) y_2(x)\,,
+\label{sol_edolccn2}
+\end{equation}
+donde $u_1(x)$ y $u_2(x)$ son dos funciones a determinar.
+
+Derivando:
+\begin{eqnarray*}
+y'_p(x)&=&u'_1(x)y_1(x) + u_1(x)y'_1(x) + u'_2(x)y_2(x) + u_2(x)y'_2(x)\\
+&=& \left[u_1(x)y'_1(x)+u_2(x)y'_2(x)\right] + \left[u'_1(x)y_1(x)+u'_2(x)y_2(x)\right]\\
+y''_p(x)&=&u''_1(x)y_1(x)+u'_1(x)y'_1(x)+ u'_1(x)y'_1(x) +  u_1(x)y''_1(x)  \\
+&+& u''_2(x)y_2(x)+u'_2(x)y'_2(x)+u'_2(x)y'_2(x)+u_2(x)y''_2(x)\\
+&=&\left[u_1(x)y''_1(x)+u_2(x)y''_2(x) \right]+ \left[u'_1(x)y'_1(x)+u'_2(x)y'_2(x)\right]+\left[u'_1(x)y_1(x)+u'_2(x)y_1(x)\right ]'
+\end{eqnarray*}
+y sustituyendo en (\ref{edolccn2}) resulta:
+\begin{eqnarray*}
+a_2\left[u_1(x)y''_1(x)+u_2(x)y''_2(x) \right] &+& a_2\left[u'_1(x)y'_1(x)+u'_2(x)y'_2(x) \right] + 
+a_2\left[u'_1(x)y_1(x)+u'_2(x)y_2(x) \right]^{\prime}  +\\
+a_1\left[ u_1(x)y'_1(x)+u_2(x)y'_2(x)\right]&+&a_1\left[ u'_1(x)y_1(x)+u'_2(x)y_2(x)\right]+ 
+a_0\left[u_1(x)y_1(x) +u_2(x) y_2(x) \right]=Q(x)\\
+\end{eqnarray*}
+acomodando términos:
+\begin{eqnarray*}
+u_1(x)\overbrace{\left[a_2 y''_1(x)+a_1y'_1(x)+a_0y_1(x)\right]}^{=0}
+&+&u_2(x)\overbrace{\left[a_2 y''_2(x)+a_1y'_2(x)+a_0y_2(x)\right]}^{=0}+\\
+a_2\left[u'_1(x)y'_1(x)+u'_2(x)y'_2(x) \right]&+&a_2\left[u'_1(x)y_1(x)+u'_2(x)y_2(x) \right]^{\prime}+a_1\left[u'_1(x)y_1(x)+u'_2(x)y_2(x) \right]=Q(x)
+\end{eqnarray*}
+
+Es claro que lo que tenemos es una ecuación con dos incógnitas: $u'_1(x)$ y $u'_2(x)$, pero como buscamos una solución particular podemos tomar de esta última ecuación el siguiente caso:
+\begin{equation}
+\left\{\begin{array}{rcl}
+u'_1(x)y_1(x)+u'_2(x)y_2(x) &= &0 \\
+ &  & \\
+u'_1(x)y'_1(x)+u'_2(x)y'_2(x) &= &\dfrac{Q(x)}{a_2} \\
+\end{array}
+\right.
+\label{usistema}
+\end{equation}
+
+La solución de este sistema resulta ser:
+\[
+u'_1(x)= \frac{\left|\begin{array}{cc}
+0 & y_2 \\
+\frac{Q(x)}{a_2} & y'_2
+\end{array}\right|}
+{\left|\begin{array}{cc}
+y_1 & y_2 \\
+y'_1 & y'_2
+\end{array}\right|}= G_1(x) \,, \qquad 
+u'_2(x)= \frac{\left|\begin{array}{cc}
+y_1 & 0 \\
+y'_1 & \frac{Q(x)}{a_2}
+\end{array}\right|}
+{\left|\begin{array}{cc}
+y_1 & y_2 \\
+y'_1 & y'_2
+\end{array}\right|}= G_2(x)
+\]
+
+Integrando y omitiendo las constantes de integración:
+\[
+u_1(x)=\int G_1(x)\,\mathrm{d}x \,, \quad u_2(x)=\int G_2(x)\,\mathrm{d}x
+\]
+por lo tanto, la solución general es:
+\[
+y(x)=C_1\, y_1(x)+C_2 \,y_2(x)+u_1(x)\, y_1(x)+u_2(x) \,y_2(x)\,.
+\]
+
+Si la ecuación diferencial es de orden $n$, se puede demostrar que 
+\begin{equation}
+y_p(x)= u_1(x)y_1(x) +u_2(x) y_2(x)+ \dots + u_n(x)y_n(x)
+\label{solparn}
+\end{equation}
+será una solución particular de la ecuación no homogénea, donde $y_1(x), y_2(x), \dots , y_n(x)$ son las $n$ soluciones linealmente independientes de la ecuación diferencial homogénea. 
+
+Sustituyendo la ecuación (\ref{solparn}), para la solución particular, en la ecuación diferencial   y siguiendo  el mismo procedimiento que para el caso de orden $2$ se tendría que resolver el siguiente sistema de ecuaciones:
+\[
+\left\{\begin{array}{rcl}
+u'_1(x)y_1(x)+u'_2(x)y_2(x) + \cdots + u'_n(x)y_n(x) &= &0 \\
+ &  & \\
+u'_1(x)y'_1(x)+u'_2(x)y'_2(x) + \cdots + u'_n(x)y'_n(x) &= &0 \\
+\vdots \qquad  \vdots \qquad  \vdots \qquad \vdots \qquad   
+\vdots \qquad  \vdots \qquad  \vdots \qquad \vdots \qquad &= & \vdots \\
+u'_1(x)y^{(n-1)}_1(x)+u'_2(x)y^{(n-1)}_2(x) + \cdots + u'_n(x)y^{(n-1)}_n(x) &= &\dfrac{Q(x)}{a_n}
+\end{array}
+\right.
+\]
+
+Consideremos un ejemplo,  encontremos la solución general de
+\[
+y''-3y'+2y=\mbox{sen}\left(e^{-x}\right)\,.
+\]
+Cuando se resuelve la ecuación diferencial homogénea asociada a la ecuación diferencial del problema se tiene
+\[
+y''-3y'+2y=0 \,\, \Rightarrow \,\, y_h(x)=C_1 e^{x}+C_2 e^{2x}\,,
+\]
+por lo tanto: $y_1=e^{x}$ y $y_2=e^{2x}$.
+
+Como ya hicimos el desarrollo para $n=2$ podemos ir directamente al sistema resultante:
+\[
+\left\{\begin{array}{rcl}
+u'_1(x)e^{x}+u'_2(x)e^{2x} &= &0 \\
+ &  & \\
+u'_1(x)e^{x} +2u'_2(x)e^{2x} &= &\dfrac{\mbox{sen}\left(e^{-x}\right)}{1} \\
+\end{array}
+\right.
+\]
+Al resolver el sistema resulta:
+\[
+u'_1(x)= \frac{\left|\begin{array}{cc}
+0 & e^{2x} \\
+\mbox{sen}\left(e^{-x}\right) & 2e^{2x}
+\end{array}\right|}
+{\left|\begin{array}{cc}
+e^{x} & e^{2x} \\
+e^{x} & 2e^{2x}
+\end{array}\right|}= \frac{-e^{2x}\mbox{sen}\left(e^{-x}\right)}{e^{3x}} \,, \qquad 
+u'_2(x)= \frac{\left|\begin{array}{cc}
+e^{x} & 0 \\
+e^{x} & \mbox{sen}\left(e^{-x}\right)
+\end{array}\right|}
+{\left|\begin{array}{cc}
+e^{x} & e^{2x} \\
+e^{x} & 2e^{2x}
+\end{array}\right|}= \frac{e^{x}\mbox{sen}\left(e^{-x}\right)}{e^{3x}}
+\]
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.2in]{VOLUMEN_2/07_EDO_N/Figuras/clsordsupf1.jpg}
+\includegraphics[width=3.2in]{VOLUMEN_2/07_EDO_N/Figuras/clsordsupf2.jpg}
+\caption{A la izquierda la solución $y(x)=\frac{2}{5}e^{-4x}+\frac{3}{5}e^{x}$ y a la derecha la solución $y(x)=C_{1}e^{-4x}+C_{2}e^{x}$ para $C_{1}=\{-1,0,1\}$ y $C_{2}=\{-1,0,1\}$}
+\label{solucpart1}
+\end{center}
+\end{figure}
+
+Integrando por partes:
+\[
+u_1(x)=-\int \frac{\mbox{sen}\left(e^{-x}\right)}{e^{x}}\,\mathrm{d}x = -\cos\left(e^{-x}\right)
+\,, \quad 
+u_2(x)=\int \frac{\mbox{sen}\left(e^{-x}\right)}{e^{2x}}\,\mathrm{d}x =
+-\mbox{sen}\left(e^{-x}\right)+e^{-x}\cos\left(e^{-x}\right)
+\]
+La solución particular es entonces:
+\[
+y_p(x)= -\cos\left(e^{-x}\right) e^{x} + \left[-\mbox{sen}\left(e^{-x}\right)+e^{-x}\cos\left(e^{-x}\right)\right]e^{2x} = - e^{2x}\mbox{sen}\left(e^{-x}\right)\,,
+\]
+por lo tanto, la solución general resulta ser
+\[
+y(x)=C_1 e^{x}+C_2 e^{2x}- e^{2x}\mbox{sen}\left(e^{-x}\right)
+\]
+
+
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+\begin{enumerate}
+\item La ecuación
+\[
+a\ y^{\prime\prime}+b\ y^{\prime}+c\ y=0 \quad \Leftrightarrow \quad a\ r^{2}+b\ r+c=0
+\]
+tiene asociada ese polinomio caracterí­stico y sus raí­ces $m_{1}$ y $m_{2}$ condicionan la solución de la manera siguiente:
+
+\begin{enumerate}
+\item  Si $m_{1}\neq m_{2}$ y $m_{1}$ y $m_{2}$ son reales, entonces la
+solución es
+\[
+y=C_{1}e^{m_{1}x}+C_{2}e^{m_{2}x}
+\]
+
+\item  Si $m_{1}=m_{2}$ y $m_{1}$ y $m_{2}$ son reales, entonces la
+solución es
+\[
+y=C_{1}e^{m_{1}x}+C_{2}\ xe^{m_{1}x}
+\]
+
+\item  Si $m_{1}=\alpha+i\beta$ con $\beta\neq0$ y $m_{2}=\overline{m}
+_{1}=\alpha-i\beta$, entonces la solución es
+\[
+y=e^{\alpha x}\left[  C_{1}\cos\left(\beta x\right)+C_{2}\ \mathrm{sen} \left(\beta x\right)\right]
+\]
+\end{enumerate}
+
+\item  La ecuación
+\[
+y^{\prime\prime} + 3y^ {\prime} -4y=0 ;\qquad y(0)=1\quad \wedge \quad y^{\prime
+}(0)=-1 \quad \Leftrightarrow \quad r^{2}+3r-4=(r+4)(r-1)=0
+\]
+tiene asociado ese polinomio caracterí­stico  y por lo tanto tiene como solución general
+\[
+y(x)=C_{1}e^{-4x}+C_{2}e^{x} \quad \text{y como solución particular} \quad
+y(x)=\frac{2}{5}e^{-4x}+\frac{3}{5}e^{x}
+\]
+En la figura \ref{solucpart1} se encuentra graficada esa solución particular. De igual modo, para distintos valores de $C_{1}=\{-1,0,1\}$ y $C_{2}=\{-1,0,1\}$ tendremos las gráficas representadas en la figura \ref{solucpart1} ¿Cuáles son las condiciones iniciales a las cuales corresponden esos valores de las constantes?
+
+
+
+\item Otra ejemplo es el siguiente, dada la ecuación
+\[
+y^{\prime\prime}+2y^{\prime}+y=0;\qquad y(0)=1\quad\wedge\quad y^{\prime }(0)=-1
+\,\, \Leftrightarrow \,\, r^{2}+2r+1=(r+1)^{2}=0 \,,
+\]
+que tiene como solución general
+\[
+y(x)=C_{1}e^{-x}+C_{2}\ xe^{-x} \quad \text{y como solución particular} \quad y(x)=e^{-x}
+\]
+
+Para distintos valores de $C_{1}=\{-1,0,1\}$ y $C_{2}=\{-1,0,1\}$ tendremos las gráficas representadas en la figura \ref{solpartecu22}. Cabe seguir preguntando ¿Cuáles son las condiciones iniciales a las cuales corresponden esos valores de las constantes?
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsordsupf4.jpg}
+\caption{ $y(x)=C_{1}e^{-x}+C_{2}\ xe^{-x}$ para $C_{1}=\{-1,0,1\}$ y $C_{2}=\{-1,0,1\}$}
+\label{solpartecu22}
+\end{center}
+\end{figure}
+
+\item Finalmente, la ecuación
+\[
+y^{\prime\prime}+4y^{\prime}+20y=0;\qquad y(0)=3\quad\wedge\quad y^{\prime
+}(0)=-1 \,\, \Leftrightarrow \,\,  r^{2}+4r+20=(r+2)^{2}+16=0
+\]
+con las siguientes soluciones $r=-2\pm4i$ y por lo tanto tiene como solución general
+\[
+y(x)=e^{-2x}\ \left[  C_{1}\cos(4x)+C_{2}\mathrm{sen}(4x)\right]\,,
+\] 
+y como solución particular
+\[
+y(x)=e^{-2x}\ \left[  3\cos(4x)+\frac{5}{4}\mathrm{sen}(4x)\right]\,.
+\]
+La representación gráfica se encuentra en la figura \ref{clsordsupf5} y para distintos valores de las constantes.
+Al igual que en los casos anteriores, para distintos valores de las constantes de integración, tendremos las gráficas de la figura \ref{clsordsupf5}
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.2in]{VOLUMEN_2/07_EDO_N/Figuras/clsordsupf5.jpg}
+\includegraphics[width=3.2in]{VOLUMEN_2/07_EDO_N/Figuras/clsordsupf6}
+\caption{A la izquierda la solución $y(x)=e^{-2x}\ \left(  3\cos4x+\frac{5}{4}\mathrm{sen}4x\right)$ y a la derecha la solución $y(x)=e^{-2x}\ \left(  C_{1}\cos4x+C_{2}\mathrm{sen}4x\right)
+$ para $C_{1}=\{-1,0,1\}$ y $C_{2}=\{-1,0,1\}$}
+\label{clsordsupf5}
+\end{center}
+\end{figure}
+
+
+
+
+\item Otro ejemplo interesante es la ecuación inhomogénea de Cauchy\footnote{\textbf{Louis Augustin Baron de Cauchy} (1789-1857). Matemático francés, uno de los creadores
+del análisis matemático moderno. Estudió, entre otras cuestiones,
+los criterios de convergencia de series, las funciones de variable compleja y
+los sistemas de ecuaciones diferenciales}-Euler\footnote{\textbf{Leonhard
+Euler} (1707-1783). Matemático suizo. Destacó en el estudio de
+diversas cuestiones del cálculo logarí­tmico y diferencial, así­
+como de las series algebraicas y la trigonometrí­a.}
+\[
+a_{0}\ y(x)+a_{1}\ x\ y^{\prime}(x)+\cdots+a_{n}\ x^{n}\ y^{(n)}
+(x)=\mathcal{F}(x)
+\]
+con los $a_{i}=ctes,$ puede ser resuelta por este método. Consideremos una
+ecuación de orden 2
+\[
+c\ y(x)+b\ x\ y^{\prime}(x)+a\ x^{2}\ y^{\prime\prime}(x)=\mathcal{F}(x)
+\]
+La solución de la homogénea se propone como $y_{h}=x^{m}$ por lo
+tanto
+\[
+\begin{array}
+[c]{r}
+c\ y(x)+b\ x\ y^{\prime}(x)+a\ x^{2}\ y^{\prime\prime}(x)=0\\
+c\ x^{m}+b\ x\ mx^{m-1}+a\ x^{2}\ m(m-1)x^{m-2}=0\\
+x^{m}\left(  c+bm+am(m-1)\right)  =0
+\end{array}
+\]
+por lo tanto
+\[
+am^{2}+(b-a)m+c=0
+\]
+con
+\[
+m=\frac{-(b-a)\pm\sqrt{(b-a)^{2}-4ac}}{2a}
+\]
+por lo tanto
+
+\begin{enumerate}
+\item  Si $m_{1}\neq m_{2}$ y ambas reales, entonces la solución de la
+homogénea será
+\[
+y_{h}=C_{1}x^{m_{1}}+C_{2}x^{m_{2}}
+\]
+
+\item  Si $m_{1}=m_{2}$ y ambas reales, entonces la solución de la
+homogénea será
+\[
+y_{h}=x^{m_{1}}\left(  C_{1}+C_{2}\ \ln x\right)
+\]
+
+\item  Si $m_{1}=\overline{m}_{2}=\alpha+i\beta$ , entonces la solución de
+la homogénea será
+\[
+y_{h}=x^{\alpha}\left(  C_{1}\cos(\beta\ \ln x)+C_{2}\ \mathrm{sen}
+(\beta\ \ln x)\right)
+\]
+\end{enumerate}
+
+Ahora para lograr la solución de la inhomogénea suponemos el caso
+$m_{1}\neq m_{2}$ por lo tanto
+\[
+y_{1h}=x^{m_{1}}\quad y_{2h}=x^{m_{2}}
+\]
+\[
+u_{1}^{\prime}=\frac{\left|
+\begin{array}
+[c]{cc}
+0 & x^{m_{2}}\\
+\frac{\mathcal{F}(x)}{a\ x^{2}\ } & m_{2}\ x^{m_{2}-1}
+\end{array}
+\right|  }{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & x^{m_{2}}\\
+m_{1}\ x^{m_{1}-1} & m_{2}\ x^{m_{2}-1}
+\end{array}
+\right|  }=\frac{\left|
+\begin{array}
+[c]{cc}
+0 & x^{m_{2}}\\
+\frac{\mathcal{F}(x)}{a\ x^{2}\ } & m_{2}\ x^{m_{2}-1}
+\end{array}
+\right|  }{W(y_{1},y_{2})}=\mathcal{G}_{1}(x)
+\]
+\[
+u_{2}^{\prime}=\frac{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & 0\\
+m_{1}\ x^{m_{1}-1} & \frac{\mathcal{F}(x)}{a\ x^{2} }
+\end{array}
+\right|  }{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & x^{m_{2}}\\
+m_{1}\ x^{m_{1}-1} & m_{2}\ x^{m_{2}-1}
+\end{array}
+\right|  }=\frac{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & 0\\
+m_{1}\ x^{m_{1}-1} & \frac{\mathcal{F}(x)}{a\ x^{2} }
+\end{array}
+\right|  }{W(y_{1},y_{2})}=\mathcal{G}_{2}(x)
+\]
+La siguiente ecuación diferencial
+\[
+x^{2}y^{\prime\prime}-xy'+5y=\frac{1}{x}
+\]
+tiene como solución de la homogénea
+\[
+y_{h}=x\ \left(  C_{1}\cos(2\ \ln x)+C_{2}\ \mathrm{sen}(2\ \ln
+x)\right)
+\]
+la solución particular por el método de variación de los
+parámetros queda como
+\[
+y_{p}=u_{1}(x)\ y_{h1}+u_{2}(x)\ y_{h2}
+\]
+calculando los coeficientes respectivos en donde el Wronskiano
+\[
+W\left(  x\ \cos(2\ \ln x);\ x\ \mathrm{sen}(2\ \ln x)\right)  =2x
+\]
+por lo cual los coeficientes quedan
+\[
+u_{1}=\int\mathcal{G}_{1}(x)\ dx=
+{\displaystyle\int}
+\frac{x\mathrm{sen}(2\ln x)\frac{1}{x}}{2x}dx=\frac{1}{4}\cos(2\ln x)
+\]
+\[
+u_{2}=\int\mathcal{G}_{2}(x)\ dx=
+{\displaystyle\int}
+\frac{x\cos(2\ln x)\frac{1}{x}}{2x}dx=\frac{1}{4}\mathrm{sen}(2\ln x)
+\]
+finalmente las solución particular será
+\[
+y_{p}=x\left(  \frac{1}{4}\cos^{2}(2\ln x)+\frac{1}{4}\mathrm{sen^{2}}(2\ln
+x)\right)  =\frac{1}{4}x
+\]
+y la general
+\[
+y=x\ \left(  C_{1}\cos(2\ \ln x)+C_{2}\ \mathrm{sen}(2\ \ln x)\right)
++\frac{1}{4}x
+\]
+
+
+\end{enumerate}
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+
+\section{Lineales no homogéneas con coeficientes no constantes}
+
+Ahora vamos a desarrollar un método para resolver ecuaciones diferenciales lineales:
+\begin{equation}
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q(x)\,,
+\label{edol}
+\end{equation}
+donde $f_0(x), f_1(x), \dots , f_n(x)$ y $Q(x)$ son funciones continuas de $x$ en un intervalo común
+$I$, además $f_n(x)\neq 0$.
+
+\subsection{Método de reducción del orden}
+Para aplicar este método, primero que todo, debemos poder encontrar una solución (no trivial) de la ecuación diferencial homogénea asociada a (\ref{edol})
+\begin{equation}
+f_n(x) y^{(n)}(x) + f_{n-1}(x) y^{(n-1)}(x) + \cdots + f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=0\,.
+\label{edolh}
+\end{equation}
+
+Consideremos, por simplicidad, el caso $n=2$:
+\begin{equation}
+f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=Q(x)\,.
+\label{edolnhn2}
+\end{equation}
+y sea $y_1(x)$ una solución (no trivial) de la ecuación diferencial homogénea asociada a (\ref{edolnhn2}):
+\begin{equation}
+f_2(x)y''(x)+ f_1(x)y'(x) +f_0(x) y(x)=0\,.
+\label{edolhn2}
+\end{equation}
+El método permitirá encontrar una segunda solución de la ecuación homogénea y también una solución particular de (\ref{edolnhn2}).
+
+Sea $y_2(x)$ una segunda solución de la ecuación diferencial homogénea y vamos a suponer que tiene la forma
+\begin{equation}
+y_2(x)=y_1(x)\int u(x) \mathrm{d}x \,,
+\label{sol2}
+\end{equation}
+donde $u(x)$ es una función a determinar. Por lo tanto:
+\begin{eqnarray}
+y'_2(x)&=&y_1(x) u(x)+ y'_1(x)\int u(x) \mathrm{d}x \\
+y''_2(x)&=&y_1(x) u'(x)+ 2 y'_1(x) u(x)+ y''_1(x)\int u(x) \mathrm{d}x 
+\end{eqnarray}
+sustituyendo en (\ref{edolhn2}) resulta:
+\begin{eqnarray*}
+f_2(x)\left[y_1(x) u'(x)+ 2 y'_1(x) u(x)+ y''_1(x)\int u(x) \mathrm{d}x \right]+
+f_1(x)\left[y_1(x) u(x)+ y'_1(x)\int u(x) \mathrm{d}x \right] \\ 
++f_0(x)\left[y_1(x)\int u(x) \mathrm{d}x\right]=0 \\
+\left[f_2(x) y''_1(x) + f_1(x) y'_1(x) + f_0(x) y_1(x)\right]\int u(x) \mathrm{d}x +
+f_2(x)y_1(x)u'(x) + \left[2f_2(x)y'_1(x)+ f_1(x) y_1(x)\right]u(x) = 0 
+\end{eqnarray*}
+Como el primer término de la última ecuación es idénticamente igual a cero, entonces:
+\begin{equation}
+f_2(x)y_1(x)u'(x) + \left[2f_2(x)y'_1(x)+ f_1(x) y_1(x)\right]u(x) = 0 \,,
+\label{homocaso2}
+\end{equation}
+acomodando términos
+\[
+\frac{\mathrm{d}u}{u}+2\frac{\mathrm{d}y_1(x)}{y_1(x)}=-\frac{f_1(x)}{f_2(x)}\mathrm{d}x 
+\quad \Rightarrow \quad
+\int \frac{\mathrm{d}u}{u}+ 2\int \frac{\mathrm{d}y_1(x)}{y_1(x)}=-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x
+\]
+esto es:
+\begin{eqnarray*}
+\ln|u(x)| + 2\ln|y_1(x)|&=&-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x\\
+\ln|u(x) (y_1(x))^2|&=&-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x\\
+u(x) (y_1(x))^2 &=& \exp\left[-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x \right]\\
+u(x)  &=& \frac{1}{(y_1(x))^2} \exp\left[-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x \right]
+\end{eqnarray*}
+
+Por lo tanto, si logramos integrar esta última ecuación estaremos encontrando una segunda solución 
+linealmente independiente de (\ref{edolhn2}):
+\begin{equation}
+y_2(x)=y_1(x)\int \frac{1}{(y_1(x))^2} \exp\left[-\int \frac{f_1(x)}{f_2(x)}\mathrm{d}x \right] \mathrm{d}x \,.
+\label{sol22}
+\end{equation}
+
+Consideremos el siguiente ejemplo para encontrar la solución general de 
+\[
+x^2 y''+xy'-y=0\,,
+\]
+donde $y_1=x$ es una solución de la ecuación diferencial y $x\neq 0$.
+
+Como esta ecuación es de orden $2$, podemos ir directamente a la ecuación (\ref{sol22}) en lugar de hacer el desarrollo nuevamente, esto es:
+\[
+y_2(x)=x\int \frac{1}{x^2} \exp\left[-\int \frac{x}{x^2}\mathrm{d}x \right]\mathrm{d}x=
+x\int \frac{1}{x^2} \exp\left[-\ln|x| \right]\mathrm{d}x=x\int \frac{1}{x^3} \mathrm{d}x=
+-\frac{1}{2x}
+\]
+por lo tanto:
+\[
+y_h(x)= C_1 x + C_2 \frac{1}{x}\,.
+\]
+
+Si queremos encontrar una solución particular de la ecuación no homogénea  (\ref{edolnhn2}), 
+también podemos utilizar la solución de prueba (\ref{sol2}). Repitiendo los cálculos  que 
+nos llevaron a la ecuación (\ref{homocaso2}) resultará que ahora tenemos:
+\begin{eqnarray}
+f_2(x)y_1(x)u'(x) + \left[2f_2(x)y'_1(x)+ f_1(x) y_1(x)\right]u(x) = Q(x) \nonumber \\
+u'(x) + \left[2\frac{y'_1(x)}{y_1(x)}+ \frac{f_1(x)}{f_2(x)}\right]u(x) = \frac{Q(x)}{f_2(x)y_1(x)}
+\label{lauprima}
+\end{eqnarray}
+y esta ecuación es simplemente una ecuación diferencial lineal de primer orden para $u(x)$. Esto significa que debemos encontrar el factor integrador 
+\[
+\mu(x)=\exp\left({\displaystyle\int \left[2\frac{y'_1(x)}{y_1(x)}+ \frac{f_1(x)}{f_2(x)}\right] \mathrm{d}x}\right)
+\]
+para luego escribir la solución:
+\begin{equation}
+u(x)= \frac{1}{\mu(x)}\int \mu(x) \frac{Q(x)}{f_2(x)y_1(x)} \mathrm{d}x + \frac{C}{\mu(x)}\,.
+\label{lau}
+\end{equation}
+
+Consideremos otro ejemplo para encontrar la solución de
+\[
+x^2 y''+xy'-y=x\,,
+\]
+
+En el ejemplo anterior vimos que la ecuación homogénea tiene dos soluciones linealmente independientes:
+\[
+x^2 y''+xy'-y=0 \,\, \Rightarrow \,\, y_1(x)=x\,,\,\, y_2(x)=x^{-1}
+\]
+Podemos entonces proponer la siguiente solución particular para la ecuación diferencial no 
+homogénea:
+\[
+y_p(x)=x \int u(x) \mathrm{d}x \,,
+\]
+En lugar de repetir los cálculos que consisten en derivar $y_p(x)$ un par de veces y sustituir en la ecuación diferencial problema, podemos ir directamente al grano pues ya sabemos el resultado, esto es, la ecuación (\ref{lauprima}):
+\[
+u'(x) + \left[2\frac{1}{x}+ \frac{x}{x^2}\right]u(x) = \frac{x}{x^3}\quad \Rightarrow \quad
+u'(x) + \frac{3}{x}u(x) = \frac{1}{x^2}
+\] 
+el factor integrador para esta ecuación es
+\[
+\mu(x)=e^{{\int}  \frac{3}{x} \mathrm{d}x}=e^{\ln|x|^3}=x^3
+\]
+por lo tanto:
+\[
+u(x)= \frac{1}{x^3}\int \frac{x^3}{x^2} \mathrm{d}x + \frac{C}{x^3} \quad \Rightarrow \quad
+u(x)= \frac{1}{x^3}\int x \mathrm{d}x + \frac{C}{x^3}\quad \Rightarrow \quad
+u(x)= \frac{1}{x^3} \frac{x^2}{2}+ \frac{C}{x^3}
+\]
+Como lo que queremos es una solución particular podemos omitir la constante de integración:
+\[
+u(x)= \frac{1}{2x}
+\]
+y la solución particular es entonces
+\[
+y_p(x)=x \int \frac{1}{2x} \mathrm{d}x = \frac{x}{2}\ln|x| 
+\]
+La solución general de la ecuación diferencial resulta ser:
+\[
+y(x)= C_1 x +  C_2 x^{-1} + \frac{x}{2}\ln|x| \,.
+\]
+
+
+\subsection{La ecuación de Euler}
+
+La ecuación inhomogénea de Cauchy\footnote{\textbf{Louis Augustin
+Baron de Cauchy} (1789-1857). Matemático francés, uno de los creadores
+del análisis matemático moderno. Estudió, entre otras cuestiones,
+los criterios de convergencia de series, las funciones de variable compleja y
+los sistemas de ecuaciones diferenciales.}-Euler\footnote{\textbf{Leonhard
+Euler} (1707-1783). Matemático suizo. Destacó en el estudio de
+diversas cuestiones del cálculo logarítmico y diferencial, así
+como de las series algebraicas y la trigonometría.} es la siguiente
+\begin{equation}
+a_{n} x^{n} y^{(n)}(x)  +  a_{n-1} x^{n-1} y^{(n-1)}(x)  + \cdots + a_{1} x y^{\prime}(x)+a_{0}y(x) = Q(x)
+\end{equation}
+donde los $a_{i}$ son constantes. Esta ecuación puede ser resuelta por el método que se describe a continuación. 
+
+Consideremos, por razones de simplicidad, una ecuación de orden 2:
+\[
+a_{2} x^{2} y''(x)  + a_{1} x y'(x)+a_{0}y(x) = Q(x) \,.
+\]
+
+Propondremos 	que la ecuación homogénea tiene  como solución una función de la forma: $y=x^{m}$, esto es:
+
+\[
+\begin{array}
+[c]{r}
+a_{2} x^{2} y''(x)  + a_{1} x y'(x)+a_{0}y(x) = 0\\
+a_2 x^{2} m(m-1)x^{m-2} + a_1 x mx^{m-1} + a_0 x^{m}=0\\
+x^{m}\left[a_2m(m-1) + a_1 m+ a_0 \right]  =0
+\end{array}
+\]
+por lo tanto
+\[
+a_2m^{2}+(a_1-a_2)m+a_0=0 \quad \Rightarrow \quad  m=\frac{-(a_1-a_2)\pm\sqrt{(a_1-a_2)^{2}-4a_2 a_0}}{2a_2} \,.
+\]
+Esto significa que se pueden presentar los siguientes casos:
+
+\begin{enumerate}
+\item  Si $m_{1}\neq m_{2}$ y ambas reales, entonces la solución de la homogénea será
+\[
+y_{h}=C_{1}x^{m_{1}}+C_{2}x^{m_{2}}
+\]
+\item  Si $m_{1}=m_{2}=m$ y ambas reales, entonces la solución de la homogénea será
+\[
+y_{h}=x^{m}\left(  C_{1}+C_{2}\ \ln|x|\right)
+\]
+\item  Si $m_{1}=\overline{m}_{2}=\alpha+i\beta$ , entonces la solución de la homogénea será
+\[
+y_{h}=x^{\alpha}\left[ C_{1}\cos(\beta\ \ln |x|)+C_{2}\ \mathrm{sen}(\beta\ \ln |x|)\right] \,.
+\]
+\end{enumerate}
+
+Para buscar la solución de la ecuación inhomogénea vamos a suponer el caso
+$m_{1}\neq m_{2}$, por lo tanto, tomaremos como punto de partida las dos soluciones linealmente
+independientes de la ecuación homogénea:
+\[
+y_{1}=x^{m_{1}}\quad y_{2}=x^{m_{2}}\,.
+\]
+
+Podemos aplicar el método de variación de parámetros que vimos anteriormente. (Queda
+como ejercicio repetir los cálculos que llevaron al sistema (\ref{usistema})). Por lo tanto, en nuestro caso resulta que
+\[
+u_{1}^{\prime}=
+\frac{\left|
+\begin{array}
+[c]{cc}
+0 & x^{m_{2}}\\
+\dfrac{{Q}(x)}{a_2 x^{2} } & m_{2}  x^{m_{2}-1}
+\end{array}
+\right|  }{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & x^{m_{2}} \\
+m_{1} x^{m_{1}-1} & m_{2} x^{m_{2}-1}
+\end{array}
+\right|  }=\mathcal{G}_{1}(x) \,, \qquad 
+u_{2}^{\prime}=
+\frac{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & 0\\
+m_{1} x^{m_{1}-1} & \dfrac{{Q}(x)}{a_2 x^{2}\ }
+\end{array}
+\right|  }{\left|
+\begin{array}
+[c]{cc}
+x^{m_{1}} & x^{m_{2}}\\
+m_{1} x^{m_{1}-1} & m_{2} x^{m_{2}-1}
+\end{array}
+\right|  }=\mathcal{G}_{2}(x)
+\]
+
+Consideremos el siguiente ejemplo. 
+\[
+x^{2}y^{\prime\prime}-xy'+5y=\frac{1}{x}
+\]
+tiene como solución de la homogénea:
+\[
+y_{h}=x \left[ C_{1}\cos(2 \ln |x|)+C_{2}\ \mbox{sen}(2 \ln|x|)\right] \,,
+\]
+la solución particular por el método de variación de los parámetros queda como
+\[
+y_{p}=u_{1}(x)\ y_{1}+u_{2}(x)\ y_{2} \,,
+\]
+calculando los coeficientes respectivos, en donde el Wronskiano es:
+\[
+W\left[  x \cos(2 \ln |x|) \ ; \ x\ \mbox{sen}(2 \ln|x|) \right] = 
+ {\left|
+\begin{array}
+[c]{cc}
+ x \cos(2 \ln |x|) & x \ \mbox{sen}(2 \ln|x|)\\
+ \cos(2 \ln |x|) - 2 \ \mbox{sen}(2 \ln|x|) &  \mbox{sen}(2 \ln|x|) +2 \cos(2 \ln|x|)
+\end{array}
+\right|  }= 2x \,,
+\]
+resulta:
+\[
+u_{1}=\int\mathcal{G}_{1}(x)\ \textrm{d}x=
+{\displaystyle\int} \frac{\mathrm{sen}(2\ln|x|)}{2x} \textrm{d}x=\frac{1}{4}\cos(2\ln|x|) \,,
+\]
+\[
+u_{2}=\int\mathcal{G}_{2}(x)\ \textrm{d}x=
+{\displaystyle\int} \frac{\cos(2\ln|x|)}{2x} \textrm{d}x=\frac{1}{4}\mathrm{sen}(2\ln|x|) \,,
+\]
+finalmente las solución particular será
+\[
+y_{p}=x\left(  \frac{1}{4}\cos^{2}(2\ln|x|)+\frac{1}{4}\mathrm{sen^{2}}(2\ln|x|)\right)  =\frac{1}{4}x \,,
+\]
+por lo tanto, la solución  general es:
+\[
+y=x \left[ C_{1}\cos(2 \ln|x|)+C_{2}\ \mathrm{sen}(2 \ln|x|)\right] +\frac{1}{4}x \,.
+\]
+
+La ecuación de Euler puede representarse de una manera más general:
+\begin{equation}
+a_{0}y(x)+a_{1} (x-x_0) y^{\prime}(x)+\cdots+a_{n} (x-x_0)^{n} y^{(n)}(x) = {Q}(x)\,,
+\end{equation}
+donde $x_0$ también es una constante.  El siguiente cambio de variable:
+\[
+x-x_0= e^u \quad \Rightarrow \quad u=\ln(x-x_0)
+\]
+transforma la ecuación de Euler en una ecuación lineal con coeficientes constantes. Para ver esto, consideremos el caso $n=3$, es decir:
+\begin{equation}
+a_{0}y(x)+a_{1} (x-x_0) y^{\prime}(x)+a_{2} (x-x_0)^2 y''(x)+a_{3} (x-x_0)^3 y'''(x)={Q}(x)\,.
+\label{euler3}
+\end{equation}
+Notemos que:
+\begin{eqnarray*}
+\frac{\textrm{d}y}{\textrm{d}u}=\frac{\textrm{d}y}{\textrm{d}x}\frac{\textrm{d}x}{\textrm{d}u}&=&(x-x_0)\frac{\textrm{d}y}{\textrm{d}x}\\
+\frac{\textrm{d}^2y}{\textrm{d}u^2}-\frac{\textrm{d}y}{\textrm{d}u}&=&(x-x_0)^2\frac{\textrm{d}^2y}{\textrm{d}x^2}\\
+\frac{\textrm{d}^3y}{\textrm{d}u^3}-3\frac{\textrm{d}^2y}{\textrm{d}u^2}+2\frac{\textrm{d}y}{\textrm{d}u}&=&(x-x_0)^3\frac{\textrm{d}^3y}{\textrm{d}x^3}\,,
+\end{eqnarray*}
+al sustituir en la ecuación (\ref{euler3}) resulta:
+\begin{eqnarray*}
+a_{0}y(u)&+&a_{1} (x-x_0)\left[ \frac{1}{(x-x_0) }\frac{\textrm{d}y}{\textrm{d}u}\right] +
+a_{2} (x-x_0)^2 \left[ \frac{1}{(x-x_0)^2 } \left\{\frac{\textrm{d}^2y}{\textrm{d}u^2}-\frac{\textrm{d}y}{\textrm{d}u}  \right\}\right] \\ &+&
+a_{3} (x-x_0)^3 \left[ \frac{1}{(x-x_0)^3} \left\{\frac{\textrm{d}^3y}{\textrm{d}u^3}-3\frac{\textrm{d}^2y}{\textrm{d}u^2}+2\frac{\textrm{d}y}{\textrm{d}u} \right\}\right]  ={Q}(u)\\
+a_{0}y(u)&+&a_{1} \frac{\textrm{d}y}{\textrm{d}u}+
+a_{2}  \left\{\frac{\textrm{d}^2y}{\textrm{d}u^2}-\frac{\textrm{d}y}{\textrm{d}u}  \right\}  +
+a_{3} \left\{\frac{\textrm{d}^3y}{\textrm{d}u^3}-3\frac{\textrm{d}^2y}{\textrm{d}u^2}+2\frac{\textrm{d}y}{\textrm{d}u} \right\} ={Q}(u) \,,
+\end{eqnarray*}
+factorizando:
+\[
+a_{0}y(u)+(a_{1}-a_2+2a_3) \frac{\textrm{d}y}{\textrm{d}u}+
+(a_{2} - 3a_3)  \frac{\textrm{d}^2y}{\textrm{d}u^2}  +
+a_{3} \frac{\textrm{d}^3y}{\textrm{d}u^3} ={Q}(u)\,.
+\]
+Esta última  es una ecuación diferencial lineal con coeficientes constantes que ya sabemos resolver.
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+\begin{enumerate}
+\item Si $y_p(x)=\left[\frac{1}{10}\cos(x) - \frac{3}{10}\text{sen}(x)\right]+ i \left[\frac{1}{10}\text{sen}(x) + \frac{3}{10}\cos(x)\right]$ es una solución particular de $y'' -3y'+2y=e^{ix}$. Encuentre una solución particular de:
+\begin{enumerate}
+\item $y'' -3y'+2y=\cos(x)$.
+\item $y'' -3y'+2y=\text{sen}(x)$.
+\end{enumerate}
+Verifique la validez de los resultados.
+\item Demuestre que la solución $y_h(x)=e^{ax}\left[ {\cal C}_1\cos(bx)  + i\, {\cal C}_2\, \mbox{sen}(bx)\right]$
+se puede escribir de alguna de las siguientes formas:
+\[
+y_h(x)={\cal C}e^{ax} \mbox{sen}(bx+{\cal D})\quad \text{o} \quad y_h(x)={\cal C}e^{ax} \mbox{sen}(bx-{\cal D})
+\]
+donde $ {\cal C}$ y ${\cal D} $ son constantes. 
+\item Resuelva las siguientes ecuaciones diferenciales
+\begin{enumerate}
+\item $y''+2y=0$
+\item $y''-3y+2y=0$
+\item $y''-y=0$
+\item $y'''+y''-6y'=0$
+\item $y''+3y+2y=4$
+\item $y''+3y+2y=12e^x$
+\item $y''+3y+2y=\text{sen}(x)$
+\item $y''+3y+2y=\cos(x)$
+\item $y''+3y+2y=8+6e^x+2\text{sen}(x)$
+\item $y''-3y'+2y=2xe^{3x}+ 3 \mbox{sen}\,(x)$
+\end{enumerate}
+
+\item Resuelva las siguientes ecuaciones diferenciales por variación de parámetros
+\begin{enumerate}
+\item $ y''+4y'+4y=3xe^{-2x} $
+\item $y''+y'=\tan(x)\,, \quad -\frac{\pi}{2} < x < \frac{\pi}{2}$
+\end{enumerate}
+
+\item Resuelva las siguientes ecuaciones diferenciales por el método de reducción de orden.
+\begin{enumerate}
+\item $ x^2y''+xy'-4y=x^3 \,,\quad y_1(x)=x^2$
+\item $x^2y''+xy'-y=x^2e^{-x}\,,\quad y_1(x)=x$
+\end{enumerate}
+
+\item Resuelva las siguientes ecuaciones de Euler
+\begin{enumerate}
+\item $ (x-3)^2 y''+(x-3) y'+y=x$, $\quad x\neq3$
+\item $ x^2 y''+x y'=0$, $\quad x\neq0$
+\item $ x^3 y'''+ 2x^2 y''-xy'+y=x$, $\quad x\neq0$
+\end{enumerate}
+
+\item Resuelva utilizando el método de variación de parámetros y verifique los resultados
+\begin{enumerate} 
+\item $ y''+y=\sec(x)$
+\item$ y''+y=\sec^3(x)$
+\item$ y''+3y'+2y=12e^x$
+\item$ y''+y=4x \text{sen}(x)$
+\item$ x^2y''-xy'+y=x$, $\quad y_{1h}=x$, $ y_{2h}=x\ln(x)$
+\item$ y''-\frac{2}{x}y'+\frac{2}{x^2}y=x\ln(x)$, $\quad y_{1h}=x$, $ y_{2h}=x^2$
+\item$ x^2y''+xy'-4y=x^3$, $\quad y_{1h}=x^2$, $ y_{2h}=x^{-2}$
+\end{enumerate}
+
+\item Resuelva utilizando el método de reducción del orden y verifique los resultados
+\begin{enumerate} 
+\item$ x^2y''-xy'+y=0$, $\quad y_{1h}=x$
+\item$ y''-\frac{2}{x}y'+\frac{2}{x^2}y=0$, $\quad y_{1h}=x$
+\item$ (2x^2+1)y''-4xy'+4y=0$, $\quad y_{1h}=x$
+\item$ 2x^2y''+3xy'-y=0$, $\quad y_{1h}=x^{1/2}$
+\item$ x^2y''+xy'-4y=x^3$, $\quad y_{1h}=x^{2}$
+\item$ y''+(x^2-1)y'-x^2y=0$, $\quad y_{1h}=e^{x}$
+\item$ x^2y''-2y=2x^2$, $\quad y_{1h}=x^{2}$
+\end{enumerate}
+
+\item Demuestre que las siguientes sustituciones
+\[
+y=e^{\int y_1(x) \textrm{d}x}\,,\quad y'=y_1(x)e^{\int y_1(x) \textrm{d}x}\,,\quad 
+y''=y_1^2(x)e^{\int y_1(x) \textrm{d}x} + y'_1(x)e^{\int y_1(x) \textrm{d}x}\,,
+\]
+transforman la ecuación lineal
+\[
+f_2(x)y''+f_1(x)y'+f_0(x)y=0
+\]
+en la siguiente ecuación de Riccati:
+\[
+y'_1=-\frac{f_0(x)}{f_2(x)}-\frac{f_1(x)}{f_2(x)}y_1-y^2_1
+\]
+donde, si $y_1(x)$ es solución de la ecuación de Riccati, entonces $y=e^{\int y_1(x) \textrm{d}x}$ es solución de la ecuación lineal. Aplique las sustituciones anteriores para trasformar la ecuación 
+\[
+xy''-y'-x^3y=0.
+\]
+en una ecuación de Riccati y trate de resolver estas dos ecuaciones.
+
+
+\end{enumerate}
+
+
+\section{El operador diferencial y las ecuaciones diferenciales}
+
+\subsection{El operador diferencial}
+
+Un operador es un objeto matemático que convierte una función en otra, por ejemplo, el  operador derivada convierte una función en una función diferente llamada la función derivada. Podemos definir el operador derivada $\mathbf{D}$ que al actuar sobre una función diferenciable produce la derivada de esta, esto es:
+\[
+\mathbf{D}^0f(x)=f(x)\,,\quad \mathbf{D}^1f(x)=f'(x)\,,\quad \mathbf{D}^2f(x)=f''(x)\,,\dots ,
+\mathbf{D}^nf(x)=f^{(n)}(x)\,.
+\]
+
+Es posible construir la siguiente combinación lineal con los operadores diferenciales:
+\begin{equation}
+P(\mathbf{D})=a_0+a_1\mathbf{D}+a_2\mathbf{D}^2+ \cdots + a_n\mathbf{D}^n\,,\quad a_n\neq 0\,.
+\end{equation}
+donde $a_2, a_1, a_2, \dots a_n$ son constantes. A este nuevo objeto lo podemos llamar el {\it operador polinomial} de orden $n$.
+
+La utilidad de este objeto matemático quedará clara si hacemos la siguiente definición
+\begin{eqnarray}
+P(\mathbf{D})y&\equiv& \left(a_n\mathbf{D}^n + a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_2 \mathbf{D}^2 + a_1 \mathbf{D}+ a_0\right)y \nonumber \\
+&=& a_n\mathbf{D}^ny+ a_{n-1}\mathbf{D}^{n-1}y+ \cdots + a_2 \mathbf{D}^2y + a_1 \mathbf{D}y+ a_0 y \nonumber \\
+&=& a_n y^{(n)}+ a_{n-1}y^{(n-1)}+ \cdots + a_2 y''+ a_1 y'+ a_0 y\,.
+\end{eqnarray}
+
+Por otro lado, recordemos que una ecuación diferencial lineal de orden $n$ con coeficientes constantes es una ecuación de la forma
+\begin{equation}
+a_n y^{(n)} + a_{n-1} y^{(n-1)} + \cdots + a_2y''+ a_1y' +a_0 y=Q(x)\,,
+\label{edolnhcc}
+\end{equation}
+por lo tanto, (\ref{edolnhcc}) se puede escribir de una manera compacta como
+\begin{equation}
+P(\mathbf{D})y = Q(x)\,.
+\end{equation}
+
+El operador polinomial es lineal, esto significa que tiene las siguientes propiedades
+\begin{itemize}
+\item Si $f_1(x)$ y $f_2(x)$ son dos funciones diferenciables de orden $n$, entones
+\[
+P(\mathbf{D})\left[\alpha f_1(x) + \beta f_2(x) \right] = \alpha P(\mathbf{D})f_1(x) + 
+\beta P(\mathbf{D})f_2(x)
+\]
+donde $\alpha$ y $\beta$ son constantes. Además:
+\item Si $y_1(x), y_2(x), \dots , y_n(x)$ son $n$ soluciones de la ecuación diferencial homogénea 
+$P(\mathbf{D})y = 0$ entonces $y_h(x)=C_1y_1(x)+C_2y_2(x)+ \cdots + C_ny_n(x)$ es también una solución.
+\item Si $y_h(x)$ es una solución de $P(\mathbf{D})y = 0$ y $y_p(x)$ es una solución de
+$P(\mathbf{D})y = Q(x)$ entonces $y(x)=y_h(x)+y_p(x)$ es una solución de $P(\mathbf{D})y = Q(x)$.
+\item Si $y_{p1}(x), y_{p2}(x), \dots , y_{pn}(x)$ son soluciones particulares de las respectivas $n$ ecuaciones
+\[P(\mathbf{D})y = Q_1(x),\,\, P(\mathbf{D})y = Q_2(x), \dots , P(\mathbf{D})y = Q_n(x)\]
+resulta entonces que
+\[
+P(\mathbf{D})\left[y_{p1}(x)+ y_{p2}(x)+ \cdots + y_{pn}(x) \right]=Q_1(x)+ Q_2(x) + \cdots + Q_n(x)
+\]
+implica que 
+\[
+y_p(x)=y_{p1}(x)+ y_{p2}(x)+ \cdots + y_{pn}(x)
+\]
+es una solución de 
+\[
+P(\mathbf{D})y=Q_1(x)+ Q_2(x) + \cdots + Q_n(x)
+\]
+\end{itemize}
+
+Por ejemplo, encontremos una ecuación particular de 
+\[
+y''+y=x^2+xe^{2x}+3 \,\, \Rightarrow \,\, \left(\mathbf{D}^2 +1\right)y=x^2+xe^{2x}+3\,.
+\]
+
+Por alguno de los métodos anteriormente vistos podemos encontrar las soluciones particulares de cada una de las siguientes ecuaciones
+\[
+\left(\mathbf{D}^2 +1\right)y=x^2 \,, \quad \left(\mathbf{D}^2 +1\right)y=xe^{2x}\,, \quad
+\left(\mathbf{D}^2 +1\right)y= 3
+\]
+las soluciones son, respectivamente
+\[
+y_{p1}(x)=x^2-2\,, \quad y_{p2}(x)=\frac{1}{5}\left(xe^{2x}-\frac45e^{2x} \right)\,, \quad
+y_{p3}(x)=3
+\]
+por lo tanto, una solución particular de la ecuación diferencial problema es
+\[
+y_{p}(x)= x^2-2 + \frac{1}{5}\left(xe^{2x}-\frac45e^{2x} \right)+3 =
+x^2+1 + \frac{1}{5}\left(xe^{2x}-\frac45e^{2x} \right)\,.
+\]
+
+Al operador diferencial también se le pueden agregar las siguientes propiedades. Consideremos los operadores
+\begin{eqnarray}
+P_1(\mathbf{D})&=&a_n\mathbf{D}^n+a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_2\mathbf{D}^2+a_1\mathbf{D} + a_0\\
+P_2(\mathbf{D})&=&b_n\mathbf{D}^n+b_{n-1}\mathbf{D}^{n-1}+ \cdots + b_2\mathbf{D}^2+b_1\mathbf{D} + b_0
+\end{eqnarray}
+con $n\geq m$.
+\begin{itemize}
+\item $(P_1+P_2)f(x)= P_1f(x)+P_2f(x)=\left[a_n\mathbf{D}^n + \cdots + a_n\mathbf{D}^n + \cdots +
+(a_2+b_2)\mathbf{D}^2+(a_1+b_1)\mathbf{D}+a_0+b_0\right]f(x)$
+\item $\left[g(x) P(\mathbf{D})\right]f(x)=g(x)\left[P(\mathbf{D}) f(x)\right]$
+\item $g(x)\left[P_1(\mathbf{D})+P_2(\mathbf{D}) \right] f(x)= g(x)\left[P_1(\mathbf{D}) f(x)\right]+
+g(x)\left[P_2(\mathbf{D}) f(x)\right]$
+\item $\left[P_1(\mathbf{D}) P_2(\mathbf{D})\right]f(x)=P_1(\mathbf{D})\left[P_2(\mathbf{D})f(x) \right]$
+\item Si el operador polinomial diferencial puede ser factorizado, es decir, si:
+\[
+P(\mathbf{D})=a_n\mathbf{D}^n+a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_2\mathbf{D}^2+a_1\mathbf{D} + a_0
+= a_n(\mathbf{D}-m_1)(\mathbf{D}-m_2) \cdots (\mathbf{D}-m_n)\,,
+\]
+las cantidades: $m_1, m_2, \dots , m_n$ son las raices de la ecuación característica de 
+$P(\mathbf{D}) y=0$. 
+\item 
+Si 
+\[
+P(\mathbf{D})=a_n\mathbf{D}^n+a_{n-1}\mathbf{D}^{n-1}+ \cdots + 
+a_2\mathbf{D}^2+a_1\mathbf{D} + a_0\,,
+\]
+es un operador polinomial de orden $n$, entonces:
+\[
+P(\mathbf{D}+a)=a_n\left(\mathbf{D}+a\right)^n+a_{n-1}\left(\mathbf{D}+a\right)^{n-1}+ \cdots + 
+a_2\left(\mathbf{D}+a\right)^2+a_1\left(\mathbf{D}+a\right) + a_0
+\]
+donde $a$ es una constante.
+\end{itemize}
+
+Por ejemplo:
+\begin{eqnarray*}
+(\mathbf{D}-2\mathbf{D}-3)\left[\text{sen}(x)+x^2\right]&=&(\mathbf{D}+1)(\mathbf{D}-3)\left[\text{sen}(x)+x^2\right]\\
+&=& (\mathbf{D}+1)\left[(\mathbf{D}-3)\left[\text{sen}(x)+x^2\right]\right] \\
+&=& (\mathbf{D}+1)\left[ \cos(x)+2x-3\text{sen}(x)-3x^2 \right] \\
+&=&-\text{sen}(x)+2-3\cos(x)-6x+\cos(x)+2x-3\text{sen}(x)-3x^2\\
+&=&-4\text{sen}(x)-2\cos(x)-3x^2-4x+2
+\end{eqnarray*}
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Teorema}: Si 
+\[
+P(\mathbf{D})=a_n\mathbf{D}^n+a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_2\mathbf{D}^2+a_1\mathbf{D} + a_0
+\]
+es un operador polinomial diferencial con coeficientes constantes y $u(x)$ es una función $n$ veces diferenciable, entonces:
+\[
+P(\mathbf{D})\left[u e^{ax} \right]= e^{ax}P(\mathbf{D}+a)u\,,
+\]
+donde $a$ es una constante.
+\end{mdframed}
+
+Vamos a evaluar la siguiente expresión
+\[
+\left(\mathbf{D}^2-\mathbf{D}+3 \right)\left(x^3e^{-2x} \right) 
+\]
+Al comparar la forma de esta expresión con la de teorema anterior, vemos que $a=-2$ y $u(x)=x^3$.
+
+Por lo tanto, si hacemos
+\[
+P(\mathbf{D}-2)=\left(\mathbf{D}-2 \right)^2-\left(\mathbf{D}-2 \right)+3=\mathbf{D}^2-5\mathbf{D}+9
+\]
+se obtiene que
+\[
+\left(\mathbf{D}^2-\mathbf{D}+3 \right)\left(x^3e^{-2x} \right) = e^{-2x} \left(\mathbf{D}-2 \right)x^3=
+e^{-2x} \left(\mathbf{D}^2-5\mathbf{D}+9 \right)x^3=e^{-2x} \left(9x^3-15x^2+6x\right)\,.
+\]
+
+\subsection{Solución de ecuaciones diferenciales lineales con el operador polinomial}
+
+El método puede aplicarse a ecuaciones diferenciales de orden $n$, ya que si se tiene que
+\[
+(\mathbf{D}-m_1)(\mathbf{D}-m_2) \cdots (\mathbf{D}-m_n)y=Q(x)\,,
+\]
+entonces se puede definir la función $u$ como
+\[
+u=(\mathbf{D}-m_2) \cdots (\mathbf{D}-m_n)y\,,
+\]
+y lo que queda es resolver una ecuación diferencial lineal de primer orden
+\[
+(\mathbf{D}-m_1)u=Q(x)\,.
+\]
+
+Una vez resuelta la ecuación para $u$ se sustituye en:
+\[
+(\mathbf{D}-m_2)(\mathbf{D}-m_3) \cdots (\mathbf{D}-m_n)y=u(x)
+\]
+Repitiendo el proceso, 
+\[
+v=(\mathbf{D}-m_3) \cdots (\mathbf{D}-m_n)y \,\Rightarrow \, (\mathbf{D}-m_2)v=u(x)
+\]
+Integrando:
+\[
+(\mathbf{D}-m_3) \cdots (\mathbf{D}-m_n)y=v(x)
+\]
+Esta repetición nos llevará entonces hasta la solución $y(x)$.
+
+Para resolver ecuaciones del tipo
+\[
+a_n y^{(n)}+ a_{n-1}y^{(n-1)}+ \cdots + a_2 y''+ a_1 y'+ a_0 y=Q(x)\,, \quad a_n\neq0\,,
+\]
+es decir, con coeficientes constantes, vamos a estudiar el siguiente ejemplo:
+
+Consideremos el siguiente ejemplo: 
+\[
+y'''+2y''-y'-2y=e^{2x}\,.
+\]
+Al escribir esta ecuación utilizando el operador diferencial resulta
+\[
+\left(\mathbf{D}^3+2\mathbf{D}^2-\mathbf{D}-2 \right)y=e^{2x}\, \Rightarrow \,
+\left(\mathbf{D}-1 \right)\left(\mathbf{D}+1 \right)\left(\mathbf{D}+2\right)y=e^{2x}
+\]
+Si llamamos $u=\left(\mathbf{D}+1 \right)\left(\mathbf{D}+2\right)y$ entonces se puede ver que
+\[
+\left(\mathbf{D}-1 \right)u=e^{2x}\,\Rightarrow \,  u'-u= e^{2x}\,\Rightarrow \,   u=e^{2x}+C_1e^{x}
+\]
+Conocida la función $u$ entonces se tiene que
+\[
+\left(\mathbf{D}+1 \right)\left(\mathbf{D}+2\right)y=e^{2x}+C_1e^{x}
+\]
+Repetimos el proceso, pero ahora hacemos $v=\left(\mathbf{D}+2\right)y$, por lo tanto
+\[
+\left(\mathbf{D}+1 \right) v = e^{2x}+C_1e^{x}\,\Rightarrow \, v'+v=e^{2x}+C_1e^{x}\,\Rightarrow \,
+v=\frac13e^{2x}+\frac{C_1}{2}e^{x}+c_2e^{-x}
+\]
+Conocida $v$, entonces
+\[
+\left(\mathbf{D}+2\right)y=\frac13e^{2x}+\frac{C_1}{2}e^{x}+c_2e^{-x}
+\]
+Integrando una vez más:
+\[
+y'+2y=\frac13e^{2x}+\frac{C_1}{2}e^{x}+c_2e^{-x}\,\Rightarrow \, 
+y(x)=\frac{1}{12}e^{2x} + C_1 e^{x}+c_2e^{-x}+C_3e^{-2x}\,.
+\]
+
+Notemos que existe una manera bastante sencilla de resolver la ecuación combinando varios 
+métodos. Si buscamos $y_h(x)$ a través de la ecuación característica se obtiene que la
+solución es: $y_h(x)=C_1 e^{x}+c_2e^{-x}+C_3e^{-2x}$. Ahora bien, una solución particular
+se obtiene al considerar $u(x)= e^{2x}$ entonces $v=\frac13e^{2x}$ y por lo tanto $y_p(x)=\frac{1}{12}e^{2x}$.
+
+
+\subsection{El operador inverso}
+Los operadores suelen tener su inversa, esto significa que si
+\[
+P(\mathbf{D})y= Q(x) \,\, \Rightarrow \,\, P^{-1}(\mathbf{D}) P(\mathbf{D})y = P^{-1}(\mathbf{D}) Q(x) \,\, \Rightarrow \,\, y_p = P^{-1}(\mathbf{D}) Q(x)\,,
+\]
+donde $y_p(x)$ es una solución particular de $P(\mathbf{D})y= Q(x)$. Notemos que esto significa que
+\[
+\mathbf{D}^{-n}Q(x)= \int\int \underbrace{\cdots}_{n \mbox{ veces }}\int Q(x) dx\,.
+\]
+
+Por ejemplo, evaluar
+\[
+\mathbf{D}^{-2}(2x+3)\,.
+\]
+
+Se tiene entonces lo siguiente:
+\[
+\mathbf{D}^{-2}(2x+3) = \mathbf{D}^{-1}\int(2x+3)dx=\mathbf{D}^{-1}(x^2+3x)= \int (x^2+3x) dx=
+\frac13 x^3 +\frac32 x^2 \,.
+\]
+
+De  todos modos es fácil verificar que $y_p=\frac13 x^3 +\frac32 x^2$ es una solución particular de $\mathbf{D}^{2}y = 2x+3$.
+
+El operador inversa de $P(\mathbf{D})$, es decir $P^{-1}(\mathbf{D})$,  puede también representarse como $1/P(\mathbf{D})$. Debe quedar claro que su significado radica en el hecho de que al actuar sobre $Q(x)$ produce una solución particular $y_p$.  Esta última notación resulta ser a veces más conveniente y dependiendo de la forma de $Q(x)$ puede resultar algunas veces de fácil solución.
+
+En general, se tiene que sí
+\[
+P(\mathbf{D})y= \left(a_n\mathbf{D}^n+  a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_1\mathbf{D}+a_0 \right)y= Q(x)\,,
+\]
+entonces
+\begin{eqnarray*}
+y_p=\frac{1}{P(\mathbf{D})}\left[Q(x)\right]&=&\frac{1}{a_0\left(1+\frac{a_1}{a_0}\mathbf{D}+\frac{a_2}{a_0}\mathbf{D}^2 + \cdots + \frac{a_{n-1}}{a_0}\mathbf{D}^{n-1}+  \frac{a_{n}}{a_0}\mathbf{D}^{n} \right)}\left[Q(x)\right]  \\
+&=&\frac{1}{a_0} \left(1+c_1\mathbf{D}+c_2\mathbf{D}^2 + \cdots + c_{n-1}\mathbf{D}^{n-1}+  c_{n}\mathbf{D}^{n} \right) \left[Q(x)\right]\,, \quad a_0 \neq 0 \,,
+\end{eqnarray*}
+donde el término $\left(1+c_1\mathbf{D}+c_2\mathbf{D}^2 + \cdots + c_{n-1}\mathbf{D}^{n-1}+  c_{n}\mathbf{D}^{n} \right)/a_0$ es la expansión en serie de $1/P(\mathbf{D})$.
+
+Por otro lado, notemos que si $a_0=0$, entonces 
+\[
+P(\mathbf{D})y= \left(a_n\mathbf{D}^n+  a_{n-1}\mathbf{D}^{n-1}+ \cdots + a_1\mathbf{D} \right)y= 
+\mathbf{D}\left(a_{n}\mathbf{D}^{n-1}+  a_{n-1}\mathbf{D}^{n-2}+ \cdots + a_1 \right)y=
+Q(x)\,,
+\]
+Si ambos $a_0=0$ y $a_1=0$, entonces se puede seguir factorizando. Por lo tanto, en general:
+\[
+P(\mathbf{D})y= 
+\mathbf{D}^r\left(a_{n}\mathbf{D}^{n-r}+ \cdots + a_{r+1}\mathbf{D} + a_r \right)y= Q(x)\,.
+\]
+esto significa que
+\begin{eqnarray*}
+y_p=\frac{1}{P(\mathbf{D})}\left[Q(x)\right]&=&\frac{1}
+{\mathbf{D}^r\left(a_{n}\mathbf{D}^{n-r}+ \cdots + a_{r+1}\mathbf{D} + a_r \right)}\left[Q(x)\right]\, 
+\quad a_r \neq 0\\
+&=&\frac{1}{\mathbf{D}^r}\left[  
+\frac{1}{\left(a_{n}\mathbf{D}^{n-r}+ \cdots + a_{r+1}\mathbf{D} + a_r \right)}\left[Q(x)\right] \right]
+\end{eqnarray*}
+
+
+Muchos cálculos se simplificarán notablemente por la forma que pueda tener la función $Q(x)$, por ejemplo, si $Q(x)=bx^k$,  entonces
+\[
+P(\mathbf{D})y=bx^k\,.
+\] 
+
+Note que si $k=0$, entonces:
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[b\right] = \frac{b}{a_0}\,, \quad a_0\neq0\,.
+\]
+porque $b$ es constante.
+
+Encontremos una  solución particular de
+\[
+y''-2y'-3y=5 \,\, \Rightarrow \,\, (\mathbf{D}^2 -2\mathbf{D}-3)y=5\,,
+\]
+aquí podemos ver que: $a_0=-3$, $a_1=-2$, $a_2=1$, $b=5$ y $k=0$, y por lo tanto:
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[5\right]= -\frac{5}{3}\,.
+\]
+
+
+\subsection{El operador polinomial inverso y  fracciones parciales}
+
+La mejor manera de ilustrar el método es con un ejemplo. Consideremos la siguiente ecuación diferencial:
+\[
+y'''-5y''+8y'-4y=2e^{4x} \,\, \Rightarrow \,\, \left(D^3-5D^2+8D-4\right)y=2e^{4x}\,.
+\]
+Busquemos su solución general.
+
+Podemos notar que
+\[
+D^3-5D^2+8D-4= (D-2)^2(D-1)\,,
+\]
+por lo tanto
+\[
+y_p= P^{-1}(\mathbf{D}) \left[Q(x)\right]= \frac{1}{P(\mathbf{D}) }\left[2e^{4x}\right]=
+\frac{1}{D^3-5D^2+8D-4}\left[2e^{4x}\right]=
+\frac{1}{(D-2)^2(D-1)}\left[2e^{4x}\right]
+\]
+podemos hacer una expansión en fracciones parciales 
+\[
+\frac{1}{(D-2)^2(D-1)}= \frac{1}{D-1}-\frac{1}{D-2}+\frac{1}{(D-2)^2}
+\]
+por lo tanto:
+\[
+y_p=\frac{1}{D-1}\left[2e^{4x}\right]-\frac{1}{D-2}\left[2e^{4x}\right]+\frac{1}{(D-2)^2}\left[2e^{4x}\right]\,.
+\]
+Ahora estamos en capacidad de resolver cada término por separado:
+\[
+y_p= \frac{2e^{4x}}{3}-\frac{2e^{4x}}{2}+ \frac{2e^{4x}}{4}= \frac{e^{4x}}{6}\,.
+\]
+Par otro lado, la familia de soluciones de la ecuación homogénea es
+\[
+y_h= (C_1+C_2x)e^{2x}
+\]
+y la solución general resulta ser entonces:
+\[
+y(x)=(C_1+C_2x)e^{2x}+\frac{e^{4x}}{6}\,.
+\]
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+\begin{enumerate}
+
+\item Encontrar una solución particular de
+\[
+4y''-3y'+9y=5x^2 \,\, \Rightarrow \,\, (4\mathbf{D}^2 -3\mathbf{D}+9)y=5x^2\,,
+\]
+ahora: $a_0=9$, $a_1=-3$, $a_2=4$, $b=5$ y $k=2$, esto significa que:
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[5x^2\right]=\frac{1}{9\left(1-\frac{3}{9}\mathbf{D}+
+\frac{4}{9}\mathbf{D}^2  \right)}\left[5x^2\right]= \frac{5}{9}\left(  1+\frac{1}{3}\mathbf{D}-
+\frac{1}{3}\mathbf{D}^2 \right)\left[x^2\right] = 
+\frac{5}{9}\left[x^2 + \frac{2}{3} x - \frac{2}{3}   \right]\,.
+\]
+Cuando se hace la expansión en serie de $1/P(\mathbf{D})$ no hace falta ir más allá de $\mathbf{D}^3$,  ya que $\mathbf{D}^3\left[x^2\right] =0$.
+
+\item Encontrar una  solución particular de
+\[
+y^{(5)}-y^{(3)}=2x^2 \,\, \Rightarrow \,\, (\mathbf{D}^5 -\mathbf{D}^3)y=2x^2 
+\,\, \Rightarrow \,\, \mathbf{D}^3(\mathbf{D}^2 -1)y=2x^2
+\]
+por lo tanto:
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[2x^2\right]=\frac{1}{\mathbf{D}^3} \left[ \frac{1}{\mathbf{D}^2 -1} \left[2x^2\right]\right]\,.
+\]
+
+Trabajamos por partes,
+\[
+ \frac{1}{\mathbf{D}^2 -1} \left[2x^2\right]=\frac{1}{(-1)\left(1-\mathbf{D}^2 \right)}\left[2x^2\right]\,,
+\]
+aquí $a_0=-1$,  $a_1=0$, $a_2=1$, $b=2$ y $k=2$, por lo tanto
+\[
+ \frac{1}{\mathbf{D}^2 -1} \left[2x^2\right]=-2\frac{1}{\left(1-\mathbf{D}^2 \right)}\left[x^2\right]=
+ -2\left(1+\mathbf{D}^2 \right)\left[x^2\right]= -2(x^2+2)
+\]
+ahora tenemos que
+\[
+y_p=\frac{1}{\mathbf{D}^3} \left[ -2(x^2+2)\right]= -2\mathbf{D}^{-3} \left[ x^2+2\right]=
+-2\left( \frac{x^5}{60}+\frac{x^3}{3}\right)\,.
+\]
+
+\item  Si $Q(x)=be^{ax}$,  entonces
+\[
+P(\mathbf{D})y=be^{ax}
+\] 
+Se puede demostrar (queda como ejercicio)  que una solución particular de esta ecuación es
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[be^{ax}\right]= \frac{be^{ax}}{P(a)}\,, \quad P(a) \neq 0 \,.
+\] 
+Encuentremos una solución particular de
+\[
+y''' -y'' +y' +y = 3e^{-2x}\,.
+\]
+Entonces
+\[
+(\mathbf{D}^3-\mathbf{D}^2+\mathbf{D}+1)y=3e^{-2x}\,,
+\]
+aquí $b=3$ y $a=-2$, por lo tanto:
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[3e^{-2x}\right]=\frac{3e^{-2x}}{P(-2)}=
+\frac{3e^{-2x}}{(-2)^3-(-2)^2+(-2)+1}= -\frac{3}{13} e^{-2x}\,,
+\]
+
+\item  Si $Q(x)=b\cos(ax)$ o  $Q(x)=b\ \text{sen}(ax)$.
+En este caso podemos utilizar la fórmula de Euler y volver al caso anterior.
+
+Encuentremos una solución particular de
+\[
+y'' -3y' +2y = 3\text{sen}(2x)\,,
+\]
+entonces:
+\[
+(\mathbf{D}^2-3\mathbf{D}+2)y=3\text{sen}(2x)\,,
+\]
+sabemos que: $e^{2ix}=\cos(2x) + i \text{sen}(2x)$ y que la parte imaginaria de una solución particular de
+\[
+(\mathbf{D}^2-3\mathbf{D}+2)y=3e^{2ix}
+\]
+será una solución de nuestro problema.  Por lo tanto, con $b=3$ y $a=2i$ se tiene:
+\begin{eqnarray*}
+y_p&=&\frac{1}{P(\mathbf{D})}\left[3e^{2ix}\right]=\frac{3e^{-2x}}{P(2i)}=\frac{3e^{-2x}}{(2i)^2-3(2i)+2}=
+\frac{3e^{-2x}}{-2(1+3i)}=\frac{3(1-3i)e^{-2x}}{-20}\\
+&=& -\frac{3}{20}(1-3i)(\cos(2x) + i \text{sen}(2x))= -\frac{3}{20}\left[\cos(2x) + 3 \text{sen}(2x) +i (\text{sen}(2x)-3\cos(2x))\right]
+\end{eqnarray*}
+la parte imaginaria de esta última ecuación será nuestra solución particular
+\[
+y_p=-\frac{3}{20}[\text{sen}(2x)-3\cos(2x)] \,.
+\]
+
+\item  Si $Q(x)=Q_1(x)+Q_2(x)+\cdots + Q_n(x)$, entonces
+\[
+y_p=\frac{1}{P(\mathbf{D})}\left[Q(x)\right]=\frac{1}{P(\mathbf{D})}\left[Q_1(x)\right]+ 
+\frac{1}{P(\mathbf{D})}\left[Q_2(x)\right] + \cdots + \frac{1}{P(\mathbf{D})}\left[Q_2(x)\right] 
+\]
+\end{enumerate}
+
+
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+\begin{enumerate}
+\item Resuelva la ecuación
+\[
+y''+y=e^x\,.
+\]
+
+\item Encuentre la solución general de
+\[
+y''-y=x^3+3x-4\,.
+\]
+
+
+
+
+
+\end{enumerate}
+
+
+\section{Ecuaciones diferenciales y las transformadas de Laplace}
+
+\subsection{Algunas definiciones previas}
+
+En general vamos a definir una transformación integral, $F(s)$, de una función, $f(t)$ como
+\begin{equation}
+F(s)=\int_{a}^{b}\mathcal{K}\left(  s,t\right)  \ f(t)\mathrm{d}
+t=\mathbf{T}\left\{  f(t)\right\} \,,
+\end{equation}
+donde $\mathcal{K}\left(  s,t\right)  $ es una función conocida de $s$ y $t$, denominada el \textit{núcleo} de la transformación. Si $a$ y $b$ son finitos la transformación se dirá finita, de lo contrario infinita. Dependiendo de la selección del núcleo y los limites tendremos distintas transformaciones integrales. En Física las más comunes son las siguientes\newline
+
+\begin{tabular}
+[c]{lcc}
+\textbf{Nombre} & $F(s)=\mathbf{T}\left\{  f(t)\right\}  $ & $f(t)=\mathbf{T}^{-1}\left\{  F(s)\right\}  $\\ \hline
+&  & \\
+Laplace & $\mathcal{L}(s)=\int_{0}^{\infty}{\large e}^{-st}f(t)\mathrm{d}t$ &
+$\ f(t)=\frac{1}{2\pi i}\int_{\gamma-i\infty}^{\gamma+i\infty}{\large e}^{st}\mathcal{L}(s)\mathrm{d}s$\\
+&  & \\
+Fourier de senos y cosenos & $\mathcal{F}(s)=\sqrt{\frac{2}{\pi}}
+{\displaystyle\int_{0}^{\infty}}
+\left.
+\begin{array}
+[c]{c}
+{\small \text{sen}(st)}\\
+{\small \cos(st)}
+\end{array}
+\right.  f(t)\mathrm{d}t$ & $f(t)=\sqrt{\frac{2}{\pi}}
+{\displaystyle\int_{0}^{\infty}}
+\left.
+\begin{array}
+[c]{c}
+{\small \text{sen}(ts)}\\
+{\small \cos(ts)}
+\end{array}
+\right.  \mathcal{F}(s)\mathrm{d}s$\\
+&  & \\
+Fourier compleja & $\mathcal{F}(s)=\frac{1}{\sqrt{2\pi}}
+{\displaystyle\int_{-\infty}^{\infty}}
+{\large e}^{i st}f(t)\mathrm{d}t$ & $f(t)=\frac{1}{\sqrt{2\pi}}
+{\displaystyle\int_{-\infty}^{\infty}}
+{\large e}^{-ist}\mathcal{F}(s)\mathrm{d}s$\\
+&  & \\
+Hankel (Fourier-Bessel) & $F(s)=
+{\displaystyle\int_{0}^{\infty}}
+tJ_{n}{\small (st)}f(t)\mathrm{d}t$ & $f(t)=
+{\displaystyle\int_{0}^{\infty}}
+sJ_{n}{\small (ts)}F(s)\mathrm{d}s$\\
+&  & \\
+Mellin & $\mathcal{M}(s)=
+{\displaystyle\int_{0}^{\infty}}
+t^{s-1}\ f(t)\mathrm{d}t$ & $f(t)=\frac{1}{2\pi i}\int_{\gamma-i\infty
+}^{\gamma+i\infty}s^{-t}\ \mathcal{M}(s)\mathrm{d}s$ \\ \\ \hline
+&  & \\
+\end{tabular}
+
+La idea detrás de la utilidad de las transformaciones integrales puede
+resumirse en el siguiente esquema
+\begin{center}
+\begin{tabular}
+[c]{ccc}\cline{1-1}\cline{3-3}
+\multicolumn{1}{|c}{EDO para $f(t)$} & \multicolumn{1}{|c}{$
+\begin{array}
+[c]{c}
+\longrightarrow \text{transformación directa}\longrightarrow\\
+F(s)=\mathbf{T}\left\{  f(t)\right\}
+\end{array}
+$} & \multicolumn{1}{|c|}{$
+\begin{array}
+[c]{c}
+\text{relación para }F(s)\\
+\text{eventualmente más fácil}
+\end{array}
+$}\\\cline{1-1}\cline{3-3}
+$\downarrow$ &  & $\downarrow$\\
+$
+\begin{array}
+[c]{c}
+\text{solución directa}\\
+\text{difícil}
+\end{array}
+$ &  & $
+\begin{array}
+[c]{c}
+\text{solución para }F(s)\\
+\text{más fácil}
+\end{array}
+$\\
+$\downarrow$ &  & $\downarrow$\\\cline{1-1}\cline{3-3}
+\multicolumn{1}{|c}{se encuentra $f(t)$} & \multicolumn{1}{|c}{$
+\begin{array}
+[c]{c}
+\longleftarrow\text{ transformación inversa} \longleftarrow \\
+f(t)=\mathbf{T}^{-1}\left\{  F(s)\right\}
+\end{array}
+$} & \multicolumn{1}{|c|}{se encuentra $F(s)$}\\\cline{1-1}\cline{3-3}
+\end{tabular}
+
+\pagebreak 
+\end{center}
+
+\subsection{Transformada de Laplace}
+En nuestro caso ilustraremos el uso de transformaciones integrales con la
+transformada de Laplace, que denotaremos de manera simbólica como
+$F(s)=\mathcal{L}\left[f(t)\right]$. Esto es:
+\[
+F(s)=\mathcal{L}\left[f(t)\right]=\int_{0}^{\infty} f(t) e^{-st} \mathrm{d}t \,, \quad 0 \leq t < \infty \,.
+\]
+
+Es bueno tener en cuenta que si la integral impropia 
+\[
+\int_{0}^{\infty} f(t) e^{-st} \mathrm{d}t \,, \quad 0 \leq t < \infty
+\]
+converge para algún valor de $s=s_0$, entonces convergerá para todo $s>s_0$. Si la integral existe se
+denominará la transformada de Laplace de $f(t)$.
+
+Por ejemplo, podemos ver que si $f(t)=t$, entonces
+\begin{eqnarray*}
+\mathcal{L}[t]&=&F(s)=\int_{0}^{\infty} te^{-st} \mathrm{d}t = \lim_{h\rightarrow \infty}\int_{0}^{h} te^{-st} \mathrm{d}t\\
+&=& \lim_{h\rightarrow \infty}\left[ e^{-st}\left( -\frac{t}{s}-\frac{1}{s^2}\right) \right]_{0}^{h}=
+\lim_{h\rightarrow \infty}\left[ -\frac{he^{-sh}}{s} - \frac{e^{-sh}}{s^2}+\frac{1}{s^2}\right]= \frac{1}{s^2}\,.
+\end{eqnarray*}
+Se puede ver que si $f(t)=0$, entonces
+\[
+\mathcal{L}[0]= \int_{0}^{\infty} 0 e^{-st} \mathrm{d}t =0\,.
+\]
+Existen tablas con las transformadas de Laplace, de manera que no es necesario ir calculando las integrales impropias para cada una de las funciones. 
+
+
+Las transformadas de Laplace son lineales, es decir:
+\[
+\mathcal{L}[C_1f_1(t)+C_2f_2(t)]=C_1\mathcal{L}[f_1(t)]+C_2\mathcal{L}[f_2(t)]
+\]
+además, existe también la transformación inversa de Laplace. Esto significa que si
+\[
+\mathcal{L}[f(t)]=F(s) \quad \Rightarrow \quad \mathcal{L}^{-1}[F(s)]=f(t)
+\]
+La transformación inversa de Laplace también es un operador lineal.
+
+
+\subsection{Transformadas de Laplace y las ecuaciones diferenciales lineales}
+
+Vamos a considerar un método para resolver ecuaciones diferenciales lineales con coeficientes constantes, es decir, ecuaciones del tipo
+\begin{equation}
+a_n y^{(n)} + a_{n-1}y^{(n-1)}+ \cdots + a_2y'' +a_1y' +a_0=Q(x)\,,
+\label{edlcoefcons}
+\end{equation}
+utilizando las transformadas de Laplace. Este método, como veremos a continuación, permite obtener  una solución particular dado un conjunto de condiciones iniciales. 
+
+Si multiplicamos (\ref{edlcoefcons}) por $e^{-sx}$ e integramos, podemos ver que
+\[
+\int_{0}^{\infty} e^{-sx}\left[a_n y^{(n)} + a_{n-1}y^{(n-1)}+ \cdots + a_2y'' +a_1y' +a_0\right] \mathrm{d}x 
+= \int_{0}^{\infty}e^{-sx}Q(x) \mathrm{d}x 
+\]
+término por término:
+\begin{eqnarray}
+a_n \int_{0}^{\infty} e^{-sx}   y^{(n)} \mathrm{d}x +
+a_{n-1} \int_{0}^{\infty} e^{-sx}  y^{(n-1)} \mathrm{d}x + \cdots 
++ a_2 \int_{0}^{\infty} e^{-sx}  y''  \mathrm{d}x &+&
+a_1 \int_{0}^{\infty} e^{-sx}  y' \mathrm{d}x + \nonumber \\
+a_0 \int_{0}^{\infty} e^{-sx}  y \mathrm{d}x 
+&=& \int_{0}^{\infty}e^{-sx} Q(x) \mathrm{d}x \nonumber\\
+a_n \mathcal{L} \left[ y^{(n)} \right] +
+a_{n-1} \mathcal{L} \left[  y^{(n-1)} \right]  + \cdots + 
+a_2 \mathcal{L} \left[  y''  \right]  +
+a_1 \mathcal{L}  \left[ y'  \right] +
+a_0 \mathcal{L} \left[  y \right] & = &\mathcal{L} \left[ Q(x) \right] 
+\label{laplaceecuas}
+\end{eqnarray}
+
+Ahora bien, podemos observar lo siguiente
+\[
+\mathcal{L}  \left[ y'  \right] = \int_{0}^{\infty} e^{-sx}  y' \mathrm{d}x
+\]
+y al integrar por partes, con $u=e^{-sx} $ y $ \mathrm{d}v=y' \mathrm{d}x$, se tiene
+\begin{eqnarray*}
+\int_{0}^{\infty} e^{-sx}  y' \mathrm{d}x &= & 
+\lim_{b \rightarrow \infty }\left[e^{-sx}y\right]^b_0 - \int_{0}^{\infty}  (-s)e^{-sx} y \mathrm{d}x \\
+&=& \lim_{b \rightarrow \infty }\left[e^{-sb}y(b)-y(0)\right] +s\int_{0}^{\infty} ye^{-sx}  \mathrm{d}x 
+\end{eqnarray*}
+
+Si agregamos la suposición adicional de que la solución de la ecuación diferencial, es decir, 
+$y(x)$ satisface
+\[
+\lim_{x \rightarrow \infty } \left[e^{-sx}y^{(k)}(x)\right]=0\,, \quad k=0,1, 2, \dots , n-1\,, \,\, s>s_0\,,
+\]
+entonces:
+\[
+\mathcal{L}  \left[ y'  \right] =\int_{0}^{\infty} e^{-sx}  y' \mathrm{d}x=  
+-y(0) +s\mathcal{L}  \left[ y \right]\,.
+\]
+
+Para calcular $\mathcal{L} \left[  y''  \right] $ se procede de manera similar, pero ahora es necesario integrar dos veces por partes y utilizar el resultado para $\mathcal{L}  \left[ y'  \right]$. Resultando:
+\[
+\mathcal{L}  \left[ y''  \right] = -y'(0)+s\mathcal{L}  \left[ y'  \right]= s^2\mathcal{L}  \left[ y \right]-\left[y'(0)+sy(0)\right]\,.
+\]
+
+Repitiendo el proceso:
+\begin{eqnarray*}
+\mathcal{L}  \left[ y''' \right] &=&  s^3\mathcal{L}  \left[ y \right]-\left[y''(0)+sy'(0)+s^2y(0)\right]\\
+\mathcal{L}  \left[ y^{(4)} \right] &=&  s^4\mathcal{L}  \left[ y \right]-\left[y'''(0)+sy''(0)+s^2y'(0)+ s^3y(0)\right]\,,
+\end{eqnarray*}
+
+y si seguimos hasta orden $n$, se puede demostrar que
+\[
+\mathcal{L}  \left[ y^{(n)}\right] =  s^n\mathcal{L}  \left[ y \right]-\left[y^{(n-1)}(0)+sy^{(n-2)}(0)+ \cdots + 
+s^{n-2}y'(0)+s^{n-1}y(0)\right]\,.
+\]
+
+Al sustituir todos estos últimos resultados en (\ref{laplaceecuas}), sacando  los términos que contienen a $\mathcal{L}  \left[ y \right]$, resulta que podemos escribir (\ref{laplaceecuas}) de la manera siguiente:
+\begin{eqnarray*}
+a_n s^n \mathcal{L} \left[ y \right] 
+&-&a_{n}\left[y^{(n-1)}(0)+sy^{(n-2)}(0)+ \cdots + s^{n-2}y'(0)+s^{n-1}y(0)\right] \\
++ a_{n-1} s^{n-1}\mathcal{L} \left[ y \right] 
+&-& a_{n-1}  \left[ y^{(n-2)}(0)+sy^{(n-3)}(0)+ \cdots + s^{n-3}y'(0)+s^{n-2}y(0)\right]  \\
++ a_{n-2} s^{n-2}\mathcal{L} \left[ y \right] 
+&-& a_{n-2} \left[ y^{(n-3)}(0)+sy^{(n-4)}(0)+ \cdots + s^{n-4}y'(0)+s^{n-3}y(0)\right] \\
+\vdots \qquad \vdots  \qquad \vdots \qquad&\vdots& \qquad \vdots \qquad \vdots \qquad 
+\vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad 
+\vdots \qquad \vdots \\
++ a_{2} s^{2}\mathcal{L} \left[ y \right] 
+&-& a_{2} \left[ y'(0)+sy(0)\right] \\
++ a_{1} s\mathcal{L} \left[ y \right] 
+&-& a_{1} y(0)\\
++a_0\mathcal{L} \left[ y \right] &=&\mathcal{L} \left[ Q(x) \right] 
+\end{eqnarray*}
+factorizando para $\mathcal{L} \left[ y \right] $ se tiene:
+\begin{eqnarray}
+&&\left[ a_n s^n  + a_{n-1} s^{n-1} + a_{n-2} s^{n-2} + \cdots +  a_{2} s^{2} + a_{1} s +a_0 \right] \mathcal{L} \left[y \right]  \nonumber \\
+&-& \left[ a_n s^{n-1}+a_{n-1}s^{n-2}+ \cdots + a_2s+a_1\right] y(0)  \nonumber \\
+&-& \left[ a_n s^{n-2}+a_{n-1}s^{n-3}+ \cdots + a_3s+a_2\right] y'(0) \nonumber \\
+&\vdots& \qquad \vdots \qquad \vdots \qquad 
+\vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad \vdots \qquad \vdots \nonumber \\
+&-& \left[ a_n s^{n}+a_{n-1}\right] y^{(n-2)}(0) \nonumber \\
+&-&  a_n y^{(n-1)}(0)=\mathcal{L} \left[ Q(x) \right] \,.
+\label{grandelaplace}
+\end{eqnarray}
+
+En (\ref{grandelaplace}) se puede apreciar que es necesario conocer las cantidades: $y(0)$, $y'(0)$, $y''(0)$, ... , $y^{(n-1)}(0)$, las cuales se pueden determinar vía las condiciones iniciales. Por otra lado, también se puede ver que la transformada de Laplace de la función que estamos buscando $\mathcal{L} \left[y \right]$ se puede despejar directamente de (\ref{grandelaplace}).
+
+Por ejemplo, encontraremos la solución a siguiente ecuación diferencial
+\[
+y^{\prime\prime}+y=\mathrm{sen}(2x)\qquad\text{con: }\left\{
+\begin{array}
+[c]{c}
+y(0)=0\\
+\\
+y^{\prime}(0)=1
+\end{array}
+\right.
+\]
+Si nos fijamos en (\ref{grandelaplace}) vemos que para este caso se tiene: $a_2=1$, $a_1=0$ y $a_0=1$, entonces:
+\begin{eqnarray*}
+\left[ a_{2} s^{2} + a_{1} s +a_0 \right] \mathcal{L} \left[y \right] - \left[a_2s+a_1\right] y(0) -
+\left[ a_2\right] y'(0) &=& \mathcal{L} \left[ \mathrm{sen}(2x) \right] \\
+\left[  s^{2} +1\right] \mathcal{L} \left[y \right] - s y(0) -y'(0) &=& \mathcal{L} \left[ \mathrm{sen}(2x) \right]\\
+\left[  s^{2} +1\right] \mathcal{L} \left[y \right]  -1 &=& \frac{2}{s^2+4}\\
+\mathcal{L} \left[y \right]   &=&\frac{1}{s^{2} +1}\left[ \frac{2}{s^2+4} +1 \right]
+\end{eqnarray*}
+por lo tanto:
+\[
+\mathcal{L} \left[y \right]  = \frac{s^{2}+6}{\left( s^{2}+1\right) \left(s^{2}+4\right) }=
+-\frac{2}{ 3({s}^{2}+4)} +\frac{5}{ 3({s}^{2}+1)} = \frac{-\frac{2}{3}}{{s}^{2}+4} +\frac{\frac{5}{3}}{{s}^{2}+1} 
+\]
+mediante la transformada inversa en cada término
+\begin{eqnarray*}
+\mathcal{L} ^{-1}\left[  \frac{-\frac{2}{3}}{s^{2}+4}\right]  &=&
+-\frac{1}{3} \ \mathcal{L} ^{-1}\left[  \frac{2}{s^{2}+2^2}\right]  =-\frac{1}{3}\mathrm{sen}(2x) \\
+\mathcal{L} ^{-1}\left[  \frac{\frac{5}{3}}{s^{2}+1}\right] &=&
+\frac{5}{3} \ \mathcal{L} ^{-1}\left[  \frac{1}{s^{2}+1}\right] = \frac{5}{3}\mathrm{sen}(x)
+\end{eqnarray*}
+se tiene
+\[
+\mathcal{L} \left[y \right]  = \mathcal{L} \left[ -\frac{1}{3}\mathrm{sen}(2x) + \frac{5}{3}\mathrm{sen}(x)\right] =
+\frac{-\frac{2}{3}}{{s}^{2}+4} +\frac{\frac{5}{3}}{{s}^{2}+1} 
+\]
+por lo tanto, nuestra solución particular para las condiciones iniciales dadas es:
+\[
+y(x)= -\frac{1}{3}\mathrm{sen}(2x) + \frac{5}{3}\mathrm{sen}(x)\,.
+\]
+
+
+
+\subsection{Integral de Convolución}
+Algunas veces es posible identificar la transformada de Laplace $H(s)$ como el producto de dos transformadas de Laplace, $F(s)$ y $G(s)$ las cuales son las transformadas de funciones conocidas $f(t)$ y $g(t)$. \textbf{Pero eso es algunas veces: en general la transformada del producto de funciones no es el producto de transformadas}. Esas veces están contenidas en el llamado Teorema de Convolución, según el cual se establece una especie de ``producto generalizado'' de funciones $f$ y $g$.
+
+\begin{mdframed}[linecolor=OliveGreen,linewidth=0.3mm]
+\textbf{Teorema de Convolución}: Sean
+\[
+F(s)=\mathcal{L}\left[f(t)\right]  \quad\text{y}\quad G(s)=\mathcal{L}
+\left[g(t)\right]  \quad\text{definidas en el intervalo } s>a>0 \,,
+\]
+entonces
+\[
+H(s)=F(s)G(s)=\mathcal{L}\left[h(t)\right] \,, \quad\text{para }s>a
+\]
+donde
+\[
+h(t)=\mathcal{L}^{-1}\left[ F(s)G(s)\right]  =
+\int_{0}^{t}f(t-\tau)\ g(\tau)\ \mathrm{d}\tau=\int_{0}^{t}f(\tau)\ g(t-\tau)\ \mathrm{d}
+\tau=\left(  f\ast g\right)  \left(  t\right)
+\]
+y $h(t)$ se identifica como la convolución de $f$ y $g$.
+\end{mdframed}
+
+Las integrales arriba expuestas se conocen con integrales de convolución y hemos denotado
+$h(t)=\left(  f\ast g\right)  \left(  t\right)  $ para insistir que se trata de un ``producto generalizado'' de funciones $f$ y $g$,  que comparte, con el producto ordinario de funciones, las siguientes propiedades
+
+\begin{center}
+\begin{tabular}
+[c]{ll}
+$f\ast g=g\ast f $ & (\text{conmutatividad}) \\
+&   \\
+$f\ast\left[  g+k\right]  = f\ast g+f\ast k   $ & (\text{distributividad})  \\
+&   \\
+$f\ast\left[  g\ast k\right]  =\left[  f\ast g\right]  \ast k $ & (\text{asociatividad})  \\
+&   \\
+$f\ast0=0\ast f=0 $ & 
+\end{tabular}
+\end{center}
+
+Sin embargo $f\ast1\neq f$, tal y como se puede apreciar de
+\[
+\left(  f\ast1\right)  \left(  t\right)  =\int_{0}^{t}f(t-\tau)\ 1\ \mathrm{d}
+\tau=\int_{0}^{t}f(t-\tau)\ \mathrm{d}\tau\neq f\left(  t\right) \,,
+\]
+en el caso particular de que $f\left(  t\right)  =\cos\left(  t\right) $ tendremos
+\[
+\left(  \cos\ast1\right)  \left(  t\right)  =\int_{0}^{t}\cos(t-\tau
+)\ 1\ \mathrm{d}\tau=\left.  \mathrm{sen}(t-\tau)\right|_{\tau=0}^{\tau=t}
+=\mathrm{sen}(0)-\mathrm{sen}(t)=-\mathrm{sen} (t)\,.
+\]
+
+Por la misma razón, no hay garantía que $\left(  f\ast f\right)\left(  t\right)  >0\quad\forall\ f\neq0$.
+
+El ejemplo más emblemático de la aplicación del Teorema de Convolución es el estudio del oscilador amortiguado y forzado, el cual viene descrito por la ecuación diferencial
+\[
+\ddot{x}+2\lambda\ \dot{x}+\omega_{0}^{2}\ x=f(t) \,, \quad \text{con: }\quad
+\left\{
+\begin{array}
+[l]{l}
+x(0)=x_{0}\\
+\\
+\dot{x}(0)=  \left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}= \dot{x}_{0}
+\end{array}
+\right.
+\]
+
+La transformada de Laplace  (ecuación  (\ref{grandelaplace})) no conduce a lo siguiente
+\begin{eqnarray*}
+\left[ a_{2} s^{2} + a_{1} s +a_0 \right] \mathcal{L} \left[x \right] - \left[a_2s+a_1\right] x(0) -
+\left[ a_2\right] \dot{x}(0) &=& \mathcal{L} \left[ f(t) \right] \\
+\left[  s^{2} +2\lambda s+ \omega_{0}^{2} \right] \mathcal{L} \left[x \right] - \left[s+2\lambda \right] x(0) -\dot{x}(0) &=& \mathcal{L} \left[ f(t) \right]\\
+\left[  s^{2} +2\lambda s+ \omega_{0}^{2} \right] \mathcal{L} \left[x \right] - \left[s+2\lambda \right] x_0 -\dot{x}_0 &=& F(s) \\
+\mathcal{L} \left[x \right]   &=& \frac{F(s)+\left[s+2\lambda \right] x_0 +\dot{x}_0}{s^{2} +2\lambda s+ \omega_{0}^{2}}
+\end{eqnarray*}
+por lo tanto
+\[
+\mathcal{L} \left[x \right] = \frac{F(s)+\left[s+2\lambda \right] x_0 +\dot{x}_0}{s^{2} +2\lambda s+ \omega_{0}^{2}}=
+\frac{2\lambda\ x_{0}+\dot{x}_{0}+sx_{0}}{s^{2}+2\lambda s+\omega_{0}
+^{2}}+\frac{F(s)}{s^{2}+2\lambda s+\omega_{0}^{2}} \,,
+\]
+para el primer sumando de la expresión anterior, se tiene lo siguiente:
+\[
+\mathcal{L} \left[x \right]_{(1)}=\frac{2\lambda\ x_{0}+\dot{x}_{0}+sx_{0}}{s^{2}+2\lambda s+\omega_{0}
+^{2}}= \frac{x_{0}\ \left(  s+\lambda\right)  }{\left(  s+\lambda\right)
+^{2}+\left(  \omega_{0}^{2}-\lambda^{2}\right)  }+\frac{\dot{x}_{0}
++x_{0}\ \lambda}{\left(  s+\lambda\right)  ^{2}+\left(  \omega_{0}^{2}
+-\lambda^{2}\right) } \,,
+\]
+y mediante la transformada inversa:
+\[
+\mathcal{L}^{-1}\left[  \frac{x_{0}\ \left(  s+\lambda\right)  }{\left(  s+\lambda\right)
+^{2}+\left(  \omega_{0}^{2}-\lambda^{2}\right)  }+\frac{\dot{x}_{0}
++x_{0}\ \lambda}{\left(  s+\lambda\right)  ^{2}+\left(  \omega_{0}^{2}
+-\lambda^{2}\right) } \right]_{(1)}  = 
+x_{0}\ {e}^{-\lambda t}\cos(\omega t) +\frac{\dot{x}_{0}+\lambda x_{0}\ }{\omega}\mathrm{sen}(\omega t)\,,
+\]
+con $\omega=\sqrt{\omega_{0}^{2}-\lambda^{2}}$.
+
+Para el segundo sumando
+\[
+\mathcal{L} \left[x \right]_{(2)}=\frac{F(s)}{s^{2}+2\lambda s+\omega_{0}^{2}} \,, 
+\]
+por el teorema de convolución se obtiene
+\[
+\mathcal{L}^{-1}\left[ \frac{F(s)}{s^{2}+2\lambda s+\omega_{0}^{2}} \right]_{(2)}  = 
+\int_{0}^{t}\frac{1}{\omega}{e}^{-\lambda
+\left(  t-\tau\right)  }\mathrm{sen}[\omega\left(  t-\tau\right)]  \ f\left(  t\right)
+\ \mathrm{d}\tau\,.
+\]
+
+La solución será entonces: 
+\[
+x\left(  t\right) =x_{0}\ {e}^{-\lambda t}\cos(\omega t) +\frac{\dot{x}_{0}+\lambda x_{0}\ }{\omega}\mathrm{sen}(\omega t) + \int_{0}^{t}\frac{1}{\omega}{e}^{-\lambda
+\left(  t-\tau\right)  }\mathrm{sen}[\omega\left(  t-\tau\right)]  \ f\left(  t\right)
+\ \mathrm{d}\tau \,.
+\]
+
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\begin{enumerate}
+
+\item  Ecuación diferencial, con valores iniciales, inhomogénea a una
+función escalón:
+\[
+y^{\prime\prime}+4y=h(x)  =\left\{
+\begin{array}
+[c]{l}
+0\qquad0\leq x \leq\pi \\
+\\
+1\qquad\pi <  x \leq2\pi  
+\end{array}
+\right.  \qquad\text{con: }\left\{
+\begin{array}
+[c]{c}
+y(0)=1\\
+\\
+y^{\prime}(0)=0
+\end{array}
+\right.
+\]
+podemos escribir
+\[
+y^{\prime\prime}+y=h(x) =u_{\pi}(x)  -u_{2\pi}(x)
+\]
+volviendo a fijarnos en  (\ref{grandelaplace})
+\begin{eqnarray*}
+\left[ a_{2} s^{2} + a_{1} s +a_0 \right] \mathcal{L} \left[y \right] - \left[a_2s+a_1\right] y(0) -
+\left[ a_2\right] y'(0) &=& \mathcal{L} \left[ h(x) \right] \\
+\left[  s^{2} +4\right] \mathcal{L} \left[y \right] - s y(0) -y'(0) &=& \mathcal{L} \left[ u_{\pi}(x)  -u_{2\pi}(x)\right]\\
+\left[  s^{2} +4\right] \mathcal{L} \left[y \right]  -s &=& \frac{{e}^{-\pi s}}{s}-\frac{{e}^{-2\pi s}}{s} \\
+\mathcal{L} \left[y \right]   &=&\frac{1}{s^{2} +4}\left[ s+\frac{{e}^{-\pi s}}{s}-\frac{{e}^{-2\pi s}}{s}\right]
+\end{eqnarray*}
+por lo tanto
+\[
+\mathcal{L} \left[y \right] = \frac{1}{s^{2} +4}\left[s+ \frac{{e}^{-\pi s}}{s}-\frac{{e}^{-2\pi s}}{s}\right]=
+\frac{s}{s^{2}+4}+\frac{{e}^{-\pi s}}{s\left(s^{2}+4\right)  }-\frac{{ e}^{-2\pi s}}{s\left(s^{2}+4\right)  }
+\]
+mediante las transformadas inversas
+\begin{eqnarray*}
+\mathcal{L} ^{-1}\left[  \frac{s}{s^{2}+4}\right]  &=& \cos(2x) \\
+\mathcal{L}^{-1}\left[  \frac{{\large e}^{-\pi s}}{s\left(  s^{2}+4\right)}\right]  &=&
+u_{\pi}(x) g\left(x-\pi\right) \,, \quad\text{con} \,\, g\left(  \tau\right)  =
+\mathcal{L}^{-1}\left[  \frac{{\large 1}}{s\left(s^{2}+4\right)  }\right]
+\end{eqnarray*}
+por lo tanto
+\[
+\mathcal{L}^{-1}\left[  \frac{{\large e}^{-\pi s}}{s\left(  s^{2}+4\right)}\right]  =
+u_{\pi}(x) \mathcal{L}^{-1}\left[  \frac{1}{4}\left(  \frac{{\large 1}}{s}-\frac{{\large s}}{s^{2}+4}\right)\right]=
+u_{\pi}(x) \left[  \frac{1}{4} \left\{  1-\cos[2(x-\pi)]  \right\} \right]
+\]
+del mismo modo
+\[
+\mathcal{L}^{-1}\left[  \frac{{\large e}^{-2\pi s}}{s\left(  s^{2}+4\right)}\right] =
+u_{2\pi}(x)  \left[  \frac{1}{4} \left\{  1-\cos[2(x-2\pi)]  \right\} \right]
+\]
+
+Recordemos que hemos definido la función escalón como
+\[
+{\large u}_{c}\left(  t\right) =  \left\{
+\begin{array}
+[c]{c}
+0\qquad t<c\\
+\\
+1\qquad t\geq c
+\end{array}
+\right.  \qquad c>0 \,.
+\]
+Por lo tanto:
+\begin{eqnarray*}
+\mathcal{L} \left[y \right]  &=& \mathcal{L} \left[\cos(2x)  +  u_{\pi}(x) \left[  \frac{1}{4} \left\{  1-\cos[2(x-\pi)]  \right\} \right]+    u_{2\pi}(x)  \left[  \frac{1}{4} \left\{  1-\cos[2(x-2\pi)]  \right\} \right] \right] \\
+&=&
+\frac{s}{s^{2}+4}+\frac{{e}^{-\pi s}}{s\left(s^{2}+4\right)  }-\frac{{ e}^{-2\pi s}}{s\left(s^{2}+4\right)  } \,,
+\end{eqnarray*}
+y finalmente la solución será
+\[
+y(x) =\cos(2x)  +  u_{\pi}(x) \left[  \frac{1}{4} \left\{  1-\cos[2(x-\pi)]  \right\} \right]+    u_{2\pi}(x)  \left[  \frac{1}{4} \left\{  1-\cos[2(x-2\pi)]  \right\} \right] \,.
+\]
+
+\item  Ecuación diferencial, con valores iniciales, inhomogénea a una función impulso (delta de Dirac)
+\[
+y^{\prime\prime}+2y^{\prime}+2y=\delta\left(  x-\pi\right) \,, \quad\text{con: }\left\{
+\begin{array}
+[c]{c}
+y(0)=0\\
+\\
+y^{\prime}(0)=0
+\end{array}
+\right.
+\]
+
+La función (distribución) delta de Dirac viene definida por
+\begin{equation}
+\delta\left(  t-t_{0}\right)  =0\qquad\text{con }t\neq t_{0}\qquad
+\text{y}\qquad\int_{-\infty}^{\infty}\mathrm{d}\tau\ \delta\left(  \tau
+-\tau_{0}\right)  =1
+\end{equation}
+con la útil propiedad:
+\begin{equation}
+\int_{-\infty}^{\infty}\mathrm{d}\tau\ \delta\left(  \tau-\tau_{0}\right)
+\ f\left(  \tau\right)  =\ f\left(  \tau_{0}\right)
+\end{equation}
+
+La transformada de Laplace de la función (distribución) Delta de Dirac es:
+\[
+\mathcal{L}\left[\delta\left(  t-c\right)  \right]  ={e}^{-c s} \,,
+\]
+por lo tanto, para nuestra ecuación problema
+\[
+y^{\prime\prime}+2y^{\prime}+2y=\delta\left(  x-\pi\right) 
+\]
+vemos que según  (\ref{grandelaplace})
+\begin{eqnarray*}
+\left[ a_{2} s^{2} + a_{1} s +a_0 \right] \mathcal{L} \left[y \right] - \left[a_2s+a_1\right] y(0) -
+\left[ a_2\right] y'(0) &=& \mathcal{L} \left[ \delta\left(  x-\pi\right)  \right] \\
+\left[  s^{2} +2s+ 2 \right] \mathcal{L} \left[y \right] - \left[s+2\right] y(0) -y'(0) &=& \mathcal{L} \left[ \delta\left(  x-\pi\right)\right]\\
+\left[  s^{2} +2s+ 2 \right] \mathcal{L} \left[y \right] &=& {e}^{-\pi s}  \\
+\mathcal{L} \left[y \right]   &=&\frac{{e}^{-\pi s}}{s^{2} +2s+ 2}
+\end{eqnarray*}
+por lo tanto:
+\[
+\mathcal{L} \left[y \right] = \frac{{e}^{-\pi s}}{s^{2} +2s+ 2}= {e}^{-\pi s}\frac{1}{\left(s+1\right)  ^{2}+1}
+\]
+miramos la transformada inversa
+\[
+\mathcal{L} ^{-1}\left[  {e}^{-\pi s}\frac{1}{\left(s+1\right)  ^{2}+1} \right]  = 
+u_{\pi}(x)  \left[{e}^{-\left( x-\pi\right)  }\mathrm{sen}\left(x-\pi\right)  \right]
+\]
+esto significa que:
+\[
+\mathcal{L} \left[y \right] = \mathcal{L} \left[ u_{\pi}(x)  \left[{e}^{-\left( x-\pi\right)  }\mathrm{sen} \left(x-\pi\right)  \right] \right] = \frac{{e}^{-\pi s}}{s^{2} +2s+ 2}
+\]
+resultando
+\[
+y(x)=u_{\pi}(x)  \left[{ e}^{-\left( x-\pi\right)  }\mathrm{sen} \left(x-\pi\right)  \right]
+\]
+o si lo preferimos en la otra notación: 
+\[
+y(x)  =\left\{
+\begin{array}
+[c]{l}
+0\qquad\qquad\qquad\qquad \quad  \, \,  \, x < \pi  \\
+ \\
+{e}^{-\left(x-\pi\right)  }\mathrm{sen} \left(x-\pi\right)  \qquad x \geq\pi \,.
+\end{array}
+\right.
+\]
+\end{enumerate}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
+\begin{enumerate}
+\item Resuelva, utilizando transformadas de Laplace, las siguientes ecuaciones
+\begin{enumerate}
+\item $y'-y=0$, $\quad$ $y(0)=1$
+\item $y'-y=e^x$, $\quad$ $y(0)=1$
+\item $y'+y=e^{-x}$, $\quad$ $y(0)=1$
+\item $y''+4y'+4y=0$, $\quad$ $y(0)=1$,  $y'(0)=1$
+\item $y''-y'-2y=5\text{sen}(x)$, $\quad$ $y(0)=1$,  $y'(0)=-1$
+\item $y'''-2y''+y'=2e^x + 2x$, $\quad$ $y(0)=0$,  $y'(0)=0$,  $y''(0)=0$
+\end{enumerate}
+\item Evalúe cada una de las siguientes funciones
+\begin{enumerate}
+\item $\Gamma(6)$
+\item $\Gamma(7)$
+\item $\Gamma(-5/2)$
+\item $\Gamma(5/2)$
+\end{enumerate}
+\item Evalúe cada una de las siguientes funciones factoriales
+\begin{enumerate}
+\item $\left(-\frac52\right)!$
+\item $\left(-\frac72\right)!$
+\item $\left(\frac32\right)!$
+\item $\left(\frac52\right)!$
+\end{enumerate}
+
+\end{enumerate}
+
+\section{Algunas aplicaciones de las ecuaciones de orden superior}
+
+\subsection{Mecánica y Electricidad}
+
+Una de las más famosas ecuaciones diferenciales, lineales, ordinaria con coeficientes constantes es
+\[
+\alpha\ \ddot{u}+\beta\ \dot{u}+\gamma\ u\equiv\alpha\ \frac{\mathrm{d}^{2}
+u}{\mathrm{d}t^{2}}+\beta\ \frac{\mathrm{d}u}{\mathrm{d}t}+\gamma
+\ u=\Lambda\left(  t\right)
+\]
+La cual utiliza para describir sistemas mecánicos y toma la forma
+\[
+m\ \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+\eta\ \frac{\mathrm{d}x}
+{\mathrm{d}t}+k\ x=F\left(  t\right)  \qquad\text{donde}\quad\left\{
+\begin{array}
+[c]{ccl}
+x & \Rightarrow & \text{Desplazamiento}\\
+\frac{\mathrm{d}x}{\mathrm{d}t} & \Rightarrow & \text{Velocidad}\\
+m & \Rightarrow & \text{masa}\\
+\eta & \Rightarrow & \text{Constante de Amortiguamiento}\\
+k & \Rightarrow & \text{Constante Elástica}\\
+F\left(  t\right)  & \Rightarrow & \text{Fuerza Aplicada}
+\end{array}
+\right.
+\]
+y circuitos eléctricos
+\[
+L\ \frac{\mathrm{d}^{2}Q}{\mathrm{d}t^{2}}+R\ \frac{\mathrm{d}Q}{\mathrm{d}
+t}+\frac{1}{C}\ Q=E\left(  t\right)  \qquad\text{donde}\quad\left\{
+\begin{array}
+[c]{ccl}
+Q & \Rightarrow & \text{Carga Eléctrica}\\
+\frac{\mathrm{d}Q}{\mathrm{d}t}=I & \Rightarrow & \text{Intensidad de
+Corriente}\\
+L & \Rightarrow & \text{Inductancia}\\
+R & \Rightarrow & \text{Resistencia}\\
+C & \Rightarrow & \text{Capacitancia}\\
+E\left(  t\right)  & \Rightarrow & \text{Fuerza Electromotriz}
+\end{array}
+\right.
+\]
+Analicemos la ecuación que describe sistemas mecánicos y dejamos la cual describe sistemas eléctricos para un análisis posterior. El primero de los casos a analizar será el de las oscilaciones libres, vale decir $F\left(  t\right)  =0$, lo cual en el lenguaje de las ecuaciones diferenciales se traduce a ecuaciones diferenciales homogéneas. En
+contraste, si $F\left(  t\right)  \neq0,$ es decir, el caso inhomogéneo, estaremos describiendo oscilaciones forzadas.
+
+\subsection{Oscilaciones libres}
+Analicemos pues del caso del oscilador armónico libre, i.e.
+\[
+m\ \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+k\ x=0\qquad\Rightarrow\quad
+x\left(  t\right)  =C_{1}\cos\left(  \omega_{0}t\right)  +C_{2}
+\operatorname{sen}\left(  \omega_{0}t\right)  \qquad\text{con}\quad\omega
+_{0}=\sqrt{\frac{k}{m}}
+\]
+$\omega_{0}$ se denomina la frecuencia natural de oscilación y $C_{1}$ y $C_{2}$ las constantes de integración que se determinan de las condiciones iniciales. Es claro que
+\[
+\text{si}\quad\left\{
+\begin{array}
+[c]{c}
+C_{1}=A\cos\delta\\
+C_{2}=A\operatorname{sen}\delta
+\end{array}
+\right.  \quad\Rightarrow\quad x\left(  t\right)  =C_{1}\cos\left(  \omega
+_{0}t\right)  +C_{2}\operatorname{sen}\left(  \omega_{0}t\right)
+\quad\Leftrightarrow\quad x\left(  t\right)  =A\cos\left(  \omega_{0} t+\delta\right)
+\]
+con $R$ la amplitud y $\delta$ en ángulo de fase. Obviamente, el perí­odo del movimiento será
+\[
+T=\frac{2\pi}{\omega_{0}}=2\pi\sqrt{\frac{m}{k}}
+\]
+
+
+Como un ejemplo analicemos el caso de un sistema en el cual $m=0.1$ Kg. y $k=0.4$ N/m En este caso la frecuencia angular $\omega_{0}=\sqrt{\frac{k}{m}}=$ $2$ rad/sg. La ecuación diferencial que describe este movimiento será
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+4\ x=0\quad\wedge\quad\left\{
+\begin{array}
+[c]{lcl}
+x\left(  0\right)  =1;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=0;\qquad & \Rightarrow &  x\left(  t\right)  =\cos(2t)\\
+&  & \\
+x\left(  0\right)  =4;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=0 & \Rightarrow &  x\left(  t\right)  =4\cos\left(  2t\right) \\
+&  & \\
+x\left(  0\right)  =-2;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=0 & \Rightarrow &  x\left(  t\right)  =-2\cos\left(  2t\right)
+\end{array}
+\right.
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf1.jpg}
+\caption{Oscilador armónico libre. Cambios en la posición inicial no
+afectan la frecuencia natural.}
+\label{clsaplicordsupf1}
+\end{center}
+\end{figure}
+
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+4\ x=0 \quad \wedge \quad \left\{
+\begin{array}[c]{lcl}
+x\left(  0\right)  =0;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=1; & \Rightarrow &  x\left(  t\right)  =\frac{1}{2}\operatorname{sen}
+(2t)\\
+&  & \\
+x\left(  0\right)  =0;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=4; & \Rightarrow &  x\left(  t\right)  =2\operatorname{sen}\left(
+2t\right) \\
+&  & \\
+x\left(  0\right)  =0;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=-2 & \Rightarrow &  x\left(  t\right)  =-\operatorname{sen}\left(
+2t\right)
+\end{array}
+\right.
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf2.jpg}
+\caption{Oscilador Armónico Libre. Cambios de velocidad incial no afectan
+la frecuencia natural}
+\label{clsaplicordsupf2}
+\end{center}
+\end{figure}
+
+\subsection{Oscilaciones libres amortiguadas}
+
+Consideremos que en el movimiento actúa una fuerza de amortiguación
+proporcional a la velocidad, por lo cual el movimiento viene descrito por
+\[
+m\ \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+\eta\ \frac{\mathrm{d}x}
+{\mathrm{d}t}+k\ x=\ \frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+2\mu
+\ \frac{\mathrm{d}x}{\mathrm{d}t}+\omega_{0}^{2}\ x=0
+\]
+la cual constituye una ecuación diferencial lineal homogénea de
+segundo orden. Las raí­ces del polinomio caracterí­stico asociado
+serán
+\[
+r=\frac{-\eta\pm\sqrt{\eta^{2}-4km}}{2m}=-\frac{\eta}{2m}\pm\sqrt{\left(
+\frac{\eta}{2m}\right)  ^{2}-\frac{k}{m}}=-\mu\pm\sqrt{\mu^{2}-\omega_{0}^{2}}
+\]
+por lo tanto la solución será
+\[
+x\left(  t\right)  =C_{1}{\LARGE e}^{\left(  -\left(  \mu+\sqrt{\mu^{2}
+-\omega_{0}^{2}}\right)  t\right)  }+C_{2}{\LARGE e}^{\left(  -\left(
+\mu-\sqrt{\mu^{2}-\omega_{0}^{2}}\right)  t\right)  }
+\]
+de donde se deducen los siguientes casos
+\[
+\begin{array}
+[c]{lccr}
+x\left(  t\right)  =C_{1}\ {\Large e}^{r_{1}t}+C_{2}\ {\Large e}^{r_{2}t} &
+\Leftarrow & \mu^{2}-\omega_{0}^{2}>0 & \text{Sobreamortiguado}\\
+&  &  & \\
+x\left(  t\right)  =\left(  C_{1}+C_{2}\ t\right)  {\Large e}^{\mu\ t} &
+\Leftarrow & \mu^{2}-\omega_{0}^{2}=0 & \text{Crí­tico}\\
+&  &  & \\
+x\left(  t\right)  ={\Large e}^{-\mu\ t}\left\{  C_{1}\cos\left[  \left(
+\sqrt{\omega_{0}^{2}-\mu^{2}}\right)  t\right]  +C_{2}\operatorname{sen}
+\left[  \left(  \sqrt{\omega_{0}^{2}-\mu^{2}}\right)  t\right]  \right\}  &
+\Leftarrow & \mu^{2}-\omega_{0}^{2}<0 & \text{Subamortiguado}
+\end{array}
+\]
+
+
+Como un ejemplo analicemos el mismo caso del sistema anterior en el cual
+$m=0.1$ Kg. y $k=0.4$ N/m, sólo que ahora la constante de amortiguamiento
+será $\eta=0.60,0.40$ y $0.15$ En todos los caso la frecuencia angular
+$\omega_{0}=\sqrt{\frac{k}{m}}=$ $2$ rad/sg. y la cantidad subradical $\left(
+\mu^{2}-\omega_{0}^{2}\right)  $ corresponderá a los tres casos
+anteriormente mencionados. Las ecuaciones diferenciales que describen este
+movimiento serán
+\[
+\begin{array}
+[c]{lcccl}
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+6\ \frac{\mathrm{d}x}{\mathrm{d}
+t}+4\ x=0 & \wedge & \left\{
+\begin{array}
+[c]{l}
+x\left(  0\right)  =0\\
+\\
+\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=4
+\end{array}
+\right\}  & \Rightarrow &  x\left(  t\right)  =\left(  \frac{1}{2}+\frac
+{7}{2\sqrt{5}}\right)  e^{\left(  \sqrt{5}-3\right)  t}+\left(  \frac{1}
+{2}-\frac{7}{2\sqrt{5}}\right)  e^{-\left(  3+\sqrt{5}\right)  t}\\
+&  &  &  & \\
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+4\ \frac{\mathrm{d}x}{\mathrm{d}
+t}+4\ x=0 & \wedge & \left\{
+\begin{array}
+[c]{l}
+x\left(  0\right)  =0\\
+\\
+\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=4
+\end{array}
+\right\}  & \Rightarrow &  x\left(  t\right)  =\left(  1+6t\right)  e^{-2t}\\
+&  &  &  & \\
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+\frac{\mathrm{d}x}{\mathrm{d}
+t}+4\ x=0 & \wedge & \left\{
+\begin{array}
+[c]{l}
+x\left(  0\right)  =0\\
+\\
+\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=4
+\end{array}
+\right\}  & \Rightarrow &  x\left(  t\right)  =e^{-\frac{1}{2}t}\left[
+\frac{9}{\sqrt{15}}\operatorname{sen}\left(  \frac{\sqrt{15}}{2}t\right)
++\cos\left(  \frac{\sqrt{15}}{2}t\right)  \right]
+\end{array}
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf3.jpg}
+\caption{Oscilaciones libres amortiguadas y no amortiguadas. Nótese que el
+perí­odo es mayor para el caso subamortiguado}
+\label{clsaplicordsupf3}
+\end{center}
+\end{figure}
+ 
+Si en los casos anteriores cambiamos el signo de la velocidad inicial, i.e.
+$\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=-4$ m/s, tendremos la
+siguiente representación gráfica.
+\[
+\begin{array}
+[c]{lcl}
+x\left(  0\right)  =1;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=-4; & \Rightarrow &  x\left(  t\right)  =\left(  \frac{1}{2}-\frac
+{1}{2\sqrt{5}}\right)  e^{\left(  \sqrt{5}-3\right)  t}+\left(  \frac{1}
+{2}+\frac{1}{2\sqrt{5}}\right)  e^{-\left(  3+\sqrt{5}\right)  t}\\
+&  & \\
+x\left(  0\right)  =1;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=-4; & \Rightarrow &  x\left(  t\right)  =\left(  1+2t\right)  e^{-2t}\\
+&  & \\
+x\left(  0\right)  =1;\quad\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|
+_{t=0}=-4 & \Rightarrow &  x\left(  t\right)  =e^{-\frac{1}{2}t}\left[
+\frac{-7}{\sqrt{15}}\operatorname{sen}\left(  \frac{\sqrt{15}}{2}t\right)
++\cos\left(  \frac{\sqrt{15}}{2}t\right)  \right]
+\end{array}
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf4.jpg}
+\caption{Oscilaciones Libres amortiguadas con cambio de signo en la velocidad
+inicial}
+\label{clsaplicordsupf4}
+\end{center}
+\end{figure}
+
+
+En todos los casos dado que $r_{1},r_{2}<0$ se tiene que $x\left(t\rightarrow0\right)  \rightarrow0.$ El movimiento subamortiguado es periódico y el \ perí­odo viene descrito por
+\[
+T_{am}=\frac{\frac{2\pi}{\omega_{0}}}{\sqrt{1-\left(  \frac{\mu}{\omega_{0}
+}\right)  ^{2}}}=\frac{T}{\sqrt{1-\left(  \frac{\mu}{\omega_{0}}\right)  ^{2}
+}}\qquad\text{si \quad}\left(  \frac{\mu}{\omega_{0}}\right)  ^{2}
+<<1\text{\quad}\Rightarrow\text{\quad}T_{am}\approx T\left(  1+\frac{1}
+{2}\left(  \frac{\mu}{\omega_{0}}\right)  ^{2}\right)
+\]
+el cual siempre sera mayor que el periodo de oscilación natural del sistema.
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf6.jpg}
+\caption{Oscilador armónico forzado con $\varpi=\omega_{0}^{2}$ Nótese
+el fenómeno de resonancia}
+\label{clsaplicordsupf6}
+\end{center}
+\end{figure}
+
+\subsection{Oscilaciones forzadas}
+Supongamos ahora que existe una fuerza aplicada al sistema tal que
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+2\mu\ \frac{\mathrm{d}x}{\mathrm{d}
+t}+\omega_{0}^{2}\ x=\frac{F_{0}}{m}\cos\left(  \varpi t\right)
+\]
+
+\subsubsection{Oscilaciones forzadas no amortiguadas}
+
+En este caso $\mu=0$ y por lo tanto
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+\omega_{0}^{2}\ x=\frac{F_{0}}{m}
+\cos\left(  \varpi t\right)
+\]
+
+\subsubsection{Amplitud modulada $\varpi\neq\omega_{0}$}
+
+y tendrá como solución
+\[
+x\left(  t\right)  =\underset{\text{homogénea}}{\underbrace{C_{1}
+\cos\left(  \omega_{0}t\right)  +C_{2}\operatorname{sen}\left(  \omega
+_{0}t\right)  }}+\underset{\text{inhomogénea}}{\underbrace{\frac{F_{0}
+}{m\left(  \omega_{0}^{2}-\varpi^{2}\right)  }\cos\left(  \varpi t\right)  }
+}=A\cos\left(  \omega_{0}t+\delta\right)  +\frac{F_{0}}{m\left(  \omega
+_{0}^{2}-\varpi^{2}\right)  }\cos\left(  \varpi t\right)
+\]
+con lo cual es la suma de dos movimientos armónicos con distintas
+frecuencias y amplitudes. Si el cuerpo parte del reposo, esto es: $x\left(
+0\right)  =\dot{x}\left(  0\right)  =0$ entonces
+\[
+\left.
+\begin{array}
+[c]{c}
+C_{1}=\frac{-F_{0}}{m\left(  \omega_{0}^{2}-\varpi^{2}\right)  }\\
+\\
+C_{2}=0
+\end{array}
+\right\}  \quad\Rightarrow\quad x\left(  t\right)  =\frac{F_{0}}{m\left(
+\omega_{0}^{2}-\varpi^{2}\right)  }\left[  \cos\left(  \varpi t\right)
+-\cos\left(  \omega_{0}t\right)  \right]
+\]
+dado que
+\begin{align*}
+\cos\left(  \omega_{0}t\right)   &  =\cos\left[  \left\{  \left(  \frac
+{\omega_{0}-\varpi}{2}\right)  +\left(  \frac{\omega_{0}+\varpi}{2}\right)
+\right\}  t\right] \\
+\cos\left(  \omega_{0}t\right)   &  =\cos\left(  \frac{\omega_{0}-\varpi}
+{2}\right)  \cos\left(  \frac{\omega_{0}+\varpi}{2}\right)
+-\operatorname{sen}\left(  \frac{\omega_{0}-\varpi}{2}\right)
+\operatorname{sen}\left(  \frac{\omega_{0}+\varpi}{2}\right) \\
+\cos\left(  \varpi t\right)   &  =\cos\left[  \left\{  \left(  \frac
+{\omega_{0}-\varpi}{2}\right)  -\left(  \frac{\omega_{0}+\varpi}{2}\right)
+\right\}  t\right] \\
+\cos\left(  \varpi t\right)   &  =\cos\left(  \frac{\omega_{0}-\varpi}
+{2}\right)  \cos\left(  \frac{\omega_{0}+\varpi}{2}\right)
++\operatorname{sen}\left(  \frac{\omega_{0}-\varpi}{2}\right)
+\operatorname{sen}\left(  \frac{\omega_{0}+\varpi}{2}\right)
+\end{align*}
+\[
+x\left(  t\right)  =\underset{\text{Envolvente}}{\underbrace{\frac{2F_{0}
+}{m\left(  \omega_{0}^{2}-\varpi^{2}\right)  }\left[  \operatorname{sen}
+\left(  \frac{\omega_{0}-\varpi}{2}t\right)  \right]  }}\left[
+\operatorname{sen}\left(  \frac{\omega_{0}+\varpi}{2}t\right)  \right]
+\]
+
+
+El mismo sistema anterior en el cual $m=0.1$ Kg. y $k=0.4$ N/m, cuando parte del reposo desde el origen de coordenadas y existe una fuerza de excitación $F=0.5\cos\left(  3t\right)  .$ Por lo tanto la ecuación diferencial que describe el movimiento será
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+4\ x=5\cos\left(  3t\right)
+\quad\left\{
+\begin{array}
+[c]{l}
+x\left(  0\right)  =0\\
+\\
+\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=0
+\end{array}
+\right\}  \Longrightarrow x\left(  t\right)  =\underset{\text{homogénea}
+}{\underbrace{\cos(2t)}}-\underset{\text{inhomogénea}}{\underbrace
+{\cos(3t)}}\equiv\underset{\text{envolvente}}{\underbrace{2\operatorname{sen}
+\left(  \frac{1}{2}t\right)  }}\operatorname{sen}\left(  \frac{5}{2}t\right)
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf5.jpg}
+\caption{Oscilador armónico forzado. Nótese la envolvente de la
+función}
+\label{clsaplicordsupf5}
+\end{center}
+\end{figure}
+
+\subsubsection{Resonancia $\varpi=\omega_{0}$}
+
+En el caso que la frecuencia de la fuerza de excitación coincida con la frecuencia natural del sistema, se tiene
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+\omega_{0}^{2}\ x=F_{0}\cos\left(
+\omega_{0}t\right)  \quad\Longrightarrow\quad x\left(  t\right)  =C_{1}
+\cos\left(  \omega_{0}t\right)  +C_{2}\operatorname{sen}\left(  \omega
+_{0}t\right)  +\underset{\text{envolvente}}{\underbrace{\frac{F_{0}}
+{2m\omega_{0}}t}}\ \operatorname{sen}\left(  \omega_{0}t\right)
+\]
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf7.jpg}
+\caption{Carga en función del tiempo en un circuito RLC sometido a un voltaje constante. Nótese que el sistema alcanza el régimen estacionario cercano a los $0.3$ seg}
+\label{clsaplicordsupf7}
+\end{center}
+\end{figure}
+
+
+El sistema anterior ($m=0.1$ Kg. y $k=0.4$ N/m), cuando parte del reposo desde
+el origen de coordenadas y existe una fuerza de excitación $F=0.5\cos
+\left(  2t\right)$. Por lo tanto la ecuación diferencial que describe el
+movimiento será
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+4\ x=5\cos\left(  2t\right)
+\quad\wedge\quad\left\{
+\begin{array}[c]{l}
+x\left(  0\right)  =0\\
+\\
+\left.  \frac{\mathrm{d}x}{\mathrm{d}t}\right|  _{t=0}=0
+\end{array}
+\right\}  \quad\Longrightarrow\quad x(t)=\frac{5t}{4}\operatorname{sen}\left(
+2t\right)
+\]
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf8.jpg}
+\caption{Intensidad en un circuito RLC sometido a un voltaje constante.}
+\label{clsaplicordsupf8}
+\end{center}
+\end{figure}
+
+\subsection{Oscilaciones forzadas amortiguadas}
+
+En este caso $\mu\neq0$ y por lo tanto
+\[
+\frac{\mathrm{d}^{2}x}{\mathrm{d}t^{2}}+2\mu\ \frac{\mathrm{d}x}{\mathrm{d}
+t}+\omega_{0}^{2}\ x=\frac{F_{0}}{m}\cos\left(  \varpi t\right)
+\]
+la cual tendrá como solución
+\[
+x\left(  t\right)  =C_{1}{\LARGE e}^{\left(  -\left(  \mu+\sqrt{\mu^{2}
+-\omega_{0}^{2}}\right)  t\right)  }+C_{2}{\LARGE e}^{\left(  -\left(
+\mu-\sqrt{\mu^{2}-\omega_{0}^{2}}\right)  t\right)  }+\frac{F_{0}}{m}\left(
+\frac{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)  \cos\left(  \varpi t\right)
++2\mu\varpi\operatorname{sen}\left(  \varpi t\right)  }{\left(  \omega_{0}
+^{2}\ -\varpi^{2}\right)  ^{2}+\left(  2\mu\varpi\right)  ^{2}}\right)
+\]
+una vez más se puede convertir en
+\[
+x\left(  t\right)  =\underset{\text{solución homogéne }\equiv
+\text{régimen transitorio}}{\underbrace{C_{1}{\LARGE e}^{\left(  -\left(
+\mu+\sqrt{\mu^{2}-\omega_{0}^{2}}\right)  t\right)  }+C_{2}{\LARGE e}^{\left(
+-\left(  \mu-\sqrt{\mu^{2}-\omega_{0}^{2}}\right)  t\right)  }}}
++\underset{\text{solución inhomogénea }\equiv\text{\ régimen
+estacionario}}{\underbrace{\frac{F_{0}}{m}\frac{\cos\left(  \varpi
+t-\zeta\right)  }{\sqrt{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)
+^{2}+\left(  2\mu\varpi\right)  ^{2}}}}}
+\]
+donde
+\[
+\cos\left(  \zeta\right)  =\frac{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)
+}{\sqrt{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)  ^{2}+\left(  2\mu
+\varpi\right)  ^{2}}}\qquad\text{y}\qquad\operatorname{sen}\left(
+\zeta\right)  =\frac{2\mu\varpi}{\sqrt{\left(  \omega_{0}^{2}\ -\varpi
+^{2}\right)  ^{2}+\left(  2\mu\varpi\right)  ^{2}}}
+\]
+Es claro que el término homogéneo en todos sus casos (sobreamortiguado, crí­tico y subamortiguado) tiende a cero, por ello se considera un término transitorio, no así­ el término no homogéneo que permanece oscilando. En términos Fí­sico se pude decir que el término transitorio representa la disipación de la energí­a inicial que se le provee al sistema a través de la posición y la velocidad inicial de lanzamiento. Esta energí­a inicial se expresa a través de las condiciones iniciales se disipa. Si no existiera disipación esta energí­a inicial permanecerí­a por siempre en el sistema. Finalmente el término no homogéneo, a través de la fuerza de excitación, impone el movimiento al sistema.  Nótese además que el termino no homogéneo nunca se hace infinito, ni siquiera para el caso para el cual tiene un máximo y es aquel en el cual la frecuencia de excitación coincide con la frecuencia natural del sistema.
+
+Veamos el siguiente ejemplo. En un circuito RLC, cuyos componentes son $L=1$ henry, $R=40$ ohmios y $C=\frac{1}{40000}$ faradios, se le aplica un tensión de $V=24$ voltios. Determine el comportamiento de la carga y la intensidad de corriente en el circuito.
+
+La ecuación diferencial que describe el comportamiento del sistema
+\begin{align*}
+L\ \frac{\mathrm{d}^{2}Q\left(  t\right)  }{\mathrm{d}t^{2}}+R\ \frac
+{\mathrm{d}Q\left(  t\right)  }{\mathrm{d}t}+\frac{1}{C}\ Q  &  =E\left(
+t\right)  \qquad\Rightarrow\qquad\frac{\mathrm{d}^{2}Q\left(  t\right)
+}{\mathrm{d}t^{2}}+40\ \frac{\mathrm{d}Q\left(  t\right)  }{\mathrm{d}
+t}+40000\ Q\left(  t\right)  =\frac{1}{2}\\
+L\ \frac{\mathrm{d}^{2}I\left(  t\right)  }{\mathrm{d}t^{2}}+R\ \frac
+{\mathrm{d}I\left(  t\right)  }{\mathrm{d}t}+\frac{1}{C}\ I\left(  t\right)
+&  =\frac{\mathrm{d}E\left(  t\right)  }{\mathrm{d}t}\qquad\Rightarrow
+\qquad\frac{\mathrm{d}^{2}I\left(  t\right)  }{\mathrm{d}t^{2}}+40\ \frac
+{\mathrm{d}I\left(  t\right)  }{\mathrm{d}t}+40000\ I\left(  t\right)  =0
+\end{align*}
+tomando en cuenta las condiciones iniciales tendremos como solución
+\[
+\left.
+\begin{array}
+[c]{l}
+Q\left(  0\right)  =10^{-4}\\
+\\
+I\left(  0\right)  =\left.  \frac{\mathrm{d}Q}{\mathrm{d}t}\right|
+_{t=0}=10^{-2}
+\end{array}
+\right\}  \quad\Rightarrow\quad\left\{
+\begin{array}
+[c]{c}
+Q(t)=\frac{1}{8000}+{\Large e}^{-20t}\left[  \frac{47\sqrt{11}}{2640000}
+\mathrm{sen} \  \left(  \sqrt{11}60t\right)  +\frac{7}{8000}\cos\left(  \sqrt
+{11}60t\right)  \right] \\
+\\
+I\left(  t\right)  =\frac{\mathrm{d}Q}{\mathrm{d}t}={\Large e}^{-20t}\left[
+\frac{1}{100}\cos\left(  \sqrt{11}60t\right)  -\frac{37\sqrt{11}}{6600}
+\mathrm{sen} \  \left(  \sqrt{11}60t\right)  \right]
+\end{array}
+\right.
+\]
+
+
+Si en vez de un tensión constante de $0.5$ V. la fuente de tensión es sinusoidal de la forma $E\left(  t\right)  =\frac{1}{2}\cos\left(180t\right)  $ voltios las ecuaciones se transforman en
+\begin{align*}
+\frac{\mathrm{d}^{2}Q}{\mathrm{d}t^{2}}+40\ \frac{\mathrm{d}Q}{\mathrm{d}
+t}+40000\ Q  &  =\frac{1}{2}\cos\left(  180t\right)  \quad\text{con}\quad
+Q\left(  0\right)  =10^{-4}\quad\wedge\quad I\left(  0\right)  =\left.
+\frac{\mathrm{d}Q}{\mathrm{d}t}\right|  _{t=0}=10^{-2}\\
+\frac{\mathrm{d}^{2}I}{\mathrm{d}t^{2}}+40\ \frac{\mathrm{d}I}{\mathrm{d}
+t}+40000\ I  &  =-90\mathrm{sen} \  \left(  180t\right)
+\end{align*}
+$\allowbreak$con sus correspondientes soluciones a las condiciones iniciales
+del sistema
+\begin{align*}
+Q(t)  &  =\frac{1}{1000}\left\{  {\Large e}^{-20t}\left[  \frac{293\sqrt{11}
+}{30140}\mathrm{sen} \  \left(  60\sqrt{11}t\right)  +\frac{91}{685}\cos\left(
+60\sqrt{11}t\right)  \right]  -\frac{9}{274}\cos\left(  180t\right)
++\frac{19}{548}\mathrm{sen} \  \left(  180t\right)  \right\} \\
+I(t)  &  =\frac{1}{100}\left\{  {\Large e}^{-20t}\left[  \frac{103}{274}
+\cos\left(  60\sqrt{11}t\right)  -\frac{2461\sqrt{11}}{3014}\mathrm{sen} \  \left(
+60\sqrt{11}t\right)  \right]  +\frac{81}{137}\mathrm{sen} \  \left(  180t\right)
++\frac{171}{274}\cos\left(  180t\right)  \right\}
+\end{align*}
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf9.jpg}
+\caption{Carga en función del tiempo en un circuito RLC sometido a un
+voltaje sinusoidal $V(t)=\frac{1}{2}\cos\left(  180t\right)  .$ Nótese el
+régimen transitorio $\left(  0\leq t\lesssim0.17\right)  $ y estacionario
+$\left(  t\gtrsim0.17\right)  .$}
+\label{clsaplicordsupf9}
+\end{center}
+\end{figure}
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf10.jpg}
+\caption{Intensidad de corriente en un circuito RLC sometido a un voltaje
+sinusoidal $V(t)=\frac{1}{2}\cos\left(  180t\right)  $}
+\label{clsaplicordsupf10}
+\end{center}
+\end{figure}
+
+Por analogí­a con el caso mecánico procedemos a identificar cantidades
+\[
+\left.
+\begin{array}[c]{c}
+2\mu=\frac{R}{L}\\
+\\
+\omega_{0}^{2}=\frac{1}{LC}
+\end{array}
+\right\}  \quad\Rightarrow A=\frac{V_{0}}{L\sqrt{\left(  \frac{1}{LC}
+-\varpi^{2}\right)  ^{2}+\left(  \frac{R}{L}\varpi\right)  ^{2}}}\ =\frac
+{1}{2\sqrt{\varpi^{4}-78400\varpi^{2}+1600000000}}
+\]
+con ello se puede ver la funcionalidad de la amplitud con la frecuencia excitatriz
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf11.jpg}
+\caption{Amplitud como función de la frecuencia excitatriz. Nótese el máximo de la amplitud cuando el sistema entra en resonancia, i.e. $\varpi=\omega_{0}$ }
+\label{clsaplicordsupf11}
+\end{center}
+\end{figure}
+
+
+\subsection{Movimiento alrededor de un punto de equilibrio}
+
+La fuerza elástica $F=-kx$, más allá de ser el caso más simple, representa la primera aproximación al movimiento alrededor de un punto de equilibrio estable. Si recordamos que para una fuerza que derive de
+un potencial se tiene
+\[
+F=-\frac{\mathrm{d}V}{\mathrm{d}x}\quad\Rightarrow \quad  F=-k\ x=-\frac
+{\mathrm{d}\left(  \frac{1}{2}k\ x^{2}\right)  }{\mathrm{d}x}\,,
+\]
+mas aún, un punto de equilibrio estable se define como aquel en el cual no existen 
+fuerzas externas, vale decir
+\[
+\left.  F\right|  _{x=x_{0}}=0\quad\Rightarrow \quad \left.  -\frac{\mathrm{d}
+V}{\mathrm{d}x}\right|  _{x=x_{0}}=0\,,
+\]
+por lo cual, dado un potencial de una fuerza arbitraria siempre podemos expandirlo en series de Taylor alrededor de un punto de equilibrio $x=x_{0}$
+\[
+V\left(  x\right)  =V\left(  x_{0}\right)  +\left(  x-x_{0}\right)
+\ \underset{=0}{\underbrace{\left.  \frac{\mathrm{d}V}{\mathrm{d}x}\right|
+_{x=x_{0}}}}+\frac{1}{2!}\left(  x-x_{0}\right)  ^{2}\ \left.  \frac
+{\mathrm{d}^{2}V}{\mathrm{d}x^{2}}\right|  _{x=x_{0}}+\frac{1}{3!}\left(
+x-x_{0}\right)  ^{3}\ \left.  \frac{\mathrm{d}^{3}V}{\mathrm{d}x^{3}}\right|
+_{x=x_{0}}\cdots
+\]
+En general, alrededor de un punto de equilibrio $x=x_{0}$ la primera aproximación de 
+una función potencial sera
+\[
+V\left(  x\right)
+\approx\frac{1}{2!}\left(  x-x_{0}\right)  ^{2}\ \left.  \frac{\mathrm{d}
+^{2}V}{\mathrm{d}x^{2}}\right|  _{x=x_{0}}\approx\frac{1}{2}k\ \left(
+x-x_{0}\right)  ^{2}
+\]
+
+Así, un potencial de la forma
+\[
+V\left(  x\right)  =\frac{1}{6}x^{6}-2x^{5}+\frac{35}{4}x^{4}-\frac{50}
+{3}x^{3}+12x^{2}
+\]
+genera una fuerza 
+\[
+F=-\frac{\mathrm{d}V\left(  x\right)  }{\mathrm{d}x}=-\left(  x^{5}
+-10x^{4}+35x^{3}-50x^{2}+24x\right)
+\]
+tendrá como  puntos de equilibrio $x=0$, $x=1$,  $x=2$, $x=3$ y $x=4.$ En torno a $x=0$ se podrá aproximar con un potencial parabólico
+\[
+\tilde{V}\left(  x\right)  =\frac{1}{2!}\left(  x-x_{0}\right)  ^{2}\ \left.
+\frac{\mathrm{d}^{2}V\left(  x\right)  }{\mathrm{d}x^{2}}\right|  _{x=x_{0}
+}=12x^{2}
+\]
+tal y como se observa en la figura \ref{clsaplicordsupf12}
+
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/clsaplicordsupf12.jpg}
+\caption{Aproximación por una parábola en torno a $x=0$}
+\label{clsaplicordsupf12}
+\end{center}
+\end{figure}
+
+\subsection{Péndulo simple con desplazamiento finito}
+
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/pendcuerplib.jpg}
+\caption{Diagrama de Cuerpo Libre, del Péndulo Físico}
+\label{pendcuerplib}
+\end{center}
+\end{figure}
+
+El caso típico de esta aproximación lo constituye el péndulo simple: una masa $m$, empotrada a una varilla, de masa despreciable y de longitud $L$. La varilla se desplaza un ángulo $\theta$ de la vertical y
+se suelta. La Figura (\ref{pendcuerplib}) muestra el diagrama de cuerpo libre del Péndulo Físico. Desde la ancestral física general, aún en secundaria, era proverbial resolver este problema suponiendo ángulos
+peque\~nos. En esas tempranas épocas de nuestro conocimiento de Física era limitado y más limitado aún era nuestra capacidad para resolver ecuaciones diferenciales. A este ``problema'' se le conoce con el
+péndulo físico. Aproximar es un arte y exploraremos este arte. Como norma general tendremos que se debe aproximar al final, pero no siempre es así. 
+
+Si suponemos un cuerpo de masa constante, $m,$ las ecuaciones
+diferenciales que describen el movimiento no pueden ser otras que aquellas que provengan de las ecuaciones de Newton
+\begin{equation}
+\sum_{\text{externas}}{\mathbf{F}(\mathbf{r}(t), \mathbf{v}(t), t)}=\ m\frac{d{\mathbf{v}(t)}}{dt}=m\
+\mathbf{a}(t)\ =m\left(  a_{r}\ \mathbf{\hat{u}}_{r}+a_{\theta}\ \mathbf{\hat{u}}_{\theta}\right)  , 
+\label{Newton}
+\end{equation}
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsimpdirecto.jpg}
+\caption{Evolución $\theta\left(  t\right)  $ vs $t$ del Péndulo Físico libre, para distintos valores de la velocidad inicial $V_{0}=3,5,\sqrt{40},7,8.$}
+\label{osamsimpdirecto}
+\end{center}
+\end{figure}
+
+Es bueno recordar que hay que expresar la aceleración en un sistema de coordenadas móviles 
+$\left( \mathbf{\hat{u}}_{r},\mathbf{\hat{u}}_{\theta}\right)$. Esto es
+\[
+\begin{array}[c]{lcl}
+\mathbf{\hat{u}}_{r}=\cos\left(\theta\right)  \mathbf{i}+\text{sen}\left(\theta\right)  \mathbf{j} &
+\Rightarrow & \dfrac{\mathrm{d}\mathbf{\hat{u}}_{r}}{\mathrm{d}t}=
+\left[  -\text{sen}\left(  \theta\right)  \mathbf{i}+\cos\left(  \theta\right)  \mathbf{j} \right]  
+{\dot \theta} =\dot{\theta} \mathbf{\hat{u}}_{\theta}\\
+&  & \\
+\mathbf{\hat{u}}_{\theta}=-\text{sen}\left(\theta\right)
+\mathbf{i}+\cos\left(\theta\right)  \mathbf{j} &
+\Rightarrow & \dfrac{\mathrm{d}\mathbf{\hat{u}}_{\theta}}{\mathrm{d}t}=
+-\left[ \cos\left(  \theta\right)  \mathbf{i}+\text{sen}\left(\theta\right)  \mathbf{j}\right]
+{\dot \theta} =-\dot{\theta}  \mathbf{\hat{u}}_{r}
+\end{array}
+\]
+con lo cual
+\[
+\mathbf{r}\left(t\right)  =r\left(t\right)  \mathbf{\hat{u}}_{r}  \quad \Rightarrow \quad 
+\mathbf{v}\left(  t\right) =
+\dfrac{\mathrm{d}\left[r\left(  t\right)  \mathbf{\hat{u}}_{r}\right] }
+{\mathrm{d}t}=\dot{r} \mathbf{\hat{u}}_{r}+r  \dot{\theta}
+\mathbf{\hat{u}}_{\theta}\\
+\]
+y para la aceleración
+\[
+\mathbf{a}\left(t\right)  =\dfrac{\mathrm{d}\left[\dot{r}\left(  t\right)\mathbf{\hat{u}}_{r}+
+r\left(  t\right)  \dot{\theta}\left(  t\right)
+\mathbf{\hat{u}}_{\theta}\right] }{\mathrm{d}t}  =  
+\left[  \ddot{r}  -r \dot{\theta}^{2}  \right]\mathbf{\hat{u}}_{r}+
+\left[ 2\dot{r}  \dot{\theta} +r  \ddot{\theta} \right]\mathbf{\hat{u}}_{\theta}
+\]
+
+Es claro que si $r\left(t\right)  =L=\text{cte}$
+\[
+\mathbf{r}\left(  t\right)  =L\mathbf{\hat{u}}_{r}  \quad \Rightarrow \quad
+\mathbf{v}\left(  t\right)  =\dfrac{\mathrm{d}\left(  L\mathbf{\hat{u}}_{r}\right)  }{\mathrm{d}t}=
+L\dot{\theta} \mathbf{\hat{u}}_{\theta}
+\]
+y además
+\[
+\mathbf{a}\left(t\right) =\dfrac{\mathrm{d}\left[L\dot{\theta}\left(t\right)\mathbf{\hat{u}}_{\theta}\right] }{\mathrm{d}t}=  
+-L \dot{\theta}^{2}\ \mathbf{\hat{u}}_{r}+ L\ddot{\theta} \mathbf{\hat{u}}_{\theta}\,.
+\]
+Así, y para este caso particular, las ecuaciones de Newton quedan como
+\begin{equation}
+m\ \mathbf{a}= \mathbf{T}+m\ \mathbf{g}\quad \Rightarrow \quad 
+\left\{
+\begin{array}[c]{l}
+m\ a_{r}=-mL\dot{\theta}^{2}  =-T+mg\cos\left(\theta\right) \\
+\\
+m\ a_{\theta}=mL\ddot{\theta}  =-mg \ \text{sen}\left(\theta\right)  .
+\end{array}
+\right.  \label{pendulocomplet}
+\end{equation}
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsimpfase.jpg}
+\caption{Digrama de Fase para el Oscilador Armónico Simple. Nótese que
+el punto de equilibrio es el origen de coordenadas.}
+\label{osamsimpfase}
+\end{center}
+\end{figure}
+
+El caso más simple proviene de la suposición:
+$\theta\approx\operatorname{sen}\left(  \theta\right)  \ll1$, que implica lo siguiente
+\begin{equation}
+m\ \mathbf{a}= \mathbf{T}+m\ \mathbf{g}\quad \Rightarrow \quad 
+\left\{
+\begin{array}
+[c]{l}
+mL\dot{\theta}^{2}  =-T+mg\\
+\\
+mL\ddot{\theta}  =-mg\theta.
+\end{array}
+\right.  \label{pendulolineal}
+\end{equation}
+ahora sabemos que podemos integrar inmediatamente. Si suponemos que el sistema 
+parte  del reposo: $\dot{\theta}\left(0\right)  =0$ y $\theta\left(  0\right)  =\theta_{0}$, entonces resulta:
+\[
+L\ddot{\theta} =-g\theta \quad \Rightarrow \quad 
+\theta\left(  t\right)  =C_1\,\text{sen}\left(\sqrt{\dfrac{g}{L}}t\right)  +
+C_2\,\cos\left(  \sqrt{\dfrac{g}{L}}t\right)
+\quad \Rightarrow \quad 
+\theta\left(  t\right)  =\theta_{0}\cos\left(\sqrt{\dfrac{g}{L}}t\right)
+\]
+y el período puede ser integrado, ya que:
+\[
+\dot{\theta}  \ddot{\theta}  =-\frac{g}{L}\theta \dot{\theta}  \quad \Rightarrow \quad 
+E_{\text{total}}\propto \text{cte}=\dot{\theta}^{2}+2\dfrac{g}{L}\theta^{2} \quad \Rightarrow \quad 
+\dot{\theta}\left(  t\right)  =\sqrt{\dfrac{g}{L}\left(  \theta_{0}^{2}-{\theta}^{2}\right)  }
+\label{integralineal}
+\]
+que no es otra cosa que la energía total del sistema. Por lo tanto, en el instante inicial, 
+si soltamos la masa desde un ángulo
+$\theta_{0}$, la energía total es puramente potencial. Es decir
+\begin{equation}
+E_{\text{total}}=E_{\text{potencial}}=mgL\left(  1-\cos\left(  \theta_{0}\right)  \right)
+=2mgL\text{sen}^{2}\left(  \dfrac{1}{2}\theta_{0}\right)
+\label{potencialineal}
+\end{equation}
+por otro lado, de la ecuación (\ref{integralineal}) podemos obtener el
+período de oscilación para el Péndulo Físico linealizado:
+\[
+\mathbf{\omega}=\dot{\theta}\left(  t\right)  =\sqrt{\dfrac{g}{L}\left(\theta_{0}^{2}-{\theta}^{2}\right)  } 
+\quad \Rightarrow \quad 
+T=\sqrt{{\frac{L}{g}}}\arctan\left(  {\frac{\theta}{\sqrt{\theta_{0}^{2}-{\theta}^{2}}}}\right)\,.
+\]
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsubamortdirecto.jpg}
+\caption{Evolución $\theta\left(  t\right)  $ vs $t$ del Péndulo
+Simple, Subamortiguado ($\dfrac{g}{L}=4;\mu=0,5$) libre,para distintos valores
+de la velocidad inicial $V_{0}=3,5,\sqrt{40},7,8.$}
+\label{osamsubamortdirecto}
+\end{center}
+\end{figure}
+
+Este caso también se conoce con el nombre de oscilador armónico simple. 
+Igualmente podemos analizar el caso 
+general del péndulo amortiguado forzado linealizado. Vale decir, una masa, 
+$m$, atada a una varilla sin masa de longitud $L$, y que oscila, inmersa en un
+fluido que la frena el movimiento de la masa con una fuerza: $-\eta\ \mathbf{v}\left(  t\right)$. Y 
+que adicionalmente está excitada por una fuerza
+exterior $F(t)=F_{0}\cos\left(\varpi t\right)$.  Recordamos que en este
+caso la ecuación en la dirección tangente ($\mathbf{\hat{u}}_{\theta}$), es
+\[
+mL\ \ddot{\theta} +\eta\ \dot{\theta}  +mg\ \theta  =F_{0}\cos\left(  \varpi t\right) 
+\quad \Rightarrow \quad 
+\ddot{\theta}+2\mu\ \dot{\theta}+\omega_{0}^{2}\ \theta  =\frac{F_{0}}{mL}\cos\left(  \varpi t\right)
+\]
+donde, por costumbre, hemos rebautizado las constantes como: $\mu=\dfrac{\eta}{2mL}$ y 
+$\omega_{0}=\sqrt{\dfrac{g}{L}}$.
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsubamortfase.jpg}
+\caption{Evolución $\dot{\theta}\left(  t\right)  $ vs $\theta\left( t\right)  $ del Péndulo Físico Subamortiguado libre ($\dfrac{g}{L}=4;\mu=0,5$) en el Espacio de Fases para distintos valores de la velocidad inicial $V_{0}=3,5,\sqrt{40},7,8$. Nótese que la disipación lleva irremediablemente al sistema al punto de equilibrio, vale decir al origen de
+coordenadas del espacio de fases.}
+\label{osamsubamortfase}
+\end{center}
+\end{figure}
+
+Por lo tanto, como ya vimos con anterioridad, su solución tendrá la forma
+\[
+\theta\left(  t\right)  ={{C_{1}{\LARGE e}^{\left(
+-\left(  \mu+\sqrt{\mu^{2}-\omega_{0}^{2}}\right)  t\right)  }+C_{2}
+{\LARGE e}^{\left(  -\left(  \mu-\sqrt{\mu^{2}-\omega_{0}^{2}}\right)t\right)  }}}+
+{{\frac{F_{0}}{mL}\frac{\cos\left(  \varpi t-\zeta\right)  }{\sqrt{\left(  \omega_{0}^{2}
+\ -\varpi^{2}\right)  ^{2}+\left(  2\mu\varpi\right)  ^{2}}}}}
+\]
+donde
+\[
+\cos\left(  \zeta\right)  =\frac{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)
+}{\sqrt{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)  ^{2}+\left(  2\mu
+\varpi\right)  ^{2}}}\qquad\text{y}\qquad\text{sen}\left(
+\zeta\right)  =\frac{2\mu\varpi}{\sqrt{\left(  \omega_{0}^{2}\ -\varpi^{2}\right)  ^{2}+\left(2\mu\varpi\right)  ^{2}}}
+\]
+
+Hemos aprendido que dependiendo del valor de los coeficientes de la
+ecuación característica del Péndulo Físico amortiguado libre
+($F_{0}=0$) se derivan tres casos posibles: el caso  Subamortiguado $(\mu^{2}-\omega_{0}^{2}<0)$, el  Sobreamortiguado $(\mu^{2}-\omega_{0}^{2}>0)$ y el caso Crítico $(\mu^{2}-\omega_{0}^{2}=0)$.
+\begin{figure}[t]\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsobamortdirecto.jpg}
+\caption{Evolución $\theta\left(  t\right)  $ vs $t$ del Péndulo
+Físico Sobreamortiguado ($\dfrac{g}{L}=4;\mu=3,5$) libre,para distintos
+valores de la velocidad inicial $V_{0}=3,5,\sqrt{40},7,8.$}
+\label{osamsobamortdirecto}
+\end{center}
+\end{figure}
+
+En el caso del Péndulo Físico amortiguado forzado ($F_{0}\neq0$) la
+física se hace mucho más rica y pueden ocurrir fenómenos de
+resonancia cuando $\left(  \omega_{0}^{2}\ -\varpi^{2}\right)  ^{2}+\left(
+2\mu\varpi\right)  ^{2}\rightarrow0$.
+
+Es interesante considerar los gráficos tanto de la evolución del
+sistema en el espacio directo: $\theta\left(  t\right)  $ vs $t;$ como la
+evolución del sistema en el espacio de fases $\omega=\dot{\theta}\left(
+t\right)  $ vs $\theta\left(  t\right)  .$ Las figuras
+(\ref{osamsubamortdirecto}) y (\ref{osamsobamortdirecto}) muestran la primera
+de estas evoluciones, es decir, la evolución del ángulo en el espacio
+directo. Las figuras (\ref{osamsubamortfase}) y (\ref{osamsobamortfase})
+muestran la evolución del sistema en el espacio de fases. Es claro de la
+ecuación (\ref{integralineal}), en la cual aparece $\omega=\dot{\theta}\left(  t\right) $, que las curvas en el diagrama de fase tanto para el caso libre (figura(\ref{osamsimpfase})) como para los casos amortiguados (figuras(\ref{osamsubamortfase}) y (\ref{osamsobamortfase})) corresponden a curvas con la 
+misma energía. En el caso del Péndulo Físico linealizado libre,
+corresponden a curvas de energía constante. En los otros casos el sistema
+va disipando energía debido al coeficiente de amortiguación.
+
+Nótese que la disipación obliga al sistema a evolucionar al punto de
+equilibrio siguiendo trayectorias espirales en el espacio de fases. Claramente
+más rápidamente en el caso sobreamortiguado que en el subamortiguado.
+También sabemos que para el caso crítico\ ($\mu^{2}-\omega_{0}^{2}=0$)
+el tiempo de evolución del sistema hasta llegar al punto de equilibrio
+será menor que en cualquiera de los casos sobreamortiguados. Dejamos al
+lector la comprobación de esta última afirmación.
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/osamsobamortfase.jpg}
+\caption{Físico Sobreamortiguado libre ($\dfrac{g}{L}=4;\mu=3,5$) en el
+Espacio de Fases para distintos valores de la velocidad inicial $V_{0}
+=3,5,\sqrt{40},7,8$. Nótese que la disipación lleva irremediablemente
+al sistema al punto de equilibrio, vale decir al origen de coordenadas del
+espacio de fases.}
+\label{osamsobamortfase}
+\end{center}
+\end{figure}
+
+Ahora bien, la situación que nos interesa simular es la del péndulo
+físico para los casos en los cuales los ángulos de oscilación no
+necesariamente sean peque\~nos.
+
+Denominaremos péndulo libre al caso en el cual no recurriremos a ninguna
+aproximación respecto al ángulo de oscilación. Recordemos que para
+este caso partimos de la ecuación (\ref{pendulocomplet}) en la
+dirección tangente. Es decir
+\[
+L\ddot{\theta}\left(  t\right)  =-g\operatorname{sen}\left(\theta\right)
+\quad\Rightarrow \quad
+\dot{\theta} \ddot{\theta}\  =-\frac{g}{L}\text{sen}(\theta) \dot{\theta}
+\quad\Rightarrow \quad
+E_{\text{total}}\propto \text{cte}=\frac{\dot{\theta}^{2}}{2}-\dfrac{g}{L}\cos(\theta)
+\]
+
+Al igual que en la ecuación en la dirección tangente linealizada
+(\ref{integralineal}), nos encontramos con la energía total del sistema.
+Con lo cual es fácil despejar $\dot{\theta} =\dot{\theta}\left(  \theta\left(  t\right)  \right)$ 
+y construir los diagramas de fases del sistema. 
+
+Otra vez, las líneas del diagrama de fase
+serán líneas de la misma energía. Así podemos graficar
+\begin{equation}
+\dot{\theta}\left(  t\right)  =\pm\sqrt{C+\dfrac{2g}{L}\cos\left(\theta  \right)  } 
+\label{thetapunt1}
+\end{equation}
+para distintos valores de la constante $C=4,01$; $4,1$; $6$; $8$; $10$ y $20$,  para el caso
+$\frac{g}{L}=4$. 
+
+La Figura (\ref{pendfisicofase}) representa el diagrama de
+fase para estos casos. Las curvas cerradas (aquellas que tienen los valores de
+ángulos y velocidades acotadas) representan oscilaciones del sistema,
+mientras que las curvas abiertas (aquellas en las cuales las velocidades
+están acotadas pero no así el valor del ángulo) representan que el
+sistema rota. Nótese que el sistema presenta puntos de equilibrio
+inestable para $\theta\left(  t\right)  \approx\pm n\pi$ con $n=0,1,2.$ Lo
+cual era de esperarse por cuanto corresponde al ángulo en el cual el
+sistema \textit{varilla-masa} se encuentran verticalmente dispuestos y el peso
+y la tensión son colineales y se anulan momentáneamente.
+
+Otro enfoque, quizá más intuitivo para resolver este problema, pudo
+haber sido el análisis energético. Para ello sabemos que, por ser un
+sistema conservativo, la energía total viene definida por
+\[
+E_{\text{total}}=\underset{\text{Energía Cinética}}{\underbrace{\frac{1}
+{2}mL^{2}\dot{\theta}^{2}}}+
+\underset{\text{Energía Potencial}}{\underbrace{mgL\left(1-\cos\left(\theta\right) \right)}}
+\equiv \frac{1}{2}mL^{2}\dot{\theta}^{2}+2mgL\ \text{sen}^{2}
+\left(  \frac{\theta}{2}\right)
+\]
+por consiguiente
+\begin{equation}
+\dot{\theta}\left(  t\right)  =\pm\sqrt{\frac{2E_{total}}{mL^{2}}-\frac{4g}{L}
+\text{sen}^{2}\left(  \frac{\theta }{2}\right)  } \equiv \pm \ 
+2 \ \sqrt{\frac{g}{L}\left[  \text{sen}^{2}\left(\frac{\theta_{\max}}{2}\right)  -
+\text{sen}^{2}\left(  \frac{\theta}{2}\right)  \right]  } 
+\label{thetapunt2}
+\end{equation}
+donde hemos sustituido $E_{\text{total}}=2mL\text{sen}^{2}\left(\frac{\theta_{\max}}{2}\right)$ 
+con $\theta_{\max}$, el ángulo máximo
+que alcanza el Péndulo Físico, por cuanto en ese punto la
+energíá total es puramente potencial. Nótese que ese ángulo no
+necesariamente es el ángulo inicial, debido a que la velocidad inicial
+puede ser distinta de cero.
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/pendfisicofase.jpg}
+\caption{Diagrama de Fase para el Péndulo Físico. }
+\label{pendfisicofase}
+\end{center}
+\end{figure}
+
+La ecuación (\ref{thetapunt2}) es claramente integrable por separación
+de variables y conduce a encontrar una expresión para el período:
+\[
+t=\dfrac{1}{2}\sqrt{\dfrac{L}{g}}\int_{\theta_{0}}^{\theta\left(  t\right)
+}\dfrac{\mathrm{d}\theta}{\sqrt{\dfrac{g}{L}\left[  \text{sen}
+^{2}\left(  \frac{\theta_{\max}}{2}\right)  -\operatorname{sen}^{2}\left(
+\frac{\theta}{2}\right)  \right]  }}\qquad\text{con: }-\pi\leq\theta\left(t\right)  \leq\pi
+\quad\text{y} \quad \theta_{0}=\theta\left(  0\right)\,.
+\]
+La integral anterior, puede ser transformada en otra que aparece en las tablas
+integrales, si hacemos 
+\[
+\text{sen}(\beta)=\frac{\text{sen}\left(  \frac{\theta}{2}\right)}{\text{sen}
+\left(  \frac{\theta_{\max}}{2}\right) }\,,
+\]
+con lo cual:
+\[
+t=\sqrt{\frac{L}{g}}
+{\displaystyle\int_{\zeta\left(  0\right)  }^{\zeta\left(  t\right)  }}
+\frac{\mathrm{d}\beta}{\sqrt{1-\text{sen}^{2}\left(  \frac
+{\theta_{\max}}{2}\right)  \text{sen}^{2}(\beta)}} \,,
+\]
+donde
+\[
+\operatorname{sen}(\beta)=\frac{\text{sen}\left(  \frac{\theta}
+{2}\right)  }{\text{sen}\left(  \frac{\theta_{\max}}{2}\right)  }\,,
+\quad \text{y} \quad 
+\zeta\left(  t\right)  =\arcsin\left[  \frac{\text{sen}{}\left(
+\frac{\theta}{2}\right)  }{\text{sen}{}\left(\frac{\theta_{\max}}{2}\right)  }\right]\,.
+\]
+
+Es claro que el recorrido entre $\zeta\left( 0\right)  =0 \Rightarrow\theta=0$ a 
+$\theta=\theta_{\max} \Rightarrow\zeta\left(t\right)=\frac{\pi}{2}$, representa un cuarto del período, 
+por consiguiente el período total del Péndulo Físico será:
+\[
+T=4\sqrt{\frac{L}{g}}
+{\displaystyle\int_{0}^{\frac{\pi}{2}}}
+\frac{\mathrm{d}\beta}{\sqrt{1-\operatorname{sen}^{2}\left(  \frac
+{\theta_{\max}}{2}\right)  \text{sen}^{2}(\beta)}}
+\]
+
+
+
+\subsection{Digresión elí­ptica}
+
+En este punto haremos una digresión respecto a las integrales elí­pticas, su clasificación y algunas de sus propiedades. En general encontrarán en la bibliografí­a que las integrales elí­pticas se dividen en
+
+\begin{itemize}
+\item {Integrales elí­pticas de primera especie}
+\[
+F\left(  \varphi\backslash\alpha\right)  =\int_{0}^{\varphi}\frac
+{\mathrm{d}\beta}{\sqrt{1-\text{sen}^{2}(\alpha)\text{sen}^{2}(\beta)}}
+\Leftrightarrow 
+F\left(  x|m\right)  =\int_{0}^{x}
+\frac{\mathrm{d}t}{\sqrt{\left(1-t^{2}\right)  \left(  1-mt^{2}\right)}}\,, \quad\text{con: }0\leq m\leq1 \,,
+\]
+las cuales, para el caso particular $\varphi=\dfrac{\pi}{2}$ o $x=1,$ se puede reacomodar como una {\bf Integral elí­ptica de primera especie completa}
+\begin{equation}
+K\left(  m\right)  =\int_{0}^{\frac{\pi}{2}}\dfrac{\mathrm{d}\beta}
+{\sqrt{1-m \text{sen}^{2}(\beta)}}\equiv\int_{0}^{1}\dfrac{\mathrm{d}
+t}{\sqrt{\left(  1-t^{2}\right)  \left(  1-mt^{2}\right)  }}\qquad\text{con: }0\leq m\leq1 \,.
+\label{integraleliptica2}
+\end{equation}
+
+\item {Integrales elí­pticas de segunda especie}
+\[
+E\left(  \varphi\backslash\alpha\right)  =\int_{0}^{\varphi}\sqrt
+{1-\text{sen}^{2}(\alpha)\text{sen}^{2}(\beta})\mathrm{d}\beta
+\Leftrightarrow 
+E\left(  x|m\right) =\int_{0}^{x}\sqrt{\frac{  1-mt^{2}  }{1-t^{2}}}\mathrm{d}t\,,
+\quad \text{con: }0\leq m\leq1
+\]
+y si $\varphi=\dfrac{\pi}{2}$ o $x=1,$ entonces se obtiene una
+{\bf Integral elí­ptica de segunda especie completa}
+\[
+E\left(  m\right)  =\int_{0}^{\frac{\pi}{2}}\sqrt{1-m \ \text{sen}^{2}(\beta)}\mathrm{d}\beta
+\equiv\int_{0}^{1}\sqrt{\dfrac{ 1-mt^{2} }{ 1-t^{2} }}\mathrm{d}t\,, 
+\quad\text{con: }0\leq m\leq1
+\]
+\end{itemize}
+
+Adicionalmente, y también sin perder generalidad, dado que $0\leq m\leq1,$ el denominador de la integral elí­ptica $K\left( m\right)  $ de la ecuación (\ref{integraleliptica2})  puede ser expandido en series de potencias. Con lo cual
+\begin{eqnarray*}
+\frac{1}{\sqrt{1-m \ \text{sen}^{2}(\beta)}}  & = &1+\frac{1}
+{2}\text{sen}^{2}(\beta) m+\left[ \frac{3}{8}\text{sen}^{4}(\beta^{2})\right]  m^{2}+
+\left[  \frac{5}{16}\text{sen}^{6}(\beta^{3})\right] m^{3}+
+\left[ \frac{35}{128}\text{sen}^{8}(\beta^{4})\right]  m^{4}+\cdots \\
+&  = &\frac{1}{2}\pi\left[
+1+\left[  \left(  \frac{1}{2}\right)  \text{sen}^{2}(\beta)\right]m+
+\left[  \left(  \frac{1\cdot3}{2\cdot4}\right)  \text{sen}^{4}(\beta)\right]  m^{2} +
+\left[  \left(  \dfrac{1\cdot3\cdot5}{2\cdot4\cdot6}\right)  \text{sen}^{6}(\beta)\right]  m^{3}+
+\cdots \right] 
+\end{eqnarray*}
+por lo tanto:
+\[
+\frac{1}{\sqrt{1-m \ \text{sen}^{2}(\beta)}}  =
+\sum_{n=0}^{\infty}\dfrac{\left(  2n-1\right)  !}{\left(  2n\right)  !!}m^{n}\operatorname{sen}^{2n}(\beta) \,,
+\]
+y siendo una serie uniformemente convergente puede ser integrada término a
+término como
+\begin{align*}
+K\left(  m\right)   &  =\int_{0}^{\frac{\pi}{2}}\dfrac{\mathrm{d}\beta}
+{\sqrt{1-m \ \text{sen}^{2}(\beta)}}=\int_{0}^{\frac{\pi}{2}}
+\mathrm{d}\beta \sum_{n=0}^{\infty}\frac{\left(2n-1\right)  !!}{\left(
+2n\right)  !!}m^{n}\text{sen}^{2n}(\beta)=\sum_{n=0}^{\infty}
+\frac{\left(2n-1\right)  !!}{\left(  2n\right)  !!}m^{n}\int_{0}
+^{\frac{\pi}{2}}\text{sen}^{2n}(\beta)\ \mathrm{d}\beta\\
+& \\
+  &  =\sum_{n=0}^{\infty}\frac{\left(  2n-1\right)
+!!}{\left(  2n\right)  !!}m^{n}\left[  \dfrac{\left(  2n-1\right)  !!}{\left(
+2n\right)  !!}\cdot\dfrac{\pi}{2}\right]  =\dfrac{\pi}{2}\sum_{n=0}^{\infty
+}\left[  \dfrac{\left(  2n-1\right)  !!}{\left(  2n\right)  !!}\right]^{2}m^{n}\,.
+\end{align*}
+
+Del mismo modo se obtiene para las integrales elí­pticas completas de
+segunda especie que
+\[
+E\left(  m\right)  =\int_{0}^{\frac{\pi}{2}}\sqrt{1-m\ \text{sen}^{2}(\beta)}\mathrm{d}\beta=
+\frac{\pi}{2}\left[  1-\sum_{n=1}^{\infty}\left[
+\dfrac{\left(  2n-1\right)  !!}{\left(  2n\right)  !!}\right]  ^{2}
+\dfrac{m^{n}}{2n-1}\right] \,.
+\]
+
+Finalmente podemos mencionar la relación de ``recurrencia'' de Legendre
+para las Integrales Elí­pticas completas. Ella es
+\[
+E\left(  m\right)  K\left(  1-m\right)  +E\left(  1-m\right)  K\left(
+m\right)  -K\left(  m\right)  K\left(  1-m\right)  =\dfrac{\pi}{2}
+\]
+
+Las integrales elí­pticas de primera y segunda especie, incompletas y completa deben resolverse numéricamente y tradicionalmente están tabuladas en algunas tablas integrales\footnote{Abramowitz, M. y Stegun I.A (1964) \textit{Handbook of Mathematical Functions} Dover, New York}. 
+
+En nuestros dí­as también pueden ser resueltas numéricamente utilizando comandos de manipuladores simbólicos\footnote{En el caso de MAPLEV se puede proceder directamente evaluando numéricamente las integrales  a través del comando \texttt{evalf(int(...))} o mediante la función de biblioteca \texttt{EllipticF(z,k)} donde \texttt{z}$=\beta$ es al argumento del seno y \texttt{k}$=\operatorname{sen} \left(  \frac{\theta_{0}}{2}\right)  $ el parámetro (consulte  la ayuda de MAPLE para más detalles).}.
+
+\subsection{¿Cuán buena es la aproximación lineal?}
+
+Utilizando la expansión en serie de la Integral Elí­ptica completa de
+primera especie (\ref{integraleliptica}) del péndulo fí­sico, tendremos
+que se cumple
+\begin{eqnarray*}
+T  &  =& 4\sqrt{\frac{L}{g}}
+{\displaystyle\int_{0}^{\frac{\pi}{2}}}
+\frac{\mathrm{d}\beta}{\sqrt{1-\text{sen}^{2}\left(\frac{\theta_{\max}}{2}\right) 
+ \text{sen}^{2}(\beta)}}=4\sqrt{\frac{L}{g}}F\left( \dfrac{\pi}{2}\backslash
+ \text{sen}^{2}\left(  \frac{\theta_{\max}}{2}\right)  \right) \\
+ &  = & 2\pi\sqrt{\frac{L}{g}}\sum_{n=0}^{\infty}\left[  \dfrac{\left(
+2n-1\right)  !!}{\left(  2n\right)  !!}\right]  ^{2}\left(  \text{sen}\left(  \frac{\theta_{\max}}{2}\right)  \right)^{2n} \,.
+\end{eqnarray*}
+
+Más aún, dado que 
+\[
+\operatorname{sen}\left(  \frac{\theta_{\max}}
+{2}\right)  =\frac{1}{2}\theta_{\max}-\frac{1}{48}\theta_{\max}^{3}+\frac
+{1}{3840}\theta_{\max}^{5}+O\left(  \theta_{\max}^{7}\right)
+\] 
+y que
+\[
+T_{0}=\dfrac{2\pi}{\omega_{0}}=2\pi\sqrt{\frac{L}{g}}
+\] 
+tendremos
+\begin{eqnarray*}
+T  &  = & 2\pi\sqrt{\frac{L}{g}}\sum_{n=0}^{\infty}\left[  \dfrac{\left(
+2n-1\right)  !!}{\left(  2n\right)  !!}\right]^{2}\left[  \frac{1}{2}
+\theta_{\max}-\frac{1}{48}\theta_{\max}^{3}+\frac{1}{3840}\theta_{\max}
+^{5}+O\left(  \theta_{\max}^{7}\right)  \right] ^{2n}\\
+ &  \approx & T_{0}\left[ 1+\dfrac{1}{16}\theta_{\max}^{2}+\dfrac{11}
+{3072}\theta_{\max}^{4}\right] \,.
+\end{eqnarray*}
+
+Si realizamos un estimado de las correcciones al problema lineal que conlleva esta expansión veremos que aún para ángulos $\theta_{\max}={\pi}/{4}$ las correcciones son del orden de un pí­rrico 4 con lo cual la aproximación lineal resulta bien razonable. Para ángulos $\theta_{\max}\gtrsim1$ las correcciones comienzan a ser significativas y todo este esfuerzo de integración empieza a tener sentido. 
+
+La siguiente tabla da una idea más clara de este cambio en el perí­odo del péndulo y los errores relativos porcentuales respecto al perí­odo del péndulo fí­sico linealizado $T_{0}={2\pi}/{\omega_{0}}$, cuando se consideran distintos valores del ángulo máximo $\theta_{\max}$. 
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/pendfisicotheta.jpg}
+\caption{Integración numérica ($\theta\left(  \tilde{t}\right)  $ vs
+$\tilde{t},$ con $0\leq\tilde{t}\leq10)$ del Péndulo Fí­sico, para
+distintos valores de la velocidad angular inicial: $\dfrac{\mathrm{d}
+\theta(t)}{\mathrm{d}t}=\varphi(t)=3.5,3.9,4,4.1,4.5.$}
+\label{pendfisicotheta}
+\end{center}
+\end{figure}
+
+\begin{center}
+\begin{tabular}
+[c]{|c|c|c|c|c|c|c|}\hline
+$T_{0}=\dfrac{2\pi}{\omega_{0}}=2.83845$ & $\theta_{\max}=\dfrac{\pi}{12}$ &
+$\theta_{\max}=\dfrac{\pi}{6}$ & $\theta_{\max}=\dfrac{\pi}{4}$ &
+$\theta_{\max}=\dfrac{\pi}{3}$ & $\theta_{\max}=\dfrac{\pi}{2}$ &
+$\theta_{\max}=\dfrac{2\pi}{3}$\\\hline
+\multicolumn{1}{|l|}{$T$} & \multicolumn{1}{|r|}{$2.85066$} &
+\multicolumn{1}{|r|}{$2.88786$} & \multicolumn{1}{|r|}{$2.95191$} &
+\multicolumn{1}{|r|}{$3.04617$} & \multicolumn{1}{|r|}{$3.35034$} &
+\multicolumn{1}{|r|}{$3.89685$}\\\hline
+\multicolumn{1}{|l|}{$\epsilon=100\dfrac{\left|  T-T_{0}\right|  }{T}$} &
+\multicolumn{1}{|r|}{$0.42821$} & \multicolumn{1}{|r|}{$1.71109$} &
+\multicolumn{1}{|r|}{$3.84368$} & \multicolumn{1}{|r|}{$6.81916$} &
+\multicolumn{1}{|r|}{$15.2786$} & \multicolumn{1}{|r|}{$37.1283$}\\\hline
+\end{tabular}
+\end{center}
+
+\subsection{El péndulo fí­sico: integración numérica}
+
+Tal y como indicamos en la primera sección de este proyecto, procedemos a
+convertir una ecuación de segundo orden en un sistema de dos ecuaciones
+diferenciales  de primer orden. Veamos:
+\[
+\ddot{\theta}\left(  t\right)  =-\omega_{0}\operatorname{sen}\left(
+\theta\right)  \quad\Longrightarrow\left\{
+\begin{array}[c]{l}
+\dfrac{\mathrm{d}\theta(t)}{\mathrm{d}t}=\varphi(t)\\
+\dfrac{\mathrm{d}\varphi(t)}{\mathrm{d}t}=-\omega_{0}\operatorname{sen}\left(
+\theta(t)\right)
+\end{array}
+\right.
+\]
+con lo cual podemos adimensionalizar de varias formas, dependiendo de las
+condiciones iniciales del movimiento. Podemos hacer:
+\[
+\tilde{t}=\frac{t}{t_{\text{final}}}=\frac{t}{t_{f}}
+\]
+con lo que  $0\leq \tilde{t}\leq1$. Entonces:
+\[
+\frac{1}{t_{f}}\frac{\mathrm{d}\left(  \cdot\right)}{\mathrm{d}\tilde{t}}=
+\frac{\mathrm{d}\left(  \cdot\right)  }{\mathrm{d}t}\,,
+\]
+y adicionalmente:
+\[
+\tilde{\varphi}=\frac{\varphi}{\varphi_{0}}\,, \quad \text{con:} \quad 
+\varphi_{0}=\left.  \frac{\mathrm{d}\theta}{\mathrm{d}t}\right|_{t=0}\neq0.
+\]
+De este modo el sistema queda escrito
+\begin{eqnarray*}
+\dot{\theta}=\varphi(t)  \quad &\Rightarrow &\quad
+\frac{\mathrm{d}\theta(\tilde{t})}{\mathrm{d}\tilde{t}}=\varphi_{0}\ t_{f}\ \tilde{\varphi}(\tilde{t}) 
+\quad \Rightarrow \quad  \frac{\mathrm{d }\theta(\tilde{t})}{\mathrm{d}\tilde{t}}=\Lambda\ \tilde{\varphi}(\tilde{t})\\
+\dot{\varphi} = -\omega_{0}\text{sen}\left(\theta(t)\right)   \quad & \Rightarrow & \quad 
+\frac{\mathrm{d}\tilde{\varphi}(\tilde{t})}{\mathrm{d}\tilde{t}}=
+-\frac{\omega_{0}^{2}t_{f}}{\varphi_{0}}\text{sen}\left(  \theta(\tilde{t})\right)  
+\quad \Rightarrow \quad  
+\dfrac{\mathrm{d}\tilde{\varphi}(\tilde{t})}{\mathrm{d}\tilde{t}}=-\Gamma \ \text{sen}\left( \theta(\tilde{t})\right)
+\end{eqnarray*}
+
+
+Nótese que las cantidades $\tilde{\varphi}(\tilde{t}), \theta(\tilde{t}), \tilde{t}, \Gamma$ y $\Lambda$ son adimensionales. Acto seguido procedemos a integrar numéricamente el sistema de ecuaciones\footnote{En MAPLEV podemos integrar el sistema de dos maneras distintas. La primera haciendo uso del comando \texttt{dsolve(\{sysED,CI\}, numeric, vars, options)} donde \texttt{sysED} es el sistema de ecuaciones diferenciales, CI sus condiciones iniciales. Si necesitáramos un análisis gráfico es mucho más útil el paquete DEtools.}.
+\begin{figure}[t]
+\begin{center}
+\includegraphics[width=3.5in]{VOLUMEN_2/07_EDO_N/Figuras/pendfisicofase2.jpg}
+\caption{Digrama de Fase para el Péndulo Fí­sico}
+\label{pendfisicofase2}
+\end{center}
+\end{figure}
+
+La figura \ref{pendfisicotheta} ilustra la evoluci­ón del ángulo $\theta\left(  t\right)  $ vs $t,$ con $0\leq t\leq10$ del Péndulo Fí­sico, para distintos valores de la velocidad angular inicial:
+\[
+\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=\dot{\theta}(t)=\varphi(t)=\mbox{3.5, 3.9, 4.0, 4.1, 4.5}.
+\]
+
+Mientras que la figura \ref{pendfisicofase2} (y también la figura \ref{pendfisicofase}) representan la evolución del sistema en el espacio de fases $\theta\left(  t\right) $ vs $\frac{\mathrm{d}\theta(t)}{\mathrm{d}t}=\varphi(t)$, las curvas cerradas en ésta gráfica corresponden a las curvas oscilantes de la figura \ref{pendfisicotheta}. Dado que el sistema parte de $\theta_{0}=\theta\left( t=0\right) $ y seleccionamos el nivel de energí­a potencial igual a cero allí­, cada una de estas curvas representan un valor  de la energí­a cinética inicial. 
+
+El caso 
+\[
+E_{c}=\dfrac{1}{2} mL^{2}\dot{\theta}_{0}^{2}=mg2L \,,
+\]
+ corresponde a la ``separatríz'', vale decir, la órbita que separa las curvas cerradas de las abierta. Es claro que en este caso le móvil ``subirá'' y alcanzará un equilibrio inestable en la posición vertical. 
+ 
+ En la figura \ref{pendfisicotheta} este caso viene ilustrado por la curva que se convierte en horizontal $0,25\leq\tilde{t} \leq0,5$, luego a partir de $\tilde{t}\approx0,5,$ la inexactitud del cálculo numérico genera perturbaciones que en teorí­a no debieran existir.
+
+\subsection{{\color{Fuchsia}Ejemplos}}
+
+\subsection{{\color{red}Practicando con Maxima}}
+
+\subsection{{\color{OliveGreen}Ejercicios}}
